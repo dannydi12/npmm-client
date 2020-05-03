@@ -14,20 +14,27 @@ To summarize what we'll be doing:
 
 ## The Code
 
-```
-# Work on pull request in a new topic branch.
-git checkout master // switch to master branch
-git pull origin master // make sure your local master is up to date with github
-git checkout -b TOPIC-BRANCH-NAME // create a new feature branch
-git add FILES-ETC // add your code and stuff
-git commit // commit your code
-git push origin TOPIC-BRANCH-NAME // push your local branch to the github branch
 
-# Go to your fork on GitHub, switch to the topic branch, and
-# click *Compare & pull request*. This is when we, as a team, can review the requests before merging.
+### How to work on a pull request in a new topic branch.
+`git checkout master` - switch to master branch
 
-# After the merge, keep your local master branch updated with the Github master branch.
-git checkout master // switch to master branch
-git pull origin master // pull from github master branch
-git push origin master // push to github master branch
-```
+`git pull origin master` - make sure your local master is up to date with github
+
+`git checkout -b TOPIC-BRANCH-NAME` - create a new feature branch (ex: add-search-bar-feature)
+
+`git add FILES-ETC` - add your code and stuff
+
+`git commit` - commit your code a bunch of times
+
+`git push origin TOPIC-BRANCH-NAME` - push your local branch to the github branch
+
+
+ Go to the repo on GitHub, switch to the topic branch, and click *Compare & pull request*. This is when we, as a team, can review the requests before merging.
+
+After the merge, everyone has to keep their local master branch updated with the Github master branch.
+
+`git checkout master` - switch to master branch
+
+`git pull origin master` - pull from github master branch
+
+`git push origin master` - push to github master branch
