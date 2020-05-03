@@ -1,3 +1,3 @@
 export default {
-  API: 'google.com'
-}
+  API: 'google.com',
+};
