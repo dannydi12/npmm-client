@@ -1,23 +1,32 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import { Route, Switch } from 'react-router-dom';
+import LandingPage from './pages/LandingPage/LandingPage';
+import CollectionPage from './pages/CollectionPage/CollectionPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
 import './App.css';
 
 function App() {
   return (
     <div>
-      <H1 useTheTheme align="right">
-        NPMM
-      </H1>
+      <Switch>
+        <Route exact path="/collection/:collectionId">
+          <CollectionPage />
+        </Route>
+
+        <Route exact path="/login">
+          <LoginPage />
+        </Route>
+
+        <Route exact path="/search">
+          <SearchResultPage />
+        </Route>
+
+        <Route exact path="/">
+          <LandingPage />
+        </Route>
+      </Switch>
     </div>
   );
 }
-
-const H1 = styled.h1`
-  text-align: ${(props) => props.align || 'center'};
-  color: ${(props) => props.useTheTheme && props.theme.color};
-`;
-
-// text-align: if a prop is passed in, align that way, if not, default to center
-// color: if a useTheTheme prop is passed, access the theme color, else: normal
-
 export default App;
