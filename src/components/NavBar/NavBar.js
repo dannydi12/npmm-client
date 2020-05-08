@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import MenuList from '../MenuList/MenuList';
+import NavMenu from '../NavMenu/NavMenu';
 // import {all the reducers/actions} from './sliceFile.js';
 // import styles from './example.css';
 
@@ -31,7 +31,7 @@ function NavBar() {
   return (
     <div className="menuContainer">
       <div className={`navMenu fadeMenu${animationClass}`}>
-        <MenuList />
+        <NavMenu />
       </div>
       <div className="navBarContainer">
         <NavLink to="/" className="logoHome" onClick={() => hideHamburger()}>
