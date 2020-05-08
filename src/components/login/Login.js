@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 
 export default function Login(props) {
+  // Will this work directly with Redux? or is there more I need to add?
   const [email, setEmail] = useState('');
 
   const handleSubmit = (event) => {
