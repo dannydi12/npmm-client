@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 // Use absolute imports like this for components!
 // import SearchBox from 'components/SearchBox/SearchBox';
 
-export default function MenuList() {
+export default function NavMenu() {
   // const varName = useSelector((state) => state.specific.thing.i.want); // to get stuff from state
   // const dispatch = useDispatch(); // to dispatch actions
 
