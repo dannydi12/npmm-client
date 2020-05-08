@@ -12,7 +12,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPackages('react'));
+    dispatch(fetchPackages('moment'));
   }, []);
 
   return (

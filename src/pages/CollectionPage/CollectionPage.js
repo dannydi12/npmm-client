@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PackageList from '../../components/PackageList/PackageList';
-import fixture from './Fixture';
 // import {all the reducers/actions} from './sliceFile.js';
 // import styles from './example.css';
 
@@ -10,7 +9,7 @@ import fixture from './Fixture';
 // import SearchBox from 'components/SearchBox/SearchBox';
 
 function CollectionPage() {
-  // const varName = useSelector((state) => state.specific.thing.i.want); // to get stuff from state
+  const packs = useSelector((state) => state.collections.packs); // to get stuff from state
   // const dispatch = useDispatch(); // to dispatch actions
 
   return (
@@ -19,7 +18,7 @@ function CollectionPage() {
         <h2>Collections</h2>
         <button type="button">Edit icon</button>
       </header>
-      <PackageList packs={fixture} />
+      <PackageList packs={packs} />
     </section>
   );
 }

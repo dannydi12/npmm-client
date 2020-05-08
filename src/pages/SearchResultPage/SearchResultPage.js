@@ -1,8 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PackageList from '../../components/PackageList/PackageList';
 import { Link } from 'react-router-dom';
-import fixture from './Fixture';
+import PackageList from '../../components/PackageList/PackageList';
 // import {all the reducers/actions} from './sliceFile.js';
 // import styles from './example.css';
 
@@ -15,7 +14,7 @@ function SearchResultPage() {
 
   return (
     <section>
-      <PackageList packs={fixture} />
+      <PackageList packs={[]} />
     </section>
   );
 }

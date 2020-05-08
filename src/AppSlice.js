@@ -3,15 +3,15 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import npmmAPI from './services/npmmAPI';
 
 export const fetchPackages = createAsyncThunk(
-  'app/getPackages',
+  'collections/getPackages',
   async (searchTerm, thunkAPI) => {
     const response = await npmmAPI(searchTerm);
     return response;
   }
 );
 
-export const appSlice = createSlice({
-  name: 'app',
+export const collectionsSlice = createSlice({
+  name: 'collections',
   initialState: {
     packs: [],
   },
@@ -23,4 +23,4 @@ export const appSlice = createSlice({
   },
 });
 
-export default appSlice.reducer;
+export default collectionsSlice.reducer;
