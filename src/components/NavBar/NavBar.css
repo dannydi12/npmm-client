@@ -13,7 +13,6 @@
 
 #hamburger-menu-toggle-1:checked ~ .sidebar {
   display: initial;
-  /* see Step 3 for the rest of the styles */
 }
 
 @media (max-width: 767px) {
