@@ -15,6 +15,10 @@ function CollectionPage() {
 
   return (
     <section>
+      <header>
+        <h2>Collections</h2>
+        <button type="button">Edit icon</button>
+      </header>
       <PackageList packs={fixture} />
     </section>
   );
