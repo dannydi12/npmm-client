@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PackageList from '../../components/PackageList/PackageList';
+import fixture from './Fixture';
 // import {all the reducers/actions} from './sliceFile.js';
 // import styles from './example.css';
 
@@ -12,9 +14,9 @@ function CollectionPage() {
   // const dispatch = useDispatch(); // to dispatch actions
 
   return (
-    <div>
-      <p>stuff</p>
-    </div>
+    <section>
+      <PackageList packs={fixture} />
+    </section>
   );
 }
 

@@ -11,24 +11,23 @@ import { Link } from 'react-router-dom';
 //props.package.description
 //props.score.whatever
 
-
 function PackageCard(props) {
   // const varName = useSelector((state) => state.specific.thing.i.want); // to get stuff from state
   // const dispatch = useDispatch(); // to dispatch actions
-//   "detail": {
-//     "quality": 0.8997328717888345,
-//     "popularity": 0.943287782362179,
-//     "maintenance": 0.9732809460371664
-// }
-
+  //   "detail": {
+  //     "quality": 0.8997328717888345,
+  //     "popularity": 0.943287782362179,
+  //     "maintenance": 0.9732809460371664
+  // }
+  console.log(props.pack.package.name);
 
   return (
     <div>
-      <h1>{props.pack.name}</h1>
-      <p>{props.pack.description}</p>
-      <p>{props.score.detail.quality}</p>
-      <p>{props.score.detail.popularity}</p>
-      <p>{props.score.detail.maintenance}</p>
+      <h1>{props.pack.package.name}</h1>
+      <p>{props.pack.package.description}</p>
+      <p>{props.pack.score.detail.quality}</p>
+      <p>{props.pack.score.detail.popularity}</p>
+      <p>{props.pack.score.detail.maintenance}</p>
     </div>
   );
 }
