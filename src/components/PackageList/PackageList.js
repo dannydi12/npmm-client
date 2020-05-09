@@ -20,7 +20,9 @@ function PackageList(props) {
 
   console.log(props);
 
-  return <ul>{packs}</ul>;
+  return (
+    <>{packs.length > 0 ? <ul>{packs}</ul> : <p>Nothing to see here...</p>}</>
+  );
 }
 
 export default PackageList;
