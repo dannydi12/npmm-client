@@ -8,11 +8,8 @@ import useSignUpForm from './CustomHooks';
 function LoginForm() {
   // const varName = useSelector((state) => state.specific.thing.i.want); // to get stuff from state
   // const dispatch = useDispatch(); // to dispatch actions
-  // TODO: Hookup to Redux
-  // TODO: Create fake user
+  // TODO: Hookup to Redux to pass logged in user into currentUser
   // TODO: Check if email is in DB (when making actual api calls)
-  //   For now just figure out a way to "check" the email before rendering other form elements
-  //   Maybe check against a demo email account for now
   const signup = () => {
     if (inputs.username) {
       // eslint-disable-next-line
@@ -26,7 +23,7 @@ function LoginForm() {
   };
 
   function emailExists(email) {
-    return !!email;
+    return !email;
   }
 
   function renderSignup() {
@@ -85,7 +82,10 @@ function LoginForm() {
     );
   }
 
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(signup);
+  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
+    { email: '', username: '', password: '', password2: '' },
+    signup
+  );
 
   return (
     <div>
@@ -94,16 +94,21 @@ function LoginForm() {
           Email
           <input
             required
-            type="email"
+            type="text"
             name="email"
             id="email"
             value={inputs.email}
             onChange={handleInputChange}
           />
         </label>
-        {emailExists(inputs.email) && inputs.email === 'demo@demo.com'
-          ? renderLogin()
-          : renderSignup()}
+        {
+          // eslint-disable-next-line no-nested-ternary
+          emailExists(inputs.email)
+            ? null
+            : inputs.email === 'demo@demo.com'
+            ? renderLogin()
+            : renderSignup()
+        }
         <button type="submit">Login</button>
       </form>
     </div>
