@@ -1,19 +1,107 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import useSignUpForm from './CustomHooks';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { Link } from 'react-router-dom';
 // import {all the reducers/actions} from './sliceFile.js';
 // import styles from './example.css';
-
-// Use absolute imports like this for components!
-// import SearchBox from 'components/SearchBox/SearchBox';
 
 function LoginForm() {
   // const varName = useSelector((state) => state.specific.thing.i.want); // to get stuff from state
   // const dispatch = useDispatch(); // to dispatch actions
+  // TODO: Hookup to Redux
+  // TODO: Create fake user
+  // TODO: Check if email is in DB (when making actual api calls)
+  //   For now just figure out a way to "check" the email before rendering other form elements
+  //   Maybe check against a demo email account for now
+  const signup = () => {
+    if (inputs.username) {
+      // eslint-disable-next-line
+      alert(`User Created!
+            Userame: ${inputs.username}
+            Email: ${inputs.email}`);
+    } else {
+      // eslint-disable-next-line
+      alert(`Signed in as: ${inputs.email}`);
+    }
+  };
+
+  function renderForm(email) {
+    if (email) {
+      if (email === 'demo@demo.com') {
+        return (
+          <label htmlFor="password">
+            Password
+            <input
+              required
+              type="password"
+              name="password"
+              id="password"
+              value={inputs.password}
+              onChange={handleInputChange}
+            />
+          </label>
+        );
+      }
+      return (
+        <>
+          <label htmlFor="username">
+            Username
+            <input
+              required
+              type="text"
+              name="username"
+              id="username"
+              value={inputs.username}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label htmlFor="password">
+            Password
+            <input
+              required
+              type="password"
+              name="password"
+              id="password"
+              value={inputs.password}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label htmlFor="password">
+            Confirm Password
+            <input
+              required
+              type="password"
+              name="password2"
+              id="password2"
+              value={inputs.password2}
+              onChange={handleInputChange}
+            />
+          </label>
+        </>
+      );
+    }
+    return null;
+  }
+
+  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(signup);
 
   return (
     <div>
-      <p>stuff</p>
+      <form id="login" onSubmit={handleSubmit}>
+        <label htmlFor="email">
+          Email
+          <input
+            required
+            type="email"
+            name="email"
+            id="email"
+            value={inputs.email}
+            onChange={handleInputChange}
+          />
+        </label>
+        {renderForm(inputs.email)}
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 }
