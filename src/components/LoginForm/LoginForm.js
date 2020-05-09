@@ -25,62 +25,64 @@ function LoginForm() {
     }
   };
 
-  function renderForm(email) {
-    if (email) {
-      if (email === 'demo@demo.com') {
-        return (
-          <label htmlFor="password">
-            Password
-            <input
-              required
-              type="password"
-              name="password"
-              id="password"
-              value={inputs.password}
-              onChange={handleInputChange}
-            />
-          </label>
-        );
-      }
-      return (
-        <>
-          <label htmlFor="username">
-            Username
-            <input
-              required
-              type="text"
-              name="username"
-              id="username"
-              value={inputs.username}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label htmlFor="password">
-            Password
-            <input
-              required
-              type="password"
-              name="password"
-              id="password"
-              value={inputs.password}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label htmlFor="password">
-            Confirm Password
-            <input
-              required
-              type="password"
-              name="password2"
-              id="password2"
-              value={inputs.password2}
-              onChange={handleInputChange}
-            />
-          </label>
-        </>
-      );
-    }
-    return null;
+  function emailExists(email) {
+    return !!email;
+  }
+
+  function renderSignup() {
+    return (
+      <>
+        <label htmlFor="username">
+          Username
+          <input
+            required
+            type="text"
+            name="username"
+            id="username"
+            value={inputs.username}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label htmlFor="password">
+          Password
+          <input
+            required
+            type="password"
+            name="password"
+            id="password"
+            value={inputs.password}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label htmlFor="password">
+          Confirm Password
+          <input
+            required
+            type="password"
+            name="password2"
+            id="password2"
+            value={inputs.password2}
+            onChange={handleInputChange}
+          />
+        </label>
+      </>
+    );
+  }
+
+  function renderLogin() {
+    return (
+      <label htmlFor="password">
+        Password
+        <input
+          required
+          type="password"
+          name="password"
+          id="password"
+          value={inputs.password}
+          onChange={handleInputChange}
+        />
+      </label>
+    );
   }
 
   const { inputs, handleInputChange, handleSubmit } = useSignUpForm(signup);
@@ -99,7 +101,9 @@ function LoginForm() {
             onChange={handleInputChange}
           />
         </label>
-        {renderForm(inputs.email)}
+        {emailExists(inputs.email) && inputs.email === 'demo@demo.com'
+          ? renderLogin()
+          : renderSignup()}
         <button type="submit">Login</button>
       </form>
     </div>
