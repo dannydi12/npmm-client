@@ -1,38 +1,107 @@
-.App {
+.app {
+  min-height: 100vh;
+  position: relative;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.appMain {
+  padding: 7rem 2.5rem 18rem 2.5rem;
+  margin: 0 auto;
+}
+
+/* button,
+input[type='submit'] {
+  height: 3.6rem;
+  cursor: pointer;
+  background-color: #f4bd5b;
+  border: none;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 1.7rem;
+  cursor: pointer;
+  outline: none;
+  border-radius: 1.4rem;
+  padding: 0 2rem 0.2rem;
+  transition: all 0.1s ease-out 0.1s;
+  -webkit-transition: all 0.1s ease-out 0.1s;
+  -moz-transition: all 0.1s ease-out 0.1s;
+  -o-transition: all 0.1s ease-out 0.1s;
+}
+
+button:hover {
+  color: white;
+  background-color: #f0667b;
+} */
+
+input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+  font-weight: 300;
+}
+
+input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: black;
+  font-weight: 300;
+}
+
+input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: black;
+  font-weight: 300;
+}
+
+button:disabled,
+button[disabled] {
+  color: black;
+}
+
+.textCenter {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.defaultMedium {
+  font-weight: 500;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.underline {
+  text-decoration: underline;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.inline {
+  display: inline-block;
 }
 
-.App-link {
-  color: #61dafb;
+input[type='text'],
+select,
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background-image: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media only screen and (min-width: 768px) {
+  .appMain {
+    padding-right: 4rem;
+    padding-left: 4rem;
   }
 }
