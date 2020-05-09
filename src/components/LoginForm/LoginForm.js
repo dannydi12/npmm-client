@@ -83,7 +83,7 @@ function LoginForm() {
   }
 
   const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
-    [{ email: '' }, { username: '' }, { password: '' }, { password2: '' }],
+    { email: '', username: '', password: '', password2: '' },
     signup
   );
 
