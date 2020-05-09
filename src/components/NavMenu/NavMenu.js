@@ -12,11 +12,11 @@ export default function NavMenu() {
   // const dispatch = useDispatch(); // to dispatch actions
 
   return (
-    <>
+    <div className="navMenu">
       <NavLink to="/">Home</NavLink>
       <NavLink to="/logout">Logout</NavLink>
       <NavLink to="/collections">Collections</NavLink>
       <NavLink to="/favourites">Favourites</NavLink>
-    </>
+    </div>
   );
 }
