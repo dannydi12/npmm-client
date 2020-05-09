@@ -8,9 +8,9 @@ import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
 import NotFound from './pages/NotFound/NotFound';
 import NavBar from './components/NavBar/NavBar';
 import { fetchPackages } from './pages/CollectionPage/CollectionPageSlice';
-
+// import SideBar from 'components/SideBar/SideBar';
 import './App.css';
-import SideBar from 'components/SideBar/SideBar';
+
 
 function App() {
   const dispatch = useDispatch();
