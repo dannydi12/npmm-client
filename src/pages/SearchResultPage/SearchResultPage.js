@@ -12,15 +12,18 @@ function SearchResultPage() {
 
   const parsed = queryString.parse(location.search);
 
-  const packs = useSelector((state) => state.searchResults.packs);
+  const searchResults = useSelector((state) => state.searchResults);
 
   useEffect(() => {
     dispatch(fetchPackages(parsed.q));
-  });
+  }, []);
 
   return (
     <section>
-      <PackageList packs={packs} />
+      {searchResults.loading === 'idle' && (
+        <PackageList packs={searchResults.packs} />
+      )}
+      {searchResults.loading === 'pending' && <p>Loading...</p>}
     </section>
   );
 }
