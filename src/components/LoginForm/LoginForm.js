@@ -26,7 +26,7 @@ function LoginForm() {
   };
 
   function emailExists(email) {
-    return !!email;
+    return !email;
   }
 
   function renderSignup() {
@@ -85,7 +85,10 @@ function LoginForm() {
     );
   }
 
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(signup);
+  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
+    [{ email: '' }, { username: '' }, { password: '' }, { password2: '' }],
+    signup
+  );
 
   return (
     <div>
@@ -94,16 +97,21 @@ function LoginForm() {
           Email
           <input
             required
-            type="email"
+            type="text"
             name="email"
             id="email"
             value={inputs.email}
             onChange={handleInputChange}
           />
         </label>
-        {emailExists(inputs.email) && inputs.email === 'demo@demo.com'
-          ? renderLogin()
-          : renderSignup()}
+        {
+          // eslint-disable-next-line no-nested-ternary
+          emailExists(inputs.email)
+            ? null
+            : inputs.email === 'demo@demo.com'
+            ? renderLogin()
+            : renderSignup()
+        }
         <button type="submit">Login</button>
       </form>
     </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const useSignUpForm = (callback) => {
-  const [inputs, setInputs] = useState({});
+const useSignUpForm = (initialValues, callback) => {
+  const [inputs, setInputs] = useState(initialValues);
   const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();
