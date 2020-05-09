@@ -16,7 +16,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <main className="appMain">
       <Switch>
         <Route exact path="/collection/:collectionId">
           <CollectionPage />
@@ -34,7 +34,7 @@ function App() {
           <LandingPage />
         </Route>
       </Switch>
-    </div>
+    </main>
   );
 }
 export default App;
