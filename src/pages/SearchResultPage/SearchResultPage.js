@@ -1,20 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import queryString from 'query-string';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-// import {all the reducers/actions} from './sliceFile.js';
+import PackageList from '../../components/PackageList/PackageList';
+import { fetchPackages } from './SearchResultPageSlice';
 // import styles from './example.css';
 
-// Use absolute imports like this for components!
-// import SearchBox from 'components/SearchBox/SearchBox';
-
 function SearchResultPage() {
-  // const varName = useSelector((state) => state.specific.thing.i.want); // to get stuff from state
-  // const dispatch = useDispatch(); // to dispatch actions
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+  const parsed = queryString.parse(location.search);
+
+  const searchResults = useSelector((state) => state.searchResults);
+
+  useEffect(() => {
+    dispatch(fetchPackages(parsed.q));
+  }, []);
 
   return (
-    <div>
-      <p>stuff</p>
-    </div>
+    <section>
+      {searchResults.loading === 'idle' && (
+        <PackageList packs={searchResults.packs} />
+      )}
+      {searchResults.loading === 'pending' && <p>Loading...</p>}
+    </section>
   );
 }
 

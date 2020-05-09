@@ -1,19 +1,41 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-// import {all the reducers/actions} from './sliceFile.js';
-// import styles from './example.css';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-// Use absolute imports like this for components!
-// import SearchBox from 'components/SearchBox/SearchBox';
+function SearchBox(props) {
+  const [tempSearch, setTempSearch] = useState('');
+  let history = useHistory();
 
-function SearchBox() {
-  // const varName = useSelector((state) => state.specific.thing.i.want); // to get stuff from state
-  // const dispatch = useDispatch(); // to dispatch actions
+  const setSearch = (input) => {
+    setTempSearch(input);
+  };
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    history.push(`/search?q=${tempSearch}`);
+  };
 
   return (
-    <div>
-      <p>stuff</p>
+    <div className={props.classProps}>
+      <form
+        className="searchForm"
+        onSubmit={handleSubmit}
+        aria-label="npm package search"
+      >
+        <input
+          placeholder="Search for an NPM package..."
+          type="text"
+          name="packageSearch"
+          id="packageSearch"
+          className="searchInput"
+          aria-label="npm package search"
+          onChange={(ev) => setSearch(ev.target.value)}
+        />
+        <button
+          type="submit"
+          className="searchButton"
+          aria-label="search button"
+        />
+      </form>
     </div>
   );
 }

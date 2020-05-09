@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import counterReducer from '/[componentFolder]/componentSlice.js';
+import collectionsReducer from './pages/CollectionPage/CollectionPageSlice';
+import searchResultReducer from './pages/SearchResultPage/SearchResultPageSlice';
 
 export default configureStore({
   reducer: {
-    // counter: counterReducer,
+    collections: collectionsReducer,
+    searchResults: searchResultReducer,
   },
 });

@@ -1,33 +1,31 @@
 /* eslint-disable no-param-reassign */
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import npmsAPI from '../../services/npmsAPI';
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const fetchPackages = createAsyncThunk(
+  'searchResults/getPackages',
+  async (searchTerm, thunkAPI) => {
+    const response = await npmsAPI(searchTerm);
+    return response;
+  }
+);
+
+export const searchResultsSlice = createSlice({
+  name: 'searchResults',
   initialState: {
-    value: 0,
-    amount: 2,
+    packs: [],
+    loading: null,
   },
-  reducers: {
-    increment: (state) => {
-      state.value += 1;
+  reducers: {},
+  extraReducers: {
+    [fetchPackages.pending]: (state) => {
+      state.loading = 'pending';
     },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state) => {
-      state.value += state.amount;
-    },
-    changeAmount: (state, action) => {
-      state.amount = Number(action.payload);
+    [fetchPackages.fulfilled]: (state, action) => {
+      state.packs = action.payload.results;
+      state.loading = 'idle';
     },
   },
 });
 
-export const {
-  increment,
-  decrement,
-  incrementByAmount,
-  changeAmount,
-} = counterSlice.actions;
-
-export default counterSlice.reducer;
+export default searchResultsSlice.reducer;

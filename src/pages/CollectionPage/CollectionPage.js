@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PackageList from '../../components/PackageList/PackageList';
 // import {all the reducers/actions} from './sliceFile.js';
 // import styles from './example.css';
 
@@ -8,13 +9,20 @@ import { Link } from 'react-router-dom';
 // import SearchBox from 'components/SearchBox/SearchBox';
 
 function CollectionPage() {
-  // const varName = useSelector((state) => state.specific.thing.i.want); // to get stuff from state
+  const collection = useSelector((state) => state.collections); // to get stuff from state
   // const dispatch = useDispatch(); // to dispatch actions
 
   return (
-    <div>
-      <p>stuff</p>
-    </div>
+    <section>
+      <header>
+        <h2>Collection Name TBD</h2>
+        <button type="button">Edit icon</button>
+      </header>
+      {collection.loading === 'idle' && (
+        <PackageList packs={collection.packs} />
+      )}
+      {collection.loading === 'pending' && <p>Loading...</p>}
+    </section>
   );
 }
 
