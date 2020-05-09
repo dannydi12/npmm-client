@@ -12,7 +12,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPackages('moment'));
+    dispatch(fetchPackages('moment')); // will eventually be fetching collections
   }, []);
 
   return (
