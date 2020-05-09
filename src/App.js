@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
 import { fetchPackages } from './pages/CollectionPage/CollectionPageSlice';
 import './App.css';
+import SideBar from 'components/SideBar/SideBar';
 
 function App() {
   const dispatch = useDispatch();
