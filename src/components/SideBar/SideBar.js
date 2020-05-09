@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { NavCollections } from '../NavCollections/NavCollections';
+import NavCollections from '../NavCollections/NavCollections';
 // import TokenService from '../../services/token-service'
 // import {all the reducers/actions} from './sliceFile.js';
 // import styles from './example.css';
@@ -10,11 +10,8 @@ import { NavCollections } from '../NavCollections/NavCollections';
 // import SearchBox from 'components/SearchBox/SearchBox';
 
 function SideBar() {
-  return (
-    <aside>
-      <NavCollections />
-    </aside>
-  );
+  const collections = useSelector((state) => state.collections.packs);
+  return <aside>{loading === 'idle' && <NavCollections />}</aside>;
 }
 
 export default SideBar;
