@@ -9,16 +9,19 @@ import PackageList from '../../components/PackageList/PackageList';
 // import SearchBox from 'components/SearchBox/SearchBox';
 
 function CollectionPage() {
-  const packs = useSelector((state) => state.collections.packs); // to get stuff from state
+  const collection = useSelector((state) => state.collections); // to get stuff from state
   // const dispatch = useDispatch(); // to dispatch actions
 
   return (
     <section>
       <header>
-        <h2>Collections</h2>
+        <h2>Collection Name TBD</h2>
         <button type="button">Edit icon</button>
       </header>
-      <PackageList packs={packs} />
+      {collection.loading === 'idle' && (
+        <PackageList packs={collection.packs} />
+      )}
+      {collection.loading === 'pending' && <p>Loading...</p>}
     </section>
   );
 }

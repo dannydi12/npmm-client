@@ -14,11 +14,16 @@ export const collectionsSlice = createSlice({
   name: 'collections',
   initialState: {
     packs: [],
+    loading: null,
   },
   reducers: {},
   extraReducers: {
+    [fetchPackages.pending]: (state) => {
+      state.loading = 'pending';
+    },
     [fetchPackages.fulfilled]: (state, action) => {
       state.packs = action.payload.results;
+      state.loading = 'idle';
     },
   },
 });
