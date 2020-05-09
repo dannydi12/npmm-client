@@ -8,7 +8,11 @@ import useSignUpForm from './CustomHooks';
 function LoginForm() {
   // const varName = useSelector((state) => state.specific.thing.i.want); // to get stuff from state
   // const dispatch = useDispatch(); // to dispatch actions
-  // Will this work directly with Redux? or is there more I need to add?
+  // TODO: Hookup to Redux
+  // TODO: Create fake user
+  // TODO: Check if email is in DB (when making actual api calls)
+  //   For now just figure out a way to "check" the email before rendering other form elements
+  //   Maybe check against a demo email account for now
   const signup = () => {
     alert(`User Created!
            Userame: ${inputs.username}
