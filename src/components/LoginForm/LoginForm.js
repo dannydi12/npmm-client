@@ -8,11 +8,8 @@ import useSignUpForm from './CustomHooks';
 function LoginForm() {
   // const varName = useSelector((state) => state.specific.thing.i.want); // to get stuff from state
   // const dispatch = useDispatch(); // to dispatch actions
-  // TODO: Hookup to Redux
-  // TODO: Create fake user
+  // TODO: Hookup to Redux to pass logged in user into currentUser
   // TODO: Check if email is in DB (when making actual api calls)
-  //   For now just figure out a way to "check" the email before rendering other form elements
-  //   Maybe check against a demo email account for now
   const signup = () => {
     if (inputs.username) {
       // eslint-disable-next-line
