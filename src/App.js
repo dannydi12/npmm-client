@@ -5,7 +5,7 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import CollectionPage from './pages/CollectionPage/CollectionPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
-import { fetchPackages } from './AppSlice';
+import { fetchPackages } from './pages/CollectionPage/CollectionPageSlice';
 import './App.css';
 
 function App() {

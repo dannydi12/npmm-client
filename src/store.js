@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import collectionsReducer from './AppSlice';
+import collectionsReducer from './pages/CollectionPage/CollectionPageSlice';
 
 export default configureStore({
   reducer: {
