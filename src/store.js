@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import counterReducer from '/[componentFolder]/componentSlice.js';
+import collectionsReducer from './pages/CollectionPage/CollectionPageSlice';
 
 export default configureStore({
   reducer: {
-    // counter: counterReducer,
+    collections: collectionsReducer,
   },
 });

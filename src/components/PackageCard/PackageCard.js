@@ -7,13 +7,22 @@ import { Link } from 'react-router-dom';
 // Use absolute imports like this for components!
 // import SearchBox from 'components/SearchBox/SearchBox';
 
-function PackageCard() {
+function PackageCard(props) {
   // const varName = useSelector((state) => state.specific.thing.i.want); // to get stuff from state
   // const dispatch = useDispatch(); // to dispatch actions
 
   return (
     <div>
-      <p>stuff</p>
+      <header>
+        <h2>{props.pack.package.name}</h2>
+        <div>
+          <p>{props.pack.score.detail.quality}</p>
+          <p>{props.pack.score.detail.popularity}</p>
+          <p>{props.pack.score.detail.maintenance}</p>
+        </div>
+      </header>
+
+      <p>{props.pack.package.description}</p>
     </div>
   );
 }
