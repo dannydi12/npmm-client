@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { NavCollections } from '../NavCollections/NavCollections';
+import NavCollections from '../NavCollections/NavCollections';
 // import TokenService from '../../services/token-service'
 // import {all the reducers/actions} from './sliceFile.js';
 // import styles from './example.css';
