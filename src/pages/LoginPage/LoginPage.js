@@ -1,8 +1,10 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { Link } from 'react-router-dom';
+// es-lint-disable-next-line
+import LoginForm from '../../components/LoginForm/LoginForm';
 // import {all the reducers/actions} from './sliceFile.js';
-// import styles from './example.css';
+import './LoginPage.css';
 
 // Use absolute imports like this for components!
 // import SearchBox from 'components/SearchBox/SearchBox';
@@ -12,8 +14,8 @@ function LoginPage() {
   // const dispatch = useDispatch(); // to dispatch actions
 
   return (
-    <div>
-      <p>stuff</p>
+    <div className="login-container">
+      <LoginForm />
     </div>
   );
 }
