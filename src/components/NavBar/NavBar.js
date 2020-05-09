@@ -24,46 +24,39 @@ function NavBar(props) {
     }
   };
 
-  const renderLocation = () => {
-    console.log('location', props.location);
-    if (props.location.pathname === '/') {
-      return null;
-    }
-    return (
-      <header className="navBar" role="banner">
-        <div className="menuContainer">
-          <div className={`navMenu fadeMenu${animationClass}`}>
-            <NavMenu />
-          </div>
-          <div className="navBarContainer">
-            <Link to="/" className="logoHome" onClick={() => hideHamburger()}>
-              <img
-                src="/assets/npmm-logo.svg"
-                alt="npmm logo"
-                className="navLogo"
-              />
-              <h1 className="navName">NPMM</h1>
-            </Link>
-            <SearchBox classProps="landingSearch" />
-            <div className="hamburgerContainer">
-              <div
-                className={`burgerButton ${showBurger}Burger`}
-                onClick={() => toggleHamburger()}
-                onKeyDown={() => toggleHamburger()}
-                role="menu"
-                tabIndex={0}
-              >
-                <span />
-                <span />
-                <span />
-              </div>
+  return (
+    <header className="navBar" role="banner">
+      <div className="menuContainer">
+        <div className={`navMenu fadeMenu${animationClass}`}>
+          <NavMenu />
+        </div>
+        <div className="navBarContainer">
+          <Link to="/" className="logoHome" onClick={() => hideHamburger()}>
+            <img
+              src="/assets/npmm-logo.svg"
+              alt="npmm logo"
+              className="navLogo"
+            />
+            <h1 className="navName">NPMM</h1>
+          </Link>
+          <SearchBox classProps="landingSearch" />
+          <div className="hamburgerContainer">
+            <div
+              className={`burgerButton ${showBurger}Burger`}
+              onClick={() => toggleHamburger()}
+              onKeyDown={() => toggleHamburger()}
+              role="menu"
+              tabIndex={0}
+            >
+              <span />
+              <span />
+              <span />
             </div>
           </div>
         </div>
-      </header>
-    );
-  };
-
-  return <>{renderLocation()}</>;
+      </div>
+    </header>
+  );
 }
+
 export default NavBar;

@@ -5,12 +5,14 @@ import NavCollections from '../NavCollections/NavCollections';
 // import styles from './example.css';
 
 function NavMenu() {
+  const loading = useSelector((state) => state.collections.loading);
+
   return (
     <aside className="navMenu">
       <NavLink to="/">Home</NavLink>
       <NavLink to="/logout">Logout</NavLink>
       <NavLink to="/favourites">Favourites</NavLink>
-      <NavCollections />
+      {loading === 'idle' && <NavCollections />}
       {/* In the future, will be conditionally rendered */}
     </aside>
   );
