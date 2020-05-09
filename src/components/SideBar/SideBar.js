@@ -28,6 +28,7 @@ export default class SideBar extends React.Component {
     // TokenService.clearAuthToken();
   };
 
+
   // renderLogoutLink() {
   //   return (
   //     <div className='Header__logged-in'>
@@ -56,33 +57,28 @@ export default class SideBar extends React.Component {
   //     </div>
   //   )
   // }
+  state = {
+    isActive: false,
+    collections: [item1,item2,item3]
+  };
 
-  return (
-    <div>
-      <menulist />
+  handleShow = () => {
+    this.setState({isActive: true});
+  };
+
+  handleHide = () => {
+    this.setState({isActive: false});
+  };
+
+  function SideBar() {
+    // const varName = useSelector((state) => state.specific.thing.i.want); // to get stuff from state
+    // const dispatch = useDispatch(); // to dispatch actions
+  
+    return (
       <div>
-        <Link to="/collections">Collections</Link>
+        <NavLink onClick={this.state.isActive && this.state.collections}>Collections</NavLink>
       </div>
-        <div>
-          <ul>
-            <li>
-              <Link to="/favourites">Favourites</Link>
-            </li>
-            <li>
-              <Link to="/react">React</Link>
-            </li>
-            <li>
-              <Link to="/npm">NPM</Link>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <Link onClick={()=> this.handleLogoutClick} to="/">
-            Logout
-          </Link>
-        </div>
-    </div>
-  );
-}
+    );
+  }
 
 export default SideBar;

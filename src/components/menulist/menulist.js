@@ -12,9 +12,13 @@ function SideBar() {
   // const dispatch = useDispatch(); // to dispatch actions
 
   return ( 
-    <Link to="/home">Home</Link>
-    <Link to="/logout">Logout</Link>
-    <Link to="/collections">Collections</Link>
-    <Link to="/favourites">Favourites</Link>
+    <div>
+      <nav>
+    <NavLink to="/home">Home</NavLink>
+    <NavLink to="/logout">Logout</NavLink>
+    <NavLink to="/collections">Collections</NavLink>
+    <NavLink to="/favourites">Favourites</NavLink>
+       </nav>
+    </div>
    );
 }

@@ -5,6 +5,7 @@ import CollectionPage from './pages/CollectionPage/CollectionPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
 import './App.css';
+import SideBar from 'components/SideBar/SideBar';
 
 function App() {
   return (
