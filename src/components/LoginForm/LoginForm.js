@@ -14,10 +14,74 @@ function LoginForm() {
   //   For now just figure out a way to "check" the email before rendering other form elements
   //   Maybe check against a demo email account for now
   const signup = () => {
-    alert(`User Created!
-           Userame: ${inputs.username}
-           Email: ${inputs.email}`);
+    if (inputs.username) {
+      // eslint-disable-next-line
+      alert(`User Created!
+            Userame: ${inputs.username}
+            Email: ${inputs.email}`);
+    } else {
+      // eslint-disable-next-line
+      alert(`Signed in as: ${inputs.email}`);
+    }
   };
+
+  function renderForm(email) {
+    if (email) {
+      if (email === 'demo@demo.com') {
+        return (
+          <label htmlFor="password">
+            Password
+            <input
+              required
+              type="password"
+              name="password"
+              id="password"
+              value={inputs.password}
+              onChange={handleInputChange}
+            />
+          </label>
+        );
+      }
+      return (
+        <>
+          <label htmlFor="username">
+            Username
+            <input
+              required
+              type="text"
+              name="username"
+              id="username"
+              value={inputs.username}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label htmlFor="password">
+            Password
+            <input
+              required
+              type="password"
+              name="password"
+              id="password"
+              value={inputs.password}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label htmlFor="password">
+            Confirm Password
+            <input
+              required
+              type="password"
+              name="password2"
+              id="password2"
+              value={inputs.password2}
+              onChange={handleInputChange}
+            />
+          </label>
+        </>
+      );
+    }
+    return null;
+  }
 
   const { inputs, handleInputChange, handleSubmit } = useSignUpForm(signup);
 
@@ -35,55 +99,7 @@ function LoginForm() {
             onChange={handleInputChange}
           />
         </label>
-        {!inputs.email ? (
-          <label htmlFor="password">
-            Password
-            <input
-              required
-              type="password"
-              name="password"
-              id="password"
-              value={inputs.password}
-              onChange={handleInputChange}
-            />
-          </label>
-        ) : (
-          <>
-            <label htmlFor="username">
-              Username
-              <input
-                required
-                type="text"
-                name="username"
-                id="username"
-                value={inputs.username}
-                onChange={handleInputChange}
-              />
-            </label>
-            <label htmlFor="password">
-              Password
-              <input
-                required
-                type="password"
-                name="password"
-                id="password"
-                value={inputs.password}
-                onChange={handleInputChange}
-              />
-            </label>
-            <label htmlFor="password">
-              Confirm Password
-              <input
-                required
-                type="password"
-                name="password2"
-                id="password2"
-                value={inputs.password2}
-                onChange={handleInputChange}
-              />
-            </label>
-          </>
-        )}
+        {renderForm(inputs.email)}
         <button type="submit">Login</button>
       </form>
     </div>
