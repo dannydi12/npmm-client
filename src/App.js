@@ -5,8 +5,12 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import CollectionPage from './pages/CollectionPage/CollectionPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
+import NotFound from './pages/NotFound/NotFound';
+import NavBar from './components/NavBar/NavBar';
 import { fetchPackages } from './pages/CollectionPage/CollectionPageSlice';
+
 import './App.css';
+import SideBar from 'components/SideBar/SideBar';
 
 function App() {
   const dispatch = useDispatch();
@@ -16,25 +20,22 @@ function App() {
   }, []);
 
   return (
-    <main className="appMain">
-      <Switch>
-        <Route exact path="/collection/:collectionId">
-          <CollectionPage />
-        </Route>
-
-        <Route exact path="/login">
-          <LoginPage />
-        </Route>
-
-        <Route exact path="/search">
-          <SearchResultPage />
-        </Route>
-
-        <Route exact path="/">
-          <LandingPage />
-        </Route>
-      </Switch>
-    </main>
+    <div className="app">
+      <Route path="/" component={NavBar} />
+      <main className="appMain">
+        <Switch>
+          <Route
+            exact
+            path="/collection/:collectionId"
+            componet={CollectionPage}
+          />
+          <Route exact path="/login" componet={LoginPage} />
+          <Route exact path="/search" component={SearchResultPage} />
+          <Route exact path="/" component={LandingPage} />
+          <Route component={NotFound} />
+        </Switch>
+      </main>
+    </div>
   );
 }
 export default App;
