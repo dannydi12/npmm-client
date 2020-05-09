@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PackageList from '../../components/PackageList/PackageList';
 // import {all the reducers/actions} from './sliceFile.js';
 // import styles from './example.css';
 
@@ -12,9 +13,9 @@ function SearchResultPage() {
   // const dispatch = useDispatch(); // to dispatch actions
 
   return (
-    <div>
-      <p>stuff</p>
-    </div>
+    <section>
+      <PackageList packs={[]} />
+    </section>
   );
 }
 
