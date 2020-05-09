@@ -28,7 +28,7 @@ function App() {
             path="/collection/:collectionId"
             componet={CollectionPage}
           />
-          <Route exact path="/login" componet={LoginPage} />
+          <Route exact path="/login" component={LoginPage} />
           <Route exact path="/search" component={SearchResultPage} />
           <Route exact path="/" component={LandingPage} />
           <Route component={NotFound} />
