@@ -39,10 +39,15 @@
 }
 
 .navLogo {
-  width: 3.2rem;
+  /* width: 3.2rem; */
   display: inline-block;
   margin-left: 2rem;
   vertical-align: -0.8rem;
+}
+
+.landingSearch {
+  display: inline-block;
+  text-align: center;
 }
 
 .navName {

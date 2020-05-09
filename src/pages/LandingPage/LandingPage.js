@@ -6,7 +6,6 @@ import NavBar from '../../components/NavBar/NavBar';
 function LandingPage() {
   return (
     <div>
-      <NavBar />
       <h1 className="landingTitle">NPMM</h1>
       <h2 className="landingFullName">Node Package Manager Manager</h2>
       <SearchBox classProps="landingSearch" />
