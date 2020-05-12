@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import NavMenu from '../NavMenu/NavMenu';
 import SearchBox from '../SearchBox/SearchBox';
 import './NavBar.css';
@@ -8,6 +8,7 @@ import './Hamburger.css';
 function NavBar(props) {
   const [showBurger, setShowBurger] = useState(false);
   const [animationClass, setAnimationClass] = useState('Hidden');
+  const isNotHomePage = useLocation().pathname !== '/';
 
   const hideHamburger = () => {
     setShowBurger(false);
@@ -39,7 +40,7 @@ function NavBar(props) {
             />
             <h1 className="navName">NPMM</h1>
           </Link>
-          <SearchBox classProps="landingSearch" />
+          {isNotHomePage ? <SearchBox classProps="landingSearch" /> : null}
           <div className="hamburgerContainer">
             <div
               className={`burgerButton ${showBurger}Burger`}

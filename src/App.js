@@ -12,7 +12,6 @@ import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-  const isNotHomePage = useLocation().pathname !== '/';
 
   useEffect(() => {
     dispatch(fetchPackages('moment')); // will eventually be fetching collections
@@ -20,7 +19,7 @@ function App() {
 
   return (
     <div className="app">
-      {isNotHomePage && <NavBar />}
+      <NavBar />
       <main className="appMain">
         <Switch>
           <Route

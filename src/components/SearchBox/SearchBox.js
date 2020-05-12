@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { searchFor } from '../../pages/SearchResultPage/SearchResultPageSlice';
 
 function SearchBox(props) {
