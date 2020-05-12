@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LandingPage from './pages/LandingPage/LandingPage';
 import CollectionPage from './pages/CollectionPage/CollectionPage';
@@ -12,6 +12,7 @@ import './App.css';
 
 function App() {
   const dispatch = useDispatch();
+  const isNotHomePage = useLocation().pathname !== '/';
 
   useEffect(() => {
     dispatch(fetchPackages('moment')); // will eventually be fetching collections
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <div className="app">
-      <Route path="/" component={NavBar} />
+      {isNotHomePage && <NavBar />}
       <main className="appMain">
         <Switch>
           <Route
