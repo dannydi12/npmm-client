@@ -86,7 +86,7 @@ button[disabled] {
   display: inline-block;
 }
 
-input[type='text'],
+/* input[type='text'],
 select,
 input {
   -webkit-appearance: none;
@@ -97,7 +97,7 @@ input {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-}
+} */
 
 @media only screen and (min-width: 768px) {
   .appMain {

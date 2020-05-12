@@ -6,7 +6,7 @@ import './NavBar.css';
 import './Hamburger.css';
 
 function NavBar(props) {
-  const [showBurger, setShowBurger] = useState(true);
+  const [showBurger, setShowBurger] = useState(false);
   const [animationClass, setAnimationClass] = useState('Hidden');
 
   const hideHamburger = () => {
