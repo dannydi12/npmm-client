@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import PackageList from '../../components/PackageList/PackageList';
+import { fetchCollection } from './CollectionPageSlice';
 // import {all the reducers/actions} from './sliceFile.js';
 // import styles from './example.css';
 
@@ -9,8 +10,13 @@ import PackageList from '../../components/PackageList/PackageList';
 // import SearchBox from 'components/SearchBox/SearchBox';
 
 function CollectionPage() {
-  const collection = useSelector((state) => state.collections); // to get stuff from state
-  // const dispatch = useDispatch(); // to dispatch actions
+  const collection = useSelector((state) => state.currentCollection); // to get stuff from state
+  const dispatch = useDispatch();
+  const { id } = useParams();
+
+  useEffect(() => {
+    dispatch(fetchCollection(id));
+  }, [id]);
 
   return (
     <section>
@@ -19,7 +25,7 @@ function CollectionPage() {
         <button type="button">Edit icon</button>
       </header>
       {collection.loading === 'idle' && (
-        <PackageList packs={collection.packs} />
+        <PackageList packs={collection.packages} />
       )}
       {collection.loading === 'pending' && <p>Loading...</p>}
     </section>

@@ -2,30 +2,31 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import npmmAPI from '../../services/npmmAPI';
 
-export const fetchPackages = createAsyncThunk(
-  'collections/getPackages',
-  async (searchTerm, thunkAPI) => {
-    const response = await npmmAPI(searchTerm);
+export const fetchCollection = createAsyncThunk(
+  'currentCollection/getPackages',
+  async (id, thunkAPI) => {
+    const response = await npmmAPI.getCollectionInfo(id);
     return response;
   }
 );
 
-export const collectionsSlice = createSlice({
-  name: 'collections',
+export const currentCollectionSlice = createSlice({
+  name: 'currentCollection',
   initialState: {
-    packs: [],
+    name: null,
+    packages: [],
     loading: null,
   },
   reducers: {},
   extraReducers: {
-    [fetchPackages.pending]: (state) => {
+    [fetchCollection.pending]: (state) => {
       state.loading = 'pending';
     },
-    [fetchPackages.fulfilled]: (state, action) => {
-      state.packs = action.payload.results;
+    [fetchCollection.fulfilled]: (state, action) => {
+      state.packages = action.payload;
       state.loading = 'idle';
     },
   },
 });
 
-export default collectionsSlice.reducer;
+export default currentCollectionSlice.reducer;

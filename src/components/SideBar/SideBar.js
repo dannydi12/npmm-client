@@ -10,7 +10,7 @@ import NavCollections from '../NavCollections/NavCollections';
 // import SearchBox from 'components/SearchBox/SearchBox';
 
 function SideBar() {
-  const collections = useSelector((state) => state.collections.packs);
+  const loading = useSelector((state) => state.collectionList.loading);
   return <aside>{loading === 'idle' && <NavCollections />}</aside>;
 }
 

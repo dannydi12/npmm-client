@@ -4,13 +4,14 @@ import { Link, NavLink } from 'react-router-dom';
 // import styles from './example.css';
 
 function NavCollections() {
-  const collections = useSelector((state) => state.collections.packs);
-
-  console.log('col', collections);
+  const collections = useSelector((state) => state.collectionList.collections);
 
   const links = collections.map((collection) => (
-    <NavLink key={collection.package.name} to="/">
-      {collection.package.name}
+    <NavLink
+      key={collection.collection_name}
+      to={`/collection/${collection.id}`}
+    >
+      {collection.collection_name}
     </NavLink>
   ));
 

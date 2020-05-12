@@ -1,4 +1,6 @@
-export default {
-  API_ENDPOINT: 'http://localhost:8000/api',
+const config = {
+  API_ENDPOINT: 'https://npmm.herokuapp.com',
   TOKEN_KEY: 'npmm-auth-token',
 };
+
+export default config;

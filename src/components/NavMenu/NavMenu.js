@@ -5,7 +5,7 @@ import NavCollections from '../NavCollections/NavCollections';
 // import styles from './example.css';
 
 function NavMenu() {
-  const loading = useSelector((state) => state.collections.loading);
+  const loading = useSelector((state) => state.collectionList.loading);
 
   return (
     <aside className="navMenu">

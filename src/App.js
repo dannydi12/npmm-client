@@ -7,14 +7,14 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
 import NotFound from './pages/NotFound/NotFound';
 import NavBar from './components/NavBar/NavBar';
-import { fetchPackages } from './pages/CollectionPage/CollectionPageSlice';
+import { getCollections } from './pages/LandingPage/CollectionListSlice';
 import './App.css';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPackages('moment')); // will eventually be fetching collections
+    dispatch(getCollections()); // will eventually be fetching collections
   }, []);
 
   return (
@@ -22,11 +22,7 @@ function App() {
       <NavBar />
       <main className="appMain">
         <Switch>
-          <Route
-            exact
-            path="/collection/:collectionId"
-            component={CollectionPage}
-          />
+          <Route exact path="/collection/:id" component={CollectionPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/search" component={SearchResultPage} />
           <Route exact path="/" component={LandingPage} />
