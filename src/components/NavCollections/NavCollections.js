@@ -6,7 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 function NavCollections() {
   const collections = useSelector((state) => state.collections.packs);
 
-  console.log('col', collections);
+  // console.log('col', collections);
 
   const links = collections.map((collection) => (
     <NavLink key={collection.package.name} to="/">

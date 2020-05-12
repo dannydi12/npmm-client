@@ -1,5 +1,6 @@
 import React from 'react';
 import useSignUpForm from './CustomHooks';
+import AuthService from '../../services/auth-api-service';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { Link } from 'react-router-dom';
 // import {all the reducers/actions} from './sliceFile.js';
@@ -10,6 +11,7 @@ function LoginForm() {
   // const dispatch = useDispatch(); // to dispatch actions
   // TODO: Hookup to Redux to pass logged in user into currentUser
   // TODO: Check if email is in DB (when making actual api calls)
+
   const signup = () => {
     if (inputs.username) {
       // eslint-disable-next-line
@@ -105,7 +107,7 @@ function LoginForm() {
           // eslint-disable-next-line no-nested-ternary
           emailExists(inputs.email)
             ? null
-            : inputs.email === 'demo@demo.com'
+            : AuthService.checkEmail(inputs.email)
             ? renderLogin()
             : renderSignup()
         }

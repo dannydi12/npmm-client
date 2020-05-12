@@ -1,6 +1,16 @@
 import config from '../config';
 
 const AuthApiService = {
+  checkEmail(email) {
+    return fetch(`${config.API_ENDPOINT}/auth/login/?email=${email}`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+      },
+    }).then((res) =>
+      !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
+    );
+  },
   postLogin({ userName, password }) {
     return fetch(`${config.API_ENDPOINT}/auth/login`, {
       method: 'POST',
