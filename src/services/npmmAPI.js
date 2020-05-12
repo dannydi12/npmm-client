@@ -22,7 +22,7 @@ const npms = {
   },
   getCollections: (type = undefined) => {
     return fetch(
-      `${config.API_ENDPOINT}/api/collections${type && `?type=${type}`}`,
+      `${config.API_ENDPOINT}/api/collections${type ? `?type=${type}` : ''}`,
       {
         method: 'get',
         headers: {
@@ -100,7 +100,7 @@ const npms = {
         }
         return res.json();
       })
-      .then((collection) => collection)
+      .then((collection) => id)
       .catch((err) => {
         return 'There was an issue';
       });
