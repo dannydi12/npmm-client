@@ -12,21 +12,12 @@ function LoginForm() {
   // TODO: Hookup to Redux to pass logged in user into currentUser
   // TODO: Check if email is in DB (when making actual api calls)
 
-  const signup = () => {
-    if (inputs.username) {
-      // eslint-disable-next-line
-      alert(`User Created!
-            Userame: ${inputs.username}
-            Email: ${inputs.email}`);
-    } else {
-      // eslint-disable-next-line
-      alert(`Signed in as: ${inputs.email}`);
-    }
-  };
+  const signup = 'hi';
 
-  function emailExists(email) {
-    return !email;
-  }
+  const { inputs, handleInputChange, handleSubmit, form } = useSignUpForm(
+    { email: '', username: '', password: '', password2: '' },
+    signup
+  );
 
   function renderSignup() {
     return (
@@ -84,11 +75,6 @@ function LoginForm() {
     );
   }
 
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
-    { email: '', username: '', password: '', password2: '' },
-    signup
-  );
-
   return (
     <div>
       <form id="login" onSubmit={handleSubmit}>
@@ -105,9 +91,9 @@ function LoginForm() {
         </label>
         {
           // eslint-disable-next-line no-nested-ternary
-          emailExists(inputs.email)
+          inputs.email < 6
             ? null
-            : AuthService.checkEmail(inputs.email)
+            : form === 'Login'
             ? renderLogin()
             : renderSignup()
         }
