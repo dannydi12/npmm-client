@@ -12,9 +12,23 @@ function LoginForm() {
   // TODO: Hookup to Redux to pass logged in user into currentUser
   // TODO: Check if email is in DB (when making actual api calls)
 
+  /* ** Daniel, one thing I just found before closing. Try AuthService.checkEmail(email)
+   * .then(function(value) { someVariable = value; }) if you want to take another stab at assigning the
+   * promise value to a variable we can use in a ternary or if statement.
+   *
+   * Otherwise, where we have it here we just need to find where to actually call decideForm, passing in
+   * the value from the AuthService.checkEmail(email) call. **
+   */
+
   const signup = 'hi';
 
-  const { inputs, handleInputChange, handleSubmit, form } = useSignUpForm(
+  const {
+    inputs,
+    handleInputChange,
+    handleSubmit,
+    form,
+    decideForm,
+  } = useSignUpForm(
     { email: '', username: '', password: '', password2: '' },
     signup
   );
