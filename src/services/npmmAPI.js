@@ -98,7 +98,6 @@ const npms = {
         if (!res.ok) {
           throw new Error(res.message);
         }
-        return res.json();
       })
       .then((collection) => id)
       .catch((err) => {
@@ -144,7 +143,6 @@ const npms = {
         if (!res.ok) {
           throw new Error(res.message);
         }
-        return res.json();
       })
       .then((collection) => name)
       .catch((err) => {

@@ -68,11 +68,8 @@ export const collectionListSlice = createSlice({
       state.collections.push(action.payload);
     },
     [deleteCollection.fulfilled]: (state, action) => {
-      state.collections.slice(
-        state.collections.findIndex(
-          (collection) => collection.id === action.payload.id,
-          1
-        )
+      state.collections = state.collections.filter(
+        (collection) => collection.id !== action.payload
       );
     },
   },

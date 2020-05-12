@@ -14,7 +14,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCollections()); // will eventually be fetching collections
+    dispatch(getCollections());
   }, []);
 
   return (
