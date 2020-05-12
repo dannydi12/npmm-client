@@ -22,7 +22,7 @@ export const collectionListSlice = createSlice({
       state.loading = 'pending';
     },
     [getCollections.fulfilled]: (state, action) => {
-      state.packages = action.payload;
+      state.collections = action.payload;
       state.loading = 'idle';
     },
   },

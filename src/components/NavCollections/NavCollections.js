@@ -7,8 +7,11 @@ function NavCollections() {
   const collections = useSelector((state) => state.collectionList.collections);
 
   const links = collections.map((collection) => (
-    <NavLink key={collection.name} to="/">
-      {collection.package.name}
+    <NavLink
+      key={collection.collection_name}
+      to={`/collection/${collection.id}`}
+    >
+      {collection.collection_name}
     </NavLink>
   ));
 

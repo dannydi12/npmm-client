@@ -23,11 +23,7 @@ function App() {
       {isNotHomePage && <NavBar />}
       <main className="appMain">
         <Switch>
-          <Route
-            exact
-            path="/collection/:collectionId"
-            component={CollectionPage}
-          />
+          <Route exact path="/collection/:id" component={CollectionPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/search" component={SearchResultPage} />
           <Route exact path="/" component={LandingPage} />
