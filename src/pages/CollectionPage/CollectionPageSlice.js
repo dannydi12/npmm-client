@@ -10,6 +10,14 @@ export const fetchCollection = createAsyncThunk(
   }
 );
 
+export const deletePackage = createAsyncThunk(
+  'currentCollection/addPackage',
+  async (pack, thunkAPI) => {
+    const response = await npmmAPI.deletePackage(pack.name, pack.collectionId);
+    return response;
+  }
+);
+
 export const currentCollectionSlice = createSlice({
   name: 'currentCollection',
   initialState: {
@@ -25,6 +33,11 @@ export const currentCollectionSlice = createSlice({
     [fetchCollection.fulfilled]: (state, action) => {
       state.packages = action.payload;
       state.loading = 'idle';
+    },
+    [deletePackage.fulfilled]: (state, action) => {
+      state.packages.slice(
+        state.packages.findIndex((pack) => pack.id === action.payload, 1)
+      );
     },
   },
 });

@@ -146,7 +146,7 @@ const npms = {
         }
         return res.json();
       })
-      .then((collection) => collection)
+      .then((collection) => name)
       .catch((err) => {
         return 'There was an issue';
       });
