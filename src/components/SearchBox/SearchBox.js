@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 function SearchBox(props) {
   const [tempSearch, setTempSearch] = useState('');
   let history = useHistory();
+  let locationHook = useLocation();
 
   const setSearch = (input) => {
     setTempSearch(input);
@@ -11,7 +12,12 @@ function SearchBox(props) {
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    history.push(`/search?q=${tempSearch}`);
+    if (locationHook === '/') {
+      history.push(`/search?q=${tempSearch}`);
+      window.location.reload();
+    } else {
+      history.push(`/search?q=${tempSearch}`);
+    }
   };
 
   return (
@@ -34,7 +40,9 @@ function SearchBox(props) {
           type="submit"
           className="searchButton"
           aria-label="search button"
-        />
+        >
+          Search
+        </button>
       </form>
     </div>
   );
