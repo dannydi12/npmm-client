@@ -12,11 +12,11 @@ function SearchBox(props) {
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    if (locationHook === '/') {
+    if (locationHook.pathname === '/') {
       history.push(`/search?q=${tempSearch}`);
-      window.location.reload();
     } else {
       history.push(`/search?q=${tempSearch}`);
+      window.location.reload();
     }
   };
 
