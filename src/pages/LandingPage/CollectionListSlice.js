@@ -10,6 +10,37 @@ export const getCollections = createAsyncThunk(
   }
 );
 
+export const updateCollection = createAsyncThunk(
+  'collectionList/updateCollection',
+  async (collection, thunkAPI) => {
+    const response = await npmmAPI.updateCollection(
+      collection.id,
+      collection.name,
+      collection.isLaunchPad
+    );
+    return response;
+  }
+);
+
+export const createCollection = createAsyncThunk(
+  'collectionList/createCollection',
+  async (collection, thunkAPI) => {
+    const response = await npmmAPI.createCollection(
+      collection.name,
+      collection.isLaunchPad
+    );
+    return response;
+  }
+);
+
+export const deleteCollection = createAsyncThunk(
+  'collectionList/deleteCollection',
+  async (id, thunkAPI) => {
+    const response = await npmmAPI.deleteCollection(id);
+    return response;
+  }
+);
+
 export const collectionListSlice = createSlice({
   name: 'collectionList',
   initialState: {
@@ -24,6 +55,22 @@ export const collectionListSlice = createSlice({
     [getCollections.fulfilled]: (state, action) => {
       state.collections = action.payload;
       state.loading = 'idle';
+    },
+    [updateCollection.fulfilled]: (state, action) => {
+      state.collections = state.collections.map((collection) => {
+        if (collection.id === action.payload.id) {
+          return action.payload;
+        }
+        return collection;
+      });
+    },
+    [createCollection.fulfilled]: (state, action) => {
+      state.collections.push(action.payload);
+    },
+    [deleteCollection.fulfilled]: (state, action) => {
+      state.collections = state.collections.filter(
+        (collection) => collection.id !== action.payload
+      );
     },
   },
 });
