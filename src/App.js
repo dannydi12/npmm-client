@@ -7,7 +7,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
 import NotFound from './pages/NotFound/NotFound';
 import NavBar from './components/NavBar/NavBar';
-import { fetchPackages } from './pages/CollectionPage/CollectionPageSlice';
+import { getCollections } from './pages/LandingPage/CollectionListSlice';
 import './App.css';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
   const isNotHomePage = useLocation().pathname !== '/';
 
   useEffect(() => {
-    dispatch(fetchPackages('moment')); // will eventually be fetching collections
+    dispatch(getCollections()); // will eventually be fetching collections
   }, []);
 
   return (
