@@ -16,7 +16,7 @@ function SearchResultPage() {
 
   useEffect(() => {
     dispatch(fetchPackages(parsed.q));
-  }, []);
+  }, [searchResults.searchTerm]);
 
   return (
     <section>
