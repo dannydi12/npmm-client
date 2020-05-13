@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import NavMenu from '../NavMenu/NavMenu';
 import SearchBox from '../SearchBox/SearchBox';
@@ -6,9 +6,17 @@ import './NavBar.css';
 import './Hamburger.css';
 
 function NavBar() {
+  const location = useLocation();
   const [showBurger, setShowBurger] = useState(false);
   const [animationClass, setAnimationClass] = useState('Hidden');
-  const isNotHomePage = useLocation().pathname !== '/';
+  const isNotHomePage = location.pathname !== '/';
+
+  useEffect(() => {
+    if (showBurger === true || animationClass === 'Down') {
+      setShowBurger(false);
+      setAnimationClass('Up');
+    }
+  }, [location.pathname]);
 
   const hideHamburger = () => {
     setShowBurger(false);
