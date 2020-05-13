@@ -8,17 +8,9 @@ const npms = {
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.message);
-        }
-        return res.json();
-      })
-      .then((collection) => collection)
-      .catch((err) => {
-        return 'There was an issue';
-      });
+    }).then((res) =>
+      !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
+    );
   },
   getCollections: (type = undefined) => {
     return fetch(
@@ -29,14 +21,9 @@ const npms = {
           Authorization: `Bearer ${TokenService.getAuthToken()}`,
         },
       }
-    )
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.message);
-        }
-        return res.json();
-      })
-      .then((packs) => packs);
+    ).then((res) =>
+      !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
+    );
   },
   createCollection: (name, isLaunchPad = false) => {
     return fetch(`${config.API_ENDPOINT}/api/collections`, {
@@ -49,17 +36,9 @@ const npms = {
         name,
         isLaunchPad,
       }),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.message);
-        }
-        return res.json();
-      })
-      .then((collection) => collection)
-      .catch((err) => {
-        return 'There was an issue';
-      });
+    }).then((res) =>
+      !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
+    );
   },
   updateCollection: (id, name, isLaunchPad) => {
     return fetch(`${config.API_ENDPOINT}/api/collections/${id}`, {
@@ -72,17 +51,9 @@ const npms = {
         name,
         isLaunchPad,
       }),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.message);
-        }
-        return res.json();
-      })
-      .then((collection) => collection)
-      .catch((err) => {
-        return 'There was an issue';
-      });
+    }).then((res) =>
+      !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
+    );
   },
   deleteCollection: (id) => {
     return fetch(`${config.API_ENDPOINT}/api/collections/${id}`, {
@@ -90,16 +61,9 @@ const npms = {
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.message);
-        }
-      })
-      .then((collection) => id)
-      .catch((err) => {
-        return 'There was an issue';
-      });
+    }).then((res) =>
+      !res.ok ? res.json().then((err) => Promise.reject(err)) : id
+    );
   },
   addPackage: (name, collectionId) => {
     return fetch(`${config.API_ENDPOINT}/api/packages`, {
@@ -112,17 +76,9 @@ const npms = {
         name,
         collectionId,
       }),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.message);
-        }
-        return res.json();
-      })
-      .then((collection) => collection)
-      .catch((err) => {
-        return 'There was an issue';
-      });
+    }).then((res) =>
+      !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
+    );
   },
   deletePackage: (name, collectionId) => {
     return fetch(`${config.API_ENDPOINT}/api/packages`, {
@@ -135,16 +91,9 @@ const npms = {
         name,
         collectionId,
       }),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.message);
-        }
-      })
-      .then((collection) => name)
-      .catch((err) => {
-        return 'There was an issue';
-      });
+    }).then((res) =>
+      !res.ok ? res.json().then((err) => Promise.reject(err)) : name
+    );
   },
 };
 
