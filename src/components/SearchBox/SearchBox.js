@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { searchFor } from '../../pages/SearchResultPage/SearchResultPageSlice';
+import { searchFor } from '../../redux/SearchResultsSlice';
 
 function SearchBox(props) {
   const [tempSearch, setTempSearch] = useState('');

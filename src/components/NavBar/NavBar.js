@@ -25,26 +25,6 @@ function NavBar() {
     }
   };
 
-  const renderNav = () => {
-    if (isNotHomePage) {
-      return (
-        <>
-          <SearchBox classProps="navSearch" />
-          <button type="button" className="toggleSearch" />
-          <Link to="/" className="logoHome" onClick={() => hideHamburger()}>
-            <img
-              src="/assets/npmm-logo.svg"
-              alt="npmm logo"
-              className="navLogo"
-            />
-            <h1 className="navName">npmm</h1>
-          </Link>
-        </>
-      );
-    }
-    return null;
-  };
-
   return (
     <header className="navBar" role="banner">
       <div className="menuContainer">
@@ -52,7 +32,20 @@ function NavBar() {
           <NavMenu />
         </div>
         <div className="navBarContainer">
-          {renderNav()}
+          {isNotHomePage && (
+            <>
+              <SearchBox classProps="navSearch" />
+              <button type="button" className="toggleSearch" />
+              <Link to="/" className="logoHome" onClick={() => hideHamburger()}>
+                <img
+                  src="/assets/npmm-logo.svg"
+                  alt="npmm logo"
+                  className="navLogo"
+                />
+                <h1 className="navName">npmm</h1>
+              </Link>
+            </>
+          )}
           <div className="hamburgerContainer">
             <div
               className={`burgerButton ${showBurger}Burger`}

@@ -1,9 +1,9 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import npmmAPI from '../../services/npmmAPI';
+import npmmAPI from '../services/npmmAPI';
 
-export const fetchCollection = createAsyncThunk(
-  'currentCollection/getPackages',
+export const fetchCollectionInfo = createAsyncThunk(
+  'currentCollectionInfo/fetchCollectionInfo',
   async (id, thunkAPI) => {
     const response = await npmmAPI.getCollectionInfo(id);
     return response;
@@ -11,15 +11,15 @@ export const fetchCollection = createAsyncThunk(
 );
 
 export const deletePackage = createAsyncThunk(
-  'currentCollection/addPackage',
+  'currentCollectionInfo/deletePackage',
   async (pack, thunkAPI) => {
     const response = await npmmAPI.deletePackage(pack.name, pack.collectionId);
     return response;
   }
 );
 
-export const currentCollectionSlice = createSlice({
-  name: 'currentCollection',
+export const currentCollectionInfo = createSlice({
+  name: 'currentCollectionInfo',
   initialState: {
     name: null,
     packages: [],
@@ -27,10 +27,10 @@ export const currentCollectionSlice = createSlice({
   },
   reducers: {},
   extraReducers: {
-    [fetchCollection.pending]: (state) => {
+    [fetchCollectionInfo.pending]: (state) => {
       state.loading = 'pending';
     },
-    [fetchCollection.fulfilled]: (state, action) => {
+    [fetchCollectionInfo.fulfilled]: (state, action) => {
       state.packages = action.payload;
       state.loading = 'idle';
     },
@@ -42,4 +42,4 @@ export const currentCollectionSlice = createSlice({
   },
 });
 
-export default currentCollectionSlice.reducer;
+export default currentCollectionInfo.reducer;
