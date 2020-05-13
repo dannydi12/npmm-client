@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import NavMenu from '../NavMenu/NavMenu';
 import SearchBox from '../SearchBox/SearchBox';
 import './NavBar.css';
@@ -8,6 +8,7 @@ import './Hamburger.css';
 function NavBar(props) {
   const [showBurger, setShowBurger] = useState(false);
   const [animationClass, setAnimationClass] = useState('Hidden');
+  const isNotHomePage = useLocation().pathname !== '/';
 
   const hideHamburger = () => {
     setShowBurger(false);
@@ -24,6 +25,26 @@ function NavBar(props) {
     }
   };
 
+  const renderNav = () => {
+    if (isNotHomePage) {
+      return (
+        <>
+          <SearchBox classProps="navSearch" />
+          <button type="button" className="toggleSearch" />
+          <Link to="/" className="logoHome" onClick={() => hideHamburger()}>
+            <img
+              src="/assets/npmm-logo.svg"
+              alt="npmm logo"
+              className="navLogo"
+            />
+            <h1 className="navName">npmm</h1>
+          </Link>
+        </>
+      );
+    }
+    return null;
+  };
+
   return (
     <header className="navBar" role="banner">
       <div className="menuContainer">
@@ -31,15 +52,7 @@ function NavBar(props) {
           <NavMenu />
         </div>
         <div className="navBarContainer">
-          <Link to="/" className="logoHome" onClick={() => hideHamburger()}>
-            <img
-              src="/assets/npmm-logo.svg"
-              alt="npmm logo"
-              className="navLogo"
-            />
-            <h1 className="navName">NPMM</h1>
-          </Link>
-          <SearchBox classProps="landingSearch" />
+          {renderNav()}
           <div className="hamburgerContainer">
             <div
               className={`burgerButton ${showBurger}Burger`}

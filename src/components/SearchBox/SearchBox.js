@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { searchFor } from '../../pages/SearchResultPage/SearchResultPageSlice';
 
 function SearchBox(props) {
   const [tempSearch, setTempSearch] = useState('');
-  let history = useHistory();
-  let locationHook = useLocation();
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   const setSearch = (input) => {
     setTempSearch(input);
@@ -12,12 +14,8 @@ function SearchBox(props) {
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    if (locationHook === '/') {
-      history.push(`/search?q=${tempSearch}`);
-      window.location.reload();
-    } else {
-      history.push(`/search?q=${tempSearch}`);
-    }
+    dispatch(searchFor(tempSearch));
+    history.push(`/search?q=${tempSearch}`);
   };
 
   return (

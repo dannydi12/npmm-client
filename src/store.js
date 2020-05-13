@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import collectionsReducer from './pages/CollectionPage/CollectionPageSlice';
+import currentCollectionReducer from './pages/CollectionPage/CollectionPageSlice';
+import collectionListReducer from './pages/LandingPage/CollectionListSlice';
 import searchResultReducer from './pages/SearchResultPage/SearchResultPageSlice';
 
 export default configureStore({
   reducer: {
-    collections: collectionsReducer,
+    collectionList: collectionListReducer,
+    currentCollection: currentCollectionReducer,
     searchResults: searchResultReducer,
   },
 });

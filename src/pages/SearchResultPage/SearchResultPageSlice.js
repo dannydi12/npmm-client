@@ -13,10 +13,15 @@ export const fetchPackages = createAsyncThunk(
 export const searchResultsSlice = createSlice({
   name: 'searchResults',
   initialState: {
+    searchTerm: null,
     packs: [],
     loading: null,
   },
-  reducers: {},
+  reducers: {
+    searchFor: (state, action) => {
+      state.searchTerm = action.payload;
+    },
+  },
   extraReducers: {
     [fetchPackages.pending]: (state) => {
       state.loading = 'pending';
@@ -28,4 +33,8 @@ export const searchResultsSlice = createSlice({
   },
 });
 
-export default searchResultsSlice.reducer;
+const { actions, reducer } = searchResultsSlice;
+
+export const { searchFor } = actions;
+
+export default reducer;
