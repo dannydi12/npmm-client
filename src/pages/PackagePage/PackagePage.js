@@ -6,13 +6,13 @@ import PackageList from '../../components/PackageList/PackageList';
 import './PackagePage.css';
 
 function PackagePage() {
-  const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
-  const dispatch = useDispatch();
-  const { packageName } = useParams();
+  // const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
+  // const dispatch = useDispatch();
+  // const { packageName } = useParams();
 
-  useEffect(() => {
-    dispatch(fetchCollectionInfo(id));
-  }, [id]);
+  // useEffect(() => {
+  //   dispatch(fetchCollectionInfo(id));
+  // }, [id]);
 
   return (
     <section>
