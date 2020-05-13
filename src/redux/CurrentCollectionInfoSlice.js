@@ -18,6 +18,14 @@ export const deletePackage = createAsyncThunk(
   }
 );
 
+export const addPackage = createAsyncThunk(
+  'currentCollectionInfo/addPackage',
+  async (pack, thunkAPI) => {
+    const response = await npmmAPI.addPackage(pack.name, pack.collectionId);
+    return response;
+  }
+);
+
 export const currentCollectionInfo = createSlice({
   name: 'currentCollectionInfo',
   initialState: {
@@ -38,6 +46,13 @@ export const currentCollectionInfo = createSlice({
       state.packages.slice(
         state.packages.findIndex((pack) => pack.id === action.payload, 1)
       );
+    },
+    [addPackage.fulfilled]: (state, action) => {
+      console.log('fulfilled');
+      state.packages.push(action.payload);
+    },
+    [addPackage.rejected]: (state, action) => {
+      console.log('erorr');
     },
   },
 });
