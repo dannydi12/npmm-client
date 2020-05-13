@@ -8,7 +8,7 @@ import SignupPage from './components/SignupForm/SignupForm';
 import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
 import NotFound from './pages/NotFound/NotFound';
 import NavBar from './components/NavBar/NavBar';
-import { getCollections } from './pages/LandingPage/CollectionListSlice';
+import { getCollections } from './redux/CollectionListSlice';
 import TokenService from './services/token-service';
 import './App.css';
 

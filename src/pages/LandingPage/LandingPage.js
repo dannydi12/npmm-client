@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import NavBar from '../../components/NavBar/NavBar';
-import { getCollections } from './CollectionListSlice';
+import { getCollections } from '../../redux/CollectionListSlice';
 import TokenService from '../../services/token-service';
 
 function LandingPage() {
