@@ -5,7 +5,7 @@ import SearchBox from '../SearchBox/SearchBox';
 import './NavBar.css';
 import './Hamburger.css';
 
-function NavBar(props) {
+function NavBar() {
   const [showBurger, setShowBurger] = useState(false);
   const [animationClass, setAnimationClass] = useState('Hidden');
   const isNotHomePage = useLocation().pathname !== '/';

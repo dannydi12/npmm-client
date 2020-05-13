@@ -56,6 +56,9 @@ export const collectionListSlice = createSlice({
       state.collections = action.payload;
       state.loading = 'idle';
     },
+    [getCollections.rejected]: (state) => {
+      state.loading = 'rejected';
+    },
     [updateCollection.fulfilled]: (state, action) => {
       state.collections = state.collections.map((collection) => {
         if (collection.id === action.payload.id) {

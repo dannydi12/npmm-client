@@ -4,18 +4,16 @@ import { useDispatch } from 'react-redux';
 import LandingPage from './pages/LandingPage/LandingPage';
 import CollectionPage from './pages/CollectionPage/CollectionPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import SignupPage from './components/SignupForm/SignupForm';
 import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
 import NotFound from './pages/NotFound/NotFound';
 import NavBar from './components/NavBar/NavBar';
 import { getCollections } from './pages/LandingPage/CollectionListSlice';
+import TokenService from './services/token-service';
 import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getCollections());
-  }, []);
 
   return (
     <div className="app">
@@ -24,6 +22,7 @@ function App() {
         <Switch>
           <Route exact path="/collection/:id" component={CollectionPage} />
           <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/search" component={SearchResultPage} />
           <Route exact path="/" component={LandingPage} />
           <Route component={NotFound} />

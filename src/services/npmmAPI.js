@@ -36,10 +36,7 @@ const npms = {
         }
         return res.json();
       })
-      .then((packs) => packs)
-      .catch((err) => {
-        return 'There was an issue';
-      });
+      .then((packs) => packs);
   },
   createCollection: (name, isLaunchPad = false) => {
     return fetch(`${config.API_ENDPOINT}/api/collections`, {

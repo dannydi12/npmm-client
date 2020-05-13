@@ -1,6 +1,4 @@
 export default {
-  API_ENDPOINT: 'https://npmm.herokuapp.com/api',
+  API_ENDPOINT: 'https://npmm.herokuapp.com',
   TOKEN_KEY: 'npmm-auth-token',
 };
-
-export default config;

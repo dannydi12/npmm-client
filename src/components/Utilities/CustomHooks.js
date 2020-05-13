@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const useSignUpForm = (initialValues, callback) => {
   const [inputs, setInputs] = useState(initialValues);
-  const [form, setForm] = useState('SignUp');
+  const [error, setError] = useState({ error: null });
   const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();
@@ -16,14 +16,15 @@ const useSignUpForm = (initialValues, callback) => {
       [event.target.name]: event.target.value,
     }));
   };
-  const decideForm = (boolean) =>
-    boolean ? setForm('Login') : setForm('Signup');
+  const handleError = (errorMessage) => {
+    setError(errorMessage.message);
+  };
   return {
-    decideForm,
+    error,
+    handleError,
     handleSubmit,
     handleInputChange,
     inputs,
-    form,
   };
 };
 
