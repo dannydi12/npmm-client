@@ -1,15 +1,16 @@
-const npms = (search) => {
-  return fetch(`https://api.npms.io/v2/search?q=${encodeURI(search)}`)
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error(res.message);
-      }
-      return res.json();
-    })
-    .then((packs) => packs)
-    .catch((err) => {
-      return 'There was an issue';
-    });
+const npmsURL = 'https://api.npms.io';
+
+const npms = {
+  searchPackages: (search) => {
+    return fetch(`${npmsURL}/v2/search?q=${encodeURI(search)}`).then((res) =>
+      !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
+    );
+  },
+  getPackageInfo: (name) => {
+    return fetch(`${npmsURL}/v2/package/${name}`).then((res) =>
+      !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
+    );
+  },
 };
 
 export default npms;

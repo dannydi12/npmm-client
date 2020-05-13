@@ -5,7 +5,7 @@ import npmsAPI from '../services/npmsAPI';
 export const fetchPackages = createAsyncThunk(
   'searchResults/getPackages',
   async (searchTerm, thunkAPI) => {
-    const response = await npmsAPI(searchTerm);
+    const response = await npmsAPI.searchPackages(searchTerm);
     return response;
   }
 );
