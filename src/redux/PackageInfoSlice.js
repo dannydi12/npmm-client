@@ -4,8 +4,8 @@ import npmsAPI from '../services/npmsAPI';
 
 export const fetchPackageInfo = createAsyncThunk(
   'packageInfo/fetchPackageInfo',
-  async (id, thunkAPI) => {
-    const response = await npmmAPI.getCollectionInfo(id);
+  async (name, thunkAPI) => {
+    const response = await npmsAPI.getPackageInfo(name);
     return response;
   }
 );
@@ -13,20 +13,19 @@ export const fetchPackageInfo = createAsyncThunk(
 export const packageInfo = createSlice({
   name: 'packageInfo',
   initialState: {
-    name: null,
-    packages: [],
+    data: null,
     loading: null,
   },
   reducers: {},
   extraReducers: {
-    [fetchCollectionInfo.pending]: (state) => {
+    [fetchPackageInfo.pending]: (state) => {
       state.loading = 'pending';
     },
-    [fetchCollectionInfo.fulfilled]: (state, action) => {
-      state.packages = action.payload;
+    [fetchPackageInfo.fulfilled]: (state, action) => {
+      state.data = action.payload;
       state.loading = 'idle';
     },
-    [fetchCollectionInfo.rejected]: (state) => {
+    [fetchPackageInfo.rejected]: (state) => {
       state.loading = 'rejected';
     },
   },

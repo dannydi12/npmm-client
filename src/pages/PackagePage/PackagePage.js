@@ -1,25 +1,27 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import PackageList from '../../components/PackageList/PackageList';
-// import {all the reducers/actions} from './sliceFile.js';
+import { fetchPackageInfo } from '../../redux/PackageInfoSlice';
 import './PackagePage.css';
 
 function PackagePage() {
-  // const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
-  // const dispatch = useDispatch();
-  // const { packageName } = useParams();
+  const packageInfo = useSelector((state) => state.packageInfo); // to get stuff from state
+  const dispatch = useDispatch();
+  const { packageName } = useParams();
 
-  // useEffect(() => {
-  //   dispatch(fetchCollectionInfo(id));
-  // }, [id]);
+  useEffect(() => {
+    dispatch(fetchPackageInfo(packageName));
+  }, [packageName]);
 
   return (
     <section>
-      <header>
-        <h2>Collection Name TBD</h2>
-        <button type="button">Edit icon</button>
-      </header>
+      {packageInfo.loading === 'pending' && <p>Loading...</p>}
+      {packageInfo.loading === 'idle' && (
+        <header>
+          <h2>{packageInfo.data.collected.metadata.name}</h2>
+          <button type="button">Edit icon</button>
+        </header>
+      )}
     </section>
   );
 }
