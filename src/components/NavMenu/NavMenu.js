@@ -11,7 +11,7 @@ function NavMenu() {
     <aside className="navMenu">
       <NavLink to="/">Home</NavLink>
       <NavLink to="/logout">Logout</NavLink>
-      <NavLink to="/favourites">Favourites</NavLink>
+      <NavLink to="/favorites">Favorites</NavLink>
       {loading === 'idle' && <NavCollections />}
       {/* In the future, will be conditionally rendered */}
     </aside>
