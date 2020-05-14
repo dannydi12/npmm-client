@@ -26,23 +26,26 @@ export default function SignupForm() {
 
   function validateEmail(email) {
     if (!email) {
-      return false;
+      return 'Please enter your email';
     }
-    if (email > 100) {
-      return false;
+    if (email > 40) {
+      return 'Is that a real email?';
     }
     return true;
   }
 
-  function validatePassword(pass, pass2) {
-    if (!pass) {
-      return false;
+  function validatePassword(pass1, pass2) {
+    if (!pass1) {
+      return 'Please enter your password';
     }
-    if (pass > 100) {
-      return false;
+    if (pass1 > 40) {
+      return 'Password cannot be longer than 40 characters';
     }
-    if (pass !== pass2) {
-      return false;
+    if (pass1 < 6) {
+      return 'Password needs to be at least 6 characters long';
+    }
+    if (pass1 !== pass2) {
+      return 'Passwords do not match';
     }
     return true;
   }
