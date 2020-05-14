@@ -65,8 +65,8 @@ function LoginForm() {
             onChange={handleInputChange}
           />
         </label>
-        {validatePassword(inputs.email) && (
-          <p>{validatePassword(inputs.email)}</p>
+        {validatePassword(inputs.password) && (
+          <p>{validatePassword(inputs.password)}</p>
         )}
         <label htmlFor="password">
           Password

@@ -52,6 +52,7 @@ export default function SignupForm() {
 
   return (
     <form className="signup" onSubmit={handleSubmit}>
+      {validateEmail(inputs.email) && <p>{validateEmail(inputs.email)}</p>}
       <label htmlFor="email">
         Email
         <input
@@ -64,6 +65,9 @@ export default function SignupForm() {
           onChange={handleInputChange}
         />
       </label>
+      {validatePassword(inputs.password, inputs.password2) && (
+        <p>{validatePassword(inputs.password, inputs.password2)}</p>
+      )}
       <label htmlFor="password">
         Password
         <input
