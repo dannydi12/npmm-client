@@ -14,7 +14,9 @@ function PackageCard(props) {
   return (
     <div>
       <header>
-        <h2>{props.pack.package.name}</h2>
+        <Link to={`/package/${encodeURIComponent(props.pack.package.name)}`}>
+          <h2>{props.pack.package.name}</h2>
+        </Link>
         <div>
           <p>{props.pack.score.detail.quality}</p>
           <p>{props.pack.score.detail.popularity}</p>

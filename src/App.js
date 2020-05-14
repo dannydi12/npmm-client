@@ -8,7 +8,8 @@ import SignupPage from './components/SignupForm/SignupForm';
 import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
 import NotFound from './pages/NotFound/NotFound';
 import NavBar from './components/NavBar/NavBar';
-import { getCollections } from './pages/LandingPage/CollectionListSlice';
+import PackagePage from './pages/PackagePage/PackagePage';
+import { getCollections } from './redux/CollectionListSlice';
 import TokenService from './services/token-service';
 import './App.css';
 
@@ -21,6 +22,7 @@ function App() {
       <main className="appMain">
         <Switch>
           <Route exact path="/collection/:id" component={CollectionPage} />
+          <Route exact path="/package/:packageName" component={PackagePage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/search" component={SearchResultPage} />

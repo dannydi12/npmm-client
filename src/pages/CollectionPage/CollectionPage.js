@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import PackageList from '../../components/PackageList/PackageList';
-import { fetchCollection } from './CollectionPageSlice';
+import { fetchCollectionInfo } from '../../redux/CurrentCollectionInfoSlice';
 // import {all the reducers/actions} from './sliceFile.js';
 // import styles from './example.css';
 
@@ -10,12 +10,12 @@ import { fetchCollection } from './CollectionPageSlice';
 // import SearchBox from 'components/SearchBox/SearchBox';
 
 function CollectionPage() {
-  const collection = useSelector((state) => state.currentCollection); // to get stuff from state
+  const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
   const dispatch = useDispatch();
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(fetchCollection(id));
+    dispatch(fetchCollectionInfo(id));
   }, [id]);
 
   return (
