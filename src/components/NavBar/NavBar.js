@@ -24,10 +24,10 @@ function NavBar() {
       setAnimationClass('Down');
     } else {
       setAnimationClass('Up');
-      setAnimationClass('Hidden');
       setTimeout(() => {
+        setAnimationClass('Hidden');
         setShowBurger(false);
-      }, 500);
+      }, 700);
     }
   };
 
