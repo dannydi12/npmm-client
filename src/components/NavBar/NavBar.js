@@ -18,18 +18,16 @@ function NavBar() {
     }
   }, [location.pathname]);
 
-  const hideHamburger = () => {
-    setShowBurger(false);
-    setAnimationClass('Hidden');
-  };
-
   const toggleHamburger = () => {
     if (showBurger === false || animationClass === 'Hidden') {
       setShowBurger(true);
       setAnimationClass('Down');
     } else {
-      setShowBurger(false);
       setAnimationClass('Up');
+      setAnimationClass('Hidden');
+      setTimeout(() => {
+        setShowBurger(false);
+      }, 5000);
     }
   };
 
@@ -37,14 +35,14 @@ function NavBar() {
     <header className="navBar" role="banner">
       <div className="menuContainer">
         <div className={`navMenu fadeMenu${animationClass}`}>
-          <NavMenu />
+          {showBurger && <NavMenu />}
         </div>
         <div className="navBarContainer">
           {isNotHomePage && (
             <>
               <SearchBox classProps="navSearch" />
               <button type="button" className="toggleSearch" />
-              <Link to="/" className="logoHome" onClick={() => hideHamburger()}>
+              <Link to="/" className="logoHome">
                 <img
                   src="/assets/npmm-logo.svg"
                   alt="npmm logo"
