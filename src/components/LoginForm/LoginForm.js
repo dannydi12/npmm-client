@@ -28,20 +28,23 @@ function LoginForm() {
 
   function validateEmail(email) {
     if (!email) {
-      return 'Please enter email';
+      return 'Please enter your email';
     }
-    if (email > 100) {
-      return false;
+    if (email > 40) {
+      return 'Is that a real email?';
     }
     return true;
   }
 
   function validatePassword(pass) {
     if (!pass) {
-      return false;
+      return 'Please enter your password';
     }
-    if (pass > 100) {
-      return false;
+    if (pass > 40) {
+      return 'Password cannot be longer than 40 characters';
+    }
+    if (pass < 6) {
+      return 'Password needs to be at least 6 characters long';
     }
     return true;
   }
@@ -62,6 +65,9 @@ function LoginForm() {
             onChange={handleInputChange}
           />
         </label>
+        {validatePassword(inputs.email) && (
+          <p>{validatePassword(inputs.email)}</p>
+        )}
         <label htmlFor="password">
           Password
           <input
