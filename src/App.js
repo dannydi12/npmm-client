@@ -16,6 +16,12 @@ import './App.css';
 function App() {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (TokenService.hasAuthToken()) {
+      dispatch(getCollections());
+    }
+  }, []);
+
   return (
     <div className="app">
       <NavBar />

@@ -7,14 +7,6 @@ import { getCollections } from '../../redux/CollectionListSlice';
 import TokenService from '../../services/token-service';
 
 function LandingPage() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (TokenService.hasAuthToken()) {
-      dispatch(getCollections());
-    }
-  }, []);
-
   return (
     <div>
       <h1 className="landingTitle">NPMM</h1>
