@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import PackageList from '../../components/PackageList/PackageList';
 import { fetchCollectionInfo } from '../../redux/CurrentCollectionInfoSlice';
-import { updateCollection } from '../../redux/CollectionListSlice';
-// import {all the reducers/actions} from './sliceFile.js';
-// import styles from './example.css';
-
-// Use absolute imports like this for components!
-// import SearchBox from 'components/SearchBox/SearchBox';
+import {
+  updateCollection,
+  deleteCollection,
+} from '../../redux/CollectionListSlice';
 
 function CollectionPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const history = useHistory();
 
   const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
   const collectionInfo = useSelector((state) =>
@@ -27,8 +26,6 @@ function CollectionPage() {
     value: '',
   });
 
-  console.log(collection, collectionInfo);
-
   useEffect(() => {
     dispatch(fetchCollectionInfo(id));
   }, [id]);
@@ -41,6 +38,11 @@ function CollectionPage() {
 
   const handleInput = (e) => {
     setCollectionName({ touched: true, value: e.target.value });
+  };
+
+  const handleDelete = () => {
+    history.push('/');
+    dispatch(deleteCollection(id));
   };
 
   const validateInput = () => {
@@ -75,6 +77,9 @@ function CollectionPage() {
                   onChange={handleInput}
                 />
                 {collectionName.touched && <p>{validateInput()}</p>}
+                <button type="button" onClick={handleDelete}>
+                  Delete
+                </button>
                 <button type="submit" disabled={!validateInput}>
                   Done
                 </button>
