@@ -18,8 +18,6 @@ function PackageList(props) {
     </li>
   ));
 
-  console.log(props);
-
   return (
     <>{packs.length > 0 ? <ul>{packs}</ul> : <p>Nothing to see here...</p>}</>
   );
