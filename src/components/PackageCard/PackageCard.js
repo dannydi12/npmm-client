@@ -14,17 +14,24 @@ function PackageCard(props) {
   return (
     <div>
       <header>
-        <Link to={`/package/${encodeURIComponent(props.pack.package.name)}`}>
-          <h2>{props.pack.package.name}</h2>
-        </Link>
         <div>
-          <p>{props.pack.score.detail.quality}</p>
-          <p>{props.pack.score.detail.popularity}</p>
-          <p>{props.pack.score.detail.maintenance}</p>
+          <Link to={`/package/${encodeURIComponent(props.pack.package.name)}`}>
+            <h2>{props.pack.package.name}</h2>
+          </Link>
+          <p>({props.pack.package.version})</p>
         </div>
+        <button type="button">Three dots</button>
       </header>
 
       <p>{props.pack.package.description}</p>
+
+      <div className="package-bottom">
+        <a href={props.pack.package.links.npm}>NPM logo</a>
+        <div className="package-bottom-wrapper">
+          <button type="button">STAR</button>
+          <p>{Math.floor(props.pack.score.final * 100)}</p>
+        </div>
+      </div>
     </div>
   );
 }
