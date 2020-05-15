@@ -40,7 +40,7 @@ export const currentCollectionInfo = createSlice({
       state.loading = 'pending';
     },
     [fetchCollectionInfo.fulfilled]: (state, action) => {
-      state.packages = action.payload;
+      state.packages = action.payload.packs;
       state.loading = 'idle';
     },
     [deletePackage.fulfilled]: (state, action) => {

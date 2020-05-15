@@ -49,7 +49,6 @@ const npms = {
       },
       body: JSON.stringify({
         name,
-        isLaunchPad: false,
       }),
     }).then((res) =>
       !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
