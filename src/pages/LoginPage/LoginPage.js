@@ -3,6 +3,7 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 // es-lint-disable-next-line
 import LoginForm from '../../components/LoginForm/LoginForm';
+import ErrorBoundary from '../../ErrorBoundary';
 // import {all the reducers/actions} from './sliceFile.js';
 import './LoginPage.css';
 
@@ -14,9 +15,11 @@ function LoginPage() {
   // const dispatch = useDispatch(); // to dispatch actions
 
   return (
-    <div className="login-container">
-      <LoginForm />
-    </div>
+    <ErrorBoundary>
+      <div className="login-container">
+        <LoginForm />
+      </div>
+    </ErrorBoundary>
   );
 }
 

@@ -12,6 +12,7 @@ import PackagePage from './pages/PackagePage/PackagePage';
 import { getCollections } from './redux/CollectionListSlice';
 import TokenService from './services/token-service';
 import './App.css';
+import ErrorBoundary from './ErrorBoundary';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,12 +28,14 @@ function App() {
       <NavBar />
       <main className="appMain">
         <Switch>
-          <Route exact path="/collection/:id" component={CollectionPage} />
-          <Route exact path="/package/:packageName" component={PackagePage} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/signup" component={SignupPage} />
-          <Route exact path="/search" component={SearchResultPage} />
-          <Route exact path="/" component={LandingPage} />
+          <ErrorBoundary>
+            <Route exact path="/collection/:id" component={CollectionPage} />
+            <Route exact path="/package/:packageName" component={PackagePage} />
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/signup" component={SignupPage} />
+            <Route exact path="/search" component={SearchResultPage} />
+            <Route exact path="/" component={LandingPage} />
+          </ErrorBoundary>
           <Route component={NotFound} />
         </Switch>
       </main>

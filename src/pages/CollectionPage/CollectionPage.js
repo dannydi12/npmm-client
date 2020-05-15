@@ -7,6 +7,7 @@ import {
   updateCollection,
   deleteCollection,
 } from '../../redux/CollectionListSlice';
+import ErrorBoundary from '../../ErrorBoundary';
 
 function CollectionPage() {
   const dispatch = useDispatch();
@@ -56,6 +57,7 @@ function CollectionPage() {
   };
 
   return (
+<<<<<<< HEAD
     <section>
       {isLoaded && (
         <header>
@@ -94,6 +96,20 @@ function CollectionPage() {
       )}
       {collection.loading === 'pending' && <p>Loading...</p>}
     </section>
+=======
+    <ErrorBoundary>
+      <section>
+        <header>
+          <h2>Collection Name TBD</h2>
+          <button type="button">Edit icon</button>
+        </header>
+        {collection.loading === 'idle' && (
+          <PackageList packs={collection.packages} />
+        )}
+        {collection.loading === 'pending' && <p>Loading...</p>}
+      </section>
+    </ErrorBoundary>
+>>>>>>> 129d34c94c7517e742d7bb7b9b190c0106d49472
   );
 }
 
