@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { fetchPackageInfo } from '../../redux/PackageInfoSlice';
+import ErrorBoundary from '../../ErrorBoundary';
 import './PackagePage.css';
 
 function PackagePage() {
@@ -14,15 +15,17 @@ function PackagePage() {
   }, [packageName]);
 
   return (
-    <section>
-      {packageInfo.loading === 'pending' && <p>Loading...</p>}
-      {packageInfo.loading === 'idle' && (
-        <header>
-          <h2>{packageInfo.data.collected.metadata.name}</h2>
-          <button type="button">Edit icon</button>
-        </header>
-      )}
-    </section>
+    <ErrorBoundary>
+      <section>
+        {packageInfo.loading === 'pending' && <p>Loading...</p>}
+        {packageInfo.loading === 'idle' && (
+          <header>
+            <h2>{packageInfo.data.collected.metadata.name}</h2>
+            <button type="button">Edit icon</button>
+          </header>
+        )}
+      </section>
+    </ErrorBoundary>
   );
 }
 

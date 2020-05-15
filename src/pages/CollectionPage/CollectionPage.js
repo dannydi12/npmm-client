@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import PackageList from '../../components/PackageList/PackageList';
 import { fetchCollectionInfo } from '../../redux/CurrentCollectionInfoSlice';
+import ErrorBoundary from '../../ErrorBoundary';
 // import {all the reducers/actions} from './sliceFile.js';
 // import styles from './example.css';
 
@@ -19,16 +20,18 @@ function CollectionPage() {
   }, [id]);
 
   return (
-    <section>
-      <header>
-        <h2>Collection Name TBD</h2>
-        <button type="button">Edit icon</button>
-      </header>
-      {collection.loading === 'idle' && (
-        <PackageList packs={collection.packages} />
-      )}
-      {collection.loading === 'pending' && <p>Loading...</p>}
-    </section>
+    <ErrorBoundary>
+      <section>
+        <header>
+          <h2>Collection Name TBD</h2>
+          <button type="button">Edit icon</button>
+        </header>
+        {collection.loading === 'idle' && (
+          <PackageList packs={collection.packages} />
+        )}
+        {collection.loading === 'pending' && <p>Loading...</p>}
+      </section>
+    </ErrorBoundary>
   );
 }
 

@@ -5,6 +5,7 @@ import SearchBox from '../../components/SearchBox/SearchBox';
 import NavBar from '../../components/NavBar/NavBar';
 import { getCollections } from '../../redux/CollectionListSlice';
 import TokenService from '../../services/token-service';
+import ErrorBoundary from '../../ErrorBoundary';
 
 function LandingPage() {
   const dispatch = useDispatch();
@@ -16,11 +17,13 @@ function LandingPage() {
   }, []);
 
   return (
-    <div>
-      <h1 className="landingTitle">NPMM</h1>
-      <h2 className="landingFullName">Node Package Manager Manager</h2>
-      <SearchBox classProps="landingSearch" />
-    </div>
+    <ErrorBoundary>
+      <div>
+        <h1 className="landingTitle">NPMM</h1>
+        <h2 className="landingFullName">Node Package Manager Manager</h2>
+        <SearchBox classProps="landingSearch" />
+      </div>
+    </ErrorBoundary>
   );
 }
 
