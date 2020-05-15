@@ -24,20 +24,10 @@ function App() {
         <Switch>
           <ErrorBoundary>
             <Route exact path="/collection/:id" component={CollectionPage} />
-          </ErrorBoundary>
-          <ErrorBoundary>
             <Route exact path="/package/:packageName" component={PackagePage} />
-          </ErrorBoundary>
-          <ErrorBoundary>
             <Route exact path="/login" component={LoginPage} />
-          </ErrorBoundary>
-          <ErrorBoundary>
             <Route exact path="/signup" component={SignupPage} />
-          </ErrorBoundary>
-          <ErrorBoundary>
             <Route exact path="/search" component={SearchResultPage} />
-          </ErrorBoundary>
-          <ErrorBoundary>
             <Route exact path="/" component={LandingPage} />
           </ErrorBoundary>
           <Route component={NotFound} />
