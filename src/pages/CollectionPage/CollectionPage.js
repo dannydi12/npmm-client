@@ -57,59 +57,46 @@ function CollectionPage() {
   };
 
   return (
-<<<<<<< HEAD
-    <section>
-      {isLoaded && (
-        <header>
-          {!isEditing && (
-            <>
-              <h2>{collectionInfo.collection_name}</h2>
-              <button type="button" onClick={() => setIsEditing(true)}>
-                Edit
-              </button>
-            </>
-          )}
-          {isEditing && (
-            <>
-              <form onSubmit={(e) => saveChange(e)}>
-                <input
-                  name="collectionName"
-                  type="text"
-                  defaultValue={collectionInfo.collection_name}
-                  onChange={handleInput}
-                />
-                {collectionName.touched && <p>{validateInput()}</p>}
-                <button type="button" onClick={handleDelete}>
-                  Delete
-                </button>
-                <button type="submit" disabled={!validateInput}>
-                  Done
-                </button>
-              </form>
-            </>
-          )}
-        </header>
-      )}
-
-      {collection.loading === 'idle' && (
-        <PackageList packs={collection.packages} />
-      )}
-      {collection.loading === 'pending' && <p>Loading...</p>}
-    </section>
-=======
     <ErrorBoundary>
       <section>
-        <header>
-          <h2>Collection Name TBD</h2>
-          <button type="button">Edit icon</button>
-        </header>
+        {isLoaded && (
+          <header>
+            {!isEditing && (
+              <>
+                <h2>{collectionInfo.collection_name}</h2>
+                <button type="button" onClick={() => setIsEditing(true)}>
+                  Edit
+                </button>
+              </>
+            )}
+            {isEditing && (
+              <>
+                <form onSubmit={(e) => saveChange(e)}>
+                  <input
+                    name="collectionName"
+                    type="text"
+                    defaultValue={collectionInfo.collection_name}
+                    onChange={handleInput}
+                  />
+                  {collectionName.touched && <p>{validateInput()}</p>}
+                  <button type="button" onClick={handleDelete}>
+                    Delete
+                  </button>
+                  <button type="submit" disabled={!validateInput}>
+                    Done
+                  </button>
+                </form>
+              </>
+            )}
+          </header>
+        )}
+
         {collection.loading === 'idle' && (
           <PackageList packs={collection.packages} />
         )}
         {collection.loading === 'pending' && <p>Loading...</p>}
       </section>
     </ErrorBoundary>
->>>>>>> 129d34c94c7517e742d7bb7b9b190c0106d49472
   );
 }
 
