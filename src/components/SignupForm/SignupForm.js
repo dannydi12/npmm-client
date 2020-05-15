@@ -31,7 +31,7 @@ export default function SignupForm() {
     if (email > 40) {
       return 'Is that a real email?';
     }
-    return true;
+    return false;
   }
 
   function validatePassword(pass1, pass2) {
@@ -47,7 +47,7 @@ export default function SignupForm() {
     if (pass1 !== pass2) {
       return 'Passwords do not match';
     }
-    return true;
+    return false;
   }
 
   return (
@@ -94,8 +94,8 @@ export default function SignupForm() {
       </label>
       <button
         disabled={
-          !validateEmail(inputs.email) ||
-          !validatePassword(inputs.password, inputs.password2)
+          validateEmail(inputs.email) ||
+          validatePassword(inputs.password, inputs.password2)
         }
         type="submit"
       >

@@ -33,7 +33,7 @@ function LoginForm() {
     if (email > 40) {
       return 'Is that a real email?';
     }
-    return true;
+    return false;
   }
 
   function validatePassword(pass) {
@@ -46,7 +46,7 @@ function LoginForm() {
     if (pass < 6) {
       return 'Password needs to be at least 6 characters long';
     }
-    return true;
+    return false;
   }
 
   return (
@@ -82,7 +82,7 @@ function LoginForm() {
         </label>
         <button
           disabled={
-            !validateEmail(inputs.email) || !validatePassword(inputs.password)
+            validateEmail(inputs.email) || validatePassword(inputs.password)
           }
           type="submit"
         >
