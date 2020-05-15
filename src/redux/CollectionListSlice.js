@@ -15,8 +15,7 @@ export const updateCollection = createAsyncThunk(
   async (collection, thunkAPI) => {
     const response = await npmmAPI.updateCollection(
       collection.id,
-      collection.name,
-      collection.isLaunchPad
+      collection.name
     );
     return response;
   }
@@ -25,10 +24,7 @@ export const updateCollection = createAsyncThunk(
 export const createCollection = createAsyncThunk(
   'collectionList/createCollection',
   async (collection, thunkAPI) => {
-    const response = await npmmAPI.createCollection(
-      collection.name,
-      collection.isLaunchPad
-    );
+    const response = await npmmAPI.createCollection(collection.name);
     return response;
   }
 );

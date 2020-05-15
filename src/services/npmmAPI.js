@@ -4,7 +4,7 @@ import TokenService from './token-service';
 const npms = {
   getCollectionInfo: (id) => {
     return fetch(`${config.API_ENDPOINT}/api/collections/${id}`, {
-      method: 'get',
+      method: 'GET',
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
@@ -16,7 +16,7 @@ const npms = {
     return fetch(
       `${config.API_ENDPOINT}/api/collections${type ? `?type=${type}` : ''}`,
       {
-        method: 'get',
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${TokenService.getAuthToken()}`,
         },
@@ -27,7 +27,7 @@ const npms = {
   },
   createCollection: (name, isLaunchPad = false) => {
     return fetch(`${config.API_ENDPOINT}/api/collections`, {
-      method: 'post',
+      method: 'POST',
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json',
@@ -40,16 +40,16 @@ const npms = {
       !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
     );
   },
-  updateCollection: (id, name, isLaunchPad) => {
+  updateCollection: (id, name) => {
     return fetch(`${config.API_ENDPOINT}/api/collections/${id}`, {
-      method: 'patch',
+      method: 'PATCH',
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json',
       },
       body: JSON.stringify({
         name,
-        isLaunchPad,
+        isLaunchPad: false,
       }),
     }).then((res) =>
       !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
@@ -57,7 +57,7 @@ const npms = {
   },
   deleteCollection: (id) => {
     return fetch(`${config.API_ENDPOINT}/api/collections/${id}`, {
-      method: 'delete',
+      method: 'DELETE',
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
@@ -67,7 +67,7 @@ const npms = {
   },
   addPackage: (name, collectionId) => {
     return fetch(`${config.API_ENDPOINT}/api/packages`, {
-      method: 'post',
+      method: 'POST',
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json',
@@ -82,7 +82,7 @@ const npms = {
   },
   deletePackage: (name, collectionId) => {
     return fetch(`${config.API_ENDPOINT}/api/packages`, {
-      method: 'delete',
+      method: 'DELETE',
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json',
