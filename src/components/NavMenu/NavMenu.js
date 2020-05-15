@@ -8,16 +8,18 @@ import TokenService from '../../services/token-service';
 function NavMenu() {
   const loading = useSelector((state) => state.collectionList.loading);
 
+  const isLoggedIn = TokenService.hasAuthToken();
+
   return (
     <aside className="navMenu">
       <NavLink to="/">Home</NavLink>
-      {TokenService.hasAuthToken() ? (
+      {!isLoggedIn ? (
         <>
           <NavLink to="login">Login</NavLink>
           <NavLink to="signup">SignUp</NavLink>
         </>
       ) : (
-        <NavLink to="/" onClick={TokenService.clearAuthToken()}>
+        <NavLink to="/" onClick={TokenService.clearAuthToken}>
           Logout
         </NavLink>
       )}
