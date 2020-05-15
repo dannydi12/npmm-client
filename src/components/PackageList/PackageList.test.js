@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import PackageList from './PackageList';
 
 const testProp = [
@@ -28,6 +29,11 @@ const testProp = [
 
 test('renders PackageList without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<PackageList />, div);
+  ReactDOM.render(
+    <BrowserRouter>
+      <PackageList packs={testProp} />
+    </BrowserRouter>,
+    div
+  );
   ReactDOM.unmountComponentAtNode(div);
 });
