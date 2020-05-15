@@ -32,6 +32,7 @@ export const currentCollectionInfo = createSlice({
     name: null,
     packages: [],
     loading: null,
+    inEditingMode: false,
   },
   reducers: {},
   extraReducers: {

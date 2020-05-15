@@ -8,14 +8,6 @@ import TokenService from '../../services/token-service';
 import ErrorBoundary from '../../ErrorBoundary';
 
 function LandingPage() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (TokenService.hasAuthToken()) {
-      dispatch(getCollections());
-    }
-  }, []);
-
   return (
     <ErrorBoundary>
       <div>
