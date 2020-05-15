@@ -40,16 +40,16 @@ const npms = {
       !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
     );
   },
-  updateCollection: (id, name, isLaunchPad) => {
+  updateCollection: (id, name) => {
     return fetch(`${config.API_ENDPOINT}/api/collections/${id}`, {
-      method: 'patch',
+      method: 'PATCH',
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json',
       },
       body: JSON.stringify({
         name,
-        isLaunchPad,
+        isLaunchPad: false,
       }),
     }).then((res) =>
       !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()

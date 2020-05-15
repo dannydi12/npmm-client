@@ -34,11 +34,7 @@ export const currentCollectionInfo = createSlice({
     loading: null,
     inEditingMode: false,
   },
-  reducers: {
-    toggleMode: (state) => {
-      state.inEditingMode = !state.inEditingMode;
-    },
-  },
+  reducers: {},
   extraReducers: {
     [fetchCollectionInfo.pending]: (state) => {
       state.loading = 'pending';
