@@ -35,12 +35,15 @@ function NavMenu() {
           Logout
         </NavLink>
       )}
-      <h3>Collections</h3>
-      <button type="button" onClick={setupCollection}>
-        +
-      </button>
-      {loading === 'idle' && <NavCollections />}
-      {/* In the future, will be conditionally rendered */}
+      {TokenService.hasAuthToken() && (
+        <>
+          <h3>Collections</h3>
+          <button type="button" onClick={setupCollection}>
+            +
+          </button>
+          {loading === 'idle' && <NavCollections />}
+        </>
+      )}
     </aside>
   );
 }
