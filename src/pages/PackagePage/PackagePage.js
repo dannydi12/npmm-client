@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 import { fetchPackageInfo } from '../../redux/PackageInfoSlice';
 import ErrorBoundary from '../../ErrorBoundary';
 import './PackagePage.css';
@@ -19,10 +20,15 @@ function PackagePage() {
       <section>
         {packageInfo.loading === 'pending' && <p>Loading...</p>}
         {packageInfo.loading === 'idle' && (
-          <header>
-            <h2>{packageInfo.data.collected.metadata.name}</h2>
-            <button type="button">Edit icon</button>
-          </header>
+          <>
+            <header>
+              <h2>{packageInfo.data.collected.metadata.name}</h2>
+              <button type="button">Edit icon</button>
+            </header>
+            <ReactMarkdown
+              source={packageInfo.data.collected.metadata.readme}
+            />
+          </>
         )}
       </section>
     </ErrorBoundary>
