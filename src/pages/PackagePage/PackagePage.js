@@ -14,7 +14,8 @@ function PackagePage() {
   useEffect(() => {
     dispatch(fetchPackageInfo(packageName));
   }, [packageName]);
-
+  const metadata =
+    packageInfo.loading === 'idle' ? packageInfo.data.collected.metadata : null;
   return (
     <ErrorBoundary>
       <section>
@@ -22,12 +23,21 @@ function PackagePage() {
         {packageInfo.loading === 'idle' && (
           <>
             <header>
-              <h2>{packageInfo.data.collected.metadata.name}</h2>
+              <h2>{metadata.name}</h2>
               <button type="button">Edit icon</button>
             </header>
-            <ReactMarkdown
-              source={packageInfo.data.collected.metadata.readme}
-            />
+            <ReactMarkdown source={metadata.readme} />
+            <aside>
+              <div>
+                Homepage @
+                <a href={metadata.links.homepage} target="_blank">
+                  {metadata.links.homepage}
+                </a>
+              </div>
+              <div>Repo @ {metadata.repository.url}</div>
+              <div>License {metadata.license}</div>
+              <div>Version {metadata.version}</div>
+            </aside>
           </>
         )}
       </section>
