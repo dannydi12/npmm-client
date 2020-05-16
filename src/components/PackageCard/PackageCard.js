@@ -25,8 +25,6 @@ function PackageCard(props) {
     setIsFavorited(true);
   };
 
-  // console.log('rendered');
-
   return (
     <div>
       <header>
@@ -39,7 +37,14 @@ function PackageCard(props) {
         <button type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           Three dots
         </button>
-        {/* {this is where we conditionally render the threedotmenu component based on isMenuOpen} */}
+        {isMenuOpen && (
+          <div className="three-dot-menu">
+            <button type="button">Trash</button>
+            <button type="button">Three Dots</button>
+            <button type="button">Add to Favorites</button>
+            <button type="button">Add to Collection</button>
+          </div>
+        )}
       </header>
 
       <p>{props.pack.package.description}</p>
