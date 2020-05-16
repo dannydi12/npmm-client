@@ -18,14 +18,14 @@ function NavCollections() {
   ));
 
   function showMoreHandler() {
-    setShowMore(true);
+    setShowMore(!showMore);
   }
 
   return (
     <>
       {links.slice(0, 5)}
       {links.length > 5 ? (
-        <button type="button" onClick={() => showMoreHandler()}>
+        <button type="button" onClick={showMoreHandler}>
           Show more
         </button>
       ) : null}
