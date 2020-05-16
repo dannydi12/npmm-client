@@ -12,8 +12,8 @@ export const fetchCollectionInfo = createAsyncThunk(
 
 export const deletePackage = createAsyncThunk(
   'currentCollectionInfo/deletePackage',
-  async (pack, thunkAPI) => {
-    const response = await npmmAPI.deletePackage(pack.name, pack.collectionId);
+  async (id, thunkAPI) => {
+    const response = await npmmAPI.deletePackage(id);
     return response;
   }
 );
@@ -44,13 +44,12 @@ export const currentCollectionInfo = createSlice({
       state.loading = 'idle';
     },
     [deletePackage.fulfilled]: (state, action) => {
-      state.packages.slice(
-        state.packages.findIndex((pack) => pack.id === action.payload, 1)
+      state.packages = state.packages.filter(
+        (pack) => pack.id !== Number(action.payload)
       );
     },
     [addPackage.fulfilled]: (state, action) => {
       console.log('fulfilled');
-      state.packages.push(action.payload);
     },
     [addPackage.rejected]: (state, action) => {
       console.log('erorr');

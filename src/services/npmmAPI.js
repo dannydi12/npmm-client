@@ -79,19 +79,15 @@ const npms = {
       !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
     );
   },
-  deletePackage: (name, collectionId) => {
-    return fetch(`${config.API_ENDPOINT}/api/packages`, {
+  deletePackage: (id) => {
+    return fetch(`${config.API_ENDPOINT}/api/packages/${id}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json',
       },
-      body: JSON.stringify({
-        name,
-        collectionId,
-      }),
     }).then((res) =>
-      !res.ok ? res.json().then((err) => Promise.reject(err)) : name
+      !res.ok ? res.json().then((err) => Promise.reject(err)) : id
     );
   },
 };
