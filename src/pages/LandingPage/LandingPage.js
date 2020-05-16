@@ -17,9 +17,13 @@ function LandingPage() {
           <Logo className={styles.logoSVG} />
         </h1>
         <SearchBox classProps={styles.landingSearch} />
-        <h2 className="landing-full-name">
+        <h2 className={styles.landingFullName}>
           Managing <span className={styles.underline}>the</span> Manager
         </h2>
+        <p className={styles.description}>
+          Node Package Manager Manager (npmm) is an app designed to help you
+          manage your favorite npm packages
+        </p>
       </div>
     </ErrorBoundary>
   );

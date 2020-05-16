@@ -1,7 +1,7 @@
 .landingContainer {
   margin: 0 auto;
   margin-top: 11.5rem;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
 }
 
 .landingTitle {
@@ -20,4 +20,20 @@
 
 .underline {
   text-decoration: underline;
+}
+
+.landingFullName {
+  color: #2c2c2c;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-size: 2.4rem;
+}
+
+.description {
+  color: #2c2c2c;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+  font-size: 1.2rem;
 }
