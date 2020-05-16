@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
+import randomWords from 'random-words';
 import NavCollections from '../NavCollections/NavCollections';
 import TokenService from '../../services/token-service';
 import { createCollection } from '../../redux/CollectionListSlice';
@@ -13,9 +14,11 @@ function NavMenu() {
   const isLoggedIn = TokenService.hasAuthToken();
 
   const setupCollection = () => {
-    dispatch(createCollection('forms')).then((res) => {
-      history.push(`/collection/${res.payload.id}?edit=true`);
-    });
+    dispatch(createCollection(randomWords({ min: 2, max: 4, join: '-' }))).then(
+      (res) => {
+        history.push(`/collection/${res.payload.id}?edit=true`);
+      }
+    );
   };
 
   return (
