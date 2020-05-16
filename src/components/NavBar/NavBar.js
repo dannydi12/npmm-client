@@ -34,7 +34,7 @@ function NavBar() {
   return (
     <header className="navBar" role="banner">
       <div className="menuContainer">
-        <div className={`navMenu fadeMenu${animationClass}`}>
+        <div className={`navMenu slideMenu${animationClass}`}>
           {showBurger && <NavMenu />}
         </div>
         <div className="navBarContainer">
