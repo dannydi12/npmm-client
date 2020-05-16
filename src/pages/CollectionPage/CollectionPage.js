@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { Link, useParams, useHistory, useLocation } from 'react-router-dom';
+import queryString from 'query-string';
 import PackageList from '../../components/PackageList/PackageList';
 import { fetchCollectionInfo } from '../../redux/CurrentCollectionInfoSlice';
 import {
@@ -14,6 +15,9 @@ function CollectionPage() {
   const { id } = useParams();
   const history = useHistory();
 
+  const location = useLocation();
+  const parsed = queryString.parse(location.search);
+
   const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
   const collectionInfo = useSelector((state) =>
     state.collectionList.collections.find((item) => item.id === Number(id))
@@ -21,11 +25,15 @@ function CollectionPage() {
 
   const isLoaded = collection && collectionInfo;
 
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(!!parsed.edit);
   const [collectionName, setCollectionName] = useState({
     touched: false,
     value: '',
   });
+
+  useEffect(() => {
+    setIsEditing(!!parsed.edit);
+  }, []);
 
   useEffect(() => {
     dispatch(fetchCollectionInfo(id));
