@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { addPackage } from '../../redux/CurrentCollectionInfoSlice';
+import { Link, useRouteMatch } from 'react-router-dom';
+import {
+  addPackage,
+  deletePackage,
+} from '../../redux/CurrentCollectionInfoSlice';
 
 function PackageCard(props) {
   const dispatch = useDispatch();
+  const isInCollection = useRouteMatch('/collection');
+  const [isFavorited, setIsFavorited] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const collectionList = useSelector(
     (state) => state.collectionList,
@@ -16,6 +22,7 @@ function PackageCard(props) {
       (collection) => collection.collection_name === 'Favorites'
     );
     dispatch(addPackage({ name, collectionId: favorites.id }));
+    setIsFavorited(true);
   };
 
   // console.log('rendered');
@@ -29,7 +36,10 @@ function PackageCard(props) {
           </Link>
           <p>({props.pack.package.version})</p>
         </div>
-        <button type="button">Three dots</button>
+        <button type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          Three dots
+        </button>
+        {/* {this is where we conditionally render the threedotmenu component based on isMenuOpen} */}
       </header>
 
       <p>{props.pack.package.description}</p>
@@ -37,12 +47,21 @@ function PackageCard(props) {
       <div className="package-bottom">
         <a href={props.pack.package.links.npm}>NPM logo</a>
         <div className="package-bottom-wrapper">
-          <button
-            type="button"
-            onClick={() => addToFavorites(props.pack.package.name)}
-          >
-            STAR
-          </button>
+          {isInCollection ? (
+            <button
+              type="button"
+              onClick={() => dispatch(deletePackage(props.pack.id))}
+            >
+              delete
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => addToFavorites(props.pack.package.name)}
+            >
+              {isFavorited ? '★' : '☆'}
+            </button>
+          )}
           <p>{Math.floor(props.pack.score.final * 100)}</p>
         </div>
       </div>
