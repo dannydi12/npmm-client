@@ -70,7 +70,7 @@ function PackageCard(props) {
             </button>
             <button
               type="button"
-              onClick={() => addToFavorites(props.package.name)}
+              onClick={() => addToFavorites(props.pack.package.name)}
             >
               Add to Favorites
             </button>
