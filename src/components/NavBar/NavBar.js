@@ -27,7 +27,7 @@ function NavBar() {
       setTimeout(() => {
         setAnimationClass('Hidden');
         setShowBurger(false);
-      }, 700);
+      }, 1000);
     }
   };
 
