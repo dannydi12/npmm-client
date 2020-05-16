@@ -11,11 +11,18 @@ function PackageCard(props) {
   const isInCollection = useRouteMatch('/collection');
   const [isFavorited, setIsFavorited] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showCollections, setShowCollections] = useState(false);
 
   const collectionList = useSelector(
     (state) => state.collectionList,
     () => true
   );
+
+  const collectionOptions = collectionList.collections.map((item) => (
+    <option key={item.id} value={item.id}>
+      {item.collection_name}
+    </option>
+  ));
 
   const addToFavorites = (name) => {
     const favorites = collectionList.collections.find(
@@ -23,6 +30,20 @@ function PackageCard(props) {
     );
     dispatch(addPackage({ name, collectionId: favorites.id }));
     setIsFavorited(true);
+  };
+
+  const addToCollection = (packageName, collection) => {
+    dispatch(addPackage({ name: packageName, collectionId: collection }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(event.target.collectionsList);
+    addToCollection(
+      props.pack.package.name,
+      event.target.collectionsList.value
+    );
+    setShowCollections(false);
   };
 
   return (
@@ -34,15 +55,41 @@ function PackageCard(props) {
           </Link>
           <p>({props.pack.package.version})</p>
         </div>
-        <button type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          Three dots
-        </button>
+        {!isMenuOpen && (
+          <button type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            Three dots
+          </button>
+        )}
         {isMenuOpen && (
           <div className="three-dot-menu">
-            <button type="button">Trash</button>
-            <button type="button">Three Dots</button>
-            <button type="button">Add to Favorites</button>
-            <button type="button">Add to Collection</button>
+            <button type="button" onClick={deletePackage}>
+              Trash
+            </button>
+            <button type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              Three Dots
+            </button>
+            <button
+              type="button"
+              onClick={() => addToFavorites(props.package.name)}
+            >
+              Add to Favorites
+            </button>
+            {!showCollections && (
+              <button
+                type="button"
+                onClick={() => setShowCollections(!showCollections)}
+              >
+                Add to Collection
+              </button>
+            )}
+            {showCollections && (
+              <>
+                <form onSubmit={handleSubmit}>
+                  <select name="collectionsList">{collectionOptions}</select>
+                  <button type="submit">Add to Collection</button>
+                </form>
+              </>
+            )}
           </div>
         )}
       </header>
