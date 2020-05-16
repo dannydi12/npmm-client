@@ -23,8 +23,8 @@ export const updateCollection = createAsyncThunk(
 
 export const createCollection = createAsyncThunk(
   'collectionList/createCollection',
-  async (collection, thunkAPI) => {
-    const response = await npmmAPI.createCollection(collection.name);
+  async (name, thunkAPI) => {
+    const response = await npmmAPI.createCollection(name);
     return response;
   }
 );
