@@ -5,6 +5,7 @@ import randomWords from 'random-words';
 import NavCollections from '../NavCollections/NavCollections';
 import TokenService from '../../services/token-service';
 import { createCollection } from '../../redux/CollectionListSlice';
+import './NavMenu.css';
 // import styles from './example.css';
 
 function NavMenu() {

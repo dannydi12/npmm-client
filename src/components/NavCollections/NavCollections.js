@@ -25,7 +25,7 @@ function NavCollections() {
     <>
       {links.slice(0, 5)}
       {links.length > 5 ? (
-        <button type="button" onClick={showMoreHandler()}>
+        <button type="button" onClick={() => showMoreHandler()}>
           Show more
         </button>
       ) : null}

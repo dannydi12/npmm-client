@@ -79,71 +79,67 @@
   left: 0.4rem;
 }
 
-.fadeMenuHidden {
+.slideMenuHidden {
   display: none;
 }
 
-@-webkit-keyframes fadeMenuDown {
+@-webkit-keyframes slideMenuIn {
   from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
   }
 
   to {
-    opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
-
-@keyframes fadeMenuDown {
+@keyframes slideMenuIn {
   from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
   }
 
   to {
-    opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
-
-.fadeMenuDown {
-  -webkit-animation-name: fadeMenuDown;
-  animation-name: fadeMenuDown;
+.slideMenuIn {
+  -webkit-animation-name: slideMenuIn;
+  animation-name: slideMenuIn;
 }
-
-@-webkit-keyframes fadeMenuUp {
+@-webkit-keyframes slideMenuOut {
   from {
-    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 
   to {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
+    visibility: hidden;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
   }
 }
-
-@keyframes fadeMenuUp {
+@keyframes slideMenuOut {
   from {
-    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 
   to {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
+    visibility: hidden;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
   }
 }
-
-.fadeMenuUp {
-  -webkit-animation-name: fadeMenuUp;
-  animation-name: fadeMenuUp;
+.slideMenuOut {
+  -webkit-animation-name: slideMenuOut;
+  animation-name: slideMenuOut;
 }
+
 /* 
 @media only screen and (max-width: 360px) {
   .navLink {
