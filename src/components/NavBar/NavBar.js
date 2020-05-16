@@ -12,29 +12,29 @@ function NavBar() {
   const isNotHomePage = location.pathname !== '/';
 
   useEffect(() => {
-    if (showBurger === true || animationClass === 'Down') {
+    if (showBurger === true || animationClass === 'In') {
       setShowBurger(false);
-      setAnimationClass('Up');
+      setAnimationClass('Out');
     }
   }, [location.pathname]);
 
   const toggleHamburger = () => {
     if (showBurger === false || animationClass === 'Hidden') {
       setShowBurger(true);
-      setAnimationClass('Down');
+      setAnimationClass('In');
     } else {
-      setAnimationClass('Up');
+      setAnimationClass('Out');
       setTimeout(() => {
         setAnimationClass('Hidden');
         setShowBurger(false);
-      }, 700);
+      }, 1000);
     }
   };
 
   return (
     <header className="navBar" role="banner">
       <div className="menuContainer">
-        <div className={`navMenu fadeMenu${animationClass}`}>
+        <div className={`navMenu slideMenu${animationClass}`}>
           {showBurger && <NavMenu />}
         </div>
         <div className="navBarContainer">
@@ -56,7 +56,6 @@ function NavBar() {
             <div
               className={`burgerButton ${showBurger}Burger`}
               onClick={() => toggleHamburger()}
-              onKeyDown={() => toggleHamburger()}
               role="menu"
               tabIndex={0}
             >

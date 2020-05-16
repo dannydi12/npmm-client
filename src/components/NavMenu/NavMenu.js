@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import NavCollections from '../NavCollections/NavCollections';
 import TokenService from '../../services/token-service';
+import './NavMenu.css';
 // import styles from './example.css';
 
 function NavMenu() {
