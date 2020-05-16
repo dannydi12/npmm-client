@@ -4,6 +4,7 @@
   /* font-family: 'Montserrat', sans-serif; */
   font-size: 1.7rem;
   font-weight: 300;
+  background-color: #F4F4F4;
 }
 
 p {
@@ -49,7 +50,8 @@ button:hover {
 input::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: black;
-  opacity: 1; /* Firefox */
+  opacity: 1;
+  /* Firefox */
   font-weight: 300;
 }
 
@@ -65,8 +67,7 @@ input::-ms-input-placeholder {
   font-weight: 300;
 }
 
-button:disabled,
-button[disabled] {
+button:disabled, button[disabled] {
   color: black;
 }
 

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import styles from './LandingPage.module.css';
+import { ReactComponent as Logo } from '../../images/npmm-logo.svg';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import NavBar from '../../components/NavBar/NavBar';
 import { getCollections } from '../../redux/CollectionListSlice';
@@ -10,10 +12,14 @@ import ErrorBoundary from '../../ErrorBoundary';
 function LandingPage() {
   return (
     <ErrorBoundary>
-      <div>
-        <h1 className="landingTitle">NPMM</h1>
-        <h2 className="landingFullName">Node Package Manager Manager</h2>
-        <SearchBox classProps="landingSearch" />
+      <div className={styles.landingContainer}>
+        <h1 className={styles.landingTitle}>
+          <Logo className={styles.logoSVG} />
+        </h1>
+        <SearchBox classProps={styles.landingSearch} />
+        <h2 className="landing-full-name">
+          Managing <span className={styles.underline}>the</span> Manager
+        </h2>
       </div>
     </ErrorBoundary>
   );

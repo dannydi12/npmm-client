@@ -1,0 +1,23 @@
+.landingContainer {
+  margin: 0 auto;
+  margin-top: 11.5rem;
+  background-color: #F4F4F4;
+}
+
+.landingTitle {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.logoSVG {
+  min-height: 14rem;
+}
+
+.landingSearch {
+  font-weight: regular;
+  min-height: 6rem;
+}
+
+.underline {
+  text-decoration: underline;
+}
