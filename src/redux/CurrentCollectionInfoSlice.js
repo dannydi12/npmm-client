@@ -41,6 +41,7 @@ export const currentCollectionInfo = createSlice({
     },
     [fetchCollectionInfo.fulfilled]: (state, action) => {
       state.packages = action.payload.packs;
+      state.name = action.payload.name;
       state.loading = 'idle';
     },
     [deletePackage.fulfilled]: (state, action) => {

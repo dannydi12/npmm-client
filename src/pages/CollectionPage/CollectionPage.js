@@ -14,16 +14,8 @@ function CollectionPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const history = useHistory();
-
   const location = useLocation();
   const parsed = queryString.parse(location.search);
-
-  const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
-  const collectionInfo = useSelector((state) =>
-    state.collectionList.collections.find((item) => item.id === Number(id))
-  );
-
-  const isLoaded = collection && collectionInfo;
 
   const [isEditing, setIsEditing] = useState(!!parsed.edit);
   const [collectionName, setCollectionName] = useState({
@@ -31,13 +23,24 @@ function CollectionPage() {
     value: '',
   });
 
+  const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
+
   useEffect(() => {
     setIsEditing(!!parsed.edit);
-  }, []);
+  }, [parsed.edit]);
 
   useEffect(() => {
     dispatch(fetchCollectionInfo(id));
   }, [id]);
+
+  useEffect(() => {
+    if (collection.loading === 'idle') {
+      setCollectionName({
+        touched: false,
+        value: collection.name,
+      });
+    }
+  }, [collection.loading]);
 
   const saveChange = (e) => {
     e.preventDefault();
@@ -67,11 +70,11 @@ function CollectionPage() {
   return (
     <ErrorBoundary>
       <section>
-        {isLoaded && (
+        {collection && (
           <header>
             {!isEditing && (
               <>
-                <h2>{collectionInfo.collection_name}</h2>
+                <h2>{collectionName.value}</h2>
                 <button type="button" onClick={() => setIsEditing(true)}>
                   Edit
                 </button>
@@ -83,7 +86,7 @@ function CollectionPage() {
                   <input
                     name="collectionName"
                     type="text"
-                    defaultValue={collectionInfo.collection_name}
+                    defaultValue={collectionName.value}
                     onChange={handleInput}
                   />
                   {collectionName.touched && <p>{validateInput()}</p>}
