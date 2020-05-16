@@ -6,7 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 function NavCollections() {
   const collections = useSelector((state) => state.collectionList.collections);
 
-  const [showMore, setShowMore] = useState({ showMore: false });
+  const [showMore, setShowMore] = useState(false);
 
   const links = collections.map((collection) => (
     <NavLink
@@ -17,19 +17,15 @@ function NavCollections() {
     </NavLink>
   ));
 
-  function showMoreHandler() {
-    setShowMore(true);
-  }
-
   return (
     <>
       {links.slice(0, 5)}
-      {links.length > 5 ? (
-        <button type="button" onClick={() => showMoreHandler()}>
+      {links.length > 5 && showMore === false ? (
+        <button type="button" onClick={() => setShowMore(!showMore)}>
           Show more
         </button>
       ) : null}
-      {showMore && links.slice(4)}
+      {showMore && links.slice(5)}
     </>
   );
 }
