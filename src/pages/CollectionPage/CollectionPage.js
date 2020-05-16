@@ -32,6 +32,10 @@ function CollectionPage() {
   });
 
   useEffect(() => {
+    setIsEditing(!!parsed.edit);
+  }, [parsed.edit]);
+
+  useEffect(() => {
     dispatch(fetchCollectionInfo(id));
   }, [id]);
 
