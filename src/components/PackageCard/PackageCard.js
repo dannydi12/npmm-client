@@ -38,7 +38,6 @@ function PackageCard(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target.collectionsList);
     addToCollection(
       props.pack.package.name,
       event.target.collectionsList.value

@@ -11,7 +11,6 @@ import PackageCard from '../PackageCard/PackageCard';
 function PackageList(props) {
   // const varName = useSelector((state) => state.specific.thing.i.want); // to get stuff from state
   // const dispatch = useDispatch(); // to dispatch actions
-  console.log(props.packs);
   const packs = props.packs.map((pack) => (
     <li key={pack.package.name}>
       <PackageCard pack={pack} />
