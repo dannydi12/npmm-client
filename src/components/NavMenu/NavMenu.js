@@ -23,8 +23,6 @@ function NavMenu() {
           Logout
         </NavLink>
       )}
-
-      <NavLink to="/favorites">Favorites</NavLink>
       {loading === 'idle' && <NavCollections />}
       {/* In the future, will be conditionally rendered */}
     </aside>

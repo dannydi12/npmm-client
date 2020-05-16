@@ -25,7 +25,7 @@ function CollectionPage() {
 
   const isLoaded = collection && collectionInfo;
 
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(!!parsed.edit);
   const [collectionName, setCollectionName] = useState({
     touched: false,
     value: '',
