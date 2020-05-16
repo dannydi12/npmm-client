@@ -68,7 +68,7 @@ export const collectionListSlice = createSlice({
     },
     [deleteCollection.fulfilled]: (state, action) => {
       state.collections = state.collections.filter(
-        (collection) => collection.id !== action.payload
+        (collection) => collection.id !== Number(action.payload)
       );
     },
   },

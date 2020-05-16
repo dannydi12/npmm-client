@@ -1,12 +1,15 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import useSignUpForm from '../Utilities/CustomHooks';
 import AuthService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
+import { getCollections } from '../../redux/CollectionListSlice';
 import './LoginForm.css';
 
 function LoginForm() {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const login = () => {
     AuthService.postLogin({
@@ -17,6 +20,7 @@ function LoginForm() {
         TokenService.saveAuthToken(res.authToken);
       })
       .then((res) => {
+        dispatch(getCollections());
         history.push('/');
       });
   };
