@@ -26,10 +26,10 @@
 
 .landingFullName {
   color: #2c2c2c;
-  margin-top: 2.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 7rem;
+  margin-bottom: 1.2rem;
   text-align: center;
-  font-size: 2.4rem;
+  font-size: 2.8rem;
 }
 
 .description {
@@ -37,5 +37,5 @@
   margin: 0 auto;
   padding: 0 2rem;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }

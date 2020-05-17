@@ -65,11 +65,13 @@
   transform: rotate(45deg);
   left: 0.4rem;
   width: 3.4rem;
+  background: white;
 }
 
 .trueBurger span:nth-child(2) {
   width: 0%;
   opacity: 0;
+  background: white;
 }
 
 .trueBurger span:nth-child(3) {
@@ -79,6 +81,7 @@
   transform: rotate(-45deg);
   left: 0.4rem;
   width: 3.4rem;
+  background: white;
 }
 
 .slideMenuHidden {

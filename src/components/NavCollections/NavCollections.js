@@ -12,6 +12,7 @@ function NavCollections() {
     <NavLink
       key={collection.collection_name}
       to={`/collection/${collection.id}`}
+      className="collectionMenuLink"
     >
       {collection.collection_name}
     </NavLink>

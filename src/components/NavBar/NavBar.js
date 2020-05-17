@@ -24,9 +24,9 @@ function NavBar() {
       setAnimationClass('In');
     } else {
       setAnimationClass('Out');
+      setShowBurger(false);
       setTimeout(() => {
         setAnimationClass('Hidden');
-        setShowBurger(false);
       }, 1000);
     }
   };
@@ -35,7 +35,7 @@ function NavBar() {
     <header className="navBar" role="banner">
       <div className="menuContainer">
         <div className={`navMenu slideMenu${animationClass}`}>
-          {showBurger && <NavMenu />}
+          {animationClass !== 'Hidden' && <NavMenu />}
         </div>
         <div className="navBarContainer">
           {isNotHomePage && (
