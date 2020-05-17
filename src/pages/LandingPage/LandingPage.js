@@ -16,7 +16,7 @@ function LandingPage() {
       <div className="landingContainer">
         <h1 className="landingTitle">
           <img
-            src="/images/npmm-logo.svg"
+            src="../../images/npmm-logo.svg"
             alt="npmm logo"
             className="logoMain"
           />

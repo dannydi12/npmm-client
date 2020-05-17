@@ -19,8 +19,7 @@
   align-items: flex-end;
 }
 
-.menuLink,
-.collectionLink {
+.menuLink, .collectionLink {
   font-size: 3.8rem;
   font-weight: 500;
   text-decoration: underline;
@@ -48,7 +47,7 @@
   background-color: transparent;
   width: 9rem;
   content: '';
-  background-image: url('/images/logo-ball-right-white.svg');
+  background-image: url('../../images/logo-ball-right-white.svg');
   position: absolute;
   right: -5.6rem;
   background-repeat: no-repeat;
@@ -69,8 +68,7 @@
   margin-right: 0.6rem;
 }
 
-.createCollection,
-.collectionMenuLink {
+.createCollection, .collectionMenuLink {
   font-family: 'Roboto', sans-serif;
   font-size: 2rem;
   font-weight: 200;

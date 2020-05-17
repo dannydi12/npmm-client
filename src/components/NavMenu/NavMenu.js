@@ -58,7 +58,7 @@ function NavMenu() {
               className="createCollection"
             >
               <img
-                src="/images/plus.svg"
+                src="../../images/plus.svg"
                 alt="add collection button"
                 className="plusButton"
               />
