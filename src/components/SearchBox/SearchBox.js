@@ -31,7 +31,7 @@ function SearchBox(props) {
           type="text"
           name="packageSearch"
           id="packageSearch"
-          className="searchInput"
+          className={props.searchInputClass}
           aria-label="npm package search"
           onChange={(ev) => setSearch(ev.target.value)}
         />

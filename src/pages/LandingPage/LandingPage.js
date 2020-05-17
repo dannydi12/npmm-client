@@ -11,7 +11,11 @@ function LandingPage() {
         <h1 className="landingTitle">
           <img src={npmmLogo} alt="npmm logo" className="logoMain" />
         </h1>
-        <SearchBox classProps="landingSearch" searchButton="Search" />
+        <SearchBox
+          classProps="landingSearch"
+          searchButton="Search"
+          searchInputClass="landingSearchInput"
+        />
         <h2 className="landingFullName">
           Managing <span className="underline">the</span> Manager
         </h2>
