@@ -29,6 +29,21 @@
   text-align: center;
 }
 
+.navSearch {
+  display: inline-block;
+  max-width: 30%;
+}
+
+.navSearchToggle {
+  margin: 2.5rem;
+  height: 3.3rem;
+}
+
+.searchButtonIcon {
+  margin: 2.5rem;
+  height: 3.3rem;
+}
+
 .navName {
   font-weight: 700;
   font-size: 2.3rem;

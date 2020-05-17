@@ -5,3 +5,7 @@
   background-position: 1.4rem;
   background-image: url('../../images/mag-glass-gray.svg');
 }
+
+.searchButton {
+  display: inline-block;
+}

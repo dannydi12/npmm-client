@@ -40,7 +40,7 @@ function SearchBox(props) {
           className="searchButton"
           aria-label="search button"
         >
-          Search
+          {props.searchButton}
         </button>
       </form>
     </div>
