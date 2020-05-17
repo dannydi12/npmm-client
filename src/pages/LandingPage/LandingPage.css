@@ -1,0 +1,49 @@
+.landingContainer {
+  margin: 0 auto;
+  margin-top: 11.5rem;
+  background-color: #f4f4f4;
+}
+
+.landingTitle {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.logoMain {
+  min-height: 14rem;
+  margin-bottom: 0.8rem;
+}
+
+.landingSearch {
+  font-weight: regular;
+  min-height: 6rem;
+  width: 100%;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.landingFullName {
+  color: #2c2c2c;
+  margin-top: 7rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-size: 2.8rem;
+}
+
+.description {
+  color: #2c2c2c;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.landingSearchInput {
+  padding-left: 6rem;
+  background-repeat: no-repeat;
+  background-size: 3.3rem;
+  background-position: 1.4rem;
+  background-image: url('../../images/mag-glass-gray.svg');
+}
