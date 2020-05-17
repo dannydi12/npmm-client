@@ -8,6 +8,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import { getCollections } from '../../redux/CollectionListSlice';
 import TokenService from '../../services/token-service';
 import ErrorBoundary from '../../ErrorBoundary';
+import npmmLogo from '../../images/npmm-logo.svg';
 import './LandingPage.css';
 
 function LandingPage() {
@@ -15,11 +16,7 @@ function LandingPage() {
     <ErrorBoundary>
       <div className="landingContainer">
         <h1 className="landingTitle">
-          <img
-            src="../../images/npmm-logo.svg"
-            alt="npmm logo"
-            className="logoMain"
-          />
+          <img src={npmmLogo} alt="npmm logo" className="logoMain" />
         </h1>
         <SearchBox classProps="landingSearch" />
         <h2 className="landingFullName">

@@ -5,6 +5,7 @@ import randomWords from 'random-words';
 import NavCollections from '../NavCollections/NavCollections';
 import TokenService from '../../services/token-service';
 import { createCollection } from '../../redux/CollectionListSlice';
+import plus from '../../images/plus.svg';
 import './NavMenu.css';
 // import styles from './example.css';
 
@@ -58,7 +59,7 @@ function NavMenu() {
               className="createCollection"
             >
               <img
-                src="../../images/plus.svg"
+                src={plus}
                 alt="add collection button"
                 className="plusButton"
               />
