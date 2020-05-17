@@ -61,6 +61,9 @@ function NavBar() {
               {toggleSearch && (
                 <SearchBox
                   classProps="navSearch"
+                  searchFormClass="navSearchForm"
+                  searchInputClass="navSearchInput"
+                  searchButtonClass="navSearchButton"
                   searchButton={
                     <img
                       src={whiteMagGlass}

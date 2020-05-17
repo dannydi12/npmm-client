@@ -22,7 +22,7 @@ function SearchBox(props) {
   return (
     <div className={props.classProps}>
       <form
-        className="searchForm"
+        className={props.searchFormClass}
         onSubmit={handleSubmit}
         aria-label="npm package search"
       >
@@ -37,7 +37,7 @@ function SearchBox(props) {
         />
         <button
           type="submit"
-          className="searchButton"
+          className={props.searchButtonClass}
           aria-label="search button"
         >
           {props.searchButton}

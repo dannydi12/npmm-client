@@ -29,9 +29,28 @@
   text-align: center;
 }
 
-.navSearch {
+.navSearchInput[type='text'] {
   display: inline-block;
-  max-width: 30%;
+  min-width: 0;
+  border: none;
+  background-color: #e2514c;
+  border-radius: 0;
+  border-right: solid white 1px;
+  margin-top: 0;
+  padding: 1.8rem;
+  height: 8.4rem;
+  border-bottom: solid #2c2c2c 1px;
+  flex-grow: 2;
+}
+
+.navSearchInput[type='text']::placeholder {
+  color: #fff;
+}
+
+.navSearchForm {
+  display: flex;
+  flex-direction: row;
+  margin-right: 9rem;
 }
 
 .navSearchToggle {
@@ -42,6 +61,16 @@
 .searchButtonIcon {
   margin: 2.5rem;
   height: 3.3rem;
+  width: 3.3rem;
+}
+
+.navSearchButton[type='submit'] {
+  margin-top: 0;
+  min-width: 3.3rem;
+  height: 8.4rem;
+  border-radius: 0;
+  flex-grow: 1;
+  border-bottom: solid 1px #2c2c2c;
 }
 
 .navName {
