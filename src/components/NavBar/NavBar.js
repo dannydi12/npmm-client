@@ -41,7 +41,11 @@ function NavBar() {
         <div className={`navMenu slideMenu${animationClass}`}>
           {animationClass !== 'Hidden' && <NavMenu />}
         </div>
-        <div className="navBarContainer">
+        <div
+          className={
+            isNotHomePage ? 'navBarContainer' : 'navBarContainerLanding'
+          }
+        >
           {isNotHomePage && (
             <>
               {!toggleSearch && (

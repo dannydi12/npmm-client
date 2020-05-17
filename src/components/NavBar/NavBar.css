@@ -6,6 +6,13 @@
   justify-content: space-between;
   border-bottom: solid #2c2c2c 1px;
 }
+.navBarContainerLanding {
+  position: relative;
+  z-index: 999;
+  height: 8.5rem;
+  display: flex;
+  justify-content: space-between;
+}
 
 .menuContainer {
   z-index: 998;
