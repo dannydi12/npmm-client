@@ -1,12 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-// import styles from './LandingPage.module.css';
-// import { ReactComponent as Logo } from '../../../public/images/npmm-logo.svg';
+import React from 'react';
 import SearchBox from '../../components/SearchBox/SearchBox';
-import NavBar from '../../components/NavBar/NavBar';
-import { getCollections } from '../../redux/CollectionListSlice';
-import TokenService from '../../services/token-service';
 import ErrorBoundary from '../../ErrorBoundary';
 import npmmLogo from '../../images/npmm-logo.svg';
 import './LandingPage.css';
