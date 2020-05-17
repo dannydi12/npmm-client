@@ -45,18 +45,23 @@ function NavBar() {
           {isNotHomePage && (
             <>
               {!toggleSearch && (
-                <button
-                  type="button"
-                  className="toggleSearch"
-                  aria-label="searchToggle"
-                  onClick={() => setToggleSearch(!toggleSearch)}
-                >
-                  <img
-                    src={blackMagGlass}
-                    alt="magnifying glass for search button"
-                    className="navSearchToggle"
-                  />
-                </button>
+                <>
+                  <button
+                    type="button"
+                    className="toggleSearch"
+                    aria-label="searchToggle"
+                    onClick={() => setToggleSearch(!toggleSearch)}
+                  >
+                    <img
+                      src={blackMagGlass}
+                      alt="magnifying glass for search button"
+                      className="navSearchToggle"
+                    />
+                  </button>
+                  <Link to="/" className="logoHome">
+                    <img src={npmmLogo} alt="npmm logo" className="navLogo" />
+                  </Link>
+                </>
               )}
               {toggleSearch && (
                 <SearchBox
@@ -73,9 +78,6 @@ function NavBar() {
                   }
                 />
               )}
-              <Link to="/" className="logoHome">
-                <img src={npmmLogo} alt="npmm logo" className="navLogo" />
-              </Link>
             </>
           )}
           <div className="hamburgerContainer">
