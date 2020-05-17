@@ -1,9 +1,6 @@
 .burgerButton {
   width: 3rem;
   height: 3rem;
-  position: absolute;
-  top: 3rem;
-  right: 3rem;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);

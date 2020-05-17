@@ -2,6 +2,8 @@
   position: relative;
   z-index: 999;
   height: 8.4rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .menuContainer {
@@ -15,12 +17,18 @@
 .logoHome {
   height: 100%;
   display: inline-block;
+  width: 30%;
+}
+
+.hamburgerContainer {
+  height: 100%;
+  padding: 3rem;
 }
 
 .navLogo {
-  /* width: 3.2rem; */
+  width: 100%;
+  height: 100%;
   display: inline-block;
-  margin-left: 2rem;
   vertical-align: -0.8rem;
 }
 
