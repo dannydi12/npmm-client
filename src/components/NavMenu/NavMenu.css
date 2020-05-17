@@ -8,27 +8,85 @@
   right: 0;
   max-width: 37.5rem;
   width: 100%;
-  background-color: #f4f4f4;
+  background-color: #e2514c;
   justify-content: space-evenly;
-  padding: 10vh 0;
+  padding: 10vh 7.2rem 10vh 0;
   z-index: 1;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+  align-items: flex-end;
 }
 
-@media only screen and (min-width: 1024px) {
+.menuLink,
+.collectionLink {
+  font-size: 3.8rem;
+  font-weight: 500;
+  text-decoration: underline;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.menuLink {
+  height: 6.8rem;
+  background-color: transparent;
+  padding-left: 10rem;
+  padding-top: 0.8rem;
+  border-radius: 3.4rem 0 0 3.4rem;
+  position: relative;
+}
+
+.menuLink.active {
+  color: #2c2c2c;
+  background-color: white;
+}
+
+.menuLink.active::after {
+  height: 9.3rem;
+  bottom: 0;
+  background-color: transparent;
+  width: 9rem;
+  content: '';
+  background-image: url('/images/logo-ball-right-white.svg');
+  position: absolute;
+  right: -5.6rem;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.collectionLink {
+  margin: 0;
+}
+
+.collectionMenu {
+  text-align: right;
+}
+
+.plusButton {
+  height: 1.5rem;
+  vertical-align: -0.1rem;
+  margin-right: 0.6rem;
+}
+
+.createCollection,
+.collectionMenuLink {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  font-weight: 200;
+  text-decoration: underline;
+  margin-top: 2rem;
+  color: white;
+  display: block;
+  margin-left: auto;
+}
+
+/* .collectionMenu {
+  margin-right: -5.2rem;
+} */
+
+@media only screen and (max-width: 360px) {
   .navMenu {
-    height: 6rem;
-    overflow: hidden;
-    padding: 0;
-    margin-right: calc(49vw - 42rem);
-    right: 0;
-    left: auto;
-    width: 70rem;
-    display: inline-block;
-    text-align: right;
-    z-index: 999;
+    padding-right: 6rem;
   }
 }

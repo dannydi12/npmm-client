@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, Link, useHistory } from 'react-router-dom';
 import randomWords from 'random-words';
 import NavCollections from '../NavCollections/NavCollections';
 import TokenService from '../../services/token-service';
@@ -24,7 +24,9 @@ function NavMenu() {
 
   return (
     <>
-      <NavLink to="/">Home</NavLink>
+      <NavLink to="/" className="menuLink">
+        Home
+      </NavLink>
       {!isLoggedIn ? (
         <>
           <NavLink to="login" className="menuLink">
@@ -35,18 +37,36 @@ function NavMenu() {
           </NavLink>
         </>
       ) : (
-        <NavLink to="/" onClick={TokenService.clearAuthToken}>
+        <Link to="/" onClick={TokenService.clearAuthToken} className="menuLink">
           Logout
-        </NavLink>
+        </Link>
       )}
       {TokenService.hasAuthToken() && (
-        <>
-          <h3>Collections</h3>
-          <button type="button" onClick={setupCollection}>
-            +
-          </button>
-          {loading === 'idle' && <NavCollections />}
-        </>
+        <div className="collectionMenu">
+          {/* <button type="button" onClick={setupCollection}> */}
+          <h3 className="collectionLink">Collections</h3>
+          {/* <img
+              src="/images/plus-button.svg"
+              alt="add collection button"
+              className="plusButton"
+            />
+          </button> */}
+          <div className="collectionMenuList">
+            <button
+              type="button"
+              onClick={setupCollection}
+              className="createCollection"
+            >
+              <img
+                src="/images/plus.svg"
+                alt="add collection button"
+                className="plusButton"
+              />
+              Create Collection
+            </button>
+            {loading === 'idle' && <NavCollections />}
+          </div>
+        </div>
       )}
     </>
   );
