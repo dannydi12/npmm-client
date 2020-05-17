@@ -5,9 +5,10 @@
   height: 100vh;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
+  max-width: 37.5rem;
   width: 100%;
-  background-color: gray;
+  background-color: #f4f4f4;
   justify-content: space-evenly;
   padding: 10vh 0;
   z-index: 1;
@@ -15,4 +16,19 @@
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+}
+
+@media only screen and (min-width: 1024px) {
+  .navMenu {
+    height: 6rem;
+    overflow: hidden;
+    padding: 0;
+    margin-right: calc(49vw - 42rem);
+    right: 0;
+    left: auto;
+    width: 70rem;
+    display: inline-block;
+    text-align: right;
+    z-index: 999;
+  }
 }

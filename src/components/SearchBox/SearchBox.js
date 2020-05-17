@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { searchFor } from '../../redux/SearchResultsSlice';
-import styles from './SearchBox.module.css';
+import './SearchBox.css';
 
 function SearchBox(props) {
   const [tempSearch, setTempSearch] = useState('');
@@ -27,17 +27,17 @@ function SearchBox(props) {
         aria-label="npm package search"
       >
         <input
-          placeholder="Search for an NPM package..."
+          placeholder="Search packages"
           type="text"
           name="packageSearch"
           id="packageSearch"
-          className={styles.searchInput}
+          className="searchInput"
           aria-label="npm package search"
           onChange={(ev) => setSearch(ev.target.value)}
         />
         <button
           type="submit"
-          className={styles.searchButton}
+          className="searchButton"
           aria-label="search button"
         >
           Search
