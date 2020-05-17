@@ -23,12 +23,16 @@ function NavMenu() {
   };
 
   return (
-    <aside className="navMenu">
+    <>
       <NavLink to="/">Home</NavLink>
       {!isLoggedIn ? (
         <>
-          <NavLink to="login">Login</NavLink>
-          <NavLink to="signup">SignUp</NavLink>
+          <NavLink to="login" className="menuLink">
+            Login
+          </NavLink>
+          <NavLink to="signup" className="menuLink">
+            SignUp
+          </NavLink>
         </>
       ) : (
         <NavLink to="/" onClick={TokenService.clearAuthToken}>
@@ -44,7 +48,7 @@ function NavMenu() {
           {loading === 'idle' && <NavCollections />}
         </>
       )}
-    </aside>
+    </>
   );
 }
 

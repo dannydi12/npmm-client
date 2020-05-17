@@ -1,9 +1,9 @@
 .burgerButton {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   position: absolute;
-  top: 1.9rem;
-  right: 2rem;
+  top: 3rem;
+  right: 3rem;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -18,9 +18,9 @@
 .burgerButton span {
   display: block;
   position: absolute;
-  height: 0.2rem;
+  height: 2px;
   width: 100%;
-  background: black;
+  background: #2c2c2c;
   border-radius: 0.9rem;
   opacity: 1;
   left: 0;
@@ -43,7 +43,7 @@
 }
 
 .burgerButton span:nth-child(2) {
-  top: 0.9rem;
+  top: 1.2rem;
   -webkit-transform-origin: left center;
   -moz-transform-origin: left center;
   -o-transform-origin: left center;
@@ -51,7 +51,7 @@
 }
 
 .burgerButton span:nth-child(3) {
-  top: 1.8rem;
+  top: 2.4rem;
   -webkit-transform-origin: left center;
   -moz-transform-origin: left center;
   -o-transform-origin: left center;
@@ -64,6 +64,7 @@
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
   left: 0.4rem;
+  width: 3.4rem;
 }
 
 .trueBurger span:nth-child(2) {
@@ -77,6 +78,7 @@
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
   left: 0.4rem;
+  width: 3.4rem;
 }
 
 .slideMenuHidden {
@@ -151,19 +153,6 @@
 }
 
 @media only screen and (min-width: 1024px) {
-  .navMenu {
-    height: 6rem;
-    overflow: hidden;
-    padding: 0;
-    margin-right: calc(49vw - 42rem);
-    right: 0;
-    left: auto;
-    width: 70rem;
-    display: inline-block;
-    text-align: right;
-    z-index: 999;
-  }
-
   .navLink {
     font-size: 1.7rem;
     margin: 0;

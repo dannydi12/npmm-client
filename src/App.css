@@ -1,10 +1,10 @@
 .app {
   min-height: 100vh;
   position: relative;
-  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Roboto', sans-serif;
   font-size: 1.7rem;
   font-weight: 300;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
 }
 
 p {
@@ -22,20 +22,21 @@ ul {
   margin: 0 auto;
 }
 
-/* button,
-input[type='submit'] {
-  height: 3.6rem;
+button {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 1.8rem;
+  font-size: 2rem;
+  color: #f4f4f4;
+  background-color: #e2514c;
+  min-width: 100%;
+  border-radius: 5px;
+  height: 6rem;
   cursor: pointer;
-  background-color: #f4bd5b;
   border: none;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  font-size: 1.7rem;
-  cursor: pointer;
+  font-weight: 400;
+  font-size: 2rem;
   outline: none;
-  border-radius: 1.4rem;
-  padding: 0 2rem 0.2rem;
   transition: all 0.1s ease-out 0.1s;
   -webkit-transition: all 0.1s ease-out 0.1s;
   -moz-transition: all 0.1s ease-out 0.1s;
@@ -43,31 +44,50 @@ input[type='submit'] {
 }
 
 button:hover {
-  color: white;
-  background-color: #f0667b;
-} */
+}
+
+input,
+input[type='text'],
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #2c2c2c;
+  border-radius: 5px;
+  min-width: 100%;
+  margin-top: 1.8rem;
+  height: 6rem;
+  background-color: white;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+}
 
 input::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: black;
+  color: #919191;
   opacity: 1;
-  /* Firefox */
-  font-weight: 300;
+  font-weight: 400;
 }
 
 input:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: black;
-  font-weight: 300;
+  color: #919191;
+  opacity: 1;
+  font-weight: 400;
 }
 
 input::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: black;
-  font-weight: 300;
+  color: #919191;
+  opacity: 1;
+  font-weight: 400;
 }
 
-button:disabled, button[disabled] {
+button:disabled,
+button[disabled] {
   color: black;
 }
 
@@ -86,19 +106,6 @@ button:disabled, button[disabled] {
 .inline {
   display: inline-block;
 }
-
-/* input[type='text'],
-select,
-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-  background-image: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-} */
 
 @media only screen and (min-width: 768px) {
   .appMain {
