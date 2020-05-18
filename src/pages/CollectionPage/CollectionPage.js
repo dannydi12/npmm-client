@@ -17,19 +17,20 @@ function CollectionPage() {
   const location = useLocation();
   const parsed = queryString.parse(location.search);
 
+  const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
+
   const [isEditing, setIsEditing] = useState(!!parsed.edit);
   const [collectionName, setCollectionName] = useState({
     touched: false,
     value: '',
   });
 
-  const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
-
   useEffect(() => {
     setIsEditing(!!parsed.edit);
   }, [parsed.edit]);
 
   useEffect(() => {
+    setIsEditing(false || !!parsed.edit);
     dispatch(fetchCollectionInfo(id));
   }, [id]);
 
@@ -86,7 +87,7 @@ function CollectionPage() {
                   <input
                     name="collectionName"
                     type="text"
-                    defaultValue={collectionName.value}
+                    value={collectionName.value}
                     onChange={handleInput}
                   />
                   {collectionName.touched && <p>{validateInput()}</p>}
