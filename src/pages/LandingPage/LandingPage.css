@@ -10,12 +10,12 @@
 }
 
 .logoMain {
-  min-height: 14rem;
+  max-height: 14rem;
   margin-bottom: 0.8rem;
 }
 
 .landingSearch {
-  font-weight: regular;
+  font-weight: 400;
   min-height: 6rem;
   width: 100%;
 }

@@ -57,7 +57,7 @@ select {
   appearance: none;
   border: 1px solid #2c2c2c;
   border-radius: 5px;
-  min-width: 100%;
+  width: 100%;
   margin-top: 1.8rem;
   height: 6rem;
   background-color: white;

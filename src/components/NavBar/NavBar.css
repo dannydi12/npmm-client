@@ -1,42 +1,44 @@
 .navBarContainer {
   position: relative;
-  z-index: 999;
+  z-index: 997;
   height: 8.5rem;
-  display: flex;
-  justify-content: space-between;
   border-bottom: solid #2c2c2c 1px;
 }
+
 .navBarContainerLanding {
   position: relative;
-  z-index: 999;
+  z-index: 996;
   height: 8.5rem;
   display: flex;
   justify-content: space-between;
 }
 
 .menuContainer {
-  z-index: 998;
+  z-index: 996;
   background: #f4f4f4;
   position: fixed;
   width: 100%;
-  height: 6rem;
+  height: 8.5rem;
 }
 
 .logoHome {
-  height: 100%;
-  display: inline-block;
-  padding: 1.9rem;
+  position: absolute;
+  right: calc(50vw - 5.7rem);
+  top: 3.1rem;
 }
 
 .hamburgerContainer {
   height: 100%;
-  padding: 3rem;
+  padding: 2.8rem 3rem 2.7rem 3rem;
   margin-left: auto;
+  right: 0;
+  top: 0;
+  position: absolute;
+  z-index: 999;
 }
 
-.navLogo {
-  width: 100%;
-  height: 3.5rem;
+.navTitle {
+  height: 2.7rem;
   display: inline-block;
 }
 
@@ -45,20 +47,18 @@
   text-align: center;
 }
 
-.navSearch {
-}
-
 .navSearchInput[type='text'] {
   display: inline-block;
   min-width: 0;
   border: none;
   background-color: #e2514c;
   border-radius: 0;
-  border-right: solid white 1px;
   margin-top: 0;
-  padding: 1.8rem;
+  padding-left: 3rem;
   height: 8.4rem;
-  flex-grow: 2;
+  position: absolute;
+  width: 100%;
+  color: #fff;
 }
 
 .navSearchInput[type='text']::placeholder {
@@ -66,8 +66,7 @@
 }
 
 .navSearchForm {
-  display: flex;
-  flex-direction: row;
+  position: relative;
 }
 
 .navSearchToggle {
@@ -76,7 +75,7 @@
 }
 
 .searchButtonIcon {
-  margin: 2.5rem;
+  margin: 2.5rem 2rem;
   height: 3.3rem;
   width: 3.3rem;
 }
@@ -86,7 +85,18 @@
   min-width: 3.3rem;
   height: 8.4rem;
   border-radius: 0;
-  flex-grow: 1;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+.searchDivider {
+  height: 5rem;
+  width: 0.1rem;
+  background-color: #f4f4f4;
+  position: absolute;
+  right: 7.3rem;
+  top: 1.7rem;
 }
 
 .navName {
@@ -99,6 +109,95 @@
   font-style: none;
   color: black;
   padding-right: 1rem;
+}
+
+.showSearch {
+  position: absolute;
+}
+
+@-webkit-keyframes searchSlideOut {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes searchSlideOut {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.navSearch {
+  width: calc(100vw - 9rem);
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: searchSlideOut;
+  animation-name: searchSlideOut;
+}
+@-webkit-keyframes searchSlideIn {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+@keyframes searchSlideIn {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+.searchSlideIn {
+  -webkit-animation-name: searchSlideIn;
+  animation-name: searchSlideIn;
+}
+
+@media only screen and (max-width: 360px) {
+  .searchButtonIcon {
+    margin: 2.5rem 1.6rem;
+  }
+
+  .navSearch {
+    width: calc(100vw - 7rem);
+  }
+
+  .searchDivider {
+    display: none;
+  }
+
+  .navSearchInput[type='text'] {
+    padding-left: 1.8rem;
+  }
+
+  .hamburgerContainer {
+    padding: 2.8rem 2rem 2.7rem 2rem;
+  }
 }
 
 /* @media only screen and (min-width: 1024px) {
