@@ -44,14 +44,7 @@ function NavMenu() {
       )}
       {TokenService.hasAuthToken() && (
         <div className="collectionMenu">
-          {/* <button type="button" onClick={setupCollection}> */}
           <h3 className="collectionLink">Collections</h3>
-          {/* <img
-              src="/images/plus-button.svg"
-              alt="add collection button"
-              className="plusButton"
-            />
-          </button> */}
           <div className="collectionMenuList">
             <button
               type="button"

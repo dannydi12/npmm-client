@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import NavMenu from '../NavMenu/NavMenu';
 import SearchBox from '../SearchBox/SearchBox';
-import npmmLogo from '../../images/npmm-logo.svg';
+import npmmTitle from '../../images/npmm-title.svg';
 import blackMagGlass from '../../images/mag-glass-black.svg';
 import whiteMagGlass from '../../images/mag-glass-white.svg';
 import './NavBar.css';
@@ -12,7 +12,7 @@ function NavBar() {
   const location = useLocation();
   const [showBurger, setShowBurger] = useState(false);
   const [animationClass, setAnimationClass] = useState('Hidden');
-  const [toggleSearch, setToggleSearch] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
   const isNotHomePage = location.pathname !== '/';
 
   useEffect(() => {
@@ -35,6 +35,10 @@ function NavBar() {
     }
   };
 
+  const unmountSearch = () => {
+    setShowSearch(false);
+  };
+
   return (
     <header className="navBar" role="banner">
       <div className="menuContainer">
@@ -48,31 +52,30 @@ function NavBar() {
         >
           {isNotHomePage && (
             <>
-              {!toggleSearch && (
-                <>
-                  <button
-                    type="button"
-                    className="toggleSearch"
-                    aria-label="searchToggle"
-                    onClick={() => setToggleSearch(!toggleSearch)}
-                  >
-                    <img
-                      src={blackMagGlass}
-                      alt="magnifying glass for search button"
-                      className="navSearchToggle"
-                    />
-                  </button>
-                  <Link to="/" className="logoHome">
-                    <img src={npmmLogo} alt="npmm logo" className="navLogo" />
-                  </Link>
-                </>
-              )}
-              {toggleSearch && (
+              <>
+                <button
+                  type="button"
+                  className="showSearch"
+                  aria-label="searchToggle"
+                  onClick={() => setShowSearch(!showSearch)}
+                >
+                  <img
+                    src={blackMagGlass}
+                    alt="magnifying glass for search button"
+                    className="navSearchToggle"
+                  />
+                </button>
+              </>
+              <Link to="/" className="logoHome">
+                <img src={npmmTitle} alt="npmm title" className="navTitle" />
+              </Link>
+              {showSearch && (
                 <SearchBox
                   classProps="navSearch"
                   searchFormClass="navSearchForm"
                   searchInputClass="navSearchInput"
                   searchButtonClass="navSearchButton"
+                  unmountSearch={unmountSearch}
                   searchButton={
                     <img
                       src={whiteMagGlass}
@@ -84,17 +87,17 @@ function NavBar() {
               )}
             </>
           )}
-          <div className="hamburgerContainer">
-            <div
-              className={`burgerButton ${showBurger}Burger`}
-              onClick={() => toggleHamburger()}
-              role="menu"
-              tabIndex={0}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
+        </div>
+        <div className="hamburgerContainer">
+          <div
+            className={`burgerButton ${showBurger}Burger`}
+            onClick={() => toggleHamburger()}
+            role="menu"
+            tabIndex={0}
+          >
+            <span />
+            <span />
+            <span />
           </div>
         </div>
       </div>
