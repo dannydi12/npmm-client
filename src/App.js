@@ -35,8 +35,8 @@ function App() {
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/search" component={SearchResultPage} />
             <Route exact path="/" component={LandingPage} />
+            <Route component={NotFound} />
           </ErrorBoundary>
-          <Route component={NotFound} />
         </Switch>
       </main>
     </div>
