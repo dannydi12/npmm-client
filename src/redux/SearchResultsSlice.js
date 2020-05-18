@@ -2,10 +2,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import npmsAPI from '../services/npmsAPI';
 
-export const fetchPackages = createAsyncThunk(
+export const getPackages = createAsyncThunk(
   'searchResults/getPackages',
-  async (searchTerm, thunkAPI) => {
-    const response = await npmsAPI.searchPackages(searchTerm);
+  async (options, thunkAPI) => {
+    const response = await npmsAPI.searchPackages(
+      options.searchTerm,
+      options.offset
+    );
     return response;
   }
 );
@@ -23,11 +26,11 @@ export const searchResultsSlice = createSlice({
     },
   },
   extraReducers: {
-    [fetchPackages.pending]: (state) => {
+    [getPackages.pending]: (state) => {
       state.loading = 'pending';
     },
-    [fetchPackages.fulfilled]: (state, action) => {
-      state.packs = action.payload.results;
+    [getPackages.fulfilled]: (state, action) => {
+      state.packs.push(...action.payload.results);
       state.loading = 'idle';
     },
   },

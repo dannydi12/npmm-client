@@ -2,11 +2,10 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import { useSelector, useDispatch } from 'react-redux';
-import npms from '../../services/npmsAPI';
 import InfiniteScroll from 'react-infinite-scroller';
 import PackageList from '../../components/PackageList/PackageList';
 import ErrorBoundary from '../../ErrorBoundary';
-import { fetchPackages } from '../../redux/SearchResultsSlice';
+import { getPackages } from '../../redux/SearchResultsSlice';
 // import styles from './example.css';
 
 function SearchResultPage() {
@@ -18,25 +17,34 @@ function SearchResultPage() {
   const searchResults = useSelector((state) => state.searchResults);
 
   useEffect(() => {
-    dispatch(fetchPackages(parsed.q));
+    dispatch(getPackages({ searchTerm: parsed.q }));
   }, [searchResults.searchTerm]);
 
-  const loadMore = () => {};
+  const loadMore = () => {
+    if (searchResults.packs.length && searchResults.loading === 'idle') {
+      dispatch(
+        getPackages({
+          searchTerm: parsed.q,
+          offset: searchResults.packs.length,
+        })
+      );
+    }
+  };
 
   return (
     <ErrorBoundary>
       <section>
         <InfiniteScroll
           pageStart={0}
-          loadMore={() => console.log('load more')}
+          loadMore={loadMore}
           hasMore={true || false}
-          loader={<p>Loading...</p>}
+          threshold={1000}
         >
           {searchResults.packs.length > 0 && (
             <PackageList packs={searchResults.packs} />
           )}
-          {searchResults.loading === 'pending' && <p>Loading...</p>}
         </InfiniteScroll>
+        {searchResults.loading === 'pending' && <p>Loading...</p>}
       </section>
     </ErrorBoundary>
   );
