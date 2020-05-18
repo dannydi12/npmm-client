@@ -27,8 +27,8 @@ function App() {
     <div className="app">
       <NavBar />
       <main className="appMain">
-        <Switch>
-          <ErrorBoundary>
+        <ErrorBoundary>
+          <Switch>
             <Route exact path="/collection/:id" component={CollectionPage} />
             <Route exact path="/package/:packageName" component={PackagePage} />
             <Route exact path="/login" component={LoginPage} />
@@ -36,8 +36,8 @@ function App() {
             <Route exact path="/search" component={SearchResultPage} />
             <Route exact path="/" component={LandingPage} />
             <Route component={NotFound} />
-          </ErrorBoundary>
-        </Switch>
+          </Switch>
+        </ErrorBoundary>
       </main>
     </div>
   );
