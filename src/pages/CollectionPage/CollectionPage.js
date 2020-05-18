@@ -21,11 +21,14 @@ function CollectionPage() {
   console.log('rendered');
 
   const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
+  const collectionList = useSelector(
+    (state) => state.collectionList.collections
+  );
 
   const [isEditing, setIsEditing] = useState(!!parsed.edit);
   const [collectionName, setCollectionName] = useState({
     touched: false,
-    value: '',
+    value: collection.name,
   });
 
   useEffect(() => {
@@ -73,12 +76,20 @@ function CollectionPage() {
   };
 
   const validateInput = () => {
-    if (collectionName.value.length > 20) {
+    const foundCollection = collectionList.find((collectionElement) => {
+      return collectionElement.collection_name === collectionName.value;
+    });
+
+    if (collectionName.value.length > 30) {
       return 'That collection name is too long';
     }
     if (collectionName.value.length < 1) {
       return 'That collection name is too short';
     }
+    if (foundCollection && foundCollection.id !== Number(id)) {
+      return 'Collection names must be unique';
+    }
+
     return false;
   };
 
@@ -110,7 +121,10 @@ function CollectionPage() {
                   <button type="button" onClick={handleDelete}>
                     Delete
                   </button>
-                  <button type="submit" disabled={validateInput()}>
+                  <button
+                    type="submit"
+                    disabled={validateInput() || !collectionName.touched}
+                  >
                     Done
                   </button>
                 </form>
