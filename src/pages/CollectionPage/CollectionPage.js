@@ -76,9 +76,11 @@ function CollectionPage() {
             {!isEditing && (
               <>
                 <h2>{collectionName.value}</h2>
-                <button type="button" onClick={() => setIsEditing(true)}>
-                  Edit
-                </button>
+                {collectionName.value !== 'Favorites' && (
+                  <button type="button" onClick={() => setIsEditing(true)}>
+                    Edit
+                  </button>
+                )}
               </>
             )}
             {isEditing && (
