@@ -1,8 +1,12 @@
 const npmsURL = 'https://api.npms.io';
 
 const npms = {
-  searchPackages: (search) => {
-    return fetch(`${npmsURL}/v2/search?q=${encodeURI(search)}`).then((res) =>
+  searchPackages: (search, offset = null) => {
+    return fetch(
+      `${npmsURL}/v2/search?q=${encodeURI(search)}${
+        offset ? `&from=${offset}` : ``
+      }`
+    ).then((res) =>
       !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
     );
   },

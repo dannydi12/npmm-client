@@ -4,8 +4,12 @@ import npmmAPI from '../services/npmmAPI';
 
 export const fetchCollectionInfo = createAsyncThunk(
   'currentCollectionInfo/fetchCollectionInfo',
-  async (id, thunkAPI) => {
-    const response = await npmmAPI.getCollectionInfo(id);
+  async (options, thunkAPI) => {
+    const response = await npmmAPI.getCollectionInfo(
+      options.id,
+      options.offset
+    );
+    response.infiniteLoad = !!options.offset;
     return response;
   }
 );
@@ -33,6 +37,7 @@ export const currentCollectionInfo = createSlice({
     packages: [],
     loading: null,
     inEditingMode: false,
+    hasNoMoreResults: false,
   },
   reducers: {},
   extraReducers: {
@@ -40,8 +45,17 @@ export const currentCollectionInfo = createSlice({
       state.loading = 'pending';
     },
     [fetchCollectionInfo.fulfilled]: (state, action) => {
-      state.packages = action.payload.packs;
-      state.name = action.payload.name;
+      if (action.payload.infiniteLoad) {
+        state.packages.push(...action.payload.packs);
+      } else {
+        state.packages = action.payload.packs;
+        state.name = action.payload.name;
+      }
+
+      if (action.payload.packs.length === 0) {
+        state.noMoreResults = true;
+      }
+
       state.loading = 'idle';
     },
     [deletePackage.fulfilled]: (state, action) => {

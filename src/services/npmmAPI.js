@@ -2,13 +2,18 @@ import config from '../config';
 import TokenService from './token-service';
 
 const npms = {
-  getCollectionInfo: (id) => {
-    return fetch(`${config.API_ENDPOINT}/api/collections/${id}`, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${TokenService.getAuthToken()}`,
-      },
-    }).then((res) =>
+  getCollectionInfo: (id, offset) => {
+    return fetch(
+      `${config.API_ENDPOINT}/api/collections/${id}${
+        offset ? `?offset=${offset}` : ``
+      }`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${TokenService.getAuthToken()}`,
+        },
+      }
+    ).then((res) =>
       !res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()
     );
   },

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory, useLocation } from 'react-router-dom';
+import InfiniteScroll from 'react-infinite-scroller';
 import queryString from 'query-string';
 import PackageList from '../../components/PackageList/PackageList';
 import { fetchCollectionInfo } from '../../redux/CurrentCollectionInfoSlice';
@@ -17,20 +18,24 @@ function CollectionPage() {
   const location = useLocation();
   const parsed = queryString.parse(location.search);
 
+  const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
+  const collectionList = useSelector(
+    (state) => state.collectionList.collections
+  );
+
   const [isEditing, setIsEditing] = useState(!!parsed.edit);
   const [collectionName, setCollectionName] = useState({
     touched: false,
-    value: '',
+    value: collection.name,
   });
-
-  const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
 
   useEffect(() => {
     setIsEditing(!!parsed.edit);
   }, [parsed.edit]);
 
   useEffect(() => {
-    dispatch(fetchCollectionInfo(id));
+    setIsEditing(false || !!parsed.edit);
+    dispatch(fetchCollectionInfo({ id }));
   }, [id]);
 
   useEffect(() => {
@@ -41,6 +46,17 @@ function CollectionPage() {
       });
     }
   }, [collection.loading]);
+
+  const loadMore = () => {
+    if (collection.loading === 'idle' && collection.packages.length) {
+      dispatch(
+        fetchCollectionInfo({
+          id,
+          offset: collection.packages.length,
+        })
+      );
+    }
+  };
 
   const saveChange = (e) => {
     e.preventDefault();
@@ -58,12 +74,20 @@ function CollectionPage() {
   };
 
   const validateInput = () => {
-    if (collectionName.value.length > 20) {
+    const foundCollection = collectionList.find((collectionElement) => {
+      return collectionElement.collection_name === collectionName.value;
+    });
+
+    if (collectionName.value.length > 30) {
       return 'That collection name is too long';
     }
     if (collectionName.value.length < 1) {
       return 'That collection name is too short';
     }
+    if (foundCollection && foundCollection.id !== Number(id)) {
+      return 'Collection names must be unique';
+    }
+
     return false;
   };
 
@@ -75,9 +99,11 @@ function CollectionPage() {
             {!isEditing && (
               <>
                 <h2>{collectionName.value}</h2>
-                <button type="button" onClick={() => setIsEditing(true)}>
-                  Edit
-                </button>
+                {collectionName.value !== 'Favorites' && (
+                  <button type="button" onClick={() => setIsEditing(true)}>
+                    Edit
+                  </button>
+                )}
               </>
             )}
             {isEditing && (
@@ -86,14 +112,17 @@ function CollectionPage() {
                   <input
                     name="collectionName"
                     type="text"
-                    defaultValue={collectionName.value}
+                    value={collectionName.value}
                     onChange={handleInput}
                   />
                   {collectionName.touched && <p>{validateInput()}</p>}
                   <button type="button" onClick={handleDelete}>
                     Delete
                   </button>
-                  <button type="submit" disabled={validateInput()}>
+                  <button
+                    type="submit"
+                    disabled={validateInput() || !collectionName.touched}
+                  >
                     Done
                   </button>
                 </form>
@@ -102,8 +131,15 @@ function CollectionPage() {
           </header>
         )}
 
-        {collection.loading === 'idle' && (
-          <PackageList packs={collection.packages} />
+        {(collection.loading === 'idle' || collection.packages.length) > 0 && (
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={loadMore}
+            hasMore={!collection.noMoreResults}
+            threshold={1000}
+          >
+            <PackageList packs={collection.packages} />
+          </InfiniteScroll>
         )}
         {collection.loading === 'pending' && <p>Loading...</p>}
       </section>

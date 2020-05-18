@@ -27,17 +27,17 @@ function App() {
     <div className="app">
       <NavBar />
       <main className="appMain">
-        <Switch>
-          <ErrorBoundary>
+        <ErrorBoundary>
+          <Switch>
             <Route exact path="/collection/:id" component={CollectionPage} />
             <Route exact path="/package/:packageName" component={PackagePage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/search" component={SearchResultPage} />
             <Route exact path="/" component={LandingPage} />
-          </ErrorBoundary>
-          <Route component={NotFound} />
-        </Switch>
+            <Route component={NotFound} />
+          </Switch>
+        </ErrorBoundary>
       </main>
     </div>
   );
