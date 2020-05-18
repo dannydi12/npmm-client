@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller';
 import PackageList from '../../components/PackageList/PackageList';
 import ErrorBoundary from '../../ErrorBoundary';
-import { getPackages } from '../../redux/SearchResultsSlice';
+import { getPackages, clearPacks } from '../../redux/SearchResultsSlice';
 // import styles from './example.css';
 
 function SearchResultPage() {
@@ -37,7 +37,7 @@ function SearchResultPage() {
         <InfiniteScroll
           pageStart={0}
           loadMore={loadMore}
-          hasMore={true || false}
+          hasMore={!searchResults.noMoreResults}
           threshold={1000}
         >
           {searchResults.packs.length > 0 && (

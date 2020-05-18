@@ -9,6 +9,7 @@ export const getPackages = createAsyncThunk(
       options.searchTerm,
       options.offset
     );
+    response.infiniteLoad = !!options.offset;
     return response;
   }
 );
@@ -19,6 +20,7 @@ export const searchResultsSlice = createSlice({
     searchTerm: null,
     packs: [],
     loading: null,
+    noMoreResults: false,
   },
   reducers: {
     searchFor: (state, action) => {
@@ -30,7 +32,16 @@ export const searchResultsSlice = createSlice({
       state.loading = 'pending';
     },
     [getPackages.fulfilled]: (state, action) => {
-      state.packs.push(...action.payload.results);
+      if (action.payload.infiniteLoad) {
+        state.packs.push(...action.payload.results);
+      } else {
+        state.packs = action.payload.results;
+      }
+
+      if (action.payload.results.length === 0) {
+        state.noMoreResults = true;
+      }
+
       state.loading = 'idle';
     },
   },
