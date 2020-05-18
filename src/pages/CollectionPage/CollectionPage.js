@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory, useLocation } from 'react-router-dom';
+import InfiniteScroll from 'react-infinite-scroller';
 import queryString from 'query-string';
 import PackageList from '../../components/PackageList/PackageList';
 import { fetchCollectionInfo } from '../../redux/CurrentCollectionInfoSlice';
@@ -17,6 +18,8 @@ function CollectionPage() {
   const location = useLocation();
   const parsed = queryString.parse(location.search);
 
+  console.log('rendered');
+
   const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
 
   const [isEditing, setIsEditing] = useState(!!parsed.edit);
@@ -31,7 +34,7 @@ function CollectionPage() {
 
   useEffect(() => {
     setIsEditing(false || !!parsed.edit);
-    dispatch(fetchCollectionInfo(id));
+    dispatch(fetchCollectionInfo({ id }));
   }, [id]);
 
   useEffect(() => {
@@ -42,6 +45,17 @@ function CollectionPage() {
       });
     }
   }, [collection.loading]);
+
+  const loadMore = () => {
+    if (collection.loading === 'idle' && collection.packages.length) {
+      dispatch(
+        fetchCollectionInfo({
+          id,
+          offset: collection.packages.length,
+        })
+      );
+    }
+  };
 
   const saveChange = (e) => {
     e.preventDefault();
@@ -105,8 +119,15 @@ function CollectionPage() {
           </header>
         )}
 
-        {collection.loading === 'idle' && (
-          <PackageList packs={collection.packages} />
+        {(collection.loading === 'idle' || collection.packages.length) > 0 && (
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={loadMore}
+            hasMore={!collection.noMoreResults}
+            threshold={1000}
+          >
+            <PackageList packs={collection.packages} />
+          </InfiniteScroll>
         )}
         {collection.loading === 'pending' && <p>Loading...</p>}
       </section>
