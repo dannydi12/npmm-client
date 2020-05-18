@@ -11,7 +11,7 @@
   background-color: #e2514c;
   justify-content: space-evenly;
   padding: 10vh 7.2rem 10vh 0;
-  z-index: 1;
+  z-index: 998;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
@@ -19,7 +19,8 @@
   align-items: flex-end;
 }
 
-.menuLink, .collectionLink {
+.menuLink,
+.collectionLink {
   font-size: 3.8rem;
   font-weight: 500;
   text-decoration: underline;
@@ -68,7 +69,8 @@
   margin-right: 0.6rem;
 }
 
-.createCollection, .collectionMenuLink {
+.createCollection,
+.collectionMenuLink {
   font-family: 'Roboto', sans-serif;
   font-size: 2rem;
   font-weight: 200;
