@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import { useSelector, useDispatch } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller';
 import PackageList from '../../components/PackageList/PackageList';
 import ErrorBoundary from '../../ErrorBoundary';
-import { getPackages, clearPacks } from '../../redux/SearchResultsSlice';
+import { getPackages } from '../../redux/SearchResultsSlice';
 // import styles from './example.css';
 
 function SearchResultPage() {
