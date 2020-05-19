@@ -37,6 +37,7 @@ function SearchBox(props) {
         className={props.searchFormClass}
         onSubmit={handleSubmit}
         aria-label="npm package search"
+        autoComplete="off"
       >
         <input
           placeholder="Search packages"
