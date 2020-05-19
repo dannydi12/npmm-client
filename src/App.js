@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import LandingPage from './pages/LandingPage/LandingPage';
 import CollectionPage from './pages/CollectionPage/CollectionPage';
 import LoginPage from './pages/LoginPage/LoginPage';
-import SignupPage from './components/SignupForm/SignupForm';
+import SignupPage from './pages/SignupPage/SignupPage';
 import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
 import NotFound from './pages/NotFound/NotFound';
 import NavBar from './components/NavBar/NavBar';

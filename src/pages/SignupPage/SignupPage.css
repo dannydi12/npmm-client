@@ -1,0 +1,16 @@
+.signupContainer {
+  margin-top: 10.5rem;
+}
+
+.signupHeading {
+  font-size: 4rem;
+  color: #2c2c2c;
+  font-weight: 600;
+}
+
+.signupInstructions {
+  font-family: Roboto;
+  font-size: 2.2rem;
+  color: #2c2c2c;
+  font-weight: 300;
+}
