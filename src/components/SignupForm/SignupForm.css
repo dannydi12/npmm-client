@@ -1,0 +1,11 @@
+.signupForm input[type='email'],
+.signupForm input[type='password'] {
+  padding-left: 2rem;
+  margin-right: 2rem;
+}
+
+.signupSubmit {
+  font-weight: 400;
+  font-size: 2rem;
+  color: #f4f4f4;
+}

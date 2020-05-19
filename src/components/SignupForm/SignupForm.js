@@ -97,6 +97,7 @@ export default function SignupForm() {
         />
       </label>
       <button
+        className="signupSubmit"
         disabled={
           validateEmail(inputs.email) ||
           validatePassword(inputs.password, inputs.password2)
