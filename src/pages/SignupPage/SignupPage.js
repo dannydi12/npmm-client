@@ -7,8 +7,8 @@ export default function SignupPage() {
   return (
     <ErrorBoundary>
       <div className="signupContainer">
-        <h2 className="signupHeading">Sign Up</h2>
-        <p className="signupInstructions">
+        <h2 className="pageTitle">Sign Up</h2>
+        <p className="pageInstructions">
           Enter an email and password to register.
         </p>
         <SignupForm />

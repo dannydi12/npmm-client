@@ -55,8 +55,10 @@ export default function SignupForm() {
   }
 
   return (
-    <form className="signupForm" onSubmit={handleSubmit}>
-      {validateEmail(inputs.email) && <p>{validateEmail(inputs.email)}</p>}
+    <form className="signup" onSubmit={handleSubmit}>
+      {validateEmail(inputs.email) && (
+        <p className="validationWarning">{validateEmail(inputs.email)}</p>
+      )}
       <input
         required
         autoComplete="new-email"
@@ -68,7 +70,9 @@ export default function SignupForm() {
         onChange={handleInputChange}
       />
       {validatePassword(inputs.password, inputs.password2) && (
-        <p>{validatePassword(inputs.password, inputs.password2)}</p>
+        <p className="validationWarning">
+          {validatePassword(inputs.password, inputs.password2)}
+        </p>
       )}
       <input
         required
@@ -91,6 +95,7 @@ export default function SignupForm() {
         onChange={handleInputChange}
       />
       <button
+        className="signupSubmit"
         disabled={
           validateEmail(inputs.email) ||
           validatePassword(inputs.password, inputs.password2)
