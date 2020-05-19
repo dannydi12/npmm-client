@@ -25,7 +25,7 @@ function NavMenu() {
 
   return (
     <>
-      <NavLink to="/" className="menuLink">
+      <NavLink exact to="/" className="menuLink">
         Home
       </NavLink>
       {!isLoggedIn ? (
