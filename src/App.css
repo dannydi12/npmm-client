@@ -34,7 +34,7 @@ button[type='submit'] {
   font-family: 'Montserrat', sans-serif;
   margin-top: 1.8rem;
   font-size: 2rem;
-  background-color: #e2514c;
+  background-color: #c74848;
   color: #fff;
   min-width: 100%;
   border-radius: 5px;
@@ -66,6 +66,7 @@ select {
   box-shadow: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.8rem;
+  padding-left: 2rem;
 }
 
 input::placeholder {
