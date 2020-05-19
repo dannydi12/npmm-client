@@ -34,7 +34,7 @@ function NavMenu() {
             Login
           </NavLink>
           <NavLink to="signup" className="menuLink">
-            SignUp
+            Signup
           </NavLink>
         </>
       ) : (
