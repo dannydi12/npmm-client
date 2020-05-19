@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import useSignUpForm from '../Utilities/CustomHooks';
 import AuthService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
 import { getCollections } from '../../redux/CollectionListSlice';
@@ -11,24 +10,19 @@ function LoginForm() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const login = () => {
-    AuthService.postLogin({
-      email: inputs.email,
-      password: inputs.password,
-    })
-      .then((res) => {
-        TokenService.saveAuthToken(res.authToken);
-      })
-      .then((res) => {
-        dispatch(getCollections());
-        history.push('/');
-      });
-  };
-
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
-    { email: '', password: '' },
-    login
-  );
+  // const login = () => {
+  //   AuthService.postLogin({
+  //     email: inputs.email,
+  //     password: inputs.password,
+  //   })
+  //     .then((res) => {
+  //       TokenService.saveAuthToken(res.authToken);
+  //     })
+  //     .then((res) => {
+  //       dispatch(getCollections());
+  //       history.push('/');
+  //     });
+  // };
 
   function validateEmail(email) {
     if (!email) {
@@ -53,48 +47,7 @@ function LoginForm() {
     return false;
   }
 
-  return (
-    <div>
-      <form id="login" onSubmit={handleSubmit}>
-        {validateEmail(inputs.email) && <p>{validateEmail(inputs.email)}</p>}
-        <label htmlFor="email">
-          Email
-          <input
-            required
-            autoComplete="username"
-            type="email"
-            name="email"
-            id="email"
-            value={inputs.email}
-            onChange={handleInputChange}
-          />
-        </label>
-        {validatePassword(inputs.password) && (
-          <p>{validatePassword(inputs.password)}</p>
-        )}
-        <label htmlFor="password">
-          Password
-          <input
-            required
-            autoComplete="current-password"
-            type="password"
-            name="password"
-            id="password"
-            value={inputs.password}
-            onChange={handleInputChange}
-          />
-        </label>
-        <button
-          disabled={
-            validateEmail(inputs.email) || validatePassword(inputs.password)
-          }
-          type="submit"
-        >
-          Login
-        </button>
-      </form>
-    </div>
-  );
+  return <form>empty</form>;
 }
 
 export default LoginForm;

@@ -125,6 +125,10 @@ button[disabled] {
   margin-top: 2rem;
 }
 
+.validationWarning {
+  color: #e2514c;
+}
+
 @media only screen and (min-width: 768px) {
   .appMain {
     padding-right: 4rem;

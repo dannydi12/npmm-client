@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import useSignUpForm from '../Utilities/CustomHooks';
+import { useForm } from 'react-hook-form';
 import AuthService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
 import { getCollections } from '../../redux/CollectionListSlice';
@@ -11,10 +11,10 @@ export default function SignupForm() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const signup = () => {
+  const onSubmit = (data) => {
     AuthService.postUser({
-      email: inputs.email,
-      password: inputs.password,
+      email: data.email,
+      password: data.password,
     })
       .then((res) => TokenService.saveAuthToken(res.authToken))
       .then((res) => {
@@ -23,85 +23,73 @@ export default function SignupForm() {
       });
   };
 
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
-    { email: '', password: '', password2: '' },
-    signup
-  );
-
-  function validateEmail(email) {
-    if (!email) {
-      return 'Please enter your email';
-    }
-    if (email > 40) {
-      return 'Is that a real email?';
-    }
-    return false;
-  }
-
-  function validatePassword(pass1, pass2) {
-    if (!pass1) {
-      return 'Please enter your password';
-    }
-    if (pass1 > 40) {
-      return 'Password cannot be longer than 40 characters';
-    }
-    if (pass1 < 6) {
-      return 'Password needs to be at least 6 characters long';
-    }
-    if (pass1 !== pass2) {
-      return 'Passwords do not match';
-    }
-    return false;
-  }
+  const { register, handleSubmit, errors, watch } = useForm();
+  const password = useRef({});
+  password.current = watch('password', '');
 
   return (
-    <form className="signup" onSubmit={handleSubmit}>
-      {validateEmail(inputs.email) && (
-        <p className="validationWarning">{validateEmail(inputs.email)}</p>
-      )}
+    <form className="signupForm" onSubmit={handleSubmit(onSubmit)}>
       <input
-        required
-        autoComplete="new-email"
-        type="email"
-        name="email"
-        id="email"
+        type="text"
         placeholder="Email"
-        value={inputs.email}
-        onChange={handleInputChange}
+        name="email"
+        autoComplete="email"
+        ref={register({
+          required: true,
+          minLength: {
+            value: 9,
+            message: 'An email is usually longer than that.',
+          },
+          maxLength: {
+            value: 40,
+            message: `An email usually isn't that long.`,
+          },
+          pattern: {
+            value: /^\S+@\S+$/i,
+            message: `That doesn't seem to be a valid email.`,
+          },
+        })}
       />
-      {validatePassword(inputs.password, inputs.password2) && (
-        <p className="validationWarning">
-          {validatePassword(inputs.password, inputs.password2)}
-        </p>
+      {errors.email && (
+        <p className="validationWarning">{errors.email.message}</p>
       )}
       <input
-        required
-        autoComplete="new-password"
         type="password"
-        name="password"
-        id="password"
         placeholder="Password"
-        value={inputs.password}
-        onChange={handleInputChange}
-      />
-      <input
-        required
         autoComplete="new-password"
-        type="password"
-        name="password2"
-        id="password2"
-        placeholder="Confirm password"
-        value={inputs.password2}
-        onChange={handleInputChange}
+        name="password"
+        ref={register({
+          required: 'Please enter your password',
+          minLength: {
+            value: 6,
+            message: 'Password must be at least 6 characters long',
+          },
+          maxLength: {
+            value: 40,
+            message: 'Password cannot be longer than 40 characters',
+          },
+        })}
       />
-      <button
-        className="signupSubmit"
-        disabled={
-          validateEmail(inputs.email) ||
-          validatePassword(inputs.password, inputs.password2)
-        }
-        type="submit"
-      >
+      {errors.password && (
+        <p className="validationWarning">{errors.password.message}</p>
+      )}
+      <input
+        type="password"
+        placeholder="Confirm password"
+        autoComplete="new-password"
+        name="confirmPassword"
+        ref={register({
+          required: true,
+          minLength: 6,
+          maxLength: 40,
+          validate: (value) =>
+            value === password.current || 'The passwords do not match',
+        })}
+      />
+      {errors.confirmPassword && (
+        <p className="validationWarning">{errors.confirmPassword.message}</p>
+      )}
+      <button className="signupSubmit" type="submit">
         Sign Up
       </button>
     </form>
