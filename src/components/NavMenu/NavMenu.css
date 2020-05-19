@@ -12,8 +12,8 @@
   justify-content: space-evenly;
   padding: 10vh 7.2rem 10vh 0;
   z-index: 998;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   align-items: flex-end;
