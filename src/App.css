@@ -91,7 +91,7 @@ input::-ms-input-placeholder {
 
 button:disabled,
 button[disabled] {
-  color: black;
+  text-decoration: line-through;
 }
 
 .textCenter {

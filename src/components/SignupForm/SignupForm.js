@@ -56,54 +56,53 @@ export default function SignupForm() {
 
   return (
     <form className="signup" onSubmit={handleSubmit}>
-      {validateEmail(inputs.email) && <p>{validateEmail(inputs.email)}</p>}
-      <label htmlFor="email">
-        Email
-        <input
-          required
-          autoComplete="new-email"
-          type="email"
-          name="email"
-          id="email"
-          value={inputs.email}
-          onChange={handleInputChange}
-        />
-      </label>
-      {validatePassword(inputs.password, inputs.password2) && (
-        <p>{validatePassword(inputs.password, inputs.password2)}</p>
+      {validateEmail(inputs.email) && (
+        <p className="validationWarning">{validateEmail(inputs.email)}</p>
       )}
-      <label htmlFor="password">
-        Password
-        <input
-          required
-          autoComplete="new-password"
-          type="password"
-          name="password"
-          id="password"
-          value={inputs.password}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label htmlFor="password">
-        Confirm Password
-        <input
-          required
-          autoComplete="new-password"
-          type="password"
-          name="password2"
-          id="password2"
-          value={inputs.password2}
-          onChange={handleInputChange}
-        />
-      </label>
+      <input
+        required
+        autoComplete="new-email"
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Email"
+        value={inputs.email}
+        onChange={handleInputChange}
+      />
+      {validatePassword(inputs.password, inputs.password2) && (
+        <p className="validationWarning">
+          {validatePassword(inputs.password, inputs.password2)}
+        </p>
+      )}
+      <input
+        required
+        autoComplete="new-password"
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+        value={inputs.password}
+        onChange={handleInputChange}
+      />
+      <input
+        required
+        autoComplete="new-password"
+        type="password"
+        name="password2"
+        id="password2"
+        placeholder="Confirm password"
+        value={inputs.password2}
+        onChange={handleInputChange}
+      />
       <button
+        className="signupSubmit"
         disabled={
           validateEmail(inputs.email) ||
           validatePassword(inputs.password, inputs.password2)
         }
         type="submit"
       >
-        Login
+        Sign Up
       </button>
     </form>
   );
