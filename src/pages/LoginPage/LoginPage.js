@@ -2,7 +2,8 @@ import React from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import ErrorBoundary from '../../ErrorBoundary';
 import './LoginPage.css';
-import workstation from '../../images/workstation.svg';
+import mrBuddy from '../../images/mr-buddy.svg';
+import mrBuddyMessage from '../../images/mr-buddy-message.svg';
 
 function LoginPage() {
   return (
@@ -11,9 +12,10 @@ function LoginPage() {
         <div className="titleContainer">
           <h2 className="pageTitle">Login</h2>
           <img
-            src={workstation}
-            alt="man at his workstation"
-            className="workstationImage"
+            src={mrBuddyMessage}
+            // src={errorState ? mrBuddyMessage : mrBuddy}
+            alt="mr buddy at his workstation"
+            className="mrBuddy"
           />
         </div>
         <p className="pageInstructions">
