@@ -23,7 +23,7 @@ function NavMenu() {
   };
 
   return (
-    <>
+    <div className="menuContainer">
       <NavLink exact to="/" className="menuLink">
         Home
       </NavLink>
@@ -61,7 +61,7 @@ function NavMenu() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
