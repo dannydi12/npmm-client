@@ -35,7 +35,7 @@ function SearchResultPage() {
     <ErrorBoundary>
       <div className="searchContainer">
         <h2 className="searchTitle pageTitle">Search Results</h2>
-        <p className="pageInstructions">
+        <p className="pageInstructions searchInstructions">
           Click a package's name to view details.
         </p>
         <section>
