@@ -15,7 +15,7 @@ function NavMenu() {
   const isLoggedIn = TokenService.hasAuthToken();
 
   const setupCollection = () => {
-    dispatch(createCollection(randomWords({ min: 2, max: 4, join: '-' }))).then(
+    dispatch(createCollection(randomWords({ exactly: 2, join: '-' }))).then(
       (res) => {
         history.push(`/collection/${res.payload.id}?edit=true`);
       }
