@@ -5,6 +5,14 @@
   border-bottom: solid #2c2c2c 1px;
 }
 
+.navFixed {
+  position: fixed;
+}
+
+.navScroll {
+  position: absolute;
+}
+
 .navBarContainerLanding {
   position: relative;
   z-index: 996;
@@ -16,7 +24,6 @@
 .menuContainer {
   z-index: 996;
   background: #f4f4f4;
-  position: fixed;
   width: 100%;
   height: 8.5rem;
 }

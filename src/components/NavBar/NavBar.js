@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import NavMenu from '../NavMenu/NavMenu';
 import SearchBox from '../SearchBox/SearchBox';
 import npmmTitle from '../../images/npmm-title.svg';
@@ -14,7 +15,7 @@ function NavBar() {
   const [animationClass, setAnimationClass] = useState('Hidden');
   const [showSearch, setShowSearch] = useState(false);
   const isNotHomePage = location.pathname !== '/';
-  const [fixedNav, setFixedNav] = useState(false);
+  const navScroll = useSelector((state) => state.navScroll);
 
   useEffect(() => {
     if (showBurger === true || animationClass === 'In') {
@@ -32,6 +33,7 @@ function NavBar() {
       setShowBurger(false);
       setTimeout(() => {
         setAnimationClass('Hidden');
+        setFixedNav('Fixed');
       }, 800);
     }
   };
@@ -40,9 +42,13 @@ function NavBar() {
     setShowSearch(false);
   };
 
+  const fixNav = () => {
+    setFixedNav('Scroll');
+  };
+
   return (
     <header className="navBar" role="banner">
-      <div className="menuContainer">
+      <div className={`menuContainer ${blank ? 'navFixed' : 'navScroll'}`}>
         <div className={`navMenu slideMenu${animationClass}`}>
           {animationClass !== 'Hidden' && <NavMenu />}
         </div>
