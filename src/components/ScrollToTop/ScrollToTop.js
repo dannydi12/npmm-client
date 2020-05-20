@@ -23,7 +23,6 @@ export default function ScrollToTop() {
     <button
       aria-label="scroll to top"
       type="button"
-      aria="button"
       className="scrollToTop"
       onClick={scrollTop}
       style={{ display: showScroll ? 'flex' : 'none' }}
