@@ -1,0 +1,31 @@
+.footer {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+}
+
+.socialImage {
+  width: 4.5rem;
+}
+
+.socialContainer {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 2rem;
+  max-width: 100rem;
+  margin: 0 auto;
+}
+
+.copyright {
+  margin-top: 1em;
+  padding-bottom: 1em;
+  font-size: 1.4rem;
+}
+
+.footerSeparator {
+  border-top: 1px solid #919191;
+  margin-bottom: 0;
+}

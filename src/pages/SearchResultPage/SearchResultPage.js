@@ -6,6 +6,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import PackageList from '../../components/PackageList/PackageList';
 import ErrorBoundary from '../../ErrorBoundary';
 import { getPackages } from '../../redux/SearchResultsSlice';
+import './SearchResultPage.css';
 
 function SearchResultPage() {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ function SearchResultPage() {
   return (
     <ErrorBoundary>
       <div className="searchContainer">
-        <h2 className="pageTitle">Search Results</h2>
+        <h2 className="searchTitle pageTitle">Search Results</h2>
         <p className="pageInstructions">
           Click a package's name to view details.
         </p>

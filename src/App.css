@@ -91,11 +91,40 @@ input::-ms-input-placeholder {
 }
 
 .passwordInput {
+  padding-right: 7rem;
+}
+
+.passwordContainer {
+  position: relative;
+}
+
+.showPassword,
+.hidePassword {
+  background-image: url('./images/password-show.svg');
+  width: 6rem;
+  height: 6rem;
+  position: absolute;
+  right: 0;
+  top: 1.8rem;
+  border-radius: 0.5rem;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: 2.2rem;
+  background-position: center;
+}
+
+.showPassword {
+  background-image: url('./images/password-show.svg');
+}
+
+.hidePassword {
+  background-image: url('./images/password-hide.svg');
 }
 
 button:disabled,
 button[disabled] {
-  text-decoration: line-through;
+  background-color: #e8837f;
+  color: #f4f4f4;
 }
 
 .textCenter {
@@ -123,7 +152,7 @@ button[disabled] {
 
 .pageInstructions {
   font-family: 'Roboto', sans-serif;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 300;
   color: #2c2c2c;
   margin-top: 2rem;
@@ -131,6 +160,9 @@ button[disabled] {
 
 .validationWarning {
   color: #e2514c;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
 }
 
 @media only screen and (min-width: 768px) {
