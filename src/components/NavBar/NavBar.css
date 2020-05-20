@@ -5,6 +5,13 @@
   border-bottom: solid #2c2c2c 1px;
 }
 
+.navbarContainer {
+  z-index: 996;
+  background: #f4f4f4;
+  width: 100%;
+  height: 8.5rem;
+}
+
 .navFixed {
   position: fixed;
 }
@@ -19,13 +26,6 @@
   height: 8.5rem;
   display: flex;
   justify-content: space-between;
-}
-
-.menuContainer {
-  z-index: 996;
-  background: #f4f4f4;
-  width: 100%;
-  height: 8.5rem;
 }
 
 .logoHome {
@@ -143,12 +143,12 @@
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }
-
   100% {
     -webkit-transform: translate3d(calc(100% - 7.8rem), 0, 0);
     transform: translate3d(calc(100% - 7.8rem), 0, 0);
   }
 }
+
 @keyframes searchSlideOut {
   0% {
     opacity: 0;
@@ -158,7 +158,6 @@
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }
-
   100% {
     -webkit-transform: translate3d(calc(100% - 7.8rem), 0, 0);
     transform: translate3d(calc(100% - 7.8rem), 0, 0);
@@ -170,33 +169,31 @@
     -webkit-transform: translate3d(calc(100% - 7.8rem), 0, 0);
     transform: translate3d(calc(100% - 7.8rem), 0, 0);
   }
-
   70% {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
 }
+
 @keyframes searchSlideIn {
   0% {
     -webkit-transform: translate3d(calc(100% - 7.8rem), 0, 0);
     transform: translate3d(calc(100% - 7.8rem), 0, 0);
   }
-
   70% {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
 }
+
 .searchSlideIn {
   -webkit-animation-name: searchSlideIn;
   animation-name: searchSlideIn;
@@ -206,19 +203,15 @@
   .searchButtonIcon {
     margin: 2.5rem 1.6rem;
   }
-
   .navSearch {
     width: calc(100vw - 7rem);
   }
-
   .searchDivider {
     display: none;
   }
-
   .navSearchInput[type='text'] {
     padding-left: 1.8rem;
   }
-
   .hamburgerContainer {
     padding: 2.8rem 2rem 2.7rem 2rem;
   }
