@@ -14,7 +14,9 @@ function SearchBox(props) {
 
   const hideSearch = () => {
     if (props.searchInputClass === 'navSearchInput') {
-      setAnimationClass('searchSlideIn');
+      setTimeout(() => {
+        setAnimationClass('searchSlideIn');
+      }, 100);
       setTimeout(() => {
         props.unmountSearch();
       }, 1000);
@@ -38,6 +40,7 @@ function SearchBox(props) {
         onSubmit={handleSubmit}
         aria-label="npm package search"
         autoComplete="off"
+        onBlur={hideSearch}
       >
         <input
           placeholder="Search packages"
@@ -47,7 +50,6 @@ function SearchBox(props) {
           id="packageSearch"
           className={props.searchInputClass}
           aria-label="npm package search"
-          onBlur={hideSearch}
           onChange={(ev) => setSearch(ev.target.value)}
         />
         {props.searchInputClass === 'navSearchInput' && (
