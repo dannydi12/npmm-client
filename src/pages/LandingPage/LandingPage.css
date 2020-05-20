@@ -47,3 +47,19 @@
   background-position: 1.4rem;
   background-image: url('../../images/mag-glass-gray.svg');
 }
+
+.landingGettingStarted {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.codeContainer {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.landingGettingStarted code {
+  border: solid 1px #919191;
+  padding: 1rem;
+  border-radius: 5px;
+}
