@@ -1,0 +1,29 @@
+.scrollToTop {
+  position: fixed;
+  width: 4rem;
+  bottom: 2rem;
+  align-items: center;
+  height: 4rem;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.3s;
+  transition: opacity 0.4s;
+  opacity: 0.5;
+  background-color: #e2514c;
+  border-radius: 50%;
+  margin-left: 80%;
+}
+
+.scrollToTop:hover {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}

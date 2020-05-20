@@ -11,8 +11,9 @@ import NavBar from './components/NavBar/NavBar';
 import PackagePage from './pages/PackagePage/PackagePage';
 import { getCollections } from './redux/CollectionListSlice';
 import TokenService from './services/token-service';
-import './App.css';
 import ErrorBoundary from './ErrorBoundary';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import './App.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ function App() {
             <Route exact path="/" component={LandingPage} />
             <Route component={NotFound} />
           </Switch>
+          <ScrollToTop />
         </ErrorBoundary>
       </main>
     </div>
