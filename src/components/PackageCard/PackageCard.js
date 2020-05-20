@@ -5,6 +5,9 @@ import {
   addPackage,
   deletePackage,
 } from '../../redux/CurrentCollectionInfoSlice';
+import './PackageCard.css';
+import threeDotBlack from '../../images/three-dot-black.svg';
+import threeDotWhite from '../../images/three-dot-white.svg';
 
 function PackageCard(props) {
   const dispatch = useDispatch();
@@ -46,17 +49,22 @@ function PackageCard(props) {
   };
 
   return (
-    <div>
+    <div className="cardContainer">
       <header>
         <div>
           <Link to={`/package/${encodeURIComponent(props.pack.package.name)}`}>
-            <h2>{props.pack.package.name}</h2>
+            <h2 className="cardTitle">{props.pack.package.name}</h2>
           </Link>
           <p>({props.pack.package.version})</p>
         </div>
         {!isMenuOpen && (
           <button type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            Three dots
+            <img
+              src={threeDotBlack}
+              alt="three dot menu closed"
+              className="threeDotBlack"
+            />
+            ;
           </button>
         )}
         {isMenuOpen && (
@@ -65,7 +73,12 @@ function PackageCard(props) {
               Trash
             </button>
             <button type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              Three Dots
+              <img
+                src={threeDotWhite}
+                alt="three dot menu open"
+                className="threeDotWhite"
+              />
+              ;
             </button>
             <button
               type="button"
