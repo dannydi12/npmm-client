@@ -14,6 +14,7 @@ function NavBar() {
   const [animationClass, setAnimationClass] = useState('Hidden');
   const [showSearch, setShowSearch] = useState(false);
   const isNotHomePage = location.pathname !== '/';
+  const [fixedNav, setFixedNav] = useState(false);
 
   useEffect(() => {
     if (showBurger === true || animationClass === 'In') {
