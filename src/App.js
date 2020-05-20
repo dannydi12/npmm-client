@@ -9,6 +9,7 @@ import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
 import NotFound from './pages/NotFound/NotFound';
 import NavBar from './components/NavBar/NavBar';
 import PackagePage from './pages/PackagePage/PackagePage';
+import Footer from './components/Footer/Footer';
 import { getCollections } from './redux/CollectionListSlice';
 import TokenService from './services/token-service';
 import ErrorBoundary from './ErrorBoundary';
@@ -41,6 +42,9 @@ function App() {
           <ScrollToTop />
         </ErrorBoundary>
       </main>
+      <ErrorBoundary>
+        <Footer />
+      </ErrorBoundary>
     </div>
   );
 }

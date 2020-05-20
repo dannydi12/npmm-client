@@ -86,6 +86,11 @@
   margin-left: auto;
 }
 
+.collectionMenuLink.active {
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
 .showMore {
   font-family: 'Roboto', sans-serif;
   font-size: 1.6rem;
