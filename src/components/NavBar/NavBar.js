@@ -24,6 +24,9 @@ function NavBar() {
       setShowBurger(false);
       setAnimationClass('Out');
       dispatch(setAllowScroll(false));
+      setTimeout(() => {
+        setAnimationClass('Hidden');
+      }, 800);
     }
   }, [location.pathname]);
 
