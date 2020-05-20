@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LandingPage from './pages/LandingPage/LandingPage';
 import CollectionPage from './pages/CollectionPage/CollectionPage';
