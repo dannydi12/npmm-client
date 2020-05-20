@@ -41,10 +41,10 @@ function NavBar() {
 
   return (
     <header className="navBar" role="banner">
-      <div className="menuContainer">
-        <div className={`navMenu slideMenu${animationClass}`}>
-          {animationClass !== 'Hidden' && <NavMenu />}
-        </div>
+      <div className={`navMenu slideMenu${animationClass}`}>
+        {animationClass !== 'Hidden' && <NavMenu />}
+      </div>
+      <div className="navbarContainer">
         <div
           className={
             isNotHomePage ? 'navBarContainer' : 'navBarContainerLanding'
@@ -88,17 +88,17 @@ function NavBar() {
             </>
           )}
         </div>
-        <div className="hamburgerContainer">
-          <div
-            className={`burgerButton ${showBurger}Burger`}
-            onClick={() => toggleHamburger()}
-            role="menu"
-            tabIndex={0}
-          >
-            <span />
-            <span />
-            <span />
-          </div>
+      </div>
+      <div className="hamburgerContainer">
+        <div
+          className={`burgerButton ${showBurger}Burger`}
+          onClick={() => toggleHamburger()}
+          role="menu"
+          tabIndex={0}
+        >
+          <span />
+          <span />
+          <span />
         </div>
       </div>
     </header>
