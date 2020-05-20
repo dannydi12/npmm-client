@@ -1,0 +1,21 @@
+.cardContainer {
+  background-color: white;
+  box-shadow: 1px 1px 6px 0 #cccccc;
+  margin-bottom: 4.2rem;
+  padding: 2rem;
+}
+
+.searchContainer {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.searchInstructions {
+  margin-bottom: 5rem;
+}
+
+.cardTitle {
+  font-size: 2.8rem;
+  color: #e2514c;
+  font-weight: 600;
+}
