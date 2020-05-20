@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams, useHistory, useLocation } from 'react-router-dom';
+import { useParams, useHistory, useLocation } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroller';
 import queryString from 'query-string';
 import PackageList from '../../components/PackageList/PackageList';
@@ -26,7 +26,7 @@ function CollectionPage() {
   const [isEditing, setIsEditing] = useState(!!parsed.edit);
   const [collectionName, setCollectionName] = useState({
     touched: false,
-    value: collection.name,
+    value: collection.name || '',
   });
 
   useEffect(() => {

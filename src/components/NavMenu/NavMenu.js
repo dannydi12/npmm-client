@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Link, useHistory } from 'react-router-dom';
 import randomWords from 'random-words';
@@ -7,7 +7,6 @@ import TokenService from '../../services/token-service';
 import { createCollection } from '../../redux/CollectionListSlice';
 import plus from '../../images/plus.svg';
 import './NavMenu.css';
-// import styles from './example.css';
 
 function NavMenu() {
   const dispatch = useDispatch();
@@ -16,7 +15,7 @@ function NavMenu() {
   const isLoggedIn = TokenService.hasAuthToken();
 
   const setupCollection = () => {
-    dispatch(createCollection(randomWords({ min: 2, max: 4, join: '-' }))).then(
+    dispatch(createCollection(randomWords({ exactly: 2, join: '-' }))).then(
       (res) => {
         history.push(`/collection/${res.payload.id}?edit=true`);
       }

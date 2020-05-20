@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { searchFor } from '../../redux/SearchResultsSlice';
@@ -51,6 +51,7 @@ function SearchBox(props) {
           className={props.searchInputClass}
           aria-label="npm package search"
           onChange={(ev) => setSearch(ev.target.value)}
+          minLength="1"
         />
         {props.searchInputClass === 'navSearchInput' && (
           <div className="searchDivider" />

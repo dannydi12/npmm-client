@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { fetchPackageInfo } from '../../redux/PackageInfoSlice';
 import ErrorBoundary from '../../ErrorBoundary';
