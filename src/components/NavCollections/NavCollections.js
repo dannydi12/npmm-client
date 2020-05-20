@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-// import styles from './example.css';
 
 function NavCollections() {
   const collections = useSelector((state) => state.collectionList.collections);
