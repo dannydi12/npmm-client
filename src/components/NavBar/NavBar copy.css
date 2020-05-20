@@ -13,7 +13,7 @@
   justify-content: space-between;
 }
 
-.menuContainer {
+.navbarContainer {
   z-index: 996;
   background: #f4f4f4;
   position: fixed;
