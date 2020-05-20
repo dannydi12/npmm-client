@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import Spinner from 'react-spinkit';
 import AuthService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
 import { getCollections } from '../../redux/CollectionListSlice';
@@ -11,12 +12,14 @@ function LoginForm(props) {
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
 
   const onSubmit = (data) => {
+    setIsLoading(true);
     AuthService.postLogin({
       email: data.email,
       password: data.password,
@@ -24,11 +27,14 @@ function LoginForm(props) {
       .then((res) => {
         TokenService.saveAuthToken(res.authToken);
       })
-      .then((res) => {
+      .then(() => {
         dispatch(getCollections());
         history.push('/');
       })
-      .catch(() => props.setLoginError(true));
+      .catch(() => {
+        props.setLoginError(true);
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -91,7 +97,11 @@ function LoginForm(props) {
         <p className="validationWarning">{errors.password.message}</p>
       )}
       <button type="submit" className="loginSubmit">
-        Log In
+        {isLoading ? (
+          <Spinner fadeIn="none" name="folding-cube" color="white" />
+        ) : (
+          'Login'
+        )}
       </button>
     </form>
   );
