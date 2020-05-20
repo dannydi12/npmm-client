@@ -90,6 +90,9 @@ input::-ms-input-placeholder {
   font-weight: 400;
 }
 
+.passwordInput {
+}
+
 button:disabled,
 button[disabled] {
   text-decoration: line-through;

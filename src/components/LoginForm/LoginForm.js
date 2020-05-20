@@ -56,6 +56,7 @@ function LoginForm() {
         type="password"
         placeholder="Password"
         autoComplete="new-password"
+        className="passwordInput"
         name="password"
         ref={register({
           required: 'Please enter your password',
