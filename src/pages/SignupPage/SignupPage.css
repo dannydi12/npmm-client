@@ -32,3 +32,8 @@
 .signupSubmit[type='submit'] {
   margin-top: 3.5rem;
 }
+
+.signupSubmit {
+  display: flex;
+  justify-content: center;
+}

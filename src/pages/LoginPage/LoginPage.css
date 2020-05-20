@@ -17,6 +17,11 @@
   margin-top: 3.5rem;
 }
 
+.loginSubmit {
+  display: flex;
+  justify-content: center;
+}
+
 .titleContainer {
   position: relative;
 }
