@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Arrow from '../../images/top-arrow.svg';
 import './ScrollToTop.css';
 
 export default function ScrollToTop() {
@@ -27,7 +28,7 @@ export default function ScrollToTop() {
       onClick={scrollTop}
       style={{ display: showScroll ? 'flex' : 'none' }}
     >
-      ^
+      <img src={Arrow} alt="Scroll to top arrow" className="arrow" />
     </button>
   );
 }

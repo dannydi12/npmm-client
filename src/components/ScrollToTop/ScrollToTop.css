@@ -12,7 +12,12 @@
   transition: opacity 0.4s;
   opacity: 0.7;
   background-color: #e2514c;
-  border-radius: 50%;
+  border-radius: 5px;
+}
+
+.arrow {
+  width: 4rem;
+  height: 4rem;
 }
 
 .scrollToTop:hover {
