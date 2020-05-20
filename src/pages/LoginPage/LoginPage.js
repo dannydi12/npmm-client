@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import ErrorBoundary from '../../ErrorBoundary';
 import './LoginPage.css';
@@ -6,14 +6,15 @@ import mrBuddy from '../../images/mr-buddy.svg';
 import mrBuddyMessage from '../../images/mr-buddy-message.svg';
 
 function LoginPage() {
+  const [loginError, setLoginError] = useState(false);
+
   return (
     <ErrorBoundary>
       <div className="login-container">
         <div className="titleContainer">
           <h2 className="pageTitle">Login</h2>
           <img
-            src={mrBuddyMessage}
-            // src={errorState ? mrBuddyMessage : mrBuddy}
+            src={loginError ? mrBuddyMessage : mrBuddy}
             alt="mr buddy at his workstation"
             className="mrBuddy"
           />
@@ -25,7 +26,7 @@ function LoginPage() {
           <span className="defaultMedium">Demo User:</span> <br /> demo@demo.com
           / P4ssword
         </p>
-        <LoginForm />
+        <LoginForm setLoginError={setLoginError} />
       </div>
     </ErrorBoundary>
   );

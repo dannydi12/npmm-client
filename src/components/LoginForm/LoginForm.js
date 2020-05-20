@@ -6,7 +6,7 @@ import AuthService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
 import { getCollections } from '../../redux/CollectionListSlice';
 
-function LoginForm() {
+function LoginForm(props) {
   const history = useHistory();
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
@@ -27,7 +27,8 @@ function LoginForm() {
       .then((res) => {
         dispatch(getCollections());
         history.push('/');
-      });
+      })
+      .catch(() => props.setLoginError(true));
   };
 
   return (
