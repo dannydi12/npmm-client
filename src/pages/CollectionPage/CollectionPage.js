@@ -26,7 +26,7 @@ function CollectionPage() {
   const [isEditing, setIsEditing] = useState(!!parsed.edit);
   const [collectionName, setCollectionName] = useState({
     touched: false,
-    value: collection.name,
+    value: collection.name || '',
   });
 
   useEffect(() => {
