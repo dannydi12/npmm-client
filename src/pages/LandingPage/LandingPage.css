@@ -24,7 +24,7 @@
   text-decoration: underline;
 }
 
-.landingFullName {
+.landingSectionTitle {
   color: #2c2c2c;
   margin-top: 7rem;
   margin-bottom: 1.2rem;
@@ -51,6 +51,7 @@
 .landingGettingStarted {
   margin: 0 auto;
   text-align: center;
+  margin-bottom: 5rem;
 }
 
 .codeContainer {
@@ -62,4 +63,30 @@
   border: solid 1px #919191;
   padding: 1rem;
   border-radius: 5px;
+}
+
+.steps {
+  margin: 0 auto;
+  list-style: '\1F449';
+  width: 80%;
+}
+
+.steps li {
+  margin: 0.8rem;
+  padding-left: 0.8rem;
+  color: #2c2c2c;
+  font-size: 1.8rem;
+}
+
+.steps a {
+  color: #c74848;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition-duration: 200ms;
+}
+
+.steps a:hover {
+  text-decoration: underline;
+  transition-duration: 200ms;
 }
