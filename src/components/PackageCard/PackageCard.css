@@ -70,65 +70,70 @@
   display: none;
 }
 
-@-webkit-keyframes slideDotsIn {
+.dotAnimationHidden {
+  display: none;
+}
+
+@-webkit-keyframes dotAnimationOpen {
   from {
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
-@keyframes slideDotsIn {
+
+@keyframes dotAnimationOpen {
   from {
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
-.slideDotsIn {
-  -webkit-animation-name: slideDotsIn;
-  animation-name: slideDotsIn;
+
+.dotAnimationOpen {
+  -webkit-animation-name: dotAnimationOpen;
+  animation-name: dotAnimationOpen;
 }
-@-webkit-keyframes slideDotsOut {
+
+@-webkit-keyframes dotAnimationClosed {
   from {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
   }
 }
-@keyframes slideDotsOut {
+
+@keyframes dotAnimationClosed {
   from {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
   }
 }
-.slideDotsOut {
-  -webkit-animation-name: slideDotsOut;
-  animation-name: slideDotsOut;
+
+.dotAnimationClosed {
+  -webkit-animation-name: dotAnimationClosed;
+  animation-name: dotAnimationClosed;
 }
 
 .trashCanButton {
-  height: 5.5rem;
+  height: 4rem;
   width: 7rem;
 }
 
@@ -139,4 +144,38 @@
 .three-dot-menu {
   display: flex;
   flex-direction: column;
+}
+
+.favoriteButton:disabled {
+  background-color: transparent;
+  color: white;
+}
+
+.favoriteButton {
+  height: 4rem;
+}
+
+.favoriteStar {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  height: 2.6rem;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.8s ease-in-out;
+  -moz-transition: 0.8s ease-in-out;
+  -o-transition: 0.8s ease-in-out;
+  transition: 0.8s ease-in-out;
+}
+
+.starSpin {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.optionArrow {
+  height: 1.3rem;
 }
