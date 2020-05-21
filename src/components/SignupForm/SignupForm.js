@@ -22,7 +22,7 @@ export default function SignupForm() {
     setShowPasswordTwo(!showPasswordTwo);
   };
 
-  const passwordRegEx = new RegExp("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$");
+  const passwordRegEx = new RegExp('^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$');
 
   const onSubmit = (data) => {
     setIsLoading(true);
@@ -108,8 +108,9 @@ export default function SignupForm() {
             maxLength: 40,
             pattern: {
               value: passwordRegEx,
-              message: "Password must be 8 characters long and contain upper and lowercase letters, a number and "
-            }
+              message:
+                'Password must be a minimum eight characters, at least one letter and one number.',
+            },
             validate: (value) =>
               value === password.current || 'The passwords do not match',
           })}
