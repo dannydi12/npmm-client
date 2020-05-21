@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setAllowScroll } from '../../redux/MenuScrollSlice';
 import NavMenu from '../NavMenu/NavMenu';
 import SearchBox from '../SearchBox/SearchBox';
 import npmmTitle from '../../images/npmm-title.svg';
@@ -10,16 +12,21 @@ import './Hamburger.css';
 
 function NavBar() {
   const location = useLocation();
+  const dispatch = useDispatch();
   const [showBurger, setShowBurger] = useState(false);
   const [animationClass, setAnimationClass] = useState('Hidden');
   const [showSearch, setShowSearch] = useState(false);
   const isNotHomePage = location.pathname !== '/';
-  const [fixedNav, setFixedNav] = useState(false);
+  const allowScroll = useSelector((state) => state.menuScroll.allowScroll);
 
   useEffect(() => {
     if (showBurger === true || animationClass === 'In') {
       setShowBurger(false);
       setAnimationClass('Out');
+      dispatch(setAllowScroll(false));
+      setTimeout(() => {
+        setAnimationClass('Hidden');
+      }, 800);
     }
   }, [location.pathname]);
 
@@ -32,6 +39,7 @@ function NavBar() {
       setShowBurger(false);
       setTimeout(() => {
         setAnimationClass('Hidden');
+        dispatch(setAllowScroll(false));
       }, 800);
     }
   };
@@ -42,8 +50,14 @@ function NavBar() {
 
   return (
     <header className="navBar" role="banner">
-      <div className="menuContainer">
-        <div className={`navMenu slideMenu${animationClass}`}>
+      <div
+        className={`navbarContainer ${allowScroll ? 'navScroll' : 'navFixed'}`}
+      >
+        <div
+          className={`navMenu slideMenu${animationClass} ${
+            allowScroll ? 'menuScroll' : 'menuFixed'
+          }`}
+        >
           {animationClass !== 'Hidden' && <NavMenu />}
         </div>
         <div

@@ -1,5 +1,34 @@
 .login-container {
-  margin-top: 10.5rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+  margin-bottom: 4rem;
+  margin-top: 13rem;
+}
+
+.loginForm {
+  margin-top: 2.7rem;
+}
+
+.demoCredentials {
+  /* padding-top: 1.5rem; */
+}
+
+.loginSubmit[type='submit'] {
+  margin-top: 3.5rem;
+}
+
+.loginSubmit {
+  display: flex;
+  justify-content: center;
+}
+
+.titleContainer {
+  position: relative;
+}
+
+.mrBuddy {
+  position: absolute;
+  height: 12.5rem;
+  left: 0;
+  bottom: 0.9rem;
 }

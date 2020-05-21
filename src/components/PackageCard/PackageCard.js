@@ -5,6 +5,11 @@ import {
   addPackage,
   deletePackage,
 } from '../../redux/CurrentCollectionInfoSlice';
+import './PackageCard.css';
+import threeDot from '../../images/three-dot-black.svg';
+import dotMenuX from '../../images/dot-menu-x.svg';
+import trashCan from '../../images/trash-white.svg';
+import favoriteStar from '../../images/favorite-empty-white.svg';
 
 function PackageCard(props) {
   const dispatch = useDispatch();
@@ -46,26 +51,59 @@ function PackageCard(props) {
   };
 
   return (
-    <div>
+    <div className="cardContainer">
       <header>
-        <div>
-          <Link to={`/package/${encodeURIComponent(props.pack.package.name)}`}>
-            <h2>{props.pack.package.name}</h2>
+        <div className="cardTitleContainer">
+          <Link
+            to={`/package/${encodeURIComponent(props.pack.package.name)}`}
+            className="cardTitle"
+          >
+            {props.pack.package.name}
           </Link>
-          <p>({props.pack.package.version})</p>
+          <span className="packageVersion">({props.pack.package.version})</span>
         </div>
-        {!isMenuOpen && (
-          <button type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            Three dots
-          </button>
-        )}
-        {isMenuOpen && (
-          <div className="three-dot-menu">
-            <button type="button" onClick={deletePackage}>
-              Trash
+        <div className="dotMenuClosed">
+          {!isMenuOpen && (
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="dotMenuButton"
+            >
+              <img
+                src={threeDot}
+                alt="three dot menu closed"
+                className="threeDot"
+              />
             </button>
-            <button type="button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              Three Dots
+          )}
+        </div>
+        <div
+          className={`dotMenuOpen ${
+            !isMenuOpen ? 'slideDotsOut' : 'slideDotsIn'
+          }`}
+        >
+          <div className="three-dot-menu">
+            <button
+              type="button"
+              onClick={deletePackage}
+              className="trashCanButton"
+            >
+              <img
+                src={trashCan}
+                alt="delete button"
+                className="trashCanImage"
+              />
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="dotMenuButton"
+            >
+              <img
+                src={dotMenuX}
+                alt="three dot menu close button"
+                className="dotMenuX"
+              />
             </button>
             <button
               type="button"
@@ -90,7 +128,7 @@ function PackageCard(props) {
               </>
             )}
           </div>
-        )}
+        </div>
       </header>
 
       <p>{props.pack.package.description}</p>

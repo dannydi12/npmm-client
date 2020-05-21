@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import { useSelector, useDispatch } from 'react-redux';
+import Spinner from 'react-spinkit';
 import InfiniteScroll from 'react-infinite-scroller';
 import PackageList from '../../components/PackageList/PackageList';
 import ErrorBoundary from '../../ErrorBoundary';
 import { getPackages } from '../../redux/SearchResultsSlice';
+import './SearchResultPage.css';
 
 function SearchResultPage() {
   const dispatch = useDispatch();
@@ -33,8 +35,8 @@ function SearchResultPage() {
   return (
     <ErrorBoundary>
       <div className="searchContainer">
-        <h2 className="pageTitle">Search Results</h2>
-        <p className="pageInstructions">
+        <h2 className="searchTitle pageTitle">Search Results</h2>
+        <p className="pageInstructions searchInstructions">
           Click a package's name to view details.
         </p>
         <section>
@@ -48,7 +50,9 @@ function SearchResultPage() {
               <PackageList packs={searchResults.packs} />
             )}
           </InfiniteScroll>
-          {searchResults.loading === 'pending' && <p>Loading...</p>}
+          {searchResults.loading === 'pending' && (
+            <Spinner className="spinner" name="folding-cube" color="#c74848" />
+          )}
         </section>
       </div>
     </ErrorBoundary>

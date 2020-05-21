@@ -1,5 +1,5 @@
 .signupContainer {
-  margin-top: 10.5rem;
+  margin-top: 7.5rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 }
@@ -15,4 +15,25 @@
   font-size: 2.2rem;
   color: #2c2c2c;
   font-weight: 300;
+}
+
+.signupForm input[type='text'],
+.signupForm input[type='password'] {
+  padding-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1.8rem;
+}
+
+.signupForm {
+  margin-bottom: 6rem;
+  margin-top: 2.7rem;
+}
+
+.signupSubmit[type='submit'] {
+  margin-top: 3.5rem;
+}
+
+.signupSubmit {
+  display: flex;
+  justify-content: center;
 }
