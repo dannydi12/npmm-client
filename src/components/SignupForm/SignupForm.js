@@ -33,14 +33,9 @@ export default function SignupForm() {
       .then((res) => TokenService.saveAuthToken(res.authToken))
       .then(() => {
         dispatch(getCollections());
-<<<<<<< HEAD
-        history.push('/?onBoarding=true');
-      });
-=======
         history.push('/');
       })
       .catch(setIsLoading(false));
->>>>>>> f005e072c9388f0ac1e42354e2e5b2201b603e80
   };
 
   const { register, handleSubmit, errors, watch } = useForm();
