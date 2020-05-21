@@ -19,7 +19,7 @@ function PackagePage() {
     packageInfo.loading === 'idle' ? packageInfo.data.collected.metadata : null;
   return (
     <ErrorBoundary>
-      <section>
+      <main className="packageDetails">
         {packageInfo.loading === 'pending' && (
           <Spinner
             className="spinner"
@@ -31,24 +31,28 @@ function PackagePage() {
         {packageInfo.loading === 'idle' && (
           <>
             <header>
-              <h2>{metadata.name}</h2>
-              <button type="button">Edit icon</button>
+              <h2>{metadata.name}'s README</h2>
             </header>
             <ReactMarkdown source={metadata.readme} />
-            <aside>
-              <div>
+            <section className="metadata">
+              <p>
                 Homepage @
+                <br />
                 <a href={metadata.links.homepage} target="_blank">
                   {metadata.links.homepage}
                 </a>
-              </div>
-              <div>Repo @ {metadata.repository.url}</div>
-              <div>License {metadata.license}</div>
-              <div>Version {metadata.version}</div>
-            </aside>
+              </p>
+              <p>
+                Repo @
+                <br />
+                {metadata.repository.url}
+              </p>
+              <p>License {metadata.license}</p>
+              <p>Version {metadata.version}</p>
+            </section>
           </>
         )}
-      </section>
+      </main>
     </ErrorBoundary>
   );
 }
