@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import queryString from 'query-string';
+import Modal from '../../components/Modal/Modal';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import ErrorBoundary from '../../ErrorBoundary';
 import npmmLogo from '../../images/npmm-logo.svg';
 import './LandingPage.css';
 
 function LandingPage() {
+  const location = useLocation();
+  const { onBoarding } = queryString.parse(location.search);
+  const [showModal, setShowModal] = useState(!!onBoarding);
+
   return (
     <ErrorBoundary>
+      {showModal && (
+        <Modal
+          title="Welcome"
+          message="You can do so many things."
+          clickHandler={setShowModal}
+          buttonText="Get Started"
+        />
+      )}
       <div className="landingContainer">
         <h1 className="landingTitle">
           <img src={npmmLogo} alt="npmm logo" className="logoMain" />

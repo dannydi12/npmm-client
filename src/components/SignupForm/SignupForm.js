@@ -28,7 +28,7 @@ export default function SignupForm() {
       .then((res) => TokenService.saveAuthToken(res.authToken))
       .then((res) => {
         dispatch(getCollections());
-        history.push('/');
+        history.push('/?onBoarding=true');
       });
   };
 
