@@ -22,6 +22,8 @@ export default function SignupForm() {
     setShowPasswordTwo(!showPasswordTwo);
   };
 
+  const passwordRegEx = new RegExp("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$");
+
   const onSubmit = (data) => {
     setIsLoading(true);
     AuthService.postUser({
@@ -102,8 +104,12 @@ export default function SignupForm() {
           name="confirmPassword"
           ref={register({
             required: true,
-            minLength: 6,
+            minLength: 8,
             maxLength: 40,
+            pattern: {
+              value: passwordRegEx,
+              message: "Password must be 8 characters long and contain upper and lowercase letters, a number and "
+            }
             validate: (value) =>
               value === password.current || 'The passwords do not match',
           })}
