@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import { useSelector, useDispatch } from 'react-redux';
+import Spinner from 'react-spinkit';
 import InfiniteScroll from 'react-infinite-scroller';
 import PackageList from '../../components/PackageList/PackageList';
 import ErrorBoundary from '../../ErrorBoundary';
@@ -49,7 +50,9 @@ function SearchResultPage() {
               <PackageList packs={searchResults.packs} />
             )}
           </InfiniteScroll>
-          {searchResults.loading === 'pending' && <p>Loading...</p>}
+          {searchResults.loading === 'pending' && (
+            <Spinner className="spinner" name="folding-cube" color="#c74848" />
+          )}
         </section>
       </div>
     </ErrorBoundary>
