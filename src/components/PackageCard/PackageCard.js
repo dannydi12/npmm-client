@@ -95,17 +95,19 @@ function PackageCard(props) {
         </div>
         <div className={`dotMenuOpen dotAnimation${dotMenu}`}>
           <div className="three-dot-menu">
-            <button
-              type="button"
-              onClick={deletePackage}
-              className="trashCanButton"
-            >
-              <img
-                src={trashCan}
-                alt="delete button"
-                className="trashCanImage"
-              />
-            </button>
+            {isInCollection && (
+              <button
+                type="button"
+                onClick={deletePackage}
+                className="trashCanButton"
+              >
+                <img
+                  src={trashCan}
+                  alt="delete button"
+                  className="trashCanImage"
+                />
+              </button>
+            )}
             <button
               type="button"
               onClick={() => setDotMenu('Closed')}

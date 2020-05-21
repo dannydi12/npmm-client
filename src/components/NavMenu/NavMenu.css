@@ -32,14 +32,14 @@
 }
 
 .menuLink {
-  text-decoration: underline;
   height: 6rem;
   background-color: transparent;
   padding-left: 10rem;
-  padding-top: 0.8rem;
+  padding-top: 0.9rem;
   border-radius: 3.4rem 0 0 3.4rem;
   position: relative;
   margin-bottom: 3.5rem;
+  text-decoration: underline;
 }
 
 .menuLink.active {
@@ -108,13 +108,51 @@
   }
 }
 
-@media only screen and (max-height: 700px) {
+@media only screen and (min-width: 1025px) {
   .menuLink {
-    margin-top: 3rem;
+    text-decoration: none;
   }
-
+  .menuLink:hover {
+    text-decoration: underline;
+  }
   .createCollection,
   .collectionMenuLink {
-    margin-top: 1rem;
+    text-decoration: none;
+  }
+  .createCollection:hover,
+  .collectionMenuLink:hover {
+    text-decoration: underline;
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  .menuLink {
+    margin-bottom: 1.5rem;
+  }
+  .createCollection,
+  .collectionMenuLink {
+    margin-top: 0.7rem;
+  }
+
+  .showMore {
+    margin-top: 2rem;
+  }
+  .navMenu {
+    padding-top: 8rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media only screen and (max-height: 560px) {
+  .navMenu {
+    height: 60rem;
+  }
+
+  .menuScroll {
+    height: auto;
+  }
+
+  .navFixed {
+    position: absolute !important;
   }
 }
