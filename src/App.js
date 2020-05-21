@@ -37,7 +37,6 @@ function App() {
               path="/collection/:id"
               component={CollectionPage}
             />
-            {/* <Route exact path="/collection/:id" component={CollectionPage} /> */}
             <Route exact path="/package/:packageName" component={PackagePage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignupPage} />
