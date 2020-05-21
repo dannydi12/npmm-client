@@ -42,7 +42,8 @@ export default function SignupForm() {
         type="text"
         placeholder="Email"
         name="email"
-        autoComplete="email"
+        autoComplete="off"
+        // autoComplete="email"
         ref={register({
           required: true,
           minLength: {
@@ -66,7 +67,8 @@ export default function SignupForm() {
         <input
           type={showPasswordOne ? 'text' : 'password'}
           placeholder="Password"
-          autoComplete="new-password"
+          autoComplete="off"
+          // autoComplete="new-password"
           name="password"
           ref={register({
             required: 'Please enter your password',
@@ -94,7 +96,8 @@ export default function SignupForm() {
         <input
           type={showPasswordTwo ? 'text' : 'password'}
           placeholder="Confirm password"
-          autoComplete="new-password"
+          autoComplete="off"
+          // autoComplete="new-password"
           name="confirmPassword"
           ref={register({
             required: true,

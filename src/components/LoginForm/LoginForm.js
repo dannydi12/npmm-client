@@ -41,7 +41,8 @@ function LoginForm(props) {
         type="text"
         placeholder="Email"
         name="email"
-        autoComplete="email"
+        autoComplete="off"
+        // autoComplete="email"
         ref={register({
           required: true,
           minLength: {
@@ -65,7 +66,8 @@ function LoginForm(props) {
         <input
           type={showPassword ? 'text' : 'password'}
           placeholder="Password"
-          autoComplete="new-password"
+          autoComplete="off"
+          // autoComplete="new-password"
           className="passwordInput"
           name="password"
           ref={register({
