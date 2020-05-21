@@ -14,6 +14,7 @@ import { getCollections } from './redux/CollectionListSlice';
 import TokenService from './services/token-service';
 import ErrorBoundary from './ErrorBoundary';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import PrivateRoute from './components/Utilities/PrivateRoute';
 import './App.css';
 
 function App() {
@@ -31,7 +32,12 @@ function App() {
       <main className="appMain">
         <ErrorBoundary>
           <Switch>
-            <Route exact path="/collection/:id" component={CollectionPage} />
+            <PrivateRoute
+              exact
+              path="/collection/:id"
+              component={CollectionPage}
+            />
+            {/* <Route exact path="/collection/:id" component={CollectionPage} /> */}
             <Route exact path="/package/:packageName" component={PackagePage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignupPage} />
