@@ -110,11 +110,32 @@
 
 @media only screen and (max-height: 700px) {
   .menuLink {
-    margin-top: 3rem;
+    margin-bottom: 1.5rem;
   }
-
   .createCollection,
   .collectionMenuLink {
-    margin-top: 1rem;
+    margin-top: 0.7rem;
+  }
+
+  .showMore {
+    margin-top: 2rem;
+  }
+  .navMenu {
+    padding-top: 8rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media only screen and (max-height: 560px) {
+  .navMenu {
+    height: 60rem;
+  }
+
+  .menuScroll {
+    height: auto;
+  }
+
+  .navFixed {
+    position: absolute !important;
   }
 }
