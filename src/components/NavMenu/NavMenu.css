@@ -39,7 +39,7 @@
   padding-top: 0.8rem;
   border-radius: 3.4rem 0 0 3.4rem;
   position: relative;
-  margin-bottom: 5rem;
+  margin-bottom: 3.5rem;
 }
 
 .menuLink.active {
@@ -105,5 +105,16 @@
 @media only screen and (max-width: 360px) {
   .navMenu {
     padding-right: 6rem;
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  .menuLink {
+    margin-top: 3rem;
+  }
+
+  .createCollection,
+  .collectionMenuLink {
+    margin-top: 1rem;
   }
 }

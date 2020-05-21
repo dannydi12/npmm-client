@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import Spinner from 'react-spinkit';
 import { fetchPackageInfo } from '../../redux/PackageInfoSlice';
 import ErrorBoundary from '../../ErrorBoundary';
 import './PackagePage.css';
@@ -19,7 +20,14 @@ function PackagePage() {
   return (
     <ErrorBoundary>
       <section>
-        {packageInfo.loading === 'pending' && <p>Loading...</p>}
+        {packageInfo.loading === 'pending' && (
+          <Spinner
+            className="spinner"
+            fadeIn="none"
+            name="folding-cube"
+            color="#c74848"
+          />
+        )}
         {packageInfo.loading === 'idle' && (
           <>
             <header>

@@ -165,6 +165,12 @@ button[disabled] {
   margin-top: 0.5rem;
 }
 
+.spinner {
+  margin: 0 auto;
+  margin-top: 30vh;
+  /*padding-bottom: 1em; */
+}
+
 @media only screen and (min-width: 768px) {
   .appMain {
     padding-right: 4rem;

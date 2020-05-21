@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import Spinner from 'react-spinkit';
 import AuthService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
 import { getCollections } from '../../redux/CollectionListSlice';
@@ -11,6 +12,7 @@ export default function SignupForm() {
   const dispatch = useDispatch();
   const [showPasswordOne, setShowPasswordOne] = useState(false);
   const [showPasswordTwo, setShowPasswordTwo] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const togglePasswordOne = () => {
     setShowPasswordOne(!showPasswordOne);
@@ -20,16 +22,25 @@ export default function SignupForm() {
     setShowPasswordTwo(!showPasswordTwo);
   };
 
+  const passwordRegEx = new RegExp('^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$');
+
   const onSubmit = (data) => {
+    setIsLoading(true);
     AuthService.postUser({
       email: data.email,
       password: data.password,
     })
       .then((res) => TokenService.saveAuthToken(res.authToken))
-      .then((res) => {
+      .then(() => {
         dispatch(getCollections());
+<<<<<<< HEAD
         history.push('/?onBoarding=true');
       });
+=======
+        history.push('/');
+      })
+      .catch(setIsLoading(false));
+>>>>>>> f005e072c9388f0ac1e42354e2e5b2201b603e80
   };
 
   const { register, handleSubmit, errors, watch } = useForm();
@@ -42,7 +53,8 @@ export default function SignupForm() {
         type="text"
         placeholder="Email"
         name="email"
-        autoComplete="email"
+        autoComplete="off"
+        // autoComplete="email"
         ref={register({
           required: true,
           minLength: {
@@ -66,7 +78,8 @@ export default function SignupForm() {
         <input
           type={showPasswordOne ? 'text' : 'password'}
           placeholder="Password"
-          autoComplete="new-password"
+          autoComplete="off"
+          // autoComplete="new-password"
           name="password"
           ref={register({
             required: 'Please enter your password',
@@ -94,12 +107,18 @@ export default function SignupForm() {
         <input
           type={showPasswordTwo ? 'text' : 'password'}
           placeholder="Confirm password"
-          autoComplete="new-password"
+          autoComplete="off"
+          // autoComplete="new-password"
           name="confirmPassword"
           ref={register({
             required: true,
-            minLength: 6,
+            minLength: 8,
             maxLength: 40,
+            pattern: {
+              value: passwordRegEx,
+              message:
+                'Password must be a minimum eight characters, at least one letter and one number.',
+            },
             validate: (value) =>
               value === password.current || 'The passwords do not match',
           })}
@@ -115,7 +134,11 @@ export default function SignupForm() {
         <p className="validationWarning">{errors.confirmPassword.message}</p>
       )}
       <button className="signupSubmit" type="submit">
-        Sign Up
+        {isLoading ? (
+          <Spinner fadeIn="none" name="folding-cube" color="white" />
+        ) : (
+          'Login'
+        )}
       </button>
     </form>
   );
