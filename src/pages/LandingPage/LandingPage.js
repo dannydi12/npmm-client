@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import queryString from 'query-string';
 import Modal from '../../components/Modal/Modal';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import ErrorBoundary from '../../ErrorBoundary';
 import npmmLogo from '../../images/npmm-logo.svg';
 import './LandingPage.css';
-import { Link } from 'react-router-dom';
 
 function LandingPage() {
   const location = useLocation();
