@@ -52,6 +52,7 @@ function SearchBox(props) {
           className={props.searchInputClass}
           aria-label="npm package search"
           onChange={(ev) => setSearch(ev.target.value)}
+          maxLength="214"
           minLength="1"
           required
         />
