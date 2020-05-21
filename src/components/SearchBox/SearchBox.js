@@ -41,6 +41,7 @@ function SearchBox(props) {
         aria-label="npm package search"
         autoComplete="off"
         onBlur={hideSearch}
+        id="searchBox"
       >
         <input
           placeholder="Search packages"
@@ -52,6 +53,7 @@ function SearchBox(props) {
           aria-label="npm package search"
           onChange={(ev) => setSearch(ev.target.value)}
           minLength="1"
+          required
         />
         {props.searchInputClass === 'navSearchInput' && (
           <div className="searchDivider" />
