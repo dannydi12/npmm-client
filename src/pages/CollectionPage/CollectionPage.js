@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroller';
+import Spinner from 'react-spinkit';
 import queryString from 'query-string';
 import PackageList from '../../components/PackageList/PackageList';
 import { fetchCollectionInfo } from '../../redux/CurrentCollectionInfoSlice';
@@ -141,7 +142,14 @@ function CollectionPage() {
             <PackageList packs={collection.packages} />
           </InfiniteScroll>
         )}
-        {collection.loading === 'pending' && <p>Loading...</p>}
+        {collection.loading === 'pending' && (
+          <Spinner
+            className="spinner"
+            fadeIn="none"
+            name="folding-cube"
+            color="#c74848"
+          />
+        )}
       </section>
     </ErrorBoundary>
   );
