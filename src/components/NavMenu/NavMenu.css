@@ -32,14 +32,14 @@
 }
 
 .menuLink {
-  text-decoration: underline;
   height: 6rem;
   background-color: transparent;
   padding-left: 10rem;
-  padding-top: 0.8rem;
+  padding-top: 0.9rem;
   border-radius: 3.4rem 0 0 3.4rem;
   position: relative;
   margin-bottom: 3.5rem;
+  text-decoration: underline;
 }
 
 .menuLink.active {
@@ -105,6 +105,23 @@
 @media only screen and (max-width: 360px) {
   .navMenu {
     padding-right: 6rem;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .menuLink {
+    text-decoration: none;
+  }
+  .menuLink:hover {
+    text-decoration: underline;
+  }
+  .createCollection,
+  .collectionMenuLink {
+    text-decoration: none;
+  }
+  .createCollection:hover,
+  .collectionMenuLink:hover {
+    text-decoration: underline;
   }
 }
 
