@@ -173,7 +173,7 @@ function PackageCard(props) {
                   />
                 </button>
               ) : (
-                <div className="dotSaveCheckmark">
+                <div className="dotCheckmarkContainer">
                   <img
                     src={checkmarkButton}
                     alt="saved to collection"

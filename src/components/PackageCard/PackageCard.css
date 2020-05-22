@@ -66,7 +66,9 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 28rem;
+  min-width: 28rem;
+  width: 50%;
+  max-width: 40rem;
   -webkit-animation-duration: 0.6s;
   animation-duration: 0.6s;
   -webkit-animation-fill-mode: both;
@@ -202,11 +204,6 @@
   display: inline-block;
 }
 
-.collectionOption {
-  background-color: transparent;
-  border: none;
-}
-
 .dotMenuForm {
   display: inline-block;
   height: 4rem;
@@ -224,7 +221,7 @@
   font-weight: 400;
   color: #2c2c2c;
   margin-left: 0.5rem;
-  width: 21rem;
+  width: 100%;
   height: 3rem;
   margin-top: 0;
   background: url('../../images/option-arrow.svg');
@@ -232,18 +229,17 @@
   background-size: 2rem;
   background-position: left;
   padding-left: 3.9rem;
+  background-color: transparent;
+  border: none;
+  padding-right: 5rem;
 }
 
 .trashCanContainer {
   min-height: 2rem;
 }
 
-.collectionOption-selected {
-  background-color: #c33c3c;
-}
-
 .dotSaveContainer[type='submit'],
-.dotSaveCheckmark {
+.dotCheckmarkContainer {
   margin-top: 0;
   background-color: transparent;
   width: 2.6rem;
@@ -252,6 +248,9 @@
   height: 3rem;
   display: inline-block;
   vertical-align: -0.4rem;
+  position: absolute;
+  right: 1rem;
+  bottom: 0.2rem;
 }
 
 .dotSave {
