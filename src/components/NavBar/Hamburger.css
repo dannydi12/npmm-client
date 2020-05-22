@@ -9,8 +9,12 @@
   outline: none;
 }
 
-.burgerButton:hover span {
-  height: 3px;
+.falseBurger:hover span {
+  box-shadow: 0.5px 0.5px 0 #2c2c2c;
+}
+
+.trueBurger:hover span {
+  box-shadow: 0.5px 0.5px 0 white;
 }
 
 .burgerButton span {
