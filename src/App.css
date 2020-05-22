@@ -229,6 +229,11 @@ button[disabled] {
   visibility: visible;
 }
 
+.emptyImage {
+  max-height: 30rem;
+  margin-top: 3rem;
+}
+
 @media only screen and (min-width: 768px) {
   .appMain {
     padding-right: 4rem;
