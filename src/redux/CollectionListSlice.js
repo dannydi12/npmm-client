@@ -43,7 +43,11 @@ export const collectionListSlice = createSlice({
     collections: [],
     loading: null,
   },
-  reducers: {},
+  reducers: {
+    clearCollections: (state) => {
+      state.collections = [];
+    },
+  },
   extraReducers: {
     [getCollections.pending]: (state) => {
       state.loading = 'pending';
@@ -73,5 +77,9 @@ export const collectionListSlice = createSlice({
     },
   },
 });
+
+const { actions } = collectionListSlice;
+
+export const { clearCollections } = actions;
 
 export default collectionListSlice.reducer;
