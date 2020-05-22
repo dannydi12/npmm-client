@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PackageCard from '../PackageCard/PackageCard';
 
 function PackageList(props) {
@@ -12,5 +13,26 @@ function PackageList(props) {
     <>{packs.length > 0 ? <ul>{packs}</ul> : <p>Nothing to see here...</p>}</>
   );
 }
+
+PackageList.propTypes = {
+  packs: PropTypes.arrayOf(
+    PropTypes.shape({
+      pack: PropTypes.shape({
+        id: PropTypes.number,
+        package: PropTypes.shape({
+          description: PropTypes.string,
+          name: PropTypes.string.isRequired,
+          version: PropTypes.string.isRequired,
+          links: PropTypes.shape({
+            npm: PropTypes.string.isRequired,
+          }),
+        }),
+        score: PropTypes.shape({
+          final: PropTypes.number.isRequired,
+        }).isRequired,
+      }),
+    })
+  ).isRequired,
+};
 
 export default PackageList;

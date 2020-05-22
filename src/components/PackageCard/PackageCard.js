@@ -222,6 +222,7 @@ function PackageCard(props) {
 
 PackageCard.propTypes = {
   pack: PropTypes.shape({
+    id: PropTypes.number,
     package: PropTypes.shape({
       description: PropTypes.string,
       name: PropTypes.string.isRequired,
