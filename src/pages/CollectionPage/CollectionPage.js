@@ -12,6 +12,8 @@ import {
 } from '../../redux/CollectionListSlice';
 import ErrorBoundary from '../../ErrorBoundary';
 import EditPencil from '../../images/edit-pencil.svg';
+import SaveButton from '../../images/edit-save-white.svg';
+import TrashCan from '../../images/trash-black.svg';
 import './CollectionPage.css';
 
 function CollectionPage() {
@@ -99,9 +101,9 @@ function CollectionPage() {
       <section className="collectionPageContainer">
         {collection && (
           <header>
-            {!isEditing && (
-              <>
-                <div className="collectionTitleContainer">
+            <div className="collectionTitleContainer">
+              {!isEditing && (
+                <>
                   <h2 className="collectionTitle">{collectionName.value}</h2>
                   {collectionName.value !== 'Favorites' && (
                     <button
@@ -116,29 +118,49 @@ function CollectionPage() {
                       />
                     </button>
                   )}
-                  <div className="collectionTitleBackground" />
-                </div>
-              </>
-            )}
-            {isEditing && (
-              <>
-                <form onSubmit={(e) => saveChange(e)}>
-                  <input
-                    name="collectionName"
-                    type="text"
-                    value={collectionName.value}
-                    onChange={handleInput}
-                  />
-                  {collectionName.touched && <p>{validateInput()}</p>}
-                  <button type="button" onClick={handleDelete}>
-                    Delete
+                </>
+              )}
+              {isEditing && (
+                <>
+                  <form onSubmit={(e) => saveChange(e)} className="editCollect">
+                    <input
+                      name="collectionName"
+                      type="text"
+                      value={collectionName.value}
+                      onChange={handleInput}
+                      className="collectionTitle"
+                      autoFocus
+                    />
+                    {collectionName.touched && <p>{validateInput()}</p>}
+                    <button
+                      className="collectionEditButton"
+                      type="submit"
+                      onClick={() => setIsEditing(true)}
+                      disabled={validateInput()}
+                    >
+                      <img
+                        alt="edit save"
+                        src={SaveButton}
+                        className="collectionTitleSave"
+                      />
+                    </button>
+                  </form>
+                  <button
+                    type="button"
+                    onClick={handleDelete}
+                    className="collectionDelete"
+                  >
+                    <img
+                      alt="delete button"
+                      src={TrashCan}
+                      className="collectionTrash"
+                    />
+                    Delete Collection
                   </button>
-                  <button type="submit" disabled={validateInput()}>
-                    Done
-                  </button>
-                </form>
-              </>
-            )}
+                </>
+              )}
+              <div className="collectionTitleBackground" />
+            </div>
           </header>
         )}
 
