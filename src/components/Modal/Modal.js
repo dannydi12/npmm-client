@@ -18,6 +18,7 @@ export default function Modal(props) {
 
 Modal.defaultProps = {
   title: '',
+  handleExit: () => {},
 };
 
 Modal.propTypes = {
