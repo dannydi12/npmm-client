@@ -1,0 +1,37 @@
+.collectionPageContainer {
+  margin-top: 4rem;
+}
+
+.collectionTitle {
+  color: #fff;
+  height: 6rem;
+  background-color: #c74848;
+  padding-left: 3rem;
+  padding-top: 1.5rem;
+  border-radius: 3.4rem 0 0 3.4rem;
+  position: relative;
+  margin-bottom: 3.5rem;
+  padding-right: 6rem;
+  border-radius: 0 3.4rem 3.4rem 0;
+  margin-left: 5rem;
+}
+
+.collectionTitle::after {
+  height: 8.2rem;
+  bottom: -0.1rem;
+  background-color: transparent;
+  width: 9rem;
+  content: '';
+  background-image: url('../../images/logo-ball-left-red.svg');
+  position: absolute;
+  background-repeat: no-repeat;
+  left: -4.4rem;
+}
+
+.editPencil {
+  height: 2.4rem;
+}
+
+.saveIcon {
+  height: 2rem;
+}

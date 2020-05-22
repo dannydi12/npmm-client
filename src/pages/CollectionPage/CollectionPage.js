@@ -11,6 +11,7 @@ import {
   deleteCollection,
 } from '../../redux/CollectionListSlice';
 import ErrorBoundary from '../../ErrorBoundary';
+import './CollectionPage.css';
 
 function CollectionPage() {
   const dispatch = useDispatch();
@@ -94,12 +95,12 @@ function CollectionPage() {
 
   return (
     <ErrorBoundary>
-      <section>
+      <section className="collectionPageContainer">
         {collection && (
           <header>
             {!isEditing && (
               <>
-                <h2>{collectionName.value}</h2>
+                <h2 className="collectionTitle">{collectionName.value}</h2>
                 {collectionName.value !== 'Favorites' && (
                   <button type="button" onClick={() => setIsEditing(true)}>
                     Edit
