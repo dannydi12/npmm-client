@@ -41,6 +41,12 @@ function PackageCard(props) {
     }
   };
 
+  const handleFormClick = () => {
+    if (!collectionList.collections.length) {
+      setIsSigned(false);
+    }
+  };
+
   const addToCollection = (packageName, collection) => {
     dispatch(addPackage({ name: packageName, collectionId: collection }));
   };
@@ -139,13 +145,22 @@ function PackageCard(props) {
               <span className="dotMenuTitle">Add to Favorites</span>
             </button>
             <form onSubmit={handleSubmit} className="dotMenuForm">
-              <select name="collectionsList" className="collectionOption">
-                <option selected disabled>
+              <select
+                name="collectionsList"
+                onFocus={handleFormClick}
+                className="collectionOption"
+                defaultValue="default"
+              >
+                <option value="default" disabled>
                   Add to collection
                 </option>
                 {collectionOptions}
               </select>
-              <button type="submit" className="dotSaveContainer">
+              <button
+                type="submit"
+                onClick={handleFormClick}
+                className="dotSaveContainer"
+              >
                 <img
                   src={saveButton}
                   alt="save to collection button"
