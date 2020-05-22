@@ -11,6 +11,7 @@ import {
   deleteCollection,
 } from '../../redux/CollectionListSlice';
 import ErrorBoundary from '../../ErrorBoundary';
+import EditPencil from '../../images/edit-pencil.svg';
 import './CollectionPage.css';
 
 function CollectionPage() {
@@ -100,12 +101,22 @@ function CollectionPage() {
           <header>
             {!isEditing && (
               <>
-                <h2 className="collectionTitle">{collectionName.value}</h2>
-                {collectionName.value !== 'Favorites' && (
-                  <button type="button" onClick={() => setIsEditing(true)}>
-                    Edit
-                  </button>
-                )}
+                <h2 className="collectionTitle">
+                  {collectionName.value}
+                  {collectionName.value !== 'Favorites' && (
+                    <button
+                      className="collectionEditButton"
+                      type="button"
+                      onClick={() => setIsEditing(true)}
+                    >
+                      <img
+                        alt="edit pencil"
+                        src={EditPencil}
+                        className="editPencil"
+                      />
+                    </button>
+                  )}
+                </h2>
               </>
             )}
             {isEditing && (
