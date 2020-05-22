@@ -10,7 +10,8 @@ import Modal from '../Modal/Modal';
 import threeDot from '../../images/three-dot-black.svg';
 import dotMenuX from '../../images/dot-menu-x.svg';
 import trashCan from '../../images/trash-white.svg';
-import favoriteStar from '../../images/favorite-empty-white.svg';
+import favoriteStarEmpty from '../../images/favorite-empty-white.svg';
+import favoriteStarFull from '../../images/favorite-full-white.svg';
 import saveButton from '../../images/edit-save-red.svg';
 import checkmarkButton from '../../images/edit-checkmark-red.svg';
 import npmLogo from '../../images/logo-npm.svg';
@@ -139,11 +140,19 @@ function PackageCard(props) {
               className="dotMenuItem"
             >
               <div className="buttonImageContainer">
-                <img
-                  src={favoriteStar}
-                  alt="favorite star button"
-                  className={`favoriteStar ${isFavorited ? 'starSpin' : ''}`}
-                />
+                {!isFavorited ? (
+                  <img
+                    src={favoriteStarEmpty}
+                    alt="favorite star button"
+                    className="favoriteStar"
+                  />
+                ) : (
+                  <img
+                    src={favoriteStarFull}
+                    alt="favorite star button"
+                    className="favoriteStar starSpin"
+                  />
+                )}
               </div>
               <span className="dotMenuTitle">Add to Favorites</span>
             </button>
@@ -169,7 +178,7 @@ function PackageCard(props) {
                   />
                 </button>
               ) : (
-                <div className="dotSaveCheckmark">
+                <div className="dotCheckmarkContainer">
                   <img
                     src={checkmarkButton}
                     alt="saved to collection"
