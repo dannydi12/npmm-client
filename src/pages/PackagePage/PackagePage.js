@@ -25,7 +25,7 @@ function PackagePage() {
             className="spinner"
             fadeIn="none"
             name="folding-cube"
-            color="#c74848"
+            color="#C4504B"
           />
         )}
         {packageInfo.loading === 'idle' && (

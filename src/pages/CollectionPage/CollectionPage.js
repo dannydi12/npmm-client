@@ -101,8 +101,8 @@ function CollectionPage() {
           <header>
             {!isEditing && (
               <>
-                <h2 className="collectionTitle">
-                  {collectionName.value}
+                <div className="collectionTitleContainer">
+                  <h2 className="collectionTitle">{collectionName.value}</h2>
                   {collectionName.value !== 'Favorites' && (
                     <button
                       className="collectionEditButton"
@@ -116,7 +116,8 @@ function CollectionPage() {
                       />
                     </button>
                   )}
-                </h2>
+                  <div className="collectionTitleBackground" />
+                </div>
               </>
             )}
             {isEditing && (
@@ -159,7 +160,7 @@ function CollectionPage() {
             className="spinner"
             fadeIn="none"
             name="folding-cube"
-            color="#c74848"
+            color="#C4504B"
           />
         )}
       </section>
