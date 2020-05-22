@@ -2,7 +2,7 @@
   background-color: white;
   box-shadow: 1px 1px 6px 0 #cccccc;
   margin-bottom: 3rem;
-  padding: 2rem;
+  padding: 2rem 2rem 6rem;
   position: relative;
   overflow: hidden;
 }
@@ -71,6 +71,7 @@
   animation-duration: 0.6s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+  z-index: 2;
 }
 
 .slideMenuHidden {
@@ -215,7 +216,7 @@
 .collectionOption {
   vertical-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 400;
   color: white;
   margin-left: 0.5rem;
@@ -226,11 +227,11 @@
   background-repeat: no-repeat;
   background-size: 2rem;
   background-position: left;
-  padding-left: 3.5rem;
+  padding-left: 3.9rem;
 }
 
 .trashCanContainer {
-  min-height: 3rem;
+  min-height: 2rem;
 }
 
 .collectionOption-selected {
@@ -251,4 +252,68 @@
 .dotSave {
   height: 2.3rem;
   margin-left: 0.5rem;
+}
+
+.npmContainer {
+  height: 5.8rem;
+  width: 9rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-top: 1.8rem;
+  padding-left: 2rem;
+}
+
+.npmLinkLogo {
+  width: 5.8rem;
+}
+
+.scoreContainer {
+  width: 5.4rem;
+  height: 5.8rem;
+  background: url('../../images/logo-ball-right-red.svg');
+  background-size: 3.8rem;
+  background-repeat: no-repeat;
+  background-position: left top;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.packageScore {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: white;
+  position: absolute;
+  top: 1.9rem;
+  left: 0.4rem;
+}
+
+.tooltipLeftContainer {
+  width: 6rem;
+  height: 5.8rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.npmTooltipLeft {
+  width: 6rem;
+  height: 5.8rem;
+}
+
+.tooltipRightContainer {
+  width: 8rem;
+  height: 5.8rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.npmTooltipRight {
+  width: 8rem;
+  height: 5.8rem;
 }
