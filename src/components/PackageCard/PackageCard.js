@@ -164,7 +164,7 @@ function PackageCard(props) {
                 <button
                   type="submit"
                   className="dotSaveContainer"
-                  onClick={handleFormClick}
+                  onClick={() => setSavedCollection(true)}
                 >
                   <img
                     src={saveButton}
