@@ -1,3 +1,4 @@
+import { Textfit } from 'react-textfit';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
@@ -104,7 +105,17 @@ function CollectionPage() {
             <div className="collectionTitleContainer">
               {!isEditing && (
                 <>
-                  <h2 className="collectionTitle">{collectionName.value}</h2>
+                  <h2 className="collectionTitle">
+                    <Textfit
+                      mode="single"
+                      forceSingleModeWidth={false}
+                      min={14}
+                      max={28}
+                    >
+                      {collectionName.value}
+                    </Textfit>
+                  </h2>
+                  {/* <h2 className="collectionTitle">{collectionName.value}</h2> */}
                   {collectionName.value !== 'Favorites' && (
                     <button
                       className="collectionEditButton"
@@ -122,7 +133,7 @@ function CollectionPage() {
               )}
               {isEditing && (
                 <>
-                  <form onSubmit={(e) => saveChange(e)} className="editCollect">
+                  <form onSubmit={(e) => saveChange(e)}>
                     <input
                       name="collectionName"
                       type="text"
