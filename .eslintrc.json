@@ -23,6 +23,7 @@
     "no-use-before-define": "off",
     "react/destructuring-assignment": "off",
     "no-console": "off",
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "react/jsx-one-expression-per-line": "off"
   }
 }
