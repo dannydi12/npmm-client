@@ -129,6 +129,7 @@ function CollectionPage() {
                       value={collectionName.value}
                       onChange={handleInput}
                       className="collectionTitle"
+                      // eslint-disable-next-line jsx-a11y/no-autofocus
                       autoFocus
                     />
                     {collectionName.touched && <p>{validateInput()}</p>}

@@ -6,8 +6,8 @@ import emailLogo from '../../images/footer-email.svg';
 
 export default function Footer() {
   function generateCopyright() {
-    let d = new Date();
-    let year = d.getFullYear();
+    const d = new Date();
+    const year = d.getFullYear();
     return year;
   }
 

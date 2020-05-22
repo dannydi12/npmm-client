@@ -4,7 +4,7 @@ import npmsAPI from '../services/npmsAPI';
 
 export const getPackages = createAsyncThunk(
   'searchResults/getPackages',
-  async (options, thunkAPI) => {
+  async (options) => {
     const response = await npmsAPI.searchPackages(
       options.searchTerm,
       options.offset

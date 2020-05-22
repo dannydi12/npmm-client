@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -45,6 +46,7 @@ function SearchBox(props) {
       >
         <input
           placeholder="Search packages"
+          // eslint-disable-next-line jsx-a11y/no-autofocus
           autoFocus
           type="text"
           name="packageSearch"
@@ -70,5 +72,4 @@ function SearchBox(props) {
     </div>
   );
 }
-
 export default SearchBox;

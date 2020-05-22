@@ -4,7 +4,7 @@ import npmsAPI from '../services/npmsAPI';
 
 export const fetchPackageInfo = createAsyncThunk(
   'packageInfo/fetchPackageInfo',
-  async (name, thunkAPI) => {
+  async (name) => {
     const response = await npmsAPI.getPackageInfo(name);
     return response;
   }
