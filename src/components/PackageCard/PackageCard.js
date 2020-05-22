@@ -43,6 +43,13 @@ function PackageCard(props) {
     }
   };
 
+  const handleFormClick = () => {
+    if (!collectionList.collections.length) {
+      setIsSigned(false);
+      setSavedCollection(false);
+    }
+  };
+
   const addToCollection = (packageName, collection) => {
     dispatch(addPackage({ name: packageName, collectionId: collection }));
   };
@@ -145,6 +152,8 @@ function PackageCard(props) {
                 name="collectionsList"
                 className="collectionOption"
                 onChange={() => setSavedCollection(false)}
+                defaultValue="default"
+                onClick={handleFormClick}
               >
                 <option selected disabled>
                   Add to collection
@@ -155,7 +164,7 @@ function PackageCard(props) {
                 <button
                   type="submit"
                   className="dotSaveContainer"
-                  onClick={() => setSavedCollection(true)}
+                  onClick={handleFormClick}
                 >
                   <img
                     src={saveButton}
