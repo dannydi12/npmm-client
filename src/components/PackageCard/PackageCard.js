@@ -49,14 +49,6 @@ function PackageCard(props) {
     }
   };
 
-  // const handleSaveClick = () => {
-  //   if (!collectionList.collections.length) {
-  //     setIsSigned(false);
-  //   } else {
-
-  //   }
-  // };
-
   const addToCollection = (packageName, collection) => {
     dispatch(addPackage({ name: packageName, collectionId: collection }));
   };
@@ -115,7 +107,7 @@ function PackageCard(props) {
               {isInCollection && (
                 <button
                   type="button"
-                  onClick={deletePackage}
+                  onClick={() => dispatch(deletePackage(props.pack.id))}
                   className="dotMenuItem"
                 >
                   <div className="buttonImageContainer">
