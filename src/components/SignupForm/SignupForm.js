@@ -128,7 +128,7 @@ export default function SignupForm() {
       {errors.confirmPassword && (
         <p className="validationWarning">{errors.confirmPassword.message}</p>
       )}
-      <button className="signupSubmit" type="submit">
+      <button className="signupSubmit buttonSubmit" type="submit">
         {isLoading ? (
           <Spinner fadeIn="none" name="folding-cube" color="white" />
         ) : (
