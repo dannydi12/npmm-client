@@ -12,13 +12,13 @@ import dotMenuX from '../../images/dot-menu-x.svg';
 import trashCan from '../../images/trash-white.svg';
 import favoriteStar from '../../images/favorite-empty-white.svg';
 import optionArrow from '../../images/option-arrow.svg';
+import saveButton from '../../images/edit-save.svg';
 
 function PackageCard(props) {
   const dispatch = useDispatch();
   const isInCollection = useRouteMatch('/collection');
   const [isFavorited, setIsFavorited] = useState(false);
   const [dotMenu, setDotMenu] = useState('Hidden');
-  const [showCollections, setShowCollections] = useState(false);
   const [isSignedIn, setIsSigned] = useState(true);
 
   const collectionList = useSelector((state) => state.collectionList);
@@ -54,7 +54,6 @@ function PackageCard(props) {
         props.pack.package.name,
         event.target.collectionsList.value
       );
-      setShowCollections(false);
     }
   };
 
@@ -95,19 +94,24 @@ function PackageCard(props) {
         </div>
         <div className={`dotMenuOpen dotAnimation${dotMenu}`}>
           <div className="three-dot-menu">
-            {isInCollection && (
-              <button
-                type="button"
-                onClick={deletePackage}
-                className="trashCanButton"
-              >
-                <img
-                  src={trashCan}
-                  alt="delete button"
-                  className="trashCanImage"
-                />
-              </button>
-            )}
+            <div className="trashCanContainer">
+              {isInCollection && (
+                <button
+                  type="button"
+                  onClick={deletePackage}
+                  className="dotMenuItem"
+                >
+                  <div className="buttonImageContainer">
+                    <img
+                      src={trashCan}
+                      alt="delete button"
+                      className="trashCanImage"
+                    />
+                  </div>
+                  <span className="dotMenuTitle">Delete</span>
+                </button>
+              )}
+            </div>
             <button
               type="button"
               onClick={() => setDotMenu('Closed')}
@@ -123,61 +127,41 @@ function PackageCard(props) {
               type="button"
               onClick={() => addToFavorites(props.pack.package.name)}
               disabled={isFavorited}
-              className="favoriteButton"
+              className="dotMenuItem"
             >
-              <img
-                src={favoriteStar}
-                alt="favorite star button"
-                className={`favoriteStar ${isFavorited ? 'starSpin' : ''}`}
-              />
-              Add to Favorites
-            </button>
-            {!showCollections && (
-              <button
-                type="button"
-                onClick={() => setShowCollections(!showCollections)}
-                className="addCollectionButton"
-              >
+              <div className="buttonImageContainer">
                 <img
-                  src={optionArrow}
-                  alt="optionOpen"
-                  className="optionArrow"
+                  src={favoriteStar}
+                  alt="favorite star button"
+                  className={`favoriteStar ${isFavorited ? 'starSpin' : ''}`}
                 />
-                Add to Collection
+              </div>
+              <span className="dotMenuTitle">Add to Favorites</span>
+            </button>
+            <form onSubmit={handleSubmit} className="dotMenuForm">
+              <select name="collectionsList" className="collectionOption">
+                <option selected disabled>
+                  Add to collection
+                </option>
+                {collectionOptions}
+              </select>
+              <button type="submit" className="dotSaveContainer">
+                <img
+                  src={saveButton}
+                  alt="save to collection button"
+                  className="dotSave"
+                />
               </button>
-            )}
-            {showCollections && (
-              <>
-                <form onSubmit={handleSubmit}>
-                  <select name="collectionsList">{collectionOptions}</select>
-                  <button type="submit">Add to Collection</button>
-                </form>
-              </>
-            )}
+            </form>
           </div>
         </div>
       </header>
 
-      <p>{props.pack.package.description}</p>
+      <p className="packageDescription">{props.pack.package.description}</p>
 
       <div className="package-bottom">
         <a href={props.pack.package.links.npm}>NPM logo</a>
         <div className="package-bottom-wrapper">
-          {isInCollection ? (
-            <button
-              type="button"
-              onClick={() => dispatch(deletePackage(props.pack.id))}
-            >
-              delete
-            </button>
-          ) : (
-            <button
-              type="button"
-              onClick={() => addToFavorites(props.pack.package.name)}
-            >
-              {isFavorited ? '★' : '☆'}
-            </button>
-          )}
           <p>{Math.floor(props.pack.score.final * 100)}</p>
         </div>
       </div>

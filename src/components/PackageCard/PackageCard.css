@@ -13,7 +13,7 @@
 }
 
 .searchInstructions {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 .cardTitleContainer {
@@ -22,7 +22,7 @@
 
 .cardTitle {
   font-size: 2.8rem;
-  color: #e2514c;
+  color: #c74848;
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
   margin-right: 0.8rem;
@@ -34,6 +34,12 @@
   font-weight: 300;
   display: inline-block;
   vertical-align: 0.1rem;
+}
+
+.packageDescription {
+  font-size: 1.8rem;
+  margin-top: 1.8rem;
+  font-weight: 300;
 }
 
 .dotMenuButton {
@@ -54,7 +60,7 @@
 }
 
 .dotMenuOpen {
-  background: #e2514c;
+  background: #c74848;
   height: 100%;
   position: absolute;
   top: 0;
@@ -132,27 +138,37 @@
   animation-name: dotAnimationClosed;
 }
 
-.trashCanButton {
-  height: 4rem;
-  width: 7rem;
-}
-
 .trashCanImage {
   height: 2.8rem;
+  vertical-align: -0.6rem;
+  margin-left: 0.1rem;
 }
 
 .three-dot-menu {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  padding: 1rem 2rem 1rem 1.5rem;
+  align-items: flex-start;
 }
 
-.favoriteButton:disabled {
+.dotMenuItem:disabled {
   background-color: transparent;
   color: white;
 }
 
-.favoriteButton {
+.dotMenuItem {
   height: 4rem;
+}
+
+.dotMenuTitle {
+  vertical-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: white;
+  margin-left: 1.4rem;
 }
 
 .favoriteStar {
@@ -167,6 +183,7 @@
   -moz-transition: 0.8s ease-in-out;
   -o-transition: 0.8s ease-in-out;
   transition: 0.8s ease-in-out;
+  vertical-align: -0.5rem;
 }
 
 .starSpin {
@@ -176,6 +193,61 @@
   transform: rotate(360deg);
 }
 
-.optionArrow {
-  height: 1.3rem;
+.buttonImageContainer {
+  height: 3rem;
+  width: 3rem;
+  display: inline-block;
+}
+
+.collectionOption {
+  background-color: transparent;
+  border: none;
+}
+
+.dotMenuForm {
+  display: inline-block;
+  height: 4rem;
+  position: relative;
+  padding-top: 0.5rem;
+}
+
+.collectionOption {
+  vertical-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: white;
+  margin-left: 0.5rem;
+  width: 21rem;
+  height: 3rem;
+  margin-top: 0;
+  background: url('../../images/option-arrow.svg');
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  background-position: left;
+  padding-left: 3.5rem;
+}
+
+.trashCanContainer {
+  min-height: 3rem;
+}
+
+.collectionOption-selected {
+  background-color: #c33c3c;
+}
+
+.dotSaveContainer[type='submit'] {
+  margin-top: 0;
+  background-color: transparent;
+  width: 2.6rem;
+  min-width: 0;
+  border: none;
+  height: 3rem;
+  display: inline-block;
+  vertical-align: -0.4rem;
+}
+
+.dotSave {
+  height: 2.3rem;
+  margin-left: 0.5rem;
 }

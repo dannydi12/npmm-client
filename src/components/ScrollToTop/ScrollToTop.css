@@ -1,17 +1,17 @@
 .scrollToTop {
   position: fixed;
-  width: 6rem;
+  width: 4rem;
   bottom: 15rem;
   right: 0;
   align-items: center;
-  height: 6rem;
+  height: 4rem;
   justify-content: center;
   z-index: 1000;
   cursor: pointer;
   animation: fadeIn 0.3s;
   transition: opacity 0.4s;
   opacity: 0.7;
-  background-color: #e2514c;
+  background-color: #c74848;
   border-radius: 0;
 }
 
