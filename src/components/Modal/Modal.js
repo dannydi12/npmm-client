@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 export default function Modal(props) {
   return (
     <div className="modal">
+      <button type="button" onClick={props.handleExit()}>
+        x
+      </button>
       {props.title && <h3>{props.title}</h3>}
       <p>{props.message}</p>
       <button type="button" onClick={props.clickHandler}>
