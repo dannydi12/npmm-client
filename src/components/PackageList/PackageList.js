@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PackageCard from '../PackageCard/PackageCard';
 import Empty from '../../images/empty-collection.svg';
 
@@ -26,5 +27,26 @@ function PackageList(props) {
     </>
   );
 }
+
+PackageList.propTypes = {
+  packs: PropTypes.arrayOf(
+    PropTypes.shape({
+      pack: PropTypes.shape({
+        id: PropTypes.number,
+        package: PropTypes.shape({
+          description: PropTypes.string,
+          name: PropTypes.string.isRequired,
+          version: PropTypes.string.isRequired,
+          links: PropTypes.shape({
+            npm: PropTypes.string.isRequired,
+          }),
+        }),
+        score: PropTypes.shape({
+          final: PropTypes.number.isRequired,
+        }).isRequired,
+      }),
+    })
+  ).isRequired,
+};
 
 export default PackageList;

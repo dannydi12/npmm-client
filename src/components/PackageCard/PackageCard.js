@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useRouteMatch } from 'react-router-dom';
 import {
@@ -218,5 +219,22 @@ function PackageCard(props) {
     </div>
   );
 }
+
+PackageCard.propTypes = {
+  pack: PropTypes.shape({
+    id: PropTypes.number,
+    package: PropTypes.shape({
+      description: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      version: PropTypes.string.isRequired,
+      links: PropTypes.shape({
+        npm: PropTypes.string.isRequired,
+      }),
+    }),
+    score: PropTypes.shape({
+      final: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default PackageCard;
