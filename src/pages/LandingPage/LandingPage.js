@@ -30,6 +30,7 @@ function LandingPage() {
           classProps="landingSearch"
           searchButton="Search"
           searchInputClass="landingSearchInput"
+          searchButtonClass="buttonSubmit"
         />
         <section className="landingIntro">
           <h2 className="landingSectionTitle">

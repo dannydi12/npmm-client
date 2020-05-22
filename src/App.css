@@ -30,7 +30,7 @@ button {
   outline: none;
 }
 
-button[type='submit'] {
+.buttonSubmit {
   font-family: 'Montserrat', sans-serif;
   margin-top: 1.8rem;
   font-size: 2rem;
@@ -46,7 +46,7 @@ button[type='submit'] {
   -o-transition: all 0.1s ease-out 0.1s;
 }
 
-button[type='submit']:hover {
+.buttonSubmit:hover {
 }
 
 input,
