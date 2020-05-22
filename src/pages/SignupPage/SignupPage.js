@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SignupForm from '../../components/SignupForm/SignupForm';
 import ErrorBoundary from '../../ErrorBoundary';
 import './SignupPage.css';
-import { Link } from 'react-router-dom';
 
 export default function SignupPage() {
   return (
