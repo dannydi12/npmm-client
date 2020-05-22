@@ -184,7 +184,7 @@ function CollectionPage() {
           </header>
         )}
 
-        {(collection.loading === 'idle' || collection.packages.length) > 0 && (
+        {collection.loading === 'idle' && collection.packages.length > 0 && (
           <InfiniteScroll
             pageStart={0}
             loadMore={loadMore}
@@ -193,6 +193,9 @@ function CollectionPage() {
           >
             <PackageList packs={collection.packages} />
           </InfiniteScroll>
+        )}
+        {collection.loading === 'idle' && collection.packages.length === 0 && (
+          <p>Nothing here :(</p>
         )}
         {collection.loading === 'pending' && (
           <Spinner
