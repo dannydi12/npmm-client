@@ -11,7 +11,8 @@ import threeDot from '../../images/three-dot-black.svg';
 import dotMenuX from '../../images/dot-menu-x.svg';
 import trashCan from '../../images/trash-white.svg';
 import favoriteStar from '../../images/favorite-empty-white.svg';
-import saveButton from '../../images/edit-save.svg';
+import saveButton from '../../images/edit-save-red.svg';
+import checkmarkButton from '../../images/edit-checkmark-red.svg';
 import npmLogo from '../../images/logo-npm.svg';
 
 function PackageCard(props) {
@@ -20,6 +21,7 @@ function PackageCard(props) {
   const [isFavorited, setIsFavorited] = useState(false);
   const [dotMenu, setDotMenu] = useState('Hidden');
   const [isSignedIn, setIsSigned] = useState(true);
+  const [savedCollection, setSavedCollection] = useState(false);
 
   const collectionList = useSelector((state) => state.collectionList);
 
@@ -44,6 +46,7 @@ function PackageCard(props) {
   const handleFormClick = () => {
     if (!collectionList.collections.length) {
       setIsSigned(false);
+      setSavedCollection(false);
     }
   };
 
@@ -147,41 +150,54 @@ function PackageCard(props) {
             <form onSubmit={handleSubmit} className="dotMenuForm">
               <select
                 name="collectionsList"
-                onFocus={handleFormClick}
                 className="collectionOption"
+                onChange={() => setSavedCollection(false)}
                 defaultValue="default"
+                onClick={handleFormClick}
               >
-                <option value="default" disabled>
+                <option selected disabled>
                   Add to collection
                 </option>
                 {collectionOptions}
               </select>
-              <button
-                type="submit"
-                onClick={handleFormClick}
-                className="dotSaveContainer"
-              >
-                <img
-                  src={saveButton}
-                  alt="save to collection button"
-                  className="dotSave"
-                />
-              </button>
+              {!savedCollection ? (
+                <button
+                  type="submit"
+                  className="dotSaveContainer"
+                  onClick={handleFormClick}
+                >
+                  <img
+                    src={saveButton}
+                    alt="save to collection button"
+                    className="dotSave"
+                  />
+                </button>
+              ) : (
+                <div className="dotSaveCheckmark">
+                  <img
+                    src={checkmarkButton}
+                    alt="saved to collection"
+                    className="dotSave"
+                  />
+                </div>
+              )}
             </form>
           </div>
         </div>
       </header>
 
       <p className="packageDescription">{props.pack.package.description}</p>
-
       <div className="packageBottom">
-        <div className="tooltipRightContainer">
+        <a
+          href={props.pack.package.links.npm}
+          className="npmContainer tooltipRightContainer"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img src={npmLogo} alt="npm logo" className="npmLinkLogo" />
           <div className="npmTooltipRight tooltipRight">
             <span className="tooltiptext">View package on npm</span>
           </div>
-        </div>
-        <a href={props.pack.package.links.npm} className="npmContainer">
-          <img src={npmLogo} alt="npm logo" className="npmLinkLogo" />
         </a>
         <div className="tooltipLeftContainer">
           <div className="npmTooltipLeft tooltipLeft">

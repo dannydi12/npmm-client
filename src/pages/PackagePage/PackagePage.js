@@ -38,7 +38,11 @@ function PackagePage() {
               <p>
                 Homepage @
                 <br />
-                <a href={metadata.links.homepage} target="_blank">
+                <a
+                  href={metadata.links.homepage}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {metadata.links.homepage}
                 </a>
               </p>
