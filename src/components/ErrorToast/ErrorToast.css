@@ -13,7 +13,7 @@
   background-position: left;
   padding-left: 6rem;
   z-index: 998;
-  background-color: #c74848;
+  background-color: #c4504b;
   font-size: 1.4rem;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
@@ -42,7 +42,7 @@
 
 .toastButton:hover {
   background-color: white;
-  color: #c74848;
+  color: #c4504b;
 }
 
 .hiddenToast {

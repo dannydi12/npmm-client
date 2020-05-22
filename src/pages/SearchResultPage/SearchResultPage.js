@@ -51,7 +51,7 @@ function SearchResultPage() {
             )}
           </InfiniteScroll>
           {searchResults.loading === 'pending' && (
-            <Spinner className="spinner" name="folding-cube" color="#c74848" />
+            <Spinner className="spinner" name="folding-cube" color="#C4504B" />
           )}
         </section>
       </div>

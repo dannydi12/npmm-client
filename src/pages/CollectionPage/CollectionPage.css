@@ -1,24 +1,37 @@
 .collectionPageContainer {
-  margin-top: 4rem;
+  margin-top: 6rem;
+}
+
+.collectionTitleContainer {
+  position: relative;
+  height: 6rem;
+  margin-bottom: 4rem;
 }
 
 .collectionTitle {
   color: #fff;
-  height: 6rem;
-  background-color: #c74848;
-  padding-left: 3rem;
-  position: relative;
-  margin-left: 3rem;
-  margin-bottom: 3.5rem;
-  padding-right: 3rem;
-  border-radius: 0 3.4rem 3.4rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8rem;
+  position: absolute;
+  z-index: 1;
+  left: 3rem;
+  top: 1.3rem;
+  font-weight: 600;
 }
 
-.collectionTitle::after {
-  height: 8.2rem;
+.collectionTitleBackground {
+  height: 6rem;
+  background-color: #c4504b;
+  padding-left: 3rem;
+  margin-left: 3rem;
+  padding-right: 3rem;
+  border-radius: 0 3.4rem 3.4rem 0;
+  z-index: 0;
+  position: relative;
+}
+
+.collectionTitleBackground::after {
+  height: 8.4rem;
   bottom: 0rem;
   background-color: transparent;
   width: 9rem;
@@ -26,12 +39,20 @@
   background-image: url('../../images/logo-ball-left-red.svg');
   position: absolute;
   background-repeat: no-repeat;
-  left: -4.4rem;
+  left: -4.3rem;
+}
+
+.collectionEditButton {
+  position: absolute;
+  right: 0;
+  height: 6rem;
+  width: 6rem;
+  z-index: 1;
 }
 
 .editPencil {
   height: 2.4rem;
-  margin-top: 0.5rem;
+  margin-right: 1rem;
 }
 
 .saveIcon {

@@ -22,10 +22,11 @@
 
 .cardTitle {
   font-size: 2.8rem;
-  color: #c74848;
+  color: #c4504b;
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
   margin-right: 0.8rem;
+  text-decoration: none;
 }
 
 .packageVersion {
@@ -60,7 +61,7 @@
 }
 
 .dotMenuOpen {
-  background: #c74848;
+  background: #c4504b;
   height: 100%;
   position: absolute;
   top: 0;
