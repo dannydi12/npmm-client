@@ -98,7 +98,7 @@ function LoginForm(props) {
       {errors.password && (
         <p className="validationWarning">{errors.password.message}</p>
       )}
-      <button type="submit" className="loginSubmit">
+      <button type="submit" className="loginSubmit buttonSubmit">
         {isLoading ? (
           <Spinner fadeIn="none" name="folding-cube" color="white" />
         ) : (
