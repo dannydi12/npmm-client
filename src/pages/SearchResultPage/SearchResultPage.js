@@ -40,16 +40,21 @@ function SearchResultPage() {
           Click a package's name to view details.
         </p>
         <section>
-          <InfiniteScroll
-            pageStart={0}
-            loadMore={loadMore}
-            hasMore={!searchResults.noMoreResults}
-            threshold={1000}
-          >
-            {searchResults.packs.length > 0 && (
-              <PackageList packs={searchResults.packs} />
-            )}
-          </InfiniteScroll>
+          {(searchResults.loading === 'idle' ||
+            searchResults.packs.length > 0) && (
+            <InfiniteScroll
+              pageStart={0}
+              loadMore={loadMore}
+              hasMore={!searchResults.noMoreResults}
+              threshold={1000}
+            >
+              {searchResults.packs.length > 0 && (
+                <PackageList packs={searchResults.packs} />
+              )}
+            </InfiniteScroll>
+          )}
+          {searchResults.packs.length === 0 &&
+            searchResults.loading === 'idle' && <p>Nothing here :(</p>}
           {searchResults.loading === 'pending' && (
             <Spinner className="spinner" name="folding-cube" color="#C4504B" />
           )}

@@ -6,6 +6,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import Spinner from 'react-spinkit';
 import queryString from 'query-string';
 import PackageList from '../../components/PackageList/PackageList';
+import Modal from '../../components/Modal/Modal';
 import { fetchCollectionInfo } from '../../redux/CurrentCollectionInfoSlice';
 import {
   updateCollection,
@@ -30,6 +31,7 @@ function CollectionPage() {
   );
 
   const [isEditing, setIsEditing] = useState(!!parsed.edit);
+  const [showModal, setShowModal] = useState(false);
   const [collectionName, setCollectionName] = useState({
     touched: false,
     value: collection.name || '',
@@ -72,11 +74,6 @@ function CollectionPage() {
 
   const handleInput = (e) => {
     setCollectionName({ touched: true, value: e.target.value });
-  };
-
-  const handleDelete = () => {
-    history.push('/');
-    dispatch(deleteCollection(id));
   };
 
   const validateInput = () => {
@@ -133,7 +130,18 @@ function CollectionPage() {
               )}
               {isEditing && (
                 <>
-                  <form onSubmit={(e) => saveChange(e)}>
+                  {showModal && (
+                    <Modal
+                      title="You sure you want to delete?"
+                      message="You will lose all the packages in this collection"
+                      buttonText="Delete"
+                      clickHandler={() => {
+                        history.push('/');
+                        dispatch(deleteCollection(id));
+                      }}
+                    />
+                  )}
+                  <form onSubmit={(e) => saveChange(e)} className="editCollect">
                     <input
                       name="collectionName"
                       type="text"
@@ -159,7 +167,7 @@ function CollectionPage() {
                   </form>
                   <button
                     type="button"
-                    onClick={handleDelete}
+                    onClick={() => setShowModal(true)}
                     className="collectionDelete"
                   >
                     <img
@@ -176,7 +184,7 @@ function CollectionPage() {
           </header>
         )}
 
-        {(collection.loading === 'idle' || collection.packages.length) > 0 && (
+        {(collection.loading === 'idle' || collection.packages.length > 0) && (
           <InfiniteScroll
             pageStart={0}
             loadMore={loadMore}
@@ -185,6 +193,9 @@ function CollectionPage() {
           >
             <PackageList packs={collection.packages} />
           </InfiniteScroll>
+        )}
+        {collection.loading === 'idle' && collection.packages.length === 0 && (
+          <p>Nothing here :(</p>
         )}
         {collection.loading === 'pending' && (
           <Spinner
