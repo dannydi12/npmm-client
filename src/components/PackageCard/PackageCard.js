@@ -43,12 +43,19 @@ function PackageCard(props) {
     }
   };
 
-  const handleFormClick = () => {
+  const handleSelectionClick = () => {
     if (!collectionList.collections.length) {
       setIsSigned(false);
-      setSavedCollection(false);
     }
   };
+
+  // const handleSaveClick = () => {
+  //   if (!collectionList.collections.length) {
+  //     setIsSigned(false);
+  //   } else {
+
+  //   }
+  // };
 
   const addToCollection = (packageName, collection) => {
     dispatch(addPackage({ name: packageName, collectionId: collection }));
@@ -59,6 +66,7 @@ function PackageCard(props) {
     if (!collectionList.collections.length) {
       setIsSigned(false);
     } else {
+      setSavedCollection(true);
       addToCollection(
         props.pack.package.name,
         event.target.collectionsList.value
@@ -153,19 +161,15 @@ function PackageCard(props) {
                 className="collectionOption"
                 onChange={() => setSavedCollection(false)}
                 defaultValue="default"
-                onClick={handleFormClick}
+                onClick={handleSelectionClick}
               >
-                <option selected disabled>
+                <option value="default" disabled>
                   Add to collection
                 </option>
                 {collectionOptions}
               </select>
               {!savedCollection ? (
-                <button
-                  type="submit"
-                  className="dotSaveContainer"
-                  onClick={() => setSavedCollection(true)}
-                >
+                <button type="submit" className="dotSaveContainer">
                   <img
                     src={saveButton}
                     alt="save to collection button"
