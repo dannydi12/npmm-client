@@ -22,12 +22,14 @@ function SearchResultPage() {
   }, [searchResults.searchTerm]);
 
   const loadMore = () => {
-    dispatch(
-      getPackages({
-        searchTerm: parsed.q,
-        offset: searchResults.packs.length,
-      })
-    );
+    if (searchResults.packs.length && searchResults.loading === 'idle') {
+      dispatch(
+        getPackages({
+          searchTerm: parsed.q,
+          offset: searchResults.packs.length,
+        })
+      );
+    }
   };
 
   return (
@@ -38,7 +40,8 @@ function SearchResultPage() {
           Click a package's name to view details.
         </p>
         <section>
-          {searchResults.packs.length > 0 && searchResults.loading === 'idle' && (
+          {(searchResults.loading === 'idle' ||
+            searchResults.packs.length > 0) && (
             <InfiniteScroll
               pageStart={0}
               loadMore={loadMore}

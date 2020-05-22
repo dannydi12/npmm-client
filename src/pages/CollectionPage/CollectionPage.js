@@ -184,7 +184,7 @@ function CollectionPage() {
           </header>
         )}
 
-        {collection.loading === 'idle' && collection.packages.length > 0 && (
+        {(collection.loading === 'idle' || collection.packages.length > 0) && (
           <InfiniteScroll
             pageStart={0}
             loadMore={loadMore}
