@@ -22,6 +22,15 @@
   color: #333;
 }
 
+.packageDetails h1,
+.packageDetails h2,
+.packageDetails h3,
+.packageDetails h4,
+.packageDetails p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .metadata {
   font-size: 1.4rem;
 }
