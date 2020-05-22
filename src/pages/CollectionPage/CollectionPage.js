@@ -133,10 +133,7 @@ function CollectionPage() {
                   <button type="button" onClick={handleDelete}>
                     Delete
                   </button>
-                  <button
-                    type="submit"
-                    disabled={validateInput() || !collectionName.touched}
-                  >
+                  <button type="submit" disabled={validateInput()}>
                     Done
                   </button>
                 </form>
