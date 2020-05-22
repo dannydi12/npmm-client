@@ -63,12 +63,6 @@ export const currentCollectionInfo = createSlice({
         (pack) => pack.id !== Number(action.payload)
       );
     },
-    [addPackage.fulfilled]: (state, action) => {
-      console.log('fulfilled');
-    },
-    [addPackage.rejected]: (state, action) => {
-      console.log('erorr');
-    },
   },
 });
 
