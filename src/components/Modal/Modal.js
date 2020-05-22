@@ -25,4 +25,5 @@ Modal.propTypes = {
   message: PropTypes.string.isRequired,
   clickHandler: PropTypes.func.isRequired,
   buttonText: PropTypes.string.isRequired,
+  handleExit: PropTypes.func,
 };
