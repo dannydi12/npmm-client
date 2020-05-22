@@ -11,8 +11,8 @@ import threeDot from '../../images/three-dot-black.svg';
 import dotMenuX from '../../images/dot-menu-x.svg';
 import trashCan from '../../images/trash-white.svg';
 import favoriteStar from '../../images/favorite-empty-white.svg';
-import optionArrow from '../../images/option-arrow.svg';
 import saveButton from '../../images/edit-save.svg';
+import npmLogo from '../../images/logo-npm.svg';
 
 function PackageCard(props) {
   const dispatch = useDispatch();
@@ -159,10 +159,24 @@ function PackageCard(props) {
 
       <p className="packageDescription">{props.pack.package.description}</p>
 
-      <div className="package-bottom">
-        <a href={props.pack.package.links.npm}>NPM logo</a>
-        <div className="package-bottom-wrapper">
-          <p>{Math.floor(props.pack.score.final * 100)}</p>
+      <div className="packageBottom">
+        <div className="tooltipRightContainer">
+          <div className="npmTooltipRight tooltipRight">
+            <span className="tooltiptext">View package on npm</span>
+          </div>
+        </div>
+        <a href={props.pack.package.links.npm} className="npmContainer">
+          <img src={npmLogo} alt="npm logo" className="npmLinkLogo" />
+        </a>
+        <div className="tooltipLeftContainer">
+          <div className="npmTooltipLeft tooltipLeft">
+            <span className="tooltiptext">npm score</span>
+          </div>
+        </div>
+        <div className="scoreContainer">
+          <p className="packageScore">
+            {Math.floor(props.pack.score.final * 100)}
+          </p>
         </div>
       </div>
     </div>
