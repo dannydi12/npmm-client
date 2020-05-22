@@ -4,11 +4,12 @@
 
 .collectionTitleContainer {
   position: relative;
-  height: 6rem;
+  height: 7rem;
   margin-bottom: 4rem;
 }
 
-.collectionTitle {
+.collectionTitle,
+.collectionTitle[type='text'] {
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   font-size: 2.8rem;
@@ -17,6 +18,18 @@
   left: 3.5rem;
   top: 1.8rem;
   font-weight: 600;
+}
+
+.collectionTitle[type='text'] {
+  text-decoration: underline;
+  border: none;
+  background-color: transparent;
+  margin-top: 0;
+  height: auto;
+  padding-left: 0;
+  width: auto;
+  top: 1.7rem;
+  font-weight: 400;
 }
 
 .collectionTitleBackground {
@@ -42,19 +55,41 @@
   left: -4.9rem;
 }
 
-.collectionEditButton {
+.collectionEditButton,
+.collectionEditButton[type='submit'] {
   position: absolute;
   right: 0;
   height: 7rem;
   width: 7rem;
   z-index: 1;
+  margin-top: 0;
+  background-color: transparent;
+  min-width: 0;
 }
 
-.editPencil {
+.editPencil,
+.collectionTitleSave {
   height: 2.4rem;
   margin-right: 1rem;
 }
 
 .saveIcon {
   height: 2rem;
+}
+
+.collectionDelete {
+  position: absolute;
+  font-size: 1.6rem;
+  font-weight: 500;
+  bottom: -2.5rem;
+  text-decoration: underline;
+  right: 3rem;
+  color: #2c2c2c;
+}
+
+.collectionTrash {
+  height: 1.6rem;
+  display: inline-block;
+  vertical-align: -0.2rem;
+  margin-right: 0.5rem;
 }
