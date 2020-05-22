@@ -47,6 +47,12 @@ button {
 }
 
 .buttonSubmit:hover {
+  font-weight: 500;
+  background-color: #2c2c2c;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  letter-spacing: 0.3em;
 }
 
 input,

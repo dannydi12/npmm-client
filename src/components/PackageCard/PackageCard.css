@@ -292,6 +292,8 @@
   position: absolute;
   top: 1.9rem;
   left: 0.5rem;
+  width: 1.8rem;
+  text-align: center;
 }
 
 .tooltipLeftContainer {

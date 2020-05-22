@@ -6,6 +6,11 @@
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
   cursor: pointer;
+  outline: none;
+}
+
+.burgerButton:hover span {
+  height: 3px;
 }
 
 .burgerButton span {

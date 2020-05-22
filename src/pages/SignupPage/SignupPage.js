@@ -12,8 +12,9 @@ export default function SignupPage() {
         <p className="pageInstructions">
           Enter an email and password to register.
         </p>
-        <p className="pageInstructions demoCredentials">
-          To demo the site without registering, just head over to the{' '}
+
+        <p className="pageInstructions demoSignup">
+          To demo the site without registering, head over to the{' '}
           <Link to="/login" className="defaultMedium linkBlack">
             login page.
           </Link>
