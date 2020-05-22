@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 export default class ErrorBoundary extends Component {
   constructor(props) {
@@ -24,8 +24,3 @@ export default class ErrorBoundary extends Component {
     return this.props.children;
   }
 }
-
-ErrorBoundary.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  children: PropTypes.object.isRequired,
-};
