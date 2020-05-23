@@ -112,7 +112,8 @@
   .menuLink {
     text-decoration: none;
   }
-  .menuLink:hover {
+  .menuLink:hover,
+  .menuLink:focus {
     text-decoration: underline;
   }
   .createCollection,
@@ -121,6 +122,10 @@
   }
   .createCollection:hover,
   .collectionMenuLink:hover {
+    text-decoration: underline;
+  }
+  .createCollection:focus,
+  .collectionMenuLink:focus {
     text-decoration: underline;
   }
 }

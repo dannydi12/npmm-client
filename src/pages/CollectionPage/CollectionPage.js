@@ -16,6 +16,7 @@ import ErrorBoundary from '../../ErrorBoundary';
 import EditPencil from '../../images/edit-pencil.svg';
 import SaveButton from '../../images/edit-save-white.svg';
 import TrashCan from '../../images/trash-black.svg';
+import Empty from '../../images/empty-collection.svg';
 import './CollectionPage.css';
 
 function CollectionPage() {
@@ -112,7 +113,6 @@ function CollectionPage() {
                       {collectionName.value}
                     </Textfit>
                   </h2>
-                  {/* <h2 className="collectionTitle">{collectionName.value}</h2> */}
                   {collectionName.value !== 'Favorites' && (
                     <button
                       className="collectionEditButton"
@@ -195,7 +195,13 @@ function CollectionPage() {
           </InfiniteScroll>
         )}
         {collection.loading === 'idle' && collection.packages.length === 0 && (
-          <p>Nothing here :(</p>
+          <div className="emptyContainer">
+            <img
+              alt="empty toilet paper roll"
+              src={Empty}
+              className="emptyImage"
+            />
+          </div>
         )}
         {collection.loading === 'pending' && (
           <Spinner

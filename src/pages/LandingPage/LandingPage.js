@@ -5,6 +5,9 @@ import Modal from '../../components/Modal/Modal';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import ErrorBoundary from '../../ErrorBoundary';
 import npmmLogo from '../../images/npmm-logo.svg';
+import Rocket from '../../images/rocket.svg';
+import LittleFish from '../../images/little-fish.svg';
+import Checkmark from '../../images/checkmark-round.svg';
 import './LandingPage.css';
 
 function LandingPage() {
@@ -33,40 +36,75 @@ function LandingPage() {
           searchButtonClass="buttonSubmit"
         />
         <section className="landingIntro">
+          <img
+            src={LittleFish}
+            alt="little fish eating big fish"
+            className="littleFish"
+          />
           <h2 className="landingSectionTitle">
             Managing <span className="underline">the</span> Manager
           </h2>
           <p className="description">
-            Node Package Manager Manager (npmm) is an app and CLI combination
-            designed to help you manage your favorite and most used npm
-            packages.
+            Node Package Manager Manager (npmm) is an app designed to help you
+            keep track of your favorite npm packages. Using the npmm CLI
+            package, you can seamlessly integrate npmm into your project’s
+            workflow.
           </p>
         </section>
-        <section className="callToAction">
-          <h2 className="landingSectionTitle">Steps to take</h2>
-          <ul className="steps">
-            <li>
-              Click <Link to="/signup">here to create an account</Link>
-            </li>
-            <li>Search for packages</li>
-            <li>Create a collection</li>
-            <li>Install packages from collections with the CLI</li>
-          </ul>
-        </section>
-        <section className="landingGettingStarted">
+        <section className="actionContainer">
+          <img src={Rocket} alt="rocket man" className="rocketImage" />
           <h2 className="landingSectionTitle">Getting Started</h2>
-          <p className="description">Install our CLI tool</p>
-          <div className="codeContainer">
-            <code>$npm i @npmmjs/npmm</code>
+          <div className="actionContainer">
+            <img
+              src={Checkmark}
+              alt="checkmark circle"
+              className="checkmarkCircle"
+            />
+            <h3 className="actionTitle">Register</h3>
+            <p className="actionDescription">
+              Click here to head over to the registration page to sign up for an
+              account.
+            </p>
           </div>
-          <p className="description">
-            Use the CLI to view packages, create collections based on existing
-            projects, and install packages from your collections.
-            <br />
-            Use the app to find packages, add to favorites, or add to
-            collections of useful or commonly used packages. However you want to
-            organize it.
-          </p>
+          <div className="actionContainer">
+            <img
+              src={Checkmark}
+              alt="checkmark circle"
+              className="checkmarkCircle"
+            />
+            <h3 className="actionTitle">Create Collections</h3>
+            <p className="actionDescription">
+              Collections are a way to store and organize npm packages. Once
+              logged in, you can add packages to your favorites or create your
+              own collection by clicking here.
+            </p>
+          </div>
+          <div className="actionContainer">
+            <img
+              src={Checkmark}
+              alt="checkmark circle"
+              className="checkmarkCircle"
+            />
+            <h3 className="actionTitle">Search for Packages</h3>
+            <p className="actionDescription">
+              Search for a package using the search form at the top of this
+              page.
+            </p>
+          </div>
+          <div className="actionContainer">
+            <img
+              src={Checkmark}
+              alt="checkmark circle"
+              className="checkmarkCircle"
+            />
+            <h3 className="actionTitle">Install the CLI</h3>
+            <p className="actionDescription">
+              Click here to access the npmm cli. Once installed, the package
+              will allow you to navigate your existing collections and add
+              packages to your package.json. Or save packages in an existing
+              package.json as a new collection.
+            </p>
+          </div>
         </section>
       </div>
     </ErrorBoundary>

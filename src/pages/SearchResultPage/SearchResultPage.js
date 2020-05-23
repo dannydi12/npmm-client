@@ -7,6 +7,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import PackageList from '../../components/PackageList/PackageList';
 import ErrorBoundary from '../../ErrorBoundary';
 import { getPackages } from '../../redux/SearchResultsSlice';
+import Empty from '../../images/empty-search.svg';
 import './SearchResultPage.css';
 
 function SearchResultPage() {
@@ -54,7 +55,15 @@ function SearchResultPage() {
             </InfiniteScroll>
           )}
           {searchResults.packs.length === 0 &&
-            searchResults.loading === 'idle' && <p>Nothing here :(</p>}
+            searchResults.loading === 'idle' && (
+              <div className="emptyContainer">
+                <img
+                  alt="empty toilet paper roll"
+                  src={Empty}
+                  className="emptyImage"
+                />
+              </div>
+            )}
           {searchResults.loading === 'pending' && (
             <Spinner className="spinner" name="folding-cube" color="#C4504B" />
           )}
