@@ -18,8 +18,8 @@ function LandingPage() {
     <ErrorBoundary>
       {showModal && (
         <Modal
-          title="Welcome"
-          message="You can do so many things."
+          title="Welcome!"
+          message="You've successfully registered and are now logged in. Click the button below for a quick introduction to npmm."
           clickHandler={setShowModal}
           buttonText="Get Started"
           imageClass="modalCheckmark"
