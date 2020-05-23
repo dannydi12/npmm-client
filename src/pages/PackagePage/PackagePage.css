@@ -138,4 +138,5 @@
 .tagLink,
 .detailsLink {
   color: #2c2c2c;
+  display: inline-block;
 }
