@@ -71,6 +71,7 @@ function PackagePage() {
                   href={metadata.links.homepage}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="detailsLink"
                 >
                   {metadata.links.homepage}
                 </a>
@@ -81,6 +82,7 @@ function PackagePage() {
                   href={metadata.repository.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="detailsLink"
                 >
                   {metadata.repository.url}
                 </a>
@@ -110,6 +112,7 @@ function PackagePage() {
                     href={metadata.links.npm}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="detailsLink"
                   >
                     click here
                   </a>{' '}

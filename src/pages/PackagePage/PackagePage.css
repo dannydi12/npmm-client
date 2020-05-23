@@ -134,3 +134,8 @@
   margin-bottom: 1rem;
   margin-top: 3rem;
 }
+
+.tagLink,
+.detailsLink {
+  color: #2c2c2c;
+}
