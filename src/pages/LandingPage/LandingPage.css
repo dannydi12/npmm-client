@@ -11,7 +11,7 @@
 
 .landingInfoContainer {
   background-color: white;
-  padding: 2.5rem;
+  padding: 2.5rem 2.5rem 5rem;
   box-shadow: 1px 1px 6px 0 #cccccc;
   margin-bottom: 3rem;
 }
@@ -68,14 +68,15 @@
 }
 
 .codeContainer {
-  margin-top: 2rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
 }
 
-.landingGettingStarted code {
+.codeContainer code {
   border: solid 1px #919191;
   padding: 1rem;
   border-radius: 5px;
+  background-color: #f4f4f4;
 }
 
 .steps {
