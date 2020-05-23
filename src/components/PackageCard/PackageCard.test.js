@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import store from '../../store';
 import PackageCard from './PackageCard';
 
 const testProp = {
@@ -28,9 +30,11 @@ const testProp = {
 test('renders PackageList without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <BrowserRouter>
-      <PackageCard pack={testProp} />
-    </BrowserRouter>,
+    <Provider store={store}>
+      <BrowserRouter>
+        <PackageCard pack={testProp} />
+      </BrowserRouter>
+    </Provider>,
     div
   );
   ReactDOM.unmountComponentAtNode(div);
