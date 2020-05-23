@@ -9,12 +9,14 @@ import Exit from '../../images/dot-menu-x.svg';
 export default function Modal(props) {
   const imageSource = (classname) => {
     if (classname === 'modalToilet') {
-      return { Toilet };
+      return Toilet;
     } else if (classname === 'modalAlert') {
-      return { Alert };
+      return Alert;
     }
-    return { Checkmark };
+    return Checkmark;
   };
+
+  console.log(imageSource(props.imageClass));
 
   return (
     <div className="modalFixed">
@@ -32,7 +34,7 @@ export default function Modal(props) {
         </div>
         <div className="modalBody">
           <img
-            src={() => imageSource(props.imageClass)}
+            src={imageSource(props.imageClass)}
             className={props.imageClass}
             alt="modal alert"
           />

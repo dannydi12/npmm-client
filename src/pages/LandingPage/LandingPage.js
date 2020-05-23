@@ -22,6 +22,7 @@ function LandingPage() {
           message="You can do so many things."
           clickHandler={setShowModal}
           buttonText="Get Started"
+          imageClass="modalCheckmark"
         />
       )}
       <div className="landingContainer">
