@@ -52,7 +52,7 @@ Javascript
 
 ## The Authors
 
-- **Vik Birdi** - [Portfolio](https://)
+- **Vik Birdi** - [Portfolio](https://vikbirdi.com)
 - **Daniel Di Venere** - [Portfolio](https://imdan.io/)
 - **Matthew Malecki** - [Portfolio](https://portfolio.maleckim.now.sh/)
 - **Michael Ploughman** - [Portfolio](https://MichaelHPloughman.com)
