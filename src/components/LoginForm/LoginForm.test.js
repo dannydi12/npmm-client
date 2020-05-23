@@ -10,7 +10,7 @@ test('renders login form without crashing', () => {
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
-        <LoginForm />
+        <LoginForm setLoginError={() => false} />
       </BrowserRouter>
     </Provider>,
     div
