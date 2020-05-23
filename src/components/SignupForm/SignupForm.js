@@ -50,7 +50,7 @@ export default function SignupForm() {
         ref={register({
           required: true,
           minLength: {
-            value: 9,
+            value: 5,
             message: 'An email is usually longer than that.',
           },
           maxLength: {
@@ -104,16 +104,11 @@ export default function SignupForm() {
             required: true,
             minLength: {
               value: 8,
-              message: 'Password must be a minimum of eight characters.',
+              message: 'Password must be at least eight characters long.',
             },
             maxLength: {
               value: 40,
               message: 'Password cannot be longer than forty characters.',
-            },
-            pattern: {
-              value: /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/,
-              message:
-                'Password must be a minimum eight characters, at least one letter and one number.',
             },
             validate: (value) =>
               value === password.current || 'The passwords do not match',

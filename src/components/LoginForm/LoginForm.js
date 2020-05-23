@@ -87,7 +87,7 @@ function LoginForm(props) {
           ref={register({
             required: true,
             minLength: {
-              value: 9,
+              value: 5,
               message: 'An email is usually longer than that.',
             },
             maxLength: {
