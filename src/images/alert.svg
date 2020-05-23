@@ -1,14 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 425.2 425.2" style="enable-background:new 0 0 425.2 425.2;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#FFFFFF;}
-</style>
-<path class="st0" d="M230.2,100.1C226,93,219.5,89,212.6,89c-6.9,0-13.3,4.1-17.6,11.1L92.8,267.9c-4.3,7.1-4.9,14.6-1.5,20.6
-	c3.3,6,10,9.4,18.4,9.4h205.8c8.3,0,15-3.4,18.4-9.4c3.3-5.9,2.8-13.4-1.6-20.6L230.2,100.1z M315.6,280H109.8
-	c-1.4,0-2.3-0.2-2.8-0.4c0.1-0.4,0.4-1.3,1.1-2.5l102.1-167.7c1.2-1.9,2.2-2.5,2.4-2.5c0.2,0,1.2,0.6,2.4,2.5l102.2,167.7
-	c0.7,1.1,1,2,1.1,2.5C317.9,279.8,317,280,315.6,280z"/>
-<rect x="194" y="240.3" class="st0" width="33.3" height="31.5"/>
-<polygon class="st0" points="221.6,232.2 199.8,232.2 190.6,154.2 231.4,154.2 "/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58.36 49.37"><defs><style>.cls-1{fill:#e2514c;}</style></defs><title>alert</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M33.34,2.62A4.9,4.9,0,0,0,29.18,0,5,5,0,0,0,25,2.62L.87,42.28a4.75,4.75,0,0,0-.35,4.87,4.7,4.7,0,0,0,4.35,2.22H53.5a4.4,4.4,0,0,0,4-7.09ZM53.53,45.14H4.89a1.76,1.76,0,0,1-.66-.1,2.26,2.26,0,0,1,.26-.59L28.62,4.82c.28-.45.52-.59.56-.59s.29.14.57.59L53.91,44.45a2.27,2.27,0,0,1,.26.59A1.56,1.56,0,0,1,53.53,45.14Z"/><rect class="cls-1" x="24.79" y="35.76" width="7.87" height="7.44"/><polygon class="cls-1" points="31.31 33.84 26.16 33.84 23.99 15.41 33.63 15.41 31.31 33.84"/></g></g></svg>
