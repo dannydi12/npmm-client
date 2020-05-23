@@ -22,8 +22,6 @@ export default function SignupForm() {
     setShowPasswordTwo(!showPasswordTwo);
   };
 
-  const passwordRegEx = new RegExp('^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$');
-
   const onSubmit = (data) => {
     setIsLoading(true);
     AuthService.postUser({
