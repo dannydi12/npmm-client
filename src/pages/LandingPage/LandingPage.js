@@ -18,7 +18,6 @@ function LandingPage() {
     <ErrorBoundary>
       {showModal && (
         <Modal
-
           title="Welcome!"
           message="You've successfully registered and are now logged in. Click the button below for a quick introduction to npmm."
           clickHandler={() => setShowModal(false)}
@@ -44,9 +43,9 @@ function LandingPage() {
             </h2>
             <p className="description">
               Node Package Manager Manager (npmm) is an app designed to help you
-              keep track of your favorite npm packages. Using the npmm CLI
-              package, you can seamlessly integrate npmm into your project’s
-              workflow.
+              keep track of your favorite npm packages. With the addition of the
+              Node CLI package, npmm allows you to seamlessly integrate
+              collections into your project’s workflow.
             </p>
           </section>
           <section className="actionSection">
