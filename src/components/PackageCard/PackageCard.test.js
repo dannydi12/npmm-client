@@ -16,6 +16,7 @@ const testProp = {
       repository: 'https://github.com/knex/knex',
       bugs: 'https://github.com/knex/knex/issues',
     },
+    version: '1',
   },
   score: {
     final: 0.7165129614793754,

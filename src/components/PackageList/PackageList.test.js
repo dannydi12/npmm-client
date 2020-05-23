@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import store from '../../store';
 import PackageList from './PackageList';
 
 const testProp = [
@@ -15,6 +17,7 @@ const testProp = [
         repository: 'https://github.com/knex/knex',
         bugs: 'https://github.com/knex/knex/issues',
       },
+      version: '1',
     },
     score: {
       final: 0.7165129614793754,
@@ -30,9 +33,11 @@ const testProp = [
 test('renders PackageList without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <BrowserRouter>
-      <PackageList packs={testProp} />
-    </BrowserRouter>,
+    <Provider store={store}>
+      <BrowserRouter>
+        <PackageList packs={testProp} />
+      </BrowserRouter>
+    </Provider>,
     div
   );
   ReactDOM.unmountComponentAtNode(div);
