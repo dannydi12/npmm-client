@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -18,6 +18,11 @@ function LoginForm(props) {
   const [showScroll, setShowScroll] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
+  useEffect(() => {
+    window.addEventListener('scroll', checkScrollTop);
+    return window.removeEventListener('scroll', checkScrollTop);
+  });
+
   const checkScrollTop = () => {
     if (!showScroll && window.pageYOffset > 300) {
       setShowScroll(true);
@@ -29,8 +34,6 @@ function LoginForm(props) {
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  window.addEventListener('scroll', checkScrollTop);
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
