@@ -107,10 +107,16 @@ export default function SignupForm() {
           name="confirmPassword"
           ref={register({
             required: true,
-            minLength: 8,
-            maxLength: 40,
+            minLength: {
+              value: 8,
+              message: 'Password must be a minimum of eight characters.',
+            },
+            maxLength: {
+              value: 40,
+              message: 'Password cannot be longer than 40 characters.',
+            },
             pattern: {
-              value: passwordRegEx,
+              value: /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/,
               message:
                 'Password must be a minimum eight characters, at least one letter and one number.',
             },
@@ -132,7 +138,7 @@ export default function SignupForm() {
         {isLoading ? (
           <Spinner fadeIn="none" name="folding-cube" color="white" />
         ) : (
-          'Login'
+          'Sign up'
         )}
       </button>
     </form>
