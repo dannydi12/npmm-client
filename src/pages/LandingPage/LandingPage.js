@@ -104,6 +104,9 @@ function LandingPage() {
                 your existing collections and add packages to your project. Or
                 save packages in an existing package.json as a new collection!
               </a>
+              <div className="codeContainer">
+                <code>$npm i @npmmjs/npmm</code>
+              </div>
             </div>
           </section>
         </div>
