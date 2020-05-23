@@ -34,3 +34,9 @@
 .metadata {
   font-size: 1.4rem;
 }
+
+.markdownContainer {
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 1px 1px 6px 0 #cccccc;
+}

@@ -37,37 +37,38 @@ function SearchResultPage() {
     <ErrorBoundary>
       <div className="searchContainer">
         <h2 className="searchTitle pageTitle">Search Results</h2>
-        <p className="pageInstructions searchInstructions">
-          Click a package's name to view details.
-        </p>
-        <section>
-          {(searchResults.loading === 'idle' ||
-            searchResults.packs.length > 0) && (
-            <InfiniteScroll
-              pageStart={0}
-              loadMore={loadMore}
-              hasMore={!searchResults.noMoreResults}
-              threshold={1000}
-            >
-              {searchResults.packs.length > 0 && (
+        {/* <section> */}
+        {(searchResults.loading === 'idle' ||
+          searchResults.packs.length > 0) && (
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={loadMore}
+            hasMore={!searchResults.noMoreResults}
+            threshold={1000}
+          >
+            {searchResults.packs.length > 0 && (
+              <>
+                <p className="pageInstructions searchInstructions">
+                  Click a package's name to view details.
+                </p>
                 <PackageList packs={searchResults.packs} />
-              )}
-            </InfiniteScroll>
-          )}
-          {searchResults.packs.length === 0 &&
-            searchResults.loading === 'idle' && (
-              <div className="emptyContainer">
-                <img
-                  alt="empty toilet paper roll"
-                  src={Empty}
-                  className="emptyImage"
-                />
-              </div>
+              </>
             )}
-          {searchResults.loading === 'pending' && (
-            <Spinner className="spinner" name="folding-cube" color="#C4504B" />
-          )}
-        </section>
+          </InfiniteScroll>
+        )}
+        {searchResults.packs.length === 0 && searchResults.loading === 'idle' && (
+          <div className="emptyContainer">
+            <img
+              alt="empty toilet paper roll"
+              src={Empty}
+              className="emptyImage"
+            />
+          </div>
+        )}
+        {searchResults.loading === 'pending' && (
+          <Spinner className="spinner" name="folding-cube" color="#C4504B" />
+        )}
+        {/* </section> */}
       </div>
     </ErrorBoundary>
   );

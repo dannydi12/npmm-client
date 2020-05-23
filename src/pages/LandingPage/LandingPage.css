@@ -13,7 +13,7 @@
   background-color: white;
   padding: 2.5rem 2.5rem 5rem;
   box-shadow: 1px 1px 6px 0 #cccccc;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 
 .introContainer {
@@ -132,10 +132,11 @@
 
 .landingSectionActions {
   margin-top: 1.8rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   color: #2c2c2c;
   text-align: center;
   font-size: 2.8rem;
+  text-decoration: underline;
 }
 
 .rocketImage {
