@@ -9,6 +9,27 @@
   margin: 0 auto;
 }
 
+.landingInfoContainer {
+  background-color: white;
+  padding: 2.5rem;
+  box-shadow: 1px 1px 6px 0 #cccccc;
+  margin-bottom: 3rem;
+}
+
+.introContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6rem;
+}
+
+.landingSectionTitle {
+  color: #2c2c2c;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-size: 2.8rem;
+}
+
 .logoMain {
   max-height: 14rem;
   margin-bottom: 0.8rem;
@@ -18,18 +39,11 @@
   font-weight: 400;
   min-height: 6rem;
   width: 100%;
+  margin-bottom: 8rem;
 }
 
 .underline {
   text-decoration: underline;
-}
-
-.landingSectionTitle {
-  color: #2c2c2c;
-  margin-top: 7rem;
-  margin-bottom: 1.2rem;
-  text-align: center;
-  font-size: 2.8rem;
 }
 
 .description {
@@ -91,24 +105,40 @@
 }
 
 .actionTitle {
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: #2c2c2c;
+  margin-bottom: 0.5rem;
 }
 
 .actionContainer {
   position: relative;
+  padding-left: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 .checkmarkCircle {
   height: 2.8rem;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .actionDescription {
-  margin-top: 0.5rem;
   font-size: 1.7rem;
   color: #2c2c2c;
+  text-decoration: none;
+}
+
+.landingSectionActions {
+  margin-top: 1.8rem;
+  margin-bottom: 2rem;
+  color: #2c2c2c;
+  text-align: center;
+  font-size: 2.8rem;
 }
 
 .rocketImage {
-  height: ;
+  max-height: 14.4rem;
+  display: block;
+  margin: 3rem auto 2rem;
 }
