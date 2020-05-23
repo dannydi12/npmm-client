@@ -14,7 +14,7 @@
 .socialContainer {
   display: flex;
   justify-content: space-evenly;
-  padding-top: 2rem;
+  padding-top: 3rem;
   max-width: 100rem;
   margin: 0 auto;
 }
