@@ -4,7 +4,7 @@ import npmmAPI from '../services/npmmAPI';
 
 export const getCollections = createAsyncThunk(
   'collectionList/getCollections',
-  async (thunkAPI) => {
+  async () => {
     const response = await npmmAPI.getCollections();
     return response;
   }
@@ -12,7 +12,7 @@ export const getCollections = createAsyncThunk(
 
 export const updateCollection = createAsyncThunk(
   'collectionList/updateCollection',
-  async (collection, thunkAPI) => {
+  async (collection) => {
     const response = await npmmAPI.updateCollection(
       collection.id,
       collection.name
@@ -23,7 +23,7 @@ export const updateCollection = createAsyncThunk(
 
 export const createCollection = createAsyncThunk(
   'collectionList/createCollection',
-  async (name, thunkAPI) => {
+  async (name) => {
     const response = await npmmAPI.createCollection(name);
     return response;
   }
@@ -31,7 +31,7 @@ export const createCollection = createAsyncThunk(
 
 export const deleteCollection = createAsyncThunk(
   'collectionList/deleteCollection',
-  async (id, thunkAPI) => {
+  async (id) => {
     const response = await npmmAPI.deleteCollection(id);
     return response;
   }
@@ -43,7 +43,11 @@ export const collectionListSlice = createSlice({
     collections: [],
     loading: null,
   },
-  reducers: {},
+  reducers: {
+    clearCollections: (state) => {
+      state.collections = [];
+    },
+  },
   extraReducers: {
     [getCollections.pending]: (state) => {
       state.loading = 'pending';
@@ -73,5 +77,9 @@ export const collectionListSlice = createSlice({
     },
   },
 });
+
+const { actions } = collectionListSlice;
+
+export const { clearCollections } = actions;
 
 export default collectionListSlice.reducer;

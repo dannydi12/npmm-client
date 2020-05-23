@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useRouteMatch } from 'react-router-dom';
 import {
@@ -10,16 +11,19 @@ import Modal from '../Modal/Modal';
 import threeDot from '../../images/three-dot-black.svg';
 import dotMenuX from '../../images/dot-menu-x.svg';
 import trashCan from '../../images/trash-white.svg';
-import favoriteStar from '../../images/favorite-empty-white.svg';
-import optionArrow from '../../images/option-arrow.svg';
+import favoriteStarEmpty from '../../images/favorite-empty-white.svg';
+import favoriteStarFull from '../../images/favorite-full-white.svg';
+import saveButton from '../../images/edit-save-red.svg';
+import checkmarkButton from '../../images/edit-checkmark-red.svg';
+import npmLogo from '../../images/logo-npm.svg';
 
 function PackageCard(props) {
   const dispatch = useDispatch();
   const isInCollection = useRouteMatch('/collection');
   const [isFavorited, setIsFavorited] = useState(false);
   const [dotMenu, setDotMenu] = useState('Hidden');
-  const [showCollections, setShowCollections] = useState(false);
   const [isSignedIn, setIsSigned] = useState(true);
+  const [savedCollection, setSavedCollection] = useState(false);
 
   const collectionList = useSelector((state) => state.collectionList);
 
@@ -41,6 +45,12 @@ function PackageCard(props) {
     }
   };
 
+  const handleSelectionClick = () => {
+    if (!collectionList.collections.length) {
+      setIsSigned(false);
+    }
+  };
+
   const addToCollection = (packageName, collection) => {
     dispatch(addPackage({ name: packageName, collectionId: collection }));
   };
@@ -50,11 +60,11 @@ function PackageCard(props) {
     if (!collectionList.collections.length) {
       setIsSigned(false);
     } else {
+      setSavedCollection(true);
       addToCollection(
         props.pack.package.name,
         event.target.collectionsList.value
       );
-      setShowCollections(false);
     }
   };
 
@@ -95,19 +105,24 @@ function PackageCard(props) {
         </div>
         <div className={`dotMenuOpen dotAnimation${dotMenu}`}>
           <div className="three-dot-menu">
-            {isInCollection && (
-              <button
-                type="button"
-                onClick={deletePackage}
-                className="trashCanButton"
-              >
-                <img
-                  src={trashCan}
-                  alt="delete button"
-                  className="trashCanImage"
-                />
-              </button>
-            )}
+            <div className="trashCanContainer">
+              {isInCollection && (
+                <button
+                  type="button"
+                  onClick={() => dispatch(deletePackage(props.pack.id))}
+                  className="dotMenuItem"
+                >
+                  <div className="buttonImageContainer">
+                    <img
+                      src={trashCan}
+                      alt="delete button"
+                      className="trashCanImage"
+                    />
+                  </div>
+                  <span className="dotMenuTitle">Delete</span>
+                </button>
+              )}
+            </div>
             <button
               type="button"
               onClick={() => setDotMenu('Closed')}
@@ -123,66 +138,103 @@ function PackageCard(props) {
               type="button"
               onClick={() => addToFavorites(props.pack.package.name)}
               disabled={isFavorited}
-              className="favoriteButton"
+              className="dotMenuItem"
             >
-              <img
-                src={favoriteStar}
-                alt="favorite star button"
-                className={`favoriteStar ${isFavorited ? 'starSpin' : ''}`}
-              />
-              Add to Favorites
+              <div className="buttonImageContainer">
+                {!isFavorited ? (
+                  <img
+                    src={favoriteStarEmpty}
+                    alt="favorite star button"
+                    className="favoriteStar"
+                  />
+                ) : (
+                  <img
+                    src={favoriteStarFull}
+                    alt="favorite star button"
+                    className="favoriteStar starSpin"
+                  />
+                )}
+              </div>
+              <span className="dotMenuTitle">Add to Favorites</span>
             </button>
-            {!showCollections && (
-              <button
-                type="button"
-                onClick={() => setShowCollections(!showCollections)}
-                className="addCollectionButton"
+            <form onSubmit={handleSubmit} className="dotMenuForm">
+              <select
+                name="collectionsList"
+                className="collectionOption"
+                onChange={() => setSavedCollection(false)}
+                defaultValue="default"
+                onClick={handleSelectionClick}
               >
-                <img
-                  src={optionArrow}
-                  alt="optionOpen"
-                  className="optionArrow"
-                />
-                Add to Collection
-              </button>
-            )}
-            {showCollections && (
-              <>
-                <form onSubmit={handleSubmit}>
-                  <select name="collectionsList">{collectionOptions}</select>
-                  <button type="submit">Add to Collection</button>
-                </form>
-              </>
-            )}
+                <option value="default" disabled>
+                  Add to collection
+                </option>
+                {collectionOptions}
+              </select>
+              {!savedCollection ? (
+                <button type="submit" className="dotSaveContainer">
+                  <img
+                    src={saveButton}
+                    alt="save to collection button"
+                    className="dotSave"
+                  />
+                </button>
+              ) : (
+                <div className="dotCheckmarkContainer">
+                  <img
+                    src={checkmarkButton}
+                    alt="saved to collection"
+                    className="dotSave"
+                  />
+                </div>
+              )}
+            </form>
           </div>
         </div>
       </header>
 
-      <p>{props.pack.package.description}</p>
-
-      <div className="package-bottom">
-        <a href={props.pack.package.links.npm}>NPM logo</a>
-        <div className="package-bottom-wrapper">
-          {isInCollection ? (
-            <button
-              type="button"
-              onClick={() => dispatch(deletePackage(props.pack.id))}
-            >
-              delete
-            </button>
-          ) : (
-            <button
-              type="button"
-              onClick={() => addToFavorites(props.pack.package.name)}
-            >
-              {isFavorited ? '★' : '☆'}
-            </button>
-          )}
-          <p>{Math.floor(props.pack.score.final * 100)}</p>
+      <p className="packageDescription">{props.pack.package.description}</p>
+      <div className="packageBottom">
+        <a
+          href={props.pack.package.links.npm}
+          className="npmContainer tooltipRightContainer"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img src={npmLogo} alt="npm logo" className="npmLinkLogo" />
+          <div className="npmTooltipRight tooltipRight">
+            <span className="tooltiptext">View package on npm</span>
+          </div>
+        </a>
+        <div className="tooltipLeftContainer">
+          <div className="npmTooltipLeft tooltipLeft">
+            <span className="tooltiptext">npm score</span>
+          </div>
+        </div>
+        <div className="scoreContainer">
+          <p className="packageScore">
+            {Math.floor(props.pack.score.final * 100)}
+          </p>
         </div>
       </div>
     </div>
   );
 }
+
+PackageCard.propTypes = {
+  pack: PropTypes.shape({
+    id: PropTypes.number,
+    package: PropTypes.shape({
+      description: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      version: PropTypes.string.isRequired,
+      links: PropTypes.shape({
+        npm: PropTypes.string.isRequired,
+      }),
+    }),
+    score: PropTypes.shape({
+      final: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default PackageCard;

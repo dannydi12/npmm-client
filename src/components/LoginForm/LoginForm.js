@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
@@ -48,7 +49,6 @@ function LoginForm(props) {
         placeholder="Email"
         name="email"
         autoComplete="off"
-        // autoComplete="email"
         ref={register({
           required: true,
           minLength: {
@@ -73,7 +73,6 @@ function LoginForm(props) {
           type={showPassword ? 'text' : 'password'}
           placeholder="Password"
           autoComplete="off"
-          // autoComplete="new-password"
           className="passwordInput"
           name="password"
           ref={register({
@@ -98,7 +97,7 @@ function LoginForm(props) {
       {errors.password && (
         <p className="validationWarning">{errors.password.message}</p>
       )}
-      <button type="submit" className="loginSubmit">
+      <button type="submit" className="loginSubmit buttonSubmit">
         {isLoading ? (
           <Spinner fadeIn="none" name="folding-cube" color="white" />
         ) : (
@@ -108,5 +107,9 @@ function LoginForm(props) {
     </form>
   );
 }
+
+LoginForm.propTypes = {
+  setLoginError: PropTypes.func.isRequired,
+};
 
 export default LoginForm;

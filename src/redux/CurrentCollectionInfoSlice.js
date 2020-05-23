@@ -4,7 +4,7 @@ import npmmAPI from '../services/npmmAPI';
 
 export const fetchCollectionInfo = createAsyncThunk(
   'currentCollectionInfo/fetchCollectionInfo',
-  async (options, thunkAPI) => {
+  async (options) => {
     const response = await npmmAPI.getCollectionInfo(
       options.id,
       options.offset
@@ -16,7 +16,7 @@ export const fetchCollectionInfo = createAsyncThunk(
 
 export const deletePackage = createAsyncThunk(
   'currentCollectionInfo/deletePackage',
-  async (id, thunkAPI) => {
+  async (id) => {
     const response = await npmmAPI.deletePackage(id);
     return response;
   }
@@ -24,7 +24,7 @@ export const deletePackage = createAsyncThunk(
 
 export const addPackage = createAsyncThunk(
   'currentCollectionInfo/addPackage',
-  async (pack, thunkAPI) => {
+  async (pack) => {
     const response = await npmmAPI.addPackage(pack.name, pack.collectionId);
     return response;
   }
@@ -62,12 +62,6 @@ export const currentCollectionInfo = createSlice({
       state.packages = state.packages.filter(
         (pack) => pack.id !== Number(action.payload)
       );
-    },
-    [addPackage.fulfilled]: (state, action) => {
-      console.log('fulfilled');
-    },
-    [addPackage.rejected]: (state, action) => {
-      console.log('erorr');
     },
   },
 });

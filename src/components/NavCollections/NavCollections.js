@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAllowScroll } from '../../redux/MenuScrollSlice';
-import showArrow from '../../images/option-arrow.svg';
 
 function NavCollections() {
   const dispatch = useDispatch();
   const collections = useSelector((state) => state.collectionList.collections);
-  const allowScroll = useSelector((state) => state.menuScroll.allowScroll);
 
   const [showMore, setShowMore] = useState(false);
 

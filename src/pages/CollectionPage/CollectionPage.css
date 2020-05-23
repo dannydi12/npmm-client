@@ -1,24 +1,53 @@
 .collectionPageContainer {
-  margin-top: 4rem;
+  margin-top: 6rem;
+}
+
+.collectionTitleContainer {
+  position: relative;
+  height: 7rem;
+  margin-bottom: 4rem;
 }
 
 .collectionTitle {
-  color: #fff;
-  height: 6rem;
-  background-color: #c74848;
-  padding-left: 3rem;
-  position: relative;
-  margin-left: 3rem;
-  margin-bottom: 3.5rem;
-  padding-right: 3rem;
-  border-radius: 0 3.4rem 3.4rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
-.collectionTitle::after {
-  height: 8.2rem;
+.collectionTitle,
+.collectionTitle[type='text'] {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8rem;
+  position: absolute;
+  z-index: 1;
+  left: 3.5rem;
+  width: calc(100vw - 15rem);
+}
+
+.collectionTitle[type='text'] {
+  text-decoration: underline;
+  border: none;
+  background-color: transparent;
+  margin-top: 0;
+  height: auto;
+  padding-left: 0;
+  top: 3.5rem;
+  font-weight: 400;
+}
+
+.collectionTitleBackground {
+  height: 7rem;
+  background-color: #c4504b;
+  padding-left: 3rem;
+  margin-left: 3.5rem;
+  padding-right: 3rem;
+  border-radius: 0 3.4rem 3.4rem 0;
+  z-index: 0;
+  position: relative;
+}
+
+.collectionTitleBackground::after {
+  height: 9.8rem;
   bottom: 0rem;
   background-color: transparent;
   width: 9rem;
@@ -26,14 +55,44 @@
   background-image: url('../../images/logo-ball-left-red.svg');
   position: absolute;
   background-repeat: no-repeat;
-  left: -4.4rem;
+  left: -4.9rem;
 }
 
-.editPencil {
+.collectionEditButton,
+.collectionEditButton[type='submit'] {
+  position: absolute;
+  right: 0;
+  height: 7rem;
+  width: 7rem;
+  z-index: 1;
+  margin-top: 0;
+  background-color: transparent;
+  min-width: 0;
+}
+
+.editPencil,
+.collectionTitleSave {
   height: 2.4rem;
-  margin-top: 0.5rem;
+  margin-right: 1rem;
 }
 
 .saveIcon {
   height: 2rem;
+}
+
+.collectionDelete {
+  position: absolute;
+  font-size: 1.6rem;
+  font-weight: 400;
+  bottom: -2.5rem;
+  text-decoration: underline;
+  right: 3rem;
+  color: #2c2c2c;
+}
+
+.collectionTrash {
+  height: 1.6rem;
+  display: inline-block;
+  vertical-align: -0.2rem;
+  margin-right: 0.5rem;
 }

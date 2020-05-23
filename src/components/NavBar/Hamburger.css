@@ -6,6 +6,15 @@
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
   cursor: pointer;
+  outline: none;
+}
+
+.falseBurger:hover span {
+  box-shadow: 0.5px 0.5px 0 #2c2c2c;
+}
+
+.trueBurger:hover span {
+  box-shadow: 0.5px 0.5px 0 white;
 }
 
 .burgerButton span {

@@ -4,7 +4,10 @@ import { NavLink, Link, useHistory } from 'react-router-dom';
 import randomWords from 'random-words';
 import NavCollections from '../NavCollections/NavCollections';
 import TokenService from '../../services/token-service';
-import { createCollection } from '../../redux/CollectionListSlice';
+import {
+  createCollection,
+  clearCollections,
+} from '../../redux/CollectionListSlice';
 import plus from '../../images/plus.svg';
 import './NavMenu.css';
 
@@ -37,7 +40,14 @@ function NavMenu() {
           </NavLink>
         </>
       ) : (
-        <Link to="/" onClick={TokenService.clearAuthToken} className="menuLink">
+        <Link
+          to="/"
+          onClick={() => {
+            TokenService.clearAuthToken();
+            dispatch(clearCollections());
+          }}
+          className="menuLink"
+        >
           Logout
         </Link>
       )}

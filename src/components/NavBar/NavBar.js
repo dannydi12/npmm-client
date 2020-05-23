@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-wrap-multilines */
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -107,6 +108,7 @@ function NavBar() {
           <div
             className={`burgerButton ${showBurger}Burger`}
             onClick={() => toggleHamburger()}
+            onKeyDown={() => toggleHamburger()}
             role="menu"
             tabIndex={0}
           >

@@ -37,3 +37,7 @@
   display: flex;
   justify-content: center;
 }
+
+.demoSignup {
+  margin-top: 3rem;
+}

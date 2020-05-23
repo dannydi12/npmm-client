@@ -2,12 +2,12 @@ import React from 'react';
 import './Footer.css';
 import githubLogo from '../../images/footer-github.svg';
 import npmLogo from '../../images/footer-npm.svg';
-import linkedinLogo from '../../images/footer-linkedin.svg';
+import emailLogo from '../../images/footer-email.svg';
 
 export default function Footer() {
   function generateCopyright() {
-    let d = new Date();
-    let year = d.getFullYear();
+    const d = new Date();
+    const year = d.getFullYear();
     return year;
   }
 
@@ -32,12 +32,12 @@ export default function Footer() {
           <img src={npmLogo} alt="npm logo" className="socialImage" />
         </a>
         <a
-          href="https://www.linkedin.com/company/npmm"
+          href="mailto:info@npmm.dev"
           target="_blank"
-          className="linkedinLink"
+          className="mailLink"
           rel="noopener noreferrer"
         >
-          <img src={linkedinLogo} alt="linkedin logo" className="socialImage" />
+          <img src={emailLogo} alt="linkedin logo" className="socialImage" />
         </a>
       </div>
       <p className="copyright">

@@ -25,7 +25,7 @@ function PackagePage() {
             className="spinner"
             fadeIn="none"
             name="folding-cube"
-            color="#c74848"
+            color="#C4504B"
           />
         )}
         {packageInfo.loading === 'idle' && (
@@ -38,7 +38,11 @@ function PackagePage() {
               <p>
                 Homepage @
                 <br />
-                <a href={metadata.links.homepage} target="_blank">
+                <a
+                  href={metadata.links.homepage}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {metadata.links.homepage}
                 </a>
               </p>

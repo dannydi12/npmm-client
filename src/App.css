@@ -30,11 +30,11 @@ button {
   outline: none;
 }
 
-button[type='submit'] {
+.buttonSubmit {
   font-family: 'Montserrat', sans-serif;
   margin-top: 1.8rem;
   font-size: 2rem;
-  background-color: #c74848;
+  background-color: #c4504b;
   color: #fff;
   min-width: 100%;
   border-radius: 5px;
@@ -46,7 +46,13 @@ button[type='submit'] {
   -o-transition: all 0.1s ease-out 0.1s;
 }
 
-button[type='submit']:hover {
+.buttonSubmit:hover {
+  font-weight: 500;
+  background-color: #2c2c2c;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  letter-spacing: 0.3em;
 }
 
 input,
@@ -159,7 +165,7 @@ button[disabled] {
 }
 
 .validationWarning {
-  color: #e2514c;
+  color: #c4504b;
   font-size: 1.4rem;
   font-weight: 500;
   margin-top: 0.5rem;
@@ -169,6 +175,69 @@ button[disabled] {
   margin: 0 auto;
   margin-top: 30vh;
   /*padding-bottom: 1em; */
+}
+
+.linkBlack {
+  color: black;
+}
+
+.tooltipLeft,
+.tooltipRight {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltipLeft .tooltiptext,
+.tooltipRight .tooltiptext {
+  visibility: hidden;
+  background-color: #c4504b;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0.5rem 0;
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+}
+
+.tooltipLeft .tooltiptext {
+  right: 110%;
+  width: 11rem;
+}
+
+.tooltipRight .tooltiptext {
+  left: 110%;
+  width: 19rem;
+}
+
+.tooltipRight .tooltiptext::after {
+  right: 100%;
+  border-color: transparent #c4504b transparent transparent;
+}
+
+.tooltipLeft .tooltiptext::after {
+  left: 100%;
+  border-color: transparent transparent transparent #c4504b;
+}
+
+.tooltipLeft .tooltiptext::after,
+.tooltipRight .tooltiptext::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5rem;
+  border-width: 0.5rem;
+  border-style: solid;
+}
+
+.tooltipLeft:hover .tooltiptext,
+.tooltipRight:hover .tooltiptext {
+  visibility: visible;
+}
+
+.emptyImage {
+  max-height: 30rem;
+  margin-top: 3rem;
 }
 
 @media only screen and (min-width: 768px) {
