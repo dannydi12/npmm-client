@@ -1,10 +1,14 @@
+.metadataHeader {
+  position: relative;
+}
+
 .packageDetails {
   width: 100%;
   font-size: 1.4rem;
   margin-top: 5.5rem;
 }
 
-.packageDetails pre {
+.markdownContainer pre {
   width: 100%;
   padding: 0;
   margin: 0;
@@ -17,16 +21,16 @@
   border-radius: 5px;
 }
 
-.packageDetails code {
+.markdownContainer code {
   padding: 1rem;
   color: #333;
 }
 
-.packageDetails h1,
-.packageDetails h2,
-.packageDetails h3,
-.packageDetails h4,
-.packageDetails p {
+.markdownContainer h1,
+.markdownContainer h2,
+.markdownContainer h3,
+.markdownContainer h4,
+.markdownContainer p {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -39,4 +43,95 @@
   background-color: white;
   padding: 2rem;
   box-shadow: 1px 1px 6px 0 #cccccc;
+}
+
+.detailsTitle {
+  font-size: 3.4rem;
+  color: #c4504b;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  margin-right: 0.8rem;
+  text-decoration: none;
+}
+
+.npmPackageLink {
+  height: 5.8rem;
+  width: 9rem;
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  padding-top: 1.8rem;
+  padding-left: 2rem;
+}
+
+.detailsTooltipLeft {
+  width: 8rem;
+  height: 5.8rem;
+  position: absolute !important;
+  left: 2rem;
+  bottom: 0;
+}
+
+.detailsScoreContainer {
+  position: absolute;
+  top: 4rem;
+  right: 7rem;
+  padding-top: 0.8rem;
+  padding-left: 2rem;
+}
+
+.scoreNumberContainer {
+  width: 5.4rem;
+  height: 5.8rem;
+  background: url('../../images/logo-ball-right-red.svg');
+  background-size: 3.8rem;
+  background-repeat: no-repeat;
+  background-position: left top;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.detailsScore {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: white;
+  position: absolute;
+  top: 1.9rem;
+  left: 0.5rem;
+  width: 1.8rem;
+  text-align: center;
+  margin-top: 0 !important;
+}
+
+.metadataTitle {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+}
+
+.metadataTitle,
+.metadataContent,
+.tagLink {
+  font-size: 1.8rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.tagLink {
+  margin-right: 1rem;
+}
+
+.metadataContent {
+  margin: 0;
+}
+
+.packageTags {
+  margin-bottom: 3rem;
+}
+
+.readmeTitle {
+  font-size: 2.4rem;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 1rem;
 }
