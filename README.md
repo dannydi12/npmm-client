@@ -54,7 +54,7 @@ Javascript
 - **Vik Birdi** - [Portfolio](https://)
 - **Daniel Di Venere** - [Portfolio](https://)
 - **Matthew Malecki** - [Portfolio](https://)
-- **Michael Ploughman** - [Portfolio](https://)
+- **Michael Ploughman** - [Portfolio](https://MichaelHPloughman.com)
 - **Josh Young** - [Portfolio](https://joshyoung.net)
 
 ## License
