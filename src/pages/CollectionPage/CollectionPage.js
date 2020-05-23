@@ -132,9 +132,10 @@ function CollectionPage() {
                 <>
                   {showModal && (
                     <Modal
-                      title="You sure you want to delete?"
-                      message="You will lose all the packages in this collection"
-                      buttonText="Delete"
+                      title="Delete Collection"
+                      message="Are you sure you want to delete this collection?"
+                      buttonText="Confirm"
+                      imageClass="modalToilet"
                       clickHandler={() => {
                         history.push('/');
                         dispatch(deleteCollection(id));

@@ -72,10 +72,11 @@ function PackageCard(props) {
     <div className="cardContainer">
       {!isSignedIn && (
         <Modal
-          title="Sign Up"
-          message="Only losers don't sign up"
+          title="Please Login"
+          message="You must be logged in to save packages."
           clickHandler={() => {}}
-          buttonText="Do it"
+          imageClass="modalAlert"
+          buttonText="Login"
         />
       )}
       <header>

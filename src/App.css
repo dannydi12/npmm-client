@@ -29,7 +29,8 @@ button {
   padding: 0;
 }
 
-.buttonSubmit {
+.buttonSubmit,
+.modalButton {
   outline: none;
   font-family: 'Montserrat', sans-serif;
   margin-top: 1.8rem;
@@ -47,7 +48,9 @@ button {
 }
 
 .buttonSubmit:hover,
-.buttonSubmit:focus {
+.buttonSubmit:focus,
+.modalButton:hover,
+.modalButton:focus {
   background-color: #db4f4f;
   /* background-color: #dd5757; */
   -webkit-transition: 0.2s ease-in-out;
