@@ -117,7 +117,7 @@ function LoginForm(props) {
         {isLoading ? (
           <Spinner fadeIn="none" name="folding-cube" color="white" />
         ) : (
-          'Login'
+          'Log in'
         )}
       </button>
     </form>
