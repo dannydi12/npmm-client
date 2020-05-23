@@ -21,12 +21,11 @@ function PackagePage() {
 
   const tagList = () =>
     Object.values(metadata.keywords).map((tag) => (
-      <Link exact to={`/search?q=${tag}`} className="tagLink" key={tag}>
+      <Link to={`/search?q=${tag}`} className="tagLink" key={tag}>
         {tag}
       </Link>
     ));
 
-  console.log(metadata);
   return (
     <ErrorBoundary>
       <main className="packageDetails">
@@ -76,25 +75,48 @@ function PackagePage() {
                   {metadata.links.homepage}
                 </a>
               </p>
-              <h4 className="metadataTitle">github Repo:</h4>
-              <p className="metadataContent">{metadata.repository.url}</p>
+              <h4 className="metadataTitle">Github Repository:</h4>
+              <p className="metadataContent">
+                <a
+                  href={metadata.repository.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {metadata.repository.url}
+                </a>
+              </p>
               <h4 className="metadataTitle">License:</h4>
               <p className="metadataContent">{metadata.license}</p>
               <h4 className="metadataTitle">Version:</h4>
               <p className="metadataContent">{metadata.version}</p>
               <h4 className="metadataTitle">Tags:</h4>
-              <p className="packageTags">{tagList()}</p>
+              <p className="packageTags">
+                {metadata.keywords ? tagList() : null}
+              </p>
             </section>
-            <h2 className="readmeTitle">{metadata.name}'s Readme:</h2>
-            <div className="markdownContainer">
-                          {metadata.readme ? (
-              <div className="markdownContainer">
-                <ReactMarkdown source={metadata.readme} />
-              </div>
+            {metadata.readme ? (
+              <>
+                <h2 className="readmeTitle">{metadata.name}'s Readme:</h2>
+                <div className="markdownContainer">
+                  <ReactMarkdown source={metadata.readme} />
+                </div>
+              </>
             ) : (
-              <p>No README available :(</p>
+              <>
+                <h4 className="metadataTitle">NOTE: No Readme available</h4>
+                <p className="metadataContent">
+                  For additional information, please{' '}
+                  <a
+                    href={metadata.links.npm}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    click here
+                  </a>{' '}
+                  to be directed to the npm page.
+                </p>
+              </>
             )}
-            </div>
           </>
         )}
       </main>
