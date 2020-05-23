@@ -52,7 +52,6 @@ button {
   -webkit-transition: 0.2s ease-in-out;
   -moz-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
-  letter-spacing: 0.3em;
 }
 
 input,
