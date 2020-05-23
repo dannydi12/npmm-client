@@ -79,12 +79,12 @@ export default function SignupForm() {
           ref={register({
             required: 'Please enter your password',
             minLength: {
-              value: 6,
-              message: 'Password must be at least 6 characters long',
+              value: 8,
+              message: 'Password must be at least eight characters long',
             },
             maxLength: {
               value: 40,
-              message: 'Password cannot be longer than 40 characters',
+              message: 'Password cannot be longer than forty characters',
             },
           })}
         />
@@ -113,7 +113,7 @@ export default function SignupForm() {
             },
             maxLength: {
               value: 40,
-              message: 'Password cannot be longer than 40 characters.',
+              message: 'Password cannot be longer than forty characters.',
             },
             pattern: {
               value: /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/,
