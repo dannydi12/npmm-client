@@ -32,10 +32,10 @@ function NavMenu() {
       </NavLink>
       {!isLoggedIn ? (
         <>
-          <NavLink to="login" className="menuLink">
+          <NavLink exact to="/login" replace className="menuLink">
             Login
           </NavLink>
-          <NavLink to="signup" className="menuLink">
+          <NavLink exact to="/signup" className="menuLink">
             Signup
           </NavLink>
         </>
