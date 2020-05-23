@@ -51,8 +51,7 @@ button {
 .buttonSubmit:focus,
 .modalButton:hover,
 .modalButton:focus {
-  background-color: #db4f4f;
-  /* background-color: #dd5757; */
+  background-color: #a63b36;
   -webkit-transition: 0.2s ease-in-out;
   -moz-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
