@@ -14,12 +14,28 @@ function LoginForm(props) {
   const { register, handleSubmit, errors } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showScroll, setShowScroll] = useState(false);
+
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 300) {
+      setShowScroll(true);
+    } else if (showScroll && window.pageYOffset <= 300) {
+      setShowScroll(false);
+    }
+  };
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  window.addEventListener('scroll', checkScrollTop);
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
 
   const onSubmit = (data) => {
+    scrollTop();
     setIsLoading(true);
     AuthService.postLogin({
       email: data.email,
