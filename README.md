@@ -1,4 +1,4 @@
-# npmm - **n**ode **p**ackage **m**anager **m**anager
+# npmm - *n*ode *p*ackage *m*anager *m*anager
 
 ![Logo](./npmm-logo.svg)
 
