@@ -35,9 +35,8 @@
 .description {
   color: #2c2c2c;
   margin: 0 auto;
-  padding: 0 2rem;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 .landingSearchInput[type='text'] {
@@ -89,4 +88,27 @@
 .steps a:hover {
   text-decoration: underline;
   transition-duration: 200ms;
+}
+
+.actionTitle {
+  font-size: 2rem;
+  color: #2c2c2c;
+}
+
+.actionContainer {
+  position: relative;
+}
+
+.checkmarkCircle {
+  height: 2.8rem;
+}
+
+.actionDescription {
+  margin-top: 0.5rem;
+  font-size: 1.7rem;
+  color: #2c2c2c;
+}
+
+.rocketImage {
+  height: ;
 }

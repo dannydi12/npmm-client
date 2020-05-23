@@ -17,6 +17,14 @@
   box-shadow: 0.5px 0.5px 0 white;
 }
 
+.falseBurger:focus span {
+  box-shadow: 0.5px 0.5px 0 #2c2c2c;
+}
+
+.trueBurger:focus span {
+  box-shadow: 0.5px 0.5px 0 white;
+}
+
 .burgerButton span {
   display: block;
   position: absolute;
