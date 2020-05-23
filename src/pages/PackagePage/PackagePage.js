@@ -33,7 +33,9 @@ function PackagePage() {
             <header>
               <h2>{metadata.name}'s README</h2>
             </header>
-            <ReactMarkdown source={metadata.readme} />
+            <div className="markdownContainer">
+              <ReactMarkdown source={metadata.readme} />
+            </div>
             <section className="metadata">
               <p>
                 Homepage @

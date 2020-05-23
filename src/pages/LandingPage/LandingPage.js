@@ -70,8 +70,8 @@ function LandingPage() {
               <h3 className="actionTitle">Create Collections</h3>
               <p className="actionDescription">
                 Collections are a way to store and organize npm packages. Once
-                logged in, you can add packages to your favorites or create your
-                own collection.
+                logged in, you can add packages to favorites or create your own
+                collection.
               </p>
             </div>
             <div className="actionContainer">
@@ -82,8 +82,8 @@ function LandingPage() {
               />
               <h3 className="actionTitle">Search for Packages</h3>
               <p className="actionDescription">
-                Search for a package using the search form at the top of this
-                page.
+                Search for a package using the form at the top of this page. The
+                entire npm database is at your fingertips.
               </p>
             </div>
             <div className="actionContainer">
@@ -100,9 +100,9 @@ function LandingPage() {
                 className="actionDescription"
               >
                 <span className="underline">Click here</span> to access the npmm
-                cli tool. Once installed, the package will allow you to navigate
+                CLI tool. Once installed, the package will allow you to navigate
                 your existing collections and add packages to your project. Or
-                save packages in an existing package.json as a new collection!
+                save packages from an existing package.json as a new collection!
               </a>
               <div className="codeContainer">
                 <code>$npm i @npmmjs/npmm</code>

@@ -7,6 +7,7 @@ import Spinner from 'react-spinkit';
 import AuthService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
 import { getCollections } from '../../redux/CollectionListSlice';
+import Checkmark from '../../images/checkmark-round-red.svg';
 
 function LoginForm(props) {
   const history = useHistory();
@@ -15,6 +16,7 @@ function LoginForm(props) {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showScroll, setShowScroll] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const checkScrollTop = () => {
     if (!showScroll && window.pageYOffset > 300) {
@@ -46,7 +48,10 @@ function LoginForm(props) {
       })
       .then(() => {
         dispatch(getCollections());
-        history.push('/');
+        setShowSuccess(true);
+        setTimeout(() => {
+          history.push('/');
+        }, 1200);
       })
       .catch(() => {
         props.setLoginError(true);
@@ -55,72 +60,84 @@ function LoginForm(props) {
   };
 
   return (
-    <form
-      id="loginForm"
-      className="loginForm"
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <input
-        type="text"
-        placeholder="Email"
-        name="email"
-        autoComplete="off"
-        ref={register({
-          required: true,
-          minLength: {
-            value: 9,
-            message: 'An email is usually longer than that.',
-          },
-          maxLength: {
-            value: 40,
-            message: `An email usually isn't that long.`,
-          },
-          pattern: {
-            value: /^\S+@\S+$/i,
-            message: `That doesn't seem to be a valid email.`,
-          },
-        })}
-      />
-      {errors.email && (
-        <p className="validationWarning">{errors.email.message}</p>
+    <>
+      {showSuccess && (
+        <div className="loginConfirmation">
+          <h2 className="loginSuccess">Success!</h2>
+          <img
+            src={Checkmark}
+            alt="checkmark"
+            className="confirmationCheckmark"
+          />
+        </div>
       )}
-      <div className="passwordContainer">
+      <form
+        id="loginForm"
+        className="loginForm"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <input
-          type={showPassword ? 'text' : 'password'}
-          placeholder="Password"
+          type="text"
+          placeholder="Email"
+          name="email"
           autoComplete="off"
-          className="passwordInput"
-          name="password"
           ref={register({
-            required: 'Please enter your password.',
+            required: true,
             minLength: {
-              value: 8,
-              message: 'Password must be at least eight characters long.',
+              value: 9,
+              message: 'An email is usually longer than that.',
             },
             maxLength: {
               value: 40,
-              message: 'Password cannot be longer than forty characters.',
+              message: `An email usually isn't that long.`,
+            },
+            pattern: {
+              value: /^\S+@\S+$/i,
+              message: `That doesn't seem to be a valid email.`,
             },
           })}
         />
-        <button
-          type="button"
-          className={showPassword ? 'showPassword' : 'hidePassword'}
-          aria-label="show password"
-          onClick={togglePassword}
-        />
-      </div>
-      {errors.password && (
-        <p className="validationWarning">{errors.password.message}</p>
-      )}
-      <button type="submit" className="loginSubmit buttonSubmit">
-        {isLoading ? (
-          <Spinner fadeIn="none" name="folding-cube" color="white" />
-        ) : (
-          'Log in'
+        {errors.email && (
+          <p className="validationWarning">{errors.email.message}</p>
         )}
-      </button>
-    </form>
+        <div className="passwordContainer">
+          <input
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Password"
+            autoComplete="off"
+            className="passwordInput"
+            name="password"
+            ref={register({
+              required: 'Please enter your password.',
+              minLength: {
+                value: 8,
+                message: 'Password must be at least eight characters long.',
+              },
+              maxLength: {
+                value: 40,
+                message: 'Password cannot be longer than forty characters.',
+              },
+            })}
+          />
+          <button
+            type="button"
+            className={showPassword ? 'showPassword' : 'hidePassword'}
+            aria-label="show password"
+            onClick={togglePassword}
+          />
+        </div>
+        {errors.password && (
+          <p className="validationWarning">{errors.password.message}</p>
+        )}
+        <button type="submit" className="loginSubmit buttonSubmit">
+          {isLoading ? (
+            <Spinner fadeIn="none" name="folding-cube" color="white" />
+          ) : (
+            'Log in'
+          )}
+        </button>
+      </form>
+    </>
   );
 }
 
