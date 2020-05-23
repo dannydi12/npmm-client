@@ -20,7 +20,8 @@ function LandingPage() {
         <Modal
           title="Welcome"
           message="You can do so many things."
-          clickHandler={setShowModal}
+          clickHandler={() => setShowModal(false)}
+          handleExit={() => setShowModal(false)}
           buttonText="Get Started"
           imageClass="modalCheckmark"
         />

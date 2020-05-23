@@ -10,13 +10,12 @@ export default function Modal(props) {
   const imageSource = (classname) => {
     if (classname === 'modalToilet') {
       return Toilet;
-    } else if (classname === 'modalAlert') {
+    }
+    if (classname === 'modalAlert') {
       return Alert;
     }
     return Checkmark;
   };
-
-  console.log(imageSource(props.imageClass));
 
   return (
     <div className="modalFixed">
@@ -24,7 +23,7 @@ export default function Modal(props) {
         <div className="modalHeader">
           <button
             type="button"
-            onClick={props.handleExit()}
+            onClick={props.handleExit}
             className="modalExitContainer"
           >
             <img src={Exit} className="modalExit" alt="modal exit" />
