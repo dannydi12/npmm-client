@@ -87,7 +87,13 @@ function PackagePage() {
             </section>
             <h2 className="readmeTitle">{metadata.name}'s Readme:</h2>
             <div className="markdownContainer">
-              <ReactMarkdown source={metadata.readme} />
+                          {metadata.readme ? (
+              <div className="markdownContainer">
+                <ReactMarkdown source={metadata.readme} />
+              </div>
+            ) : (
+              <p>No README available :(</p>
+            )}
             </div>
           </>
         )}

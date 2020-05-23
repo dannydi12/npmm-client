@@ -140,6 +140,7 @@ function CollectionPage() {
                         history.push('/');
                         dispatch(deleteCollection(id));
                       }}
+                      handleExit={() => setShowModal(false)}
                     />
                   )}
                   <form onSubmit={(e) => saveChange(e)} className="editCollect">

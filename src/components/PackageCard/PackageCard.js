@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, useRouteMatch, useHistory } from 'react-router-dom';
 import {
   addPackage,
   deletePackage,
@@ -19,10 +19,11 @@ import npmLogo from '../../images/logo-npm.svg';
 
 function PackageCard(props) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const isInCollection = useRouteMatch('/collection');
   const [isFavorited, setIsFavorited] = useState(false);
   const [dotMenu, setDotMenu] = useState('Hidden');
-  const [isSignedIn, setIsSigned] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [savedCollection, setSavedCollection] = useState(false);
 
   const collectionList = useSelector((state) => state.collectionList);
@@ -35,7 +36,7 @@ function PackageCard(props) {
 
   const addToFavorites = (name) => {
     if (!collectionList.collections.length) {
-      setIsSigned(false);
+      setShowModal(true);
     } else {
       const favorites = collectionList.collections.find(
         (collection) => collection.collection_name === 'Favorites'
@@ -47,7 +48,7 @@ function PackageCard(props) {
 
   const handleSelectionClick = () => {
     if (!collectionList.collections.length) {
-      setIsSigned(false);
+      setShowModal(true);
     }
   };
 
@@ -58,7 +59,7 @@ function PackageCard(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!collectionList.collections.length) {
-      setIsSigned(false);
+      setShowModal(true);
     } else {
       setSavedCollection(true);
       addToCollection(
@@ -70,11 +71,12 @@ function PackageCard(props) {
 
   return (
     <div className="cardContainer">
-      {!isSignedIn && (
+      {showModal && (
         <Modal
           title="Please Login"
           message="You must be logged in to save packages."
-          clickHandler={() => {}}
+          clickHandler={() => history.push('/login')}
+          handleExit={() => setShowModal(false)}
           imageClass="modalAlert"
           buttonText="Login"
         />
