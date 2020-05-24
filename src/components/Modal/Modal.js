@@ -54,6 +54,7 @@ export default function Modal(props) {
 Modal.defaultProps = {
   title: '',
   handleExit: () => {},
+  imageClass: '',
 };
 
 Modal.propTypes = {
@@ -62,4 +63,5 @@ Modal.propTypes = {
   clickHandler: PropTypes.func.isRequired,
   buttonText: PropTypes.string.isRequired,
   handleExit: PropTypes.func,
+  imageClass: PropTypes.string,
 };
