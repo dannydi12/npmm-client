@@ -39,7 +39,7 @@ This fully responsive app was built with developers in mind. The goal was to add
 - JSON Web Token
 - Redux
 - Jest
-- Deployed with Zeit
+- Deployed with Vercel
 
 #### Back-end:
 
