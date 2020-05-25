@@ -10,7 +10,7 @@
 
 ## Description
 
-NPMM allows developers to frictionlessly browse and save npm packages. Saved packages can then be programmatically installed with our command line interface. Imagine the [npmjs.com](https://npmjs.com) website but with a few extra features for ease of use. A live demo can be found at [https://npmm.dev/](https://npmm.dev/)
+NPMM allows developers to frictionlessly browse and save npm packages. Saved packages can then be programmatically installed with our command line interface. Imagine the [npmjs.com](https://npmjs.com) website but with a few critical features added in for ease of use. A live demo can be found at [https://npmm.dev/](https://npmm.dev/)
 
 ## Authors' Notes
 
