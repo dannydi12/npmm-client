@@ -107,7 +107,7 @@ function LandingPage() {
                 save packages from an existing package.json as a new collection!
               </a>
               <div className="codeContainer">
-                <code>$npm i @npmmjs/npmm</code>
+                <code>$npm i npmm -g</code>
               </div>
             </div>
           </section>
