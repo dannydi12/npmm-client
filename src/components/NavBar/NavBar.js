@@ -109,7 +109,7 @@ function NavBar() {
             className={`burgerButton ${showBurger}Burger`}
             onClick={() => toggleHamburger()}
             onKeyDown={() => toggleHamburger()}
-            role="menu"
+            role="button"
             tabIndex={0}
           >
             <span />
