@@ -6,11 +6,11 @@
 
 ## Server side code @ [Github](https://github.com/dannydi12/npmm-server)
 
+[![CodeFactor](https://www.codefactor.io/repository/github/dannydi12/npmm-client/badge)](https://www.codefactor.io/repository/github/dannydi12/npmm-client)
+
 ## Description
 
-NPMM is an app designed to help you keep track of your favorite npm packages. Using the npmm CLI
-package, you can seamlessly integrate npmm into your project’s
-workflow.
+NPMM allows developers to frictionlessly browse and save npm packages. Saved packages can then be programmatically installed with our command line interface. Imagine the [npmjs.com](https://npmjs.com) website but with a few critical features added in for ease of use. A live demo can be found at [https://npmm.dev/](https://npmm.dev/)
 
 ## Authors' Notes
 
@@ -32,23 +32,26 @@ This fully responsive app was built with developers in mind. The goal was to add
 
 ## Built With
 
-[PostgreSQL](https://www.postgresql.org/)
+#### Front-end:
 
-[Express](https://expressjs.com/)
+- React
+- HTML5
+- CSS3
+- Javascript
+- JSON Web Token
+- Redux
+- Jest
+- Deployed with Vercel
 
-[React](https://reactjs.org/)
+#### Back-end:
 
-[Node](https://nodejs.org/en/)
-
-HTML 5
-
-CSS 3
-
-Javascript
-
-[Jest](https://jestjs.io/)
-
-[Enzyme](https://enzymejs.github.io/enzyme/)
+- Node
+- PostgreSQL
+- Knex
+- JSON Web Token
+- Express
+- Mocha and Chai
+- Deployed with Heroku
 
 ## The Authors
 
@@ -57,6 +60,11 @@ Javascript
 - **Matthew Malecki** - [Portfolio](https://portfolio.maleckim.now.sh/)
 - **Michael Ploughman** - [Portfolio](https://MichaelHPloughman.com)
 - **Josh Young** - [Portfolio](https://joshyoung.net)
+
+## Acknowledgments
+
+- [npms.io](https://npms.io) - An awesome elastic-search API for npm
+- [npm](https://npmjs.com) - Only the best package manager ever
 
 ## License
 

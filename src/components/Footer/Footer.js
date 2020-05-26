@@ -24,7 +24,7 @@ export default function Footer() {
           <img src={githubLogo} alt="github logo" className="socialImage" />
         </a>
         <a
-          href="https://www.npmjs.com/package/@npmmjs/npmm"
+          href="https://www.npmjs.com/package/npmm"
           target="_blank"
           className="npmLink"
           rel="noopener noreferrer"
@@ -37,7 +37,7 @@ export default function Footer() {
           className="mailLink"
           rel="noopener noreferrer"
         >
-          <img src={emailLogo} alt="linkedin logo" className="socialImage" />
+          <img src={emailLogo} alt="email logo" className="socialImage" />
         </a>
       </div>
       <p className="copyright">
