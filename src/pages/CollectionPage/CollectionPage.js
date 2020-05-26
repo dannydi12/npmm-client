@@ -26,7 +26,7 @@ function CollectionPage() {
   const location = useLocation();
   const parsed = queryString.parse(location.search);
 
-  const collection = useSelector((state) => state.currentCollectionInfo); // to get stuff from state
+  const collection = useSelector((state) => state.currentCollectionInfo);
   const collectionList = useSelector(
     (state) => state.collectionList.collections
   );

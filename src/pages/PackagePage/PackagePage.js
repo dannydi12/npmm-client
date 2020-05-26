@@ -9,7 +9,7 @@ import './PackagePage.css';
 import npmLogo from '../../images/logo-npm.svg';
 
 function PackagePage() {
-  const packageInfo = useSelector((state) => state.packageInfo); // to get stuff from state
+  const packageInfo = useSelector((state) => state.packageInfo);
   const dispatch = useDispatch();
   const { packageName } = useParams();
 
