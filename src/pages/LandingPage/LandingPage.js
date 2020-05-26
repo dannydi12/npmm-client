@@ -21,7 +21,7 @@ function LandingPage() {
       {showModal && (
         <Modal
           title="Welcome!"
-          message="You've successfully registered and are now logged in. Click the button below for a quick introduction to npmm."
+          message="You've successfully registered and are now logged in. Make sure to sure to check out the sidebar to see your collections."
           clickHandler={() => setShowModal(false)}
           handleExit={() => setShowModal(false)}
           buttonText="Get Started"
