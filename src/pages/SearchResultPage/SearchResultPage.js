@@ -37,7 +37,6 @@ function SearchResultPage() {
     <ErrorBoundary>
       <div className="searchContainer">
         <h2 className="searchTitle pageTitle">Search Results</h2>
-        {/* <section> */}
         {(searchResults.loading === 'idle' ||
           searchResults.packs.length > 0) && (
           <InfiniteScroll
@@ -68,7 +67,6 @@ function SearchResultPage() {
         {searchResults.loading === 'pending' && (
           <Spinner className="spinner" name="folding-cube" color="#C4504B" />
         )}
-        {/* </section> */}
       </div>
     </ErrorBoundary>
   );

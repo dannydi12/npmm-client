@@ -216,14 +216,3 @@
     padding: 2.8rem 2rem 2.7rem 2rem;
   }
 }
-
-/* @media only screen and (min-width: 1024px) {
-  .navBarContainer {
-    padding-right: calc(49vw - 42rem);
-    padding-left: calc(49vw - 42rem);
-    z-index: initial;
-  }
-  .mainLogo {
-    margin-left: 0;
-  }
-} */
