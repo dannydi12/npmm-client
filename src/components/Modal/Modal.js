@@ -7,6 +7,7 @@ import Alert from '../../images/alert.svg';
 import Exit from '../../images/dot-menu-x.svg';
 
 export default function Modal(props) {
+  // Chooses which vector graphic to display based on prop
   const imageSource = (classname) => {
     if (classname === 'modalToilet') {
       return Toilet;
