@@ -12,6 +12,8 @@ import './LandingPage.css';
 function LandingPage() {
   const location = useLocation();
   const { onBoarding } = queryString.parse(location.search);
+
+  // show the first-time user tutorial based on URL query
   const [showModal, setShowModal] = useState(!!onBoarding);
 
   return (
