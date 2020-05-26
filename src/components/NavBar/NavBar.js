@@ -14,13 +14,16 @@ import './Hamburger.css';
 function NavBar() {
   const location = useLocation();
   const dispatch = useDispatch();
+
   const [showBurger, setShowBurger] = useState(false);
   const [animationClass, setAnimationClass] = useState('Hidden');
   const [showSearch, setShowSearch] = useState(false);
+
   const isNotHomePage = location.pathname !== '/';
   const allowScroll = useSelector((state) => state.menuScroll.allowScroll);
 
   useEffect(() => {
+    // close the hamburger menu on each page navigation
     if (showBurger === true || animationClass === 'In') {
       setShowBurger(false);
       setAnimationClass('Out');
@@ -43,10 +46,6 @@ function NavBar() {
         dispatch(setAllowScroll(false));
       }, 800);
     }
-  };
-
-  const unmountSearch = () => {
-    setShowSearch(false);
   };
 
   return (
@@ -91,7 +90,7 @@ function NavBar() {
                   searchFormClass="navSearchForm"
                   searchInputClass="navSearchInput"
                   searchButtonClass="navSearchButton"
-                  unmountSearch={unmountSearch}
+                  unmountSearch={() => setShowSearch(false)}
                   searchButton={
                     <img
                       src={whiteMagGlass}
