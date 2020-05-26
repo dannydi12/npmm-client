@@ -19,10 +19,12 @@ function SearchResultPage() {
   const searchResults = useSelector((state) => state.searchResults);
 
   useEffect(() => {
+    // run a search API fetch every time the search term changes
     dispatch(getPackages({ searchTerm: parsed.q }));
   }, [searchResults.searchTerm]);
 
   const loadMore = () => {
+    // if the redux thunk resolved AND we have more than 0 packages, get more packages
     if (searchResults.packs.length && searchResults.loading === 'idle') {
       dispatch(
         getPackages({
