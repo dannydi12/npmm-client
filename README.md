@@ -4,7 +4,7 @@
 
 ## Live App @ [npmm](https://npmm.dev)
 
-## CLI Tool @ [npmm](https://github.com/maleckim/npmm-cli)
+## CLI Tool @ [Github](https://github.com/maleckim/npmm-cli)
 
 ## Server side code @ [Github](https://github.com/dannydi12/npmm-server)
 
