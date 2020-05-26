@@ -104,123 +104,54 @@
     transform: translate3d(100%, 0, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
+
 @keyframes slideMenuIn {
   from {
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
+
 .slideMenuIn {
   -webkit-animation-name: slideMenuIn;
   animation-name: slideMenuIn;
 }
+
 @-webkit-keyframes slideMenuOut {
   from {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
   }
 }
+
 @keyframes slideMenuOut {
   from {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
   }
 }
+
 .slideMenuOut {
   -webkit-animation-name: slideMenuOut;
   animation-name: slideMenuOut;
 }
-
-/* 
-@media only screen and (max-width: 360px) {
-  .navLink {
-    font-size: 2.6rem;
-  }
-  .linkContainer {
-    height: 4rem;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .navLink {
-    font-size: 1.7rem;
-    margin: 0;
-    font-weight: 300;
-    display: inline-block;
-    height: 6rem;
-    padding-top: 2rem;
-  }
-
-  .navLink::after {
-    content: none;
-  }
-  
-  .linkContainer {
-    border-bottom: none;
-  }
-
-  .burgerButton {
-    display: none;
-  }
-
-  .linkBullet {
-    display: initial;
-  }
-
-  @-webkit-keyframes fadeMenuUp {
-    from {
-      opacity: 0;
-      -webkit-transform: translate3d(0, -100%, 0);
-      transform: translate3d(0, -100%, 0);
-    }
-  
-    to {
-      opacity: 1;
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  
-  @keyframes fadeMenuUp {
-    from {
-      opacity: 0;
-      -webkit-transform: translate3d(0, -100%, 0);
-      transform: translate3d(0, -100%, 0);
-    }
-  
-    to {
-      opacity: 1;
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  
-  .fadeMenuUp {
-    -webkit-animation-name: fadeMenuUp;
-    animation-name: fadeMenuUp;
-  }
-} */

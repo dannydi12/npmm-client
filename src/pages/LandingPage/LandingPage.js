@@ -12,6 +12,8 @@ import './LandingPage.css';
 function LandingPage() {
   const location = useLocation();
   const { onBoarding } = queryString.parse(location.search);
+
+  // show the first-time user tutorial based on URL query
   const [showModal, setShowModal] = useState(!!onBoarding);
 
   return (
@@ -19,7 +21,7 @@ function LandingPage() {
       {showModal && (
         <Modal
           title="Welcome!"
-          message="You've successfully registered and are now logged in. Click the button below for a quick introduction to npmm."
+          message="You've successfully registered and are now logged in. Make sure to sure to check out the sidebar to see your collections."
           clickHandler={() => setShowModal(false)}
           handleExit={() => setShowModal(false)}
           buttonText="Get Started"
@@ -96,7 +98,7 @@ function LandingPage() {
               />
               <h3 className="actionTitle">Install the Package</h3>
               <a
-                href="https://www.npmjs.com/package/@npmmjs/npmm"
+                href="https://www.npmjs.com/package/npmm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="actionDescription"

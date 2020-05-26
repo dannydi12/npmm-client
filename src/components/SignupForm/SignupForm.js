@@ -10,6 +10,7 @@ import { getCollections } from '../../redux/CollectionListSlice';
 export default function SignupForm() {
   const history = useHistory();
   const dispatch = useDispatch();
+
   const [showPasswordOne, setShowPasswordOne] = useState(false);
   const [showPasswordTwo, setShowPasswordTwo] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

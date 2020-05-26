@@ -21,6 +21,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // if logged in, get user collections on component mount
     if (TokenService.hasAuthToken()) {
       dispatch(getCollections());
     }

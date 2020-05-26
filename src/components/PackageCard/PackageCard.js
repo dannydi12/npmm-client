@@ -21,6 +21,7 @@ function PackageCard(props) {
   const dispatch = useDispatch();
   const history = useHistory();
   const isInCollection = useRouteMatch('/collection');
+
   const [isFavorited, setIsFavorited] = useState(false);
   const [dotMenu, setDotMenu] = useState('Hidden');
   const [showModal, setShowModal] = useState(false);
@@ -36,6 +37,7 @@ function PackageCard(props) {
 
   const addToFavorites = (name) => {
     if (!collectionList.collections.length) {
+      // if the user has no collections (not signed in), show the modal
       setShowModal(true);
     } else {
       const favorites = collectionList.collections.find(

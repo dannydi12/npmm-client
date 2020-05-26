@@ -9,13 +9,15 @@ import './PackagePage.css';
 import npmLogo from '../../images/logo-npm.svg';
 
 function PackagePage() {
-  const packageInfo = useSelector((state) => state.packageInfo); // to get stuff from state
+  const packageInfo = useSelector((state) => state.packageInfo);
   const dispatch = useDispatch();
   const { packageName } = useParams();
 
   useEffect(() => {
+    // get the package data everytime the package name changes
     dispatch(fetchPackageInfo(packageName));
   }, [packageName]);
+
   const metadata =
     packageInfo.loading === 'idle' ? packageInfo.data.collected.metadata : null;
 

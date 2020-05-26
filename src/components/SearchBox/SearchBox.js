@@ -6,12 +6,13 @@ import { searchFor } from '../../redux/SearchResultsSlice';
 import './SearchBox.css';
 
 function SearchBox(props) {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   const [tempSearch, setTempSearch] = useState('');
   const [animationClass, setAnimationClass] = useState(
     props.searchInputClass === 'navSearchInput' ? 'searchSlideOut' : ''
   );
-  const history = useHistory();
-  const dispatch = useDispatch();
 
   const hideSearch = () => {
     if (props.searchInputClass === 'navSearchInput') {

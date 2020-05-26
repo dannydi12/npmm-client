@@ -19,10 +19,12 @@ function SearchResultPage() {
   const searchResults = useSelector((state) => state.searchResults);
 
   useEffect(() => {
+    // run a search API fetch every time the search term changes
     dispatch(getPackages({ searchTerm: parsed.q }));
   }, [searchResults.searchTerm]);
 
   const loadMore = () => {
+    // if the redux thunk resolved AND we have more than 0 packages, get more packages
     if (searchResults.packs.length && searchResults.loading === 'idle') {
       dispatch(
         getPackages({
@@ -37,7 +39,6 @@ function SearchResultPage() {
     <ErrorBoundary>
       <div className="searchContainer">
         <h2 className="searchTitle pageTitle">Search Results</h2>
-        {/* <section> */}
         {(searchResults.loading === 'idle' ||
           searchResults.packs.length > 0) && (
           <InfiniteScroll
@@ -68,7 +69,6 @@ function SearchResultPage() {
         {searchResults.loading === 'pending' && (
           <Spinner className="spinner" name="folding-cube" color="#C4504B" />
         )}
-        {/* </section> */}
       </div>
     </ErrorBoundary>
   );
