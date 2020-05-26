@@ -1,8 +1,10 @@
 # npmm - *n*ode *p*ackage *m*anager *m*anager
 
-![Logo](./npmm-logo.svg)
+![Logo](./src/images/npmm-logo.svg)
 
 ## Live App @ [npmm](https://npmm.dev)
+
+## CLI Tool @ [npmm](https://github.com/maleckim/npmm-cli)
 
 ## Server side code @ [Github](https://github.com/dannydi12/npmm-server)
 
