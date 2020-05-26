@@ -26,7 +26,9 @@ function CollectionPage() {
   const location = useLocation();
   const parsed = queryString.parse(location.search);
 
+  // Get collection specific info
   const collection = useSelector((state) => state.currentCollectionInfo);
+  // Get a list of user collections
   const collectionList = useSelector(
     (state) => state.collectionList.collections
   );
@@ -39,15 +41,18 @@ function CollectionPage() {
   });
 
   useEffect(() => {
+    // puts the component in 'editing' mode based on URL query
     setIsEditing(!!parsed.edit);
   }, [parsed.edit]);
 
   useEffect(() => {
+    // fill the redux state with collection-specific info on mount
     setIsEditing(false || !!parsed.edit);
     dispatch(fetchCollectionInfo({ id }));
   }, [id]);
 
   useEffect(() => {
+    // sets the value of our local state once our redux thunk resolves
     if (collection.loading === 'idle') {
       setCollectionName({
         touched: false,
@@ -57,6 +62,7 @@ function CollectionPage() {
   }, [collection.loading]);
 
   const loadMore = () => {
+    // if the redux thunk resolved AND we have more than 0 packages, get more packages
     if (collection.loading === 'idle' && collection.packages.length) {
       dispatch(
         fetchCollectionInfo({
