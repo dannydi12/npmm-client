@@ -14,8 +14,10 @@ function PackagePage() {
   const { packageName } = useParams();
 
   useEffect(() => {
+    // get the package data everytime the package name changes
     dispatch(fetchPackageInfo(packageName));
   }, [packageName]);
+
   const metadata =
     packageInfo.loading === 'idle' ? packageInfo.data.collected.metadata : null;
 
