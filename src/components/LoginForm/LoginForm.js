@@ -13,6 +13,7 @@ function LoginForm(props) {
   const history = useHistory();
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
+
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showScroll, setShowScroll] = useState(false);
@@ -32,6 +33,7 @@ function LoginForm(props) {
   };
 
   const scrollTop = () => {
+    // Scroll to top of page to see Mr Buddy after form submission
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
