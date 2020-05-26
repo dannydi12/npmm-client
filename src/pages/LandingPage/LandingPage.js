@@ -98,7 +98,7 @@ function LandingPage() {
               />
               <h3 className="actionTitle">Install the Package</h3>
               <a
-                href="https://www.npmjs.com/package/@npmmjs/npmm"
+                href="https://www.npmjs.com/package/npmm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="actionDescription"
