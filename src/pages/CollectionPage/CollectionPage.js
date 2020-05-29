@@ -76,7 +76,7 @@ function CollectionPage() {
   const saveChange = (e) => {
     e.preventDefault();
     setIsEditing(false);
-    dispatch(updateCollection({ id, name: collectionName.value }));
+    dispatch(updateCollection({ id, name: e.target.collectionName.value }));
   };
 
   const handleInput = (e) => {
@@ -149,11 +149,7 @@ function CollectionPage() {
                       handleExit={() => setShowModal(false)}
                     />
                   )}
-                  <form
-                    onSubmit={(e) => saveChange(e)}
-                    onBlur={(e) => saveChange(e)}
-                    className="editCollect"
-                  >
+                  <form onSubmit={(e) => saveChange(e)} className="editCollect">
                     <input
                       name="collectionName"
                       type="text"
