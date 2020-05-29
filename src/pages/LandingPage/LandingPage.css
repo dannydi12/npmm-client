@@ -14,7 +14,7 @@
   padding: 3rem 3rem 4rem;
   box-shadow: 1px 1px 6px 0 #cccccc;
   margin-bottom: 5rem;
-  max-width: 114rem;
+  max-width: 80rem;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -133,7 +133,7 @@
   position: relative;
   padding-left: 4rem;
   margin-bottom: 2.5rem;
-  max-width: 60rem;
+  max-width: 55rem;
 }
 
 .checkmarkCircle {
