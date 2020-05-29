@@ -1,6 +1,6 @@
 # npmm - *n*ode *p*ackage *m*anager *m*anager
 
-![Logo](./src/images/npmm-logo.svg)
+<img src=./src/images/npmm-logo.svg width="15%">
 
 ## Live App @ [npmm](https://npmm.dev)
 
