@@ -136,7 +136,12 @@ function LoginForm(props) {
         )}
         <button type="submit" className="loginSubmit buttonSubmit">
           {isLoading ? (
-            <Spinner fadeIn="none" name="folding-cube" color="white" />
+            <Spinner
+              fadeIn="none"
+              name="folding-cube"
+              color="white"
+              className="loginSpinner"
+            />
           ) : (
             'Log in'
           )}

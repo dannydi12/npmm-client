@@ -127,7 +127,12 @@ export default function SignupForm() {
       )}
       <button className="signupSubmit buttonSubmit" type="submit">
         {isLoading ? (
-          <Spinner fadeIn="none" name="folding-cube" color="white" />
+          <Spinner
+            fadeIn="none"
+            name="folding-cube"
+            color="white"
+            className="signupSpinner"
+          />
         ) : (
           'Sign up'
         )}

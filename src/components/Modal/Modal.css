@@ -3,10 +3,10 @@
   max-width: 50rem;
   min-width: 30rem;
   left: 50%;
-  transform: translate(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
   height: auto;
-  top: 30rem;
   background-color: white;
   z-index: 999;
 }

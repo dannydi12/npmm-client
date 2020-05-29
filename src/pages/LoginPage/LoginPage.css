@@ -13,9 +13,10 @@
   margin-top: 3rem;
 }
 
-.loginSubmit {
-  display: flex;
-  justify-content: center;
+.loginSpinner {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .titleContainer {

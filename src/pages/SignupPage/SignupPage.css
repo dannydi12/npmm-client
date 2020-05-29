@@ -33,9 +33,10 @@
   margin-top: 3rem;
 }
 
-.signupSubmit {
-  display: flex;
-  justify-content: center;
+.signupSpinner {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .demoSignup {

@@ -16,8 +16,9 @@ export default function SignupPage() {
         <p className="pageInstructions demoSignup">
           To demo the site without registering, head over to the{' '}
           <Link to="/login" className="defaultMedium linkBlack">
-            login page.
+            login page
           </Link>
+          .
         </p>
         <SignupForm />
       </div>
