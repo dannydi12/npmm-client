@@ -123,7 +123,7 @@ function PackagePage() {
               <>
                 <h2 className="readmeTitle">{metadata.name}'s Readme:</h2>
                 <div className="markdownContainer">
-                  <ReactMarkdown source={metadata.readme} />
+                  <ReactMarkdown source={metadata.readme} escapeHtml={false} />
                 </div>
               </>
             ) : (

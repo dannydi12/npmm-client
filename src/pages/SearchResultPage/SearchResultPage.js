@@ -8,6 +8,7 @@ import PackageList from '../../components/PackageList/PackageList';
 import ErrorBoundary from '../../ErrorBoundary';
 import { getPackages } from '../../redux/SearchResultsSlice';
 import Empty from '../../images/empty-search.svg';
+import Spaceman from '../../images/spaceman-search.svg';
 import './SearchResultPage.css';
 
 function SearchResultPage() {
@@ -38,7 +39,17 @@ function SearchResultPage() {
   return (
     <ErrorBoundary>
       <div className="searchContainer">
-        <h2 className="searchTitle pageTitle">Search Results</h2>
+        <div className="searchTitleContainer">
+          <h2 className="searchTitle pageTitle">Search Results</h2>
+          <img
+            alt="spaceman looking off into distance"
+            src={Spaceman}
+            className="spacemanSearch"
+          />
+        </div>
+        <p className="pageInstructions searchInstructions">
+          Click a package's name to view details.
+        </p>
         {(searchResults.loading === 'idle' ||
           searchResults.packs.length > 0) && (
           <InfiniteScroll
@@ -48,12 +59,7 @@ function SearchResultPage() {
             threshold={1000}
           >
             {searchResults.packs.length > 0 && (
-              <>
-                <p className="pageInstructions searchInstructions">
-                  Click a package's name to view details.
-                </p>
-                <PackageList packs={searchResults.packs} />
-              </>
+              <PackageList packs={searchResults.packs} />
             )}
           </InfiniteScroll>
         )}

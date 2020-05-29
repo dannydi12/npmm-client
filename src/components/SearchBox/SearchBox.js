@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { searchFor } from '../../redux/SearchResultsSlice';
-import './SearchBox.css';
 
 function SearchBox(props) {
   const history = useHistory();

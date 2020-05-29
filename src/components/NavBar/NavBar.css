@@ -123,7 +123,7 @@
 }
 
 .navSearch {
-  width: calc(100% - 7.2rem);
+  width: calc(100% - 9rem);
   -webkit-animation-duration: 0.8s;
   animation-duration: 0.8s;
   -webkit-animation-fill-mode: both;
@@ -131,7 +131,7 @@
   -webkit-animation-name: searchSlideOut;
   animation-name: searchSlideOut;
   position: absolute;
-  left: calc(-100% + 13.2rem);
+  left: calc(-100% + 9rem);
 }
 
 .showSearch {
@@ -141,37 +141,41 @@
 @-webkit-keyframes searchSlideOut {
   0% {
     opacity: 0;
+    -webkit-transform: translate3d(7.8rem, 0, 0);
+    transform: translate3d(7.8rem, 0, 0);
   }
   30% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(7.8rem, 0, 0);
+    transform: translate3d(7.8rem, 0, 0);
     opacity: 1;
   }
   100% {
-    -webkit-transform: translate3d(calc(100% - 7.8rem), 0, 0);
-    transform: translate3d(calc(100% - 7.8rem), 0, 0);
+    -webkit-transform: translate3d(calc(100% - 0rem), 0, 0);
+    transform: translate3d(calc(100% - 0rem), 0, 0);
   }
 }
 
 @keyframes searchSlideOut {
   0% {
     opacity: 0;
+    -webkit-transform: translate3d(7.8rem, 0, 0);
+    transform: translate3d(7.8rem, 0, 0);
   }
   30% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(7.8rem, 0, 0);
+    transform: translate3d(7.8rem, 0, 0);
     opacity: 1;
   }
   100% {
-    -webkit-transform: translate3d(calc(100% - 7.8rem), 0, 0);
-    transform: translate3d(calc(100% - 7.8rem), 0, 0);
+    -webkit-transform: translate3d(calc(100% - 0rem), 0, 0);
+    transform: translate3d(calc(100% - 0rem), 0, 0);
   }
 }
 
 @-webkit-keyframes searchSlideIn {
   0% {
-    -webkit-transform: translate3d(calc(100% - 7.8rem), 0, 0);
-    transform: translate3d(calc(100% - 7.8rem), 0, 0);
+    -webkit-transform: translate3d(calc(100% - 0rem), 0, 0);
+    transform: translate3d(calc(100% - 0rem), 0, 0);
   }
   70% {
     -webkit-transform: translate3d(0, 0, 0);
@@ -185,8 +189,8 @@
 
 @keyframes searchSlideIn {
   0% {
-    -webkit-transform: translate3d(calc(100% - 7.8rem), 0, 0);
-    transform: translate3d(calc(100% - 7.8rem), 0, 0);
+    -webkit-transform: translate3d(calc(100% - 0rem), 0, 0);
+    transform: translate3d(calc(100% - 0rem), 0, 0);
   }
   70% {
     -webkit-transform: translate3d(0, 0, 0);

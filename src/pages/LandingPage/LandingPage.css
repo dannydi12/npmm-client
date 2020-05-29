@@ -11,9 +11,20 @@
 
 .landingInfoContainer {
   background-color: white;
-  padding: 2.5rem 2.5rem 5rem;
+  padding: 3rem 3rem 4rem;
   box-shadow: 1px 1px 6px 0 #cccccc;
   margin-bottom: 5rem;
+  max-width: 114rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.landingIntro {
+  max-width: 76.8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .introContainer {
@@ -33,6 +44,10 @@
 .logoMain {
   max-height: 14rem;
   margin-bottom: 0.8rem;
+}
+
+.landingSearchForm {
+  max-width: 80rem;
 }
 
 .landingSearch {
@@ -115,6 +130,7 @@
   position: relative;
   padding-left: 4rem;
   margin-bottom: 2.5rem;
+  max-width: 60rem;
 }
 
 .checkmarkCircle {
@@ -143,4 +159,33 @@
   max-height: 14.4rem;
   display: block;
   margin: 3rem auto 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .landingSearchForm {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .landingSearchButton.buttonSubmit {
+    position: absolute;
+    right: 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+    min-width: 15rem;
+    box-shadow: 1px 1px 8px 0 #cccccc;
+  }
+
+  .landingInfoContainer {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 3rem;
+  }
+
+  .actionsFlex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 }

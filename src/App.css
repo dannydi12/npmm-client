@@ -57,13 +57,23 @@ button {
   transition: 0.2s ease-in-out;
 }
 
+.standardInput:focus {
+  border: 1px solid #2c2c2c;
+  outline: none;
+}
+
+.standardInput,
+.standardInput[type='text'] {
+  box-shadow: 1px 1px 8px 0 #cccccc;
+  border: none;
+}
+
 input,
 input[type='text'],
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: 1px solid #2c2c2c;
   border-radius: 5px;
   width: 100%;
   margin-top: 1.8rem;
