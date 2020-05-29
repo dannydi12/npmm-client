@@ -29,7 +29,8 @@ button {
   padding: 0;
 }
 
-.buttonSubmit, .modalButton {
+.buttonSubmit,
+.modalButton {
   outline: none;
   font-family: 'Montserrat', sans-serif;
   margin-top: 1.8rem;
@@ -44,16 +45,22 @@ button {
   -webkit-transition: all 0.1s ease-out 0.1s;
   -moz-transition: all 0.1s ease-out 0.1s;
   -o-transition: all 0.1s ease-out 0.1s;
+  padding-top: 1.6rem;
 }
 
-.buttonSubmit:hover, .buttonSubmit:focus, .modalButton:hover, .modalButton:focus {
+.buttonSubmit:hover,
+.buttonSubmit:focus,
+.modalButton:hover,
+.modalButton:focus {
   background-color: #a63b36;
   -webkit-transition: 0.2s ease-in-out;
   -moz-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
 
-input, input[type='text'], select {
+input,
+input[type='text'],
+select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -100,7 +107,8 @@ input::-ms-input-placeholder {
   position: relative;
 }
 
-.showPassword, .hidePassword {
+.showPassword,
+.hidePassword {
   background-image: url('./images/password-show.svg');
   width: 6rem;
   height: 6rem;
@@ -122,7 +130,8 @@ input::-ms-input-placeholder {
   background-image: url('./images/password-hide.svg');
 }
 
-button:disabled, button[disabled] {
+button:disabled,
+button[disabled] {
   background-color: #e8837f;
   color: #f4f4f4;
 }
@@ -174,12 +183,14 @@ button:disabled, button[disabled] {
   color: black;
 }
 
-.tooltipLeft, .tooltipRight {
+.tooltipLeft,
+.tooltipRight {
   position: relative;
   display: inline-block;
 }
 
-.tooltipLeft .tooltiptext, .tooltipRight .tooltiptext {
+.tooltipLeft .tooltiptext,
+.tooltipRight .tooltiptext {
   visibility: hidden;
   background-color: #c4504b;
   color: #fff;
@@ -211,7 +222,8 @@ button:disabled, button[disabled] {
   border-color: transparent transparent transparent #c4504b;
 }
 
-.tooltipLeft .tooltiptext::after, .tooltipRight .tooltiptext::after {
+.tooltipLeft .tooltiptext::after,
+.tooltipRight .tooltiptext::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -220,7 +232,8 @@ button:disabled, button[disabled] {
   border-style: solid;
 }
 
-.tooltipLeft:hover .tooltiptext, .tooltipRight:hover .tooltiptext {
+.tooltipLeft:hover .tooltiptext,
+.tooltipRight:hover .tooltiptext {
   visibility: visible;
 }
 
