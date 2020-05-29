@@ -2,6 +2,10 @@
   margin-top: 7.5rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+  max-width: 80rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .signupHeading {
@@ -41,4 +45,10 @@
 
 .demoSignup {
   margin-top: 3rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .signupSubmit[type='submit'] {
+    min-width: 20rem;
+  }
 }

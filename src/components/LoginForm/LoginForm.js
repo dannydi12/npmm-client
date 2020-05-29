@@ -86,6 +86,7 @@ function LoginForm(props) {
           placeholder="Email"
           name="email"
           autoComplete="off"
+          className="standardInput"
           ref={register({
             required: true,
             minLength: {
@@ -110,7 +111,7 @@ function LoginForm(props) {
             type={showPassword ? 'text' : 'password'}
             placeholder="Password"
             autoComplete="off"
-            className="passwordInput"
+            className="passwordInput standardInput"
             name="password"
             ref={register({
               required: 'Please enter your password.',

@@ -10,7 +10,7 @@ function LoginPage() {
 
   return (
     <ErrorBoundary>
-      <div className="login-container">
+      <div className="loginContainer">
         <div className="titleContainer">
           <h2 className="pageTitle">Login</h2>
           <img
