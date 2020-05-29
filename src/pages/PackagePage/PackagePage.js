@@ -21,6 +21,7 @@ function PackagePage() {
   const metadata =
     packageInfo.loading === 'idle' ? packageInfo.data.collected.metadata : null;
 
+  // get tags from the npms database and create a links to search each tag
   const tagList = () =>
     Object.values(metadata.keywords).map((tag) => (
       <Link to={`/search?q=${tag}`} className="tagLink" key={tag}>
@@ -57,7 +58,27 @@ function PackagePage() {
               <div className="detailsScoreContainer">
                 <div className="tooltipLeftContainer">
                   <div className="npmTooltipLeft tooltipLeft">
-                    <span className="tooltiptext">npm score</span>
+                    <section className="tooltiptext">
+                      <h4 className="scoreTitle">npm score</h4>
+                      <p>
+                        Quality:{' '}
+                        {Math.floor(
+                          packageInfo.data.score.detail.quality * 100
+                        )}
+                      </p>
+                      <p>
+                        Popularity:{' '}
+                        {Math.floor(
+                          packageInfo.data.score.detail.popularity * 100
+                        )}
+                      </p>
+                      <p>
+                        Maintenance:{' '}
+                        {Math.floor(
+                          packageInfo.data.score.detail.maintenance * 100
+                        )}
+                      </p>
+                    </section>
                   </div>
                 </div>
                 <div className="scoreNumberContainer">
@@ -81,12 +102,12 @@ function PackagePage() {
               <h4 className="metadataTitle">Github Repository:</h4>
               <p className="metadataContent">
                 <a
-                  href={metadata.repository.url}
+                  href={metadata.repository.url.slice(4)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="detailsLink"
                 >
-                  {metadata.repository.url}
+                  {metadata.repository.url.slice(4)}
                 </a>
               </p>
               <h4 className="metadataTitle">License:</h4>

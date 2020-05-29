@@ -56,16 +56,16 @@
 
 .navSearchInput[type='text'] {
   display: inline-block;
-  min-width: 0;
   border: none;
   background-color: #c4504b;
   border-radius: 0;
   margin-top: 0;
-  padding-left: 3rem;
+  padding-left: 4rem;
   height: 8.4rem;
   position: absolute;
   width: 100%;
   color: #fff;
+  padding-right: 7.3rem;
 }
 
 .navSearchInput[type='text']::placeholder {
@@ -97,6 +97,10 @@
   right: 0;
 }
 
+.navSearchInput:focus {
+  outline: none;
+}
+
 .searchDivider {
   height: 5rem;
   width: 0.1rem;
@@ -119,7 +123,7 @@
 }
 
 .navSearch {
-  width: calc(100vw - 9rem);
+  width: calc(100% - 7.2rem);
   -webkit-animation-duration: 0.8s;
   animation-duration: 0.8s;
   -webkit-animation-fill-mode: both;
@@ -127,7 +131,7 @@
   -webkit-animation-name: searchSlideOut;
   animation-name: searchSlideOut;
   position: absolute;
-  right: calc(100% - 7.8rem);
+  left: calc(-100% + 13.2rem);
 }
 
 .showSearch {
@@ -204,13 +208,14 @@
     margin: 2.5rem 1.6rem;
   }
   .navSearch {
-    width: calc(100vw - 7rem);
+    width: calc(100% - 6.2rem);
   }
   .searchDivider {
     display: none;
   }
   .navSearchInput[type='text'] {
-    padding-left: 1.8rem;
+    padding-left: 3rem;
+    padding-right: 6rem;
   }
   .hamburgerContainer {
     padding: 2.8rem 2rem 2.7rem 2rem;

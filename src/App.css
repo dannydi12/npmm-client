@@ -45,7 +45,6 @@ button {
   -webkit-transition: all 0.1s ease-out 0.1s;
   -moz-transition: all 0.1s ease-out 0.1s;
   -o-transition: all 0.1s ease-out 0.1s;
-  padding-top: 1.6rem;
 }
 
 .buttonSubmit:hover,
@@ -199,12 +198,13 @@ button[disabled] {
   padding: 0.5rem 0;
   position: absolute;
   z-index: 1;
-  top: 1rem;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .tooltipLeft .tooltiptext {
   right: 110%;
-  width: 11rem;
+  width: 16rem;
 }
 
 .tooltipRight .tooltiptext {

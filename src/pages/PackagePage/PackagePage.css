@@ -140,3 +140,9 @@
   color: #2c2c2c;
   display: inline-block;
 }
+
+.scoreTitle {
+  text-decoration: underline;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
