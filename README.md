@@ -9,6 +9,7 @@
 ## Server side code @ [Github](https://github.com/dannydi12/npmm-server)
 
 [![CodeFactor](https://www.codefactor.io/repository/github/dannydi12/npmm-client/badge)](https://www.codefactor.io/repository/github/dannydi12/npmm-client)
+<p float="left"><img src="http://npmm.dev/npmm-screenshot-landing.png" width="20%"><img src="http://npmm.dev/npmm-screenshot-menu.png" width="20%"><img src="http://npmm.dev/npmm-screenshot-login.png" width="20%"><img src="http://npmm.dev/npmm-screenshot-search.png" width="20%"><img src="http://npmm.dev/npmm-screenshot-package.png" width="20%"></p>
 
 ## Description
 
