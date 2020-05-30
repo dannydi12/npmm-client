@@ -169,6 +169,7 @@ function PackageCard(props) {
                 onChange={() => setSavedCollection(false)}
                 defaultValue="default"
                 onClick={handleSelectionClick}
+                aria-label="Pick Collection"
               >
                 <option value="default" disabled>
                   Add to collection
