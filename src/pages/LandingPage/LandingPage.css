@@ -184,6 +184,7 @@
     padding-left: 4rem;
     padding-right: 4rem;
     padding-bottom: 3rem;
+    max-width: 100rem;
   }
 
   .actionsFlex {
