@@ -213,7 +213,7 @@ function PackageCard(props) {
         </a>
         <div className="tooltipLeftContainer">
           <div className="npmTooltipLeft tooltipLeft">
-            <section className="tooltiptext">
+            <div className="tooltiptext">
               <h4 className="scoreTitle">npm score</h4>
               <p>
                 Q: {Math.floor(props.pack.score.detail.quality * 100)}
@@ -221,7 +221,7 @@ function PackageCard(props) {
                 &nbsp; M:{' '}
                 {Math.floor(props.pack.score.detail.maintenance * 100)}
               </p>
-            </section>
+            </div>
           </div>
         </div>
         <div className="scoreContainer">

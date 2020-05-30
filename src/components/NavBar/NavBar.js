@@ -110,6 +110,7 @@ function NavBar() {
             onKeyDown={() => toggleHamburger()}
             role="button"
             tabIndex={0}
+            aria-label="burger button"
           >
             <span />
             <span />
