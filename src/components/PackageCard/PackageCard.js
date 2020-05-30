@@ -216,9 +216,11 @@ function PackageCard(props) {
             <section className="tooltiptext">
               <h4 className="scoreTitle">npm score</h4>
               <p>
-                Q: {Math.floor(props.pack.score.detail.quality * 100)}
-                &nbsp; P: {Math.floor(props.pack.score.detail.popularity * 100)}
-                &nbsp; M:{' '}
+                <span className="defaultMedium">Q: </span>
+                {Math.floor(props.pack.score.detail.quality * 100)}
+                &nbsp; <span className="defaultMedium">P: </span>
+                {Math.floor(props.pack.score.detail.popularity * 100)}
+                &nbsp; <span className="defaultMedium">M: </span>
                 {Math.floor(props.pack.score.detail.maintenance * 100)}
               </p>
             </section>
