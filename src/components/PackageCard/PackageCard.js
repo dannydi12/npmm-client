@@ -246,6 +246,11 @@ PackageCard.propTypes = {
     }),
     score: PropTypes.shape({
       final: PropTypes.number.isRequired,
+      detail: PropTypes.shape({
+        quality: PropTypes.number.isRequired,
+        popularity: PropTypes.number.isRequired,
+        maintenance: PropTypes.number.isRequired,
+      }).isRequired,
     }).isRequired,
   }).isRequired,
 };
