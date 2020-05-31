@@ -169,6 +169,7 @@ function PackageCard(props) {
                 onChange={() => setSavedCollection(false)}
                 defaultValue="default"
                 onClick={handleSelectionClick}
+                aria-label="Pick Collection"
               >
                 <option value="default" disabled>
                   Add to collection
@@ -212,15 +213,17 @@ function PackageCard(props) {
         </a>
         <div className="tooltipLeftContainer">
           <div className="npmTooltipLeft tooltipLeft">
-            <section className="tooltiptext">
+            <div className="tooltiptext">
               <h4 className="scoreTitle">npm score</h4>
               <p>
-                Q: {Math.floor(props.pack.score.detail.quality * 100)}
-                &nbsp; P: {Math.floor(props.pack.score.detail.popularity * 100)}
-                &nbsp; M:{' '}
+                <span className="defaultMedium">Q: </span>
+                {Math.floor(props.pack.score.detail.quality * 100)}
+                &nbsp; <span className="defaultMedium">P: </span>
+                {Math.floor(props.pack.score.detail.popularity * 100)}
+                &nbsp; <span className="defaultMedium">M: </span>
                 {Math.floor(props.pack.score.detail.maintenance * 100)}
               </p>
-            </section>
+            </div>
           </div>
         </div>
         <div className="scoreContainer">
@@ -246,6 +249,11 @@ PackageCard.propTypes = {
     }),
     score: PropTypes.shape({
       final: PropTypes.number.isRequired,
+      detail: PropTypes.shape({
+        quality: PropTypes.number.isRequired,
+        popularity: PropTypes.number.isRequired,
+        maintenance: PropTypes.number.isRequired,
+      }).isRequired,
     }).isRequired,
   }).isRequired,
 };
