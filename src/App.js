@@ -16,6 +16,7 @@ import ErrorBoundary from './ErrorBoundary';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import PrivateRoute from './components/Utilities/PrivateRoute';
 import './App.css';
+import PublicOnlyRoute from './components/Utilities/PublicOnlyRoute';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,8 +40,8 @@ function App() {
               component={CollectionPage}
             />
             <Route exact path="/package/:packageName" component={PackagePage} />
-            <Route exact path="/login" component={LoginPage} />
-            <Route exact path="/signup" component={SignupPage} />
+            <PublicOnlyRoute exact path="/login" component={LoginPage} />
+            <PublicOnlyRoute exact path="/signup" component={SignupPage} />
             <Route exact path="/search" component={SearchResultPage} />
             <Route exact path="/" component={LandingPage} />
             <Route component={NotFound} />
