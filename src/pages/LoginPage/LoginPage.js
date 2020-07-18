@@ -19,13 +19,7 @@ function LoginPage() {
             className="mrBuddy"
           />
         </div>
-        <p className="pageInstructions">
-          Enter your email and password or log in using the demo credentials
-        </p>
-        <p className="pageInstructions demoCredentials">
-          <span className="defaultMedium">Demo User:</span> <br /> demo@demo.com
-          / P4ssword
-        </p>
+        <p className="pageInstructions">Enter your email and password</p>
         <LoginForm setLoginError={setLoginError} />
       </div>
     </ErrorBoundary>
