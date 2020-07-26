@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, Link, useHistory } from 'react-router-dom';
 import randomWords from 'random-words';
+import ReactGA from 'react-ga';
 import NavCollections from '../NavCollections/NavCollections';
 import TokenService from '../../services/token-service';
 import {
@@ -20,6 +21,10 @@ function NavMenu() {
   const setupCollection = () => {
     dispatch(createCollection(randomWords({ exactly: 2, join: '-' }))).then(
       (res) => {
+        ReactGA.event({
+          category: 'Editing',
+          action: 'Created a collection',
+        });
         history.push(`/collection/${res.payload.id}?edit=true`);
       }
     );

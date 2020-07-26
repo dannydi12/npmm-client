@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
+import ReactGA from 'react-ga';
 import { Link, useRouteMatch, useHistory } from 'react-router-dom';
 import {
   addPackage,
@@ -45,6 +46,10 @@ function PackageCard(props) {
       );
       dispatch(addPackage({ name, collectionId: favorites.id }));
       setIsFavorited(true);
+      ReactGA.event({
+        category: 'Editing',
+        action: `Added ${name} package to favorites`,
+      });
     }
   };
 
@@ -56,6 +61,10 @@ function PackageCard(props) {
 
   const addToCollection = (packageName, collection) => {
     dispatch(addPackage({ name: packageName, collectionId: collection }));
+    ReactGA.event({
+      category: 'Editing',
+      action: `Added ${packageName} package to ${collection} collection`,
+    });
   };
 
   const handleSubmit = (event) => {

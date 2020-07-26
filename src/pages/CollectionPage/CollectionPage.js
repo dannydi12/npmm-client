@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroller';
 import Spinner from 'react-spinkit';
+import ReactGA from 'react-ga';
 import queryString from 'query-string';
 import PackageList from '../../components/PackageList/PackageList';
 import Modal from '../../components/Modal/Modal';
@@ -81,6 +82,10 @@ function CollectionPage() {
 
   const handleInput = (e) => {
     setCollectionName({ touched: true, value: e.target.value });
+    ReactGA.event({
+      category: 'Editing',
+      action: `Set collection name to ${e.target.value}`,
+    });
   };
 
   const validateInput = () => {
@@ -145,6 +150,10 @@ function CollectionPage() {
                       clickHandler={() => {
                         history.push('/');
                         dispatch(deleteCollection(id));
+                        ReactGA.event({
+                          category: 'Editing',
+                          action: `Deleted a collection`,
+                        });
                       }}
                       handleExit={() => setShowModal(false)}
                     />

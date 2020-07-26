@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import Spinner from 'react-spinkit';
+import ReactGA from 'react-ga';
 import AuthService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
 import { getCollections } from '../../redux/CollectionListSlice';
@@ -31,6 +32,10 @@ export default function SignupForm() {
     })
       .then((res) => TokenService.saveAuthToken(res.authToken))
       .then(() => {
+        ReactGA.event({
+          category: 'User',
+          action: 'Created an Account',
+        });
         dispatch(getCollections());
         history.push('/?onBoarding=true');
       })
