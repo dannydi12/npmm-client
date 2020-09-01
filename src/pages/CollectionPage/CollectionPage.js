@@ -168,7 +168,11 @@ function CollectionPage() {
                       // eslint-disable-next-line jsx-a11y/no-autofocus
                       autoFocus
                     />
-                    {collectionName.touched && <p>{validateInput()}</p>}
+                    {collectionName.touched && (
+                      <p className="validationWarning collectionNameValidation">
+                        {validateInput()}
+                      </p>
+                    )}
                     <button
                       className="collectionEditButton"
                       type="submit"

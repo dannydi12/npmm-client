@@ -58,6 +58,11 @@
   left: -4.9rem;
 }
 
+.collectionNameValidation {
+  position: absolute;
+  bottom: 10rem;
+}
+
 .collectionEditButton,
 .collectionEditButton[type='submit'] {
   position: absolute;
