@@ -23,6 +23,9 @@
     "react-spinkit": "^3.0.0",
     "react-textfit": "^1.1.0"
   },
+  "engines": {
+    "node": "16"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
