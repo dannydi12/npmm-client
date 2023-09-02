@@ -59,7 +59,7 @@ This fully responsive app was built with developers in mind. The goal was to add
 ## The Authors
 
 - **Vik Birdi** - [Portfolio](https://vikbirdi.com)
-- **Daniel Di Venere** - [Portfolio](https://imdan.io/)
+- **Daniel Di Venere** - [Portfolio](https://danthebuilder.com/)
 - **Matthew Malecki** - [Portfolio](https://portfolio.maleckim.now.sh/)
 - **Michael Ploughman** - [Portfolio](https://MichaelHPloughman.com)
 - **Josh Young** - [Portfolio](https://joshyoung.net)
